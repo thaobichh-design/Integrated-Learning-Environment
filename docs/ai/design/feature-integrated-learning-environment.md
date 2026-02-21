@@ -48,30 +48,81 @@ To support this, **hierarchy**, **templates**, and **ClickUp space mapping** mus
 ---
 
 # 2. TECHNICAL ARCHITECTURE (The Noun)
-*First pass after Sub-Step 4 (Roadmap); refined and completed in State B as we implement each iteration.*
+*First pass from Requirements and Planning; refined in State B as we implement each iteration.*
 
-* **Feature Noun:** ILE = IDE (or OpenClaw) + Master Effective Learning Template + integration (see requirements Phase 3).
-* **Visual Map (Mermaid):** [TBD]
-* **Component Mapping:** [TBD]
-* **Data Models & APIs:** [TBD]
+* **Feature Noun:** ILE = IDE (or OpenClaw) + Master Effective Learning Template + integration (see requirements Phase 3). One workspace: conversation (chat) + structural document (Learning Book Markdown repo). Core: persistent memory, real-time Markdown update, template loading, Learning Map (and optionally Subject Roadmap A).
+
+## 2.1 Visual Map (Mermaid)
+
+```mermaid
+flowchart LR
+  subgraph Wrapper["Desirable Wrapper"]
+    User[User]
+    Chat[Chat / IDE]
+    DocView[Learning Book\nMarkdown in same workspace]
+  end
+  subgraph Core["Effective Core"]
+    Memory[(Persistent Memory\nMCP / subject-scoped)]
+    TemplateLoader[Template Loader\nquestions × components]
+    LearningMap[Learning Map\nentry points per phase]
+    DocWrite[Read/Write Markdown\nconversation → file/section]
+  end
+  subgraph Data["Data"]
+    Book[(Learning Book\nCOE → Area → Chapter → Topic\nA. B. Captured. B. Organised. D. E.)]
+    Templates[(Templates\nrepo files)]
+    COEMap[(COE Map\nfor ClickUp sync)]
+  end
+  User --> Chat
+  User --> DocView
+  Chat --> Memory
+  Chat --> TemplateLoader
+  Chat --> LearningMap
+  Chat --> DocWrite
+  TemplateLoader --> Templates
+  LearningMap --> Book
+  LearningMap --> Templates
+  DocWrite --> Book
+  Memory -.-> Book
+```
+
+*Flow:* User chooses phase (A/B/C) and entry point in chat → Learning Map returns entry points for that phase (informed by Subject Roadmap A where available) → User selects entry → Template Loader loads template (questions × components) and scopes context → User and Agent conduct learning conversation → DocWrite updates Learning Book Markdown as byproduct. Persistent Memory holds session/subject context and optional first-principles.
+
+## 2.2 Component Mapping
+
+* **Wrapper Implementation:** The Wrapper is the IDE (Cursor or later OpenClaw) with (1) **Chat** — user and Agent converse; user states phase (A. Capture | B. Organise | C. Distill) and selects entry point from a list presented by the Agent; (2) **Structural document** — Learning Book lives as Markdown files in the same workspace (e.g. open folder or file tree); user does not switch to another app to edit the Book. The "UI" is conversational (phase choice, entry-point choice) plus direct file access in the same workspace. No separate dashboard in I1–I3; optional UI later (e.g. sidebar with Learning Map) in I4.
+* **Core Implementation:** (1) **Persistent memory** — MCP (e.g. `@ai-devkit/memory`) or equivalent; Agent stores/recalls context keyed by current subject or Learning Book path; used for "where we left off" and optional first-principles from `/remember`. (2) **Real-time Markdown update** — Agent, as part of the conversation flow, reads and writes Markdown files under the Learning Book path; mapping rule: current phase + entry point + conversation scope → target file and section (e.g. `B. Organised Knowledge/1. UBS - 3. Principles.md`). (3) **Template loading** — Templates live as repo files (e.g. Markdown or config); when user selects an entry point, Agent loads the corresponding template (structure: headers = questions, rows = components) and scopes the conversation and any doc write to that entry. (4) **Learning Map** — Derived from repo structure and/or config (COE → Area → Chapter → Topic; phases A/B/C; list of entry points per phase); Agent presents entry points for the chosen phase; optionally informed by Subject Roadmap (A) for level-appropriate ordering. (5) **Subject Roadmap (A) surfacer** — When A is present (e.g. `A. Subject Roadmap & Level Specifications` for the subject), Agent can read and surface current level and recommendations so user can respect level-appropriate progression.
+
+## 2.3 Data Models & APIs
+
+* **Learning Book (folder/file structure):** One root per COE Area (or per subject). Under each root: `A. Subject Roadmap & Level Specifications` (optional); `B. Captured Facts & Information`; `B. Organised Knowledge` (with components e.g. 0. Overview, 1. UBS, 2. UDS, 3. EPS, 4. UES, 5. EOP); `D. Distilled Understanding`; `E. Expressed Expertise`. Same path always resolves to the same logical place (SustainAdv-AC1). Files are Markdown; naming follows `[OWNER]_SUBJECT - section` or equivalent. No database in I1–I3; filesystem is the store.
+* **Template structure:** Each template is a known structure: e.g. table or section list with headers = questions, rows/sections = components (Overview, Blockers, Drivers, Principles, etc.). Stored as repo files (Markdown or config); Template Loader resolves entry point → template path/content.
+* **COE map (for ClickUp sync, I4):** Representation of LTC COE hierarchy: COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area. Stored as config or repo file; used to map user + topic → ClickUp location for sync. No external API in I1–I2; ClickUp API or integration in I4 (sync to company space).
+* **APIs / interfaces:** (1) Agent ↔ filesystem: read/write Learning Book Markdown. (2) Agent ↔ MCP: store/recall (e.g. `memory.storeKnowledge`, recall by key/tag). (3) Agent ↔ template config: resolve entry point → template content. (4) Optional later: Agent ↔ ClickUp API for sync (I4). All interfaces are local or existing (IDE, MCP, file I/O) in I1–I3; no new hosted backend.
 
 ---
 
 # 3. EFFECTIVENESS ATTRIBUTES (The Adjectives)
 *How the feature attributes enable the user to reach the Effectiveness Outcomes.*
 
-*Map each attribute below to the corresponding Requirements A.C. IDs (e.g. SustainAdj-AC1, EffAdj-AC1, ScalAdj-AC1) and to the Planning iteration where that A.C. is validated. Design defines how; Requirements and Planning define what and when.*
+*Map each attribute below to the corresponding Requirements A.C. IDs and to the Planning iteration where that A.C. is validated. Design defines how; Requirements and Planning define what and when.*
 
-* **Sustainability (Risk/Safety):** Structure-faithful — SustainAdj-AC1..AC3. All writes conform to hierarchy and phase structure; template loading uses canonical component set; user can verify repo structure. *Validated in:* Iteration 2 (Working Prototype).
-* **Efficiency (Speed/Utility):** Zero-friction capture — EffAdj-AC1..AC3. No copy-paste step; updates triggered by conversation; in-progress context retained on switch. *Validated in:* Iteration 3 (MVE).
-* **Scalability (Growth):** Template-driven — ScalAdj-AC1..AC4. New subjects reuse template; configurable entry points/templates; optional capabilities; hierarchy/templates/space configurable for other ClickUp spaces and template sets. *Validated in:* Iteration 4 (Leadership).
+* **Sustainability (Risk/Safety):** Structure-faithful — SustainAdj-AC1..AC3. *Validated in:* Iteration 2 (Working Prototype).
+  * **Exact Implementation Strategy:** (1) All writes to the Learning Book go through a single logical path: Agent writes only to paths that match the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C); path resolution is deterministic from current subject + phase + entry point. (2) Template loading reads only from canonical repo files; component set (Overview, UBS, UDS, EPS, UES, EOP) and question set are defined in template config—no ad hoc structure at runtime. (3) A check script or manual step verifies that the repo folder structure and key files still match the expected layout after updates; run on demand or before marking a task done.
+
+* **Efficiency (Speed/Utility):** Zero-friction capture — EffAdj-AC1..AC3. *Validated in:* Iteration 3 (MVE).
+  * **Exact Implementation Strategy:** (1) No separate "export" or "copy from chat and paste into doc" step: Agent writes to Markdown as part of the same conversation turn (e.g. after user confirms or at end of a logical chunk); the mechanism is "conversation scope → target file/section → write". (2) Updates are triggered by the conversation (Agent proposes write or user says "save"; trigger is explicit and repeatable). (3) When user switches entry point or phase, in-progress context for the current entry is either retained in session (e.g. draft in memory) or committed to the doc (written to Markdown) before the switch so no loss of draft.
+
+* **Scalability (Growth):** Template-driven — ScalAdj-AC1..AC4. *Validated in:* Iteration 4 (Leadership).
+  * **Exact Implementation Strategy:** (1) New subjects reuse the same Learning Book template (same folder layout A., B. Captured, B. Organised Knowledge, D., E.); adding a subject = new root folder + same structure. (2) New entry points or template variants are added via config or new repo files; core integration (chat + memory + doc read/write) does not change—only the template and Learning Map config. (3) Optional capabilities (e.g. Audio Overview, Infographics, Quiz) are additive modules or external tools; core flow (phase → entry → template → conversation → doc update) remains unchanged. (4) Hierarchy, templates, and ClickUp space mapping are configurable (e.g. per workspace or mode) so the same ILE code can drive other ClickUp spaces and different doc template sets; config holds COE map, template paths, and optional sync target.
 
 ---
 
 # 4. RESOURCE IMPACT (The "Price Tag")
-* **Financial Cost (OpEx):** [Estimated monthly/fixed costs — TBD when architecture is defined]
-* **Build Complexity:** [Low/Medium/High — TBD]
-* **ROI Sanity Check:** [Does this architecture respect the Principle of Efficiency? — TBD]
+*First-pass estimates from Requirements and Planning. Update when architecture or scope changes.*
+
+* **Financial Cost (OpEx):** **$0/month** for I1–I3. Cursor/IDE and local file I/O are existing; MCP (e.g. `@ai-devkit/memory`) is used in-process or free tier. No hosted backend or paid API required for Concept, Working Prototype, or MVE. I4 (sync to ClickUp) may incur cost if ClickUp API is rate-limited or paid—request User approval per Design §4 before committing.
+* **Build Complexity:** **Medium.** IDE integration (Cursor/OpenClaw), file-based Learning Book, MCP for memory, template loading from repo, and optional COE map config. No custom server or database in I1–I3; complexity is in clear mapping rules (conversation → file/section) and consistent structure.
+* **ROI Sanity Check:** **Yes.** The architecture respects the Principle of Efficiency: eliminates manual copy-paste (zero-friction capture), reuses existing IDE and MCP, and keeps the Learning Book as plain Markdown (no lock-in). Build is incremental (Concept → Prototype → MVE → Leadership) so spend is aligned with validated risk.
 
 *Ongoing tracking:* See Planning §3 (Resource & Budget Tracker) for current usage vs limits.
 
