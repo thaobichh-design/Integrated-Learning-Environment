@@ -57,6 +57,10 @@ feature: integrated-learning-environment
 # PHASE 3: THE FORMALIZATION (The Output)
 *State A Sub-Step 3 approved. Deterministic User's Requirements.*
 
+**A.C. ID naming convention (use across Requirements, Design, and Planning):** Short, stable IDs so Planning can reference exactly one A.C. per row. Format: `{Grammar}-AC{n}`. Grammar prefixes: **Verb**, **SustainAdv**, **EffAdv**, **ScalAdv**, **Noun**, **SustainAdj**, **EffAdj**, **ScalAdj**. Do not rename once used in Planning.
+
+---
+
 ## 1. USER(S)
 
 * **Primary User Persona:** Solo learner / User mastering new domains (L1–L7 SFIA) using the LTC Advanced Effective Learning Framework, who writes their own Learning Book (Capture → Organise → Distill) in a strictly structured Markdown repository. Learns via hierarchical questioning and active recall; wants the structural document updated in real time from the conversation. May sync learning to the company's ClickUp space.
@@ -66,77 +70,83 @@ feature: integrated-learning-environment
 
 **Verb:** *Learn-and-capture* — Conduct a learning conversation (hierarchical Q&A, active recall) in one environment with the structural Learning Book (Markdown) updated in real time as a byproduct; no separate export or copy-paste step.
 
-| # | Acceptance Criteria (Verb) |
-|---|----------------------------|
-| V1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. |
-| V2 | User can choose phase (A. Capture \| B. Organise \| C. Distill) and see a list of entry points from the Learning Map for that phase; entry points are informed by the user's current level and Subject Roadmap (A) so level-appropriate options are visible. |
-| V3 | User can select an entry point and have the correct template (e.g. table: questions × components) loaded and scoped to that entry. |
-| V4 | User can conduct dialogue with the Agent; the Agent's responses are grounded in persistent memory and the current document context. |
-| V5 | After a learning conversation, the corresponding structural Markdown file(s) reflect the new or updated content (no manual paste required). |
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| Verb-AC1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. |
+| Verb-AC2 | User can choose phase (A. Capture \| B. Organise \| C. Distill) and see a list of entry points from the Learning Map for that phase; entry points are informed by the user's current level and Subject Roadmap (A) so level-appropriate options are visible. |
+| Verb-AC3 | User can select an entry point and have the correct template (e.g. table: questions × components) loaded and scoped to that entry. |
+| Verb-AC4 | User can conduct dialogue with the Agent; the Agent's responses are grounded in persistent memory and the current document context. |
+| Verb-AC5 | After a learning conversation, the corresponding structural Markdown file(s) reflect the new or updated content (no manual paste required). |
 
 **Adverbs (Effectiveness Outcomes)**
 
 * **Sustainability Adverb:** *Deterministically* — Learning Book structure and updates are reproducible and traceable.
-| # | Acceptance Criteria (Sustainability) |
-|---|----------------------------------------|
-| S1 | Document structure at LTC Company level and User's personal level (COE → Area → Chapter → Topic and phases A/B/C, components) is clearly defined and consistent; the same path always resolves to the same logical place. |
-| S2 | Updates from conversation map to a known template (e.g. questions × components); the mapping rule is explicit. |
-| S3 | User or Agent can point to the exact file(s) and section(s) created or updated for a given exchange. |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| SustainAdv-AC1 | Document structure at LTC Company level and User's personal level (COE → Area → Chapter → Topic and phases A/B/C, components) is clearly defined and consistent; the same path always resolves to the same logical place. |
+| SustainAdv-AC2 | Updates from conversation map to a known template (e.g. questions × components); the mapping rule is explicit. |
+| SustainAdv-AC3 | User or Agent can point to the exact file(s) and section(s) created or updated for a given exchange. |
 
 * **Efficiency Adverb:** *Incrementally* — User can do small, focused sessions without redoing prior work.
-| # | Acceptance Criteria (Efficiency) |
-|---|-----------------------------------|
-| E1 | User can open a session, pick one entry point, complete or partially complete it, and close; progress is persisted. |
-| E2 | User can resume later without re-entering context; persistent memory and document state are sufficient to continue. |
-| E3 | No mandatory "export" or "sync" step for local/Drive Book updates; updates to Markdown occur as a byproduct of the conversation (within session or defined sync rule). |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| EffAdv-AC1 | User can open a session, pick one entry point, complete or partially complete it, and close; progress is persisted. |
+| EffAdv-AC2 | User can resume later without re-entering context; persistent memory and document state are sufficient to continue. |
+| EffAdv-AC3 | No mandatory "export" or "sync" step for local/Drive Book updates; updates to Markdown occur as a byproduct of the conversation (within session or defined sync rule). |
 
 * **Scalability Adverb:** *Repeatedly* — Same flow works across subjects and over the L1–L7 journey.
-| # | Acceptance Criteria (Scalability) |
-|---|------------------------------------|
-| X1 | The same SOP (phase choice → entry points → template load → conversation → doc update) applies to any subject within the Learning Book structure. |
-| X2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing the core flow; only content and entry points change. |
-| X3 | The system can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression; A acts as the UDO anchor so the user can respect level-appropriate learning. |
-| X4 | Sync from the user's Book (local or Google Drive) to the company's ClickUp respects the COE map and places content in the user's respective location (Topic → that user's Personal Learning Area). |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| ScalAdv-AC1 | The same SOP (phase choice → entry points → template load → conversation → doc update) applies to any subject within the Learning Book structure. |
+| ScalAdv-AC2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing the core flow; only content and entry points change. |
+| ScalAdv-AC3 | The system can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression; A acts as the UDO anchor so the user can respect level-appropriate learning. |
+| ScalAdv-AC4 | Sync from the user's Book (local or Google Drive) to the company's ClickUp respects the COE map and places content in the user's respective location (Topic → that user's Personal Learning Area). |
 
 ## 3. FEATURE
 
 **Noun:** *ILE (Integrated Learning Environment)* — The IDE (or later OpenClaw) equipped with the **Master Effective Learning Template** and the integration (persistent memory, real-time structural Markdown, phase/entry-point/template loading, Learning Map). The template + integration is what makes the IDE an ILE. **Scope:** One Learning Book per COE Area. Each Book is stored **locally** or in the **company's Google Drive**; when using Drive, folder structure matches the existing ClickUp COE Area spaces.
 
-| # | Acceptance Criteria (Noun) |
-|---|----------------------------|
-| N1 | One workspace supports both "conversation" and "structural document" (e.g. chat + Markdown repo); the user does not switch to another app to edit the Learning Book. |
-| N2 | Persistent memory (e.g. MCP or equivalent) is available to the Agent and is tied to the current subject/Learning Book so context is preserved across sessions. |
-| N3 | When the user selects phase and entry point, the correct template (e.g. table with questions × components) is loaded and conversation/document context is scoped to that entry. |
-| N4 | The Agent can read and write the structural Markdown for the current subject so that conversation outcomes are written into the correct files/sections as a byproduct. |
-| N5 | Entry points presented to the user are derived from the Learning Map and **informed by Subject Roadmap (A)** (user's current level L1–L7, recommended requirements/sources) so level-appropriate progression is suggested; user can still choose any entry point. |
-| N6 | The ILE has a defined representation of the **LTC COE hierarchical map** (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). |
-| N7 | The ILE can **map a single user's learning** to **that user's respective location on ClickUp** (correct Topic → that user's Personal Learning Area within the Chapter/Topic Members' Learning Area). |
-| N8 | The ILE supports (or will support) **syncing** the user's learning (from their Book) **to the company's ClickUp** in the correct place, using the LTC ClickUp Space for COE and User mapping. |
-| N9 | The ILE can **surface the user's current mastery level** and the relevant **Subject Roadmap (A)** content (e.g. level requirements, recommended sources) so the user can consciously respect level-appropriate progression and avoid scattered learning. |
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| Noun-AC1 | One workspace supports both "conversation" and "structural document" (e.g. chat + Markdown repo); the user does not switch to another app to edit the Learning Book. |
+| Noun-AC2 | Persistent memory (e.g. MCP or equivalent) is available to the Agent and is tied to the current subject/Learning Book so context is preserved across sessions. |
+| Noun-AC3 | When the user selects phase and entry point, the correct template (e.g. table with questions × components) is loaded and conversation/document context is scoped to that entry. |
+| Noun-AC4 | The Agent can read and write the structural Markdown for the current subject so that conversation outcomes are written into the correct files/sections as a byproduct. |
+| Noun-AC5 | Entry points presented to the user are derived from the Learning Map and **informed by Subject Roadmap (A)** (user's current level L1–L7, recommended requirements/sources) so level-appropriate progression is suggested; user can still choose any entry point. |
+| Noun-AC6 | The ILE has a defined representation of the **LTC COE hierarchical map** (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). |
+| Noun-AC7 | The ILE can **map a single user's learning** to **that user's respective location on ClickUp** (correct Topic → that user's Personal Learning Area within the Chapter/Topic Members' Learning Area). |
+| Noun-AC8 | The ILE supports (or will support) **syncing** the user's learning (from their Book) **to the company's ClickUp** in the correct place, using the LTC ClickUp Space for COE and User mapping. |
+| Noun-AC9 | The ILE can **surface the user's current mastery level** and the relevant **Subject Roadmap (A)** content (e.g. level requirements, recommended sources) so the user can consciously respect level-appropriate progression and avoid scattered learning. |
 
 **Adjectives (Attributes of the Noun)**
 
 * **Sustainability Adjective:** *Structure-faithful* — The workspace preserves the Learning Book structure and does not corrupt or bypass it.
-| # | Acceptance Criteria (Sustainability Adjective) |
-|---|-------------------------------------------------|
-| A-S1 | All writes to the Learning Book conform to the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C). |
-| A-S2 | Template loading uses the canonical component set (e.g. Overview, UBS, UDS, EPS, UES, EOP) and question set; no ad hoc structure is introduced without definition. |
-| A-S3 | User can verify (e.g. by inspection or a single check command) that the repo still matches the expected structure after updates. |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| SustainAdj-AC1 | All writes to the Learning Book conform to the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C). |
+| SustainAdj-AC2 | Template loading uses the canonical component set (e.g. Overview, UBS, UDS, EPS, UES, EOP) and question set; no ad hoc structure is introduced without definition. |
+| SustainAdj-AC3 | User can verify (e.g. by inspection or a single check command) that the repo still matches the expected structure after updates. |
 
 * **Efficiency Adjective:** *Zero-friction capture* — No extra steps for "saving" or "exporting" from chat to doc.
-| # | Acceptance Criteria (Efficiency Adjective) |
-|---|--------------------------------------------|
-| A-E1 | No separate "copy from chat and paste into doc" step is required for content to appear in the structural Markdown. |
-| A-E2 | Updates to the document are triggered by the conversation (e.g. Agent writes, or user confirms a write); the mechanism is defined and repeatable. |
-| A-E3 | User can switch entry point or phase without losing in-progress context for the current entry (e.g. draft is retained or committed to the doc before switch). |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| EffAdj-AC1 | No separate "copy from chat and paste into doc" step is required for content to appear in the structural Markdown. |
+| EffAdj-AC2 | Updates to the document are triggered by the conversation (e.g. Agent writes, or user confirms a write); the mechanism is defined and repeatable. |
+| EffAdj-AC3 | User can switch entry point or phase without losing in-progress context for the current entry (e.g. draft is retained or committed to the doc before switch). |
 
 * **Scalability Adjective:** *Template-driven* — New subjects and levels use the same template and flow; sync respects company COE map.
-| # | Acceptance Criteria (Scalability Adjective) |
-|---|---------------------------------------------|
-| A-X1 | New subjects reuse the same Learning Book template (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise). |
-| A-X2 | New entry points or templates (e.g. new component types) can be added via configuration or defined structure without changing the core integration (chat + memory + doc). |
-| A-X3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking the core flow of phase → entry point → template → conversation → doc update. |
-| A-X4 | **Reusability:** The ILE pattern (Capture, Organise, Distill with AI Agent; template-driven; sync to a defined location) can later be applied to **other ClickUp spaces** (not only COE) and **different doc template sets**. Hierarchy, templates, and space mapping are **configurable** so the same setup can drive other use cases (e.g. project spaces, sales, operations) with their own templates and ClickUp structure. |
+
+| A.C. ID | Acceptance Criteria |
+| :--- | :--- |
+| ScalAdj-AC1 | New subjects reuse the same Learning Book template (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise). |
+| ScalAdj-AC2 | New entry points or templates (e.g. new component types) can be added via configuration or defined structure without changing the core integration (chat + memory + doc). |
+| ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking the core flow of phase → entry point → template → conversation → doc update. |
+| ScalAdj-AC4 | **Reusability:** The ILE pattern (Capture, Organise, Distill with AI Agent; template-driven; sync to a defined location) can later be applied to **other ClickUp spaces** (not only COE) and **different doc template sets**. Hierarchy, templates, and space mapping are **configurable** so the same setup can drive other use cases (e.g. project spaces, sales, operations) with their own templates and ClickUp structure. |
 
 ---
 

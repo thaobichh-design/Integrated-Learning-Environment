@@ -58,13 +58,28 @@ To support this, **hierarchy**, **templates**, and **ClickUp space mapping** mus
 ---
 
 # 3. EFFECTIVENESS ATTRIBUTES (The Adjectives)
-*To be mapped from requirements Phase 3 (Sustainability / Efficiency / Scalability Adjectives) after Sub-Step 4; refined in State B.*
+*How the feature attributes enable the user to reach the Effectiveness Outcomes.*
+
+*Map each attribute below to the corresponding Requirements A.C. IDs (e.g. SustainAdj-AC1, EffAdj-AC1, ScalAdj-AC1) and to the Planning iteration where that A.C. is validated. Design defines how; Requirements and Planning define what and when.*
+
+* **Sustainability (Risk/Safety):** Structure-faithful — SustainAdj-AC1..AC3. All writes conform to hierarchy and phase structure; template loading uses canonical component set; user can verify repo structure. *Validated in:* Iteration 2 (Working Prototype).
+* **Efficiency (Speed/Utility):** Zero-friction capture — EffAdj-AC1..AC3. No copy-paste step; updates triggered by conversation; in-progress context retained on switch. *Validated in:* Iteration 3 (MVE).
+* **Scalability (Growth):** Template-driven — ScalAdj-AC1..AC4. New subjects reuse template; configurable entry points/templates; optional capabilities; hierarchy/templates/space configurable for other ClickUp spaces and template sets. *Validated in:* Iteration 4 (Leadership).
 
 ---
 
 # 4. RESOURCE IMPACT (The "Price Tag")
-*To be estimated when architecture is defined (State B).*
+* **Financial Cost (OpEx):** [Estimated monthly/fixed costs — TBD when architecture is defined]
+* **Build Complexity:** [Low/Medium/High — TBD]
+* **ROI Sanity Check:** [Does this architecture respect the Principle of Efficiency? — TBD]
+
+*Ongoing tracking:* See Planning §3 (Resource & Budget Tracker) for current usage vs limits.
+
+**Requesting Resources / Budget from the User (optional):** When the design or execution requires a budget increase, new tool, or paid service:
+1. **When to ask:** Before committing to a task that exceeds current limits (e.g. new API, hosting, paid tier). Do not assume; request explicit approval.
+2. **What to specify:** Amount or ceiling (e.g. $X/month, Y API calls/day), purpose (which A.C. or task it serves), and alternative if the User says no.
+3. **Approval gate:** Do not spend or integrate until the User approves. Record the approved limit in Planning §3 (Hard Limit) and proceed. If the User declines, adjust scope or task (e.g. mark 🟠 Stuck and propose an alternative).
 
 ---
 
-*Last updated: State A Sub-Step 4 approved. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Full design (§2–4) refined in State B.*
+*Last updated: Aligned with template 1.1.0. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Full design (§2–4) refined in State B.*
