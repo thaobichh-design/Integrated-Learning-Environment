@@ -35,10 +35,10 @@ feature: integrated-learning-environment
 
 | A.C. ID | Requirement (from Req Phase 3) | Iter | Deterministic Evidence | Status |
 | :--- | :--- | :---: | :--- | :---: |
-| Verb-AC1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. | 1 | Written flow/spec; Founder confirms. | 🔴 |
-| Verb-AC2 | User can choose phase (A/B/C) and see entry points from Learning Map for that phase (informed by Subject Roadmap A). | 1 | Stub list of entry points for one phase; Founder confirms. | 🔴 |
-| Verb-AC3 | User can select an entry point and have the correct template (questions × components) loaded and scoped to that entry. | 1 | One stub template + rule "entry X → template Y"; Founder confirms. | 🔴 |
-| SustainAdv-AC1 | Document structure (COE → Area → Chapter → Topic, phases A/B/C, components) defined and consistent; same path → same logical place. | 1 | Minimal Learning Book folders (A., B. Captured, B. Organised Knowledge, D., E.) for one COE Area; checklist/script verifies. | 🔴 |
+| Verb-AC1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. | 1 | `docs/ai/implementation/ile-minimal-flow.md`; User confirms. | 🟢 |
+| Verb-AC2 | User can choose phase (A/B/C) and see entry points from Learning Map for that phase (informed by Subject Roadmap A). | 1 | `learning-book-tree-map.md` + `entry-point-to-template-mapping.md`; User confirms. | 🟢 |
+| Verb-AC3 | User can select an entry point and have the correct template (questions × components) loaded and scoped to that entry. | 1 | `templates/0-overview-and-summary.md` + `entry-point-to-template-mapping.md`; User confirms. | 🟢 |
+| SustainAdv-AC1 | Document structure (COE → Area → Chapter → Topic, phases A/B/C, components) defined and consistent; same path → same logical place. | 1 | `learning-book/COE_DS/` + `scripts/check-learning-book-structure.sh`; User confirms. | 🟢 |
 | Verb-AC4 | User can conduct dialogue with the Agent; Agent's responses grounded in persistent memory and current document context. | 2 | Persistent memory wired; Agent uses memory + doc context. | ⚪ |
 | Verb-AC5 | After a learning conversation, structural Markdown file(s) reflect new or updated content (no manual paste required). | 2 | Agent read/write of Learning Book from conversation; mapping rule documented. | ⚪ |
 | SustainAdv-AC2 | Updates from conversation map to a known template (questions × components); mapping rule is explicit. | 2 | Mapping rule (conversation → file/section) documented and used. | ⚪ |
@@ -86,9 +86,9 @@ feature: integrated-learning-environment
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-101** | Define and document the minimal ILE flow in the current IDE (phase A/B/C → entry points → template load → conversation → doc update) and confirm with User that this is the desired wrapper. | Desirability / Hook | None | 🔴 To Do |
-| **T-102** | Create a minimal Learning Book folder structure for one COE Area (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise) and one stub template (e.g. one questions×components table) so the wrapper is tangible. | UDO Resolution / One workspace | T-101 | 🔴 To Do |
-| **T-103** | Validate with User: "One workspace (chat + Markdown) with no manual paste" solves the root blocker; approve moving to Iteration 2. | UDO Resolution | T-102 | 🔴 To Do |
+| **T-101** | Define and document the minimal ILE flow in the current IDE (phase A/B/C → entry points → template load → conversation → doc update) and confirm with User that this is the desired wrapper. | Desirability / Hook | None | 🟢 Reviewed/Tested |
+| **T-102** | Create a minimal Learning Book folder structure for one COE Area (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise) and one stub template (e.g. one questions×components table) so the wrapper is tangible. | UDO Resolution / One workspace | T-101 | 🟢 Reviewed/Tested |
+| **T-103** | Validate with User: "One workspace (chat + Markdown) with no manual paste" solves the root blocker; approve moving to Iteration 2. | UDO Resolution | T-102 | 🟢 Reviewed/Tested |
 
 ### ITERATION 2: WORKING PROTOTYPE
 *Focus: Effective Core & Sustainability.*

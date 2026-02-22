@@ -17,7 +17,7 @@ description: Strict prioritization and sequencing of tasks to manage failure ris
 
 *Typically: Iteration 1 → Verb A.C.; Iteration 2 → Sustainability (Adverb/Adjective); Iteration 3 → Efficiency; Iteration 4 → Scalability. Use the standardized A.C. IDs from Requirements Phase 3 (see naming convention there).*
 
-**Status legend:** ⚪ Pending · 🔴 To Do / In Progress · 🔵 Draft Completed (by the Agent) · 🟢 Reviewed/Tested (by the User) · 🟠 Stuck (off-ramp when blocked). *Task flow: Pending → To Do → Draft Completed → Reviewed/Tested. All tasks must be reviewed and approved by the User before marking Reviewed/Tested (last node for solo Founder projects).* When syncing to company board: map To Do → TODO/READY TO DO, Draft Completed → DRAFT COMPLETED, Reviewed/Tested → REVIEWED/TESTED, Stuck → STUCK. To unblock 🟠 Stuck: Founder resolves (decision, resource, or dependency), then move the task back to 🔴 To Do.
+**Status legend:** ⚪ Pending · 🔴 To Do / In Progress · 🔵 Draft Completed (by the Agent) · 🟢 Reviewed/Tested (by the User) · 🟠 Stuck (off-ramp when blocked). *Task flow: Pending → To Do → Draft Completed → Reviewed/Tested. All tasks must be reviewed and approved by the User before marking Reviewed/Tested (last node for solo User projects).* When syncing to company board: map To Do → TODO/READY TO DO, Draft Completed → DRAFT COMPLETED, Reviewed/Tested → REVIEWED/TESTED, Stuck → STUCK. To unblock 🟠 Stuck: User resolves (decision, resource, or dependency), then move the task back to 🔴 To Do.
 
 | Target A.C. (from Req) | Targeted Iteration | Deterministic Evidence of Completion | Status |
 | :--- | :--- | :--- | :--- |

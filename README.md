@@ -1,67 +1,145 @@
-# Integrated-Learning-Environment
+# Integrated Learning Environment (ILE)
 
-ILE for Advanced Effective Learning Framework. *Engine and brain from [my-ai-devkit-templates](https://github.com/chrislongnguyen/my-ai-devkit-templates) (template 1.1.0).*
+*Learn with an AI Agent. Capture, organise, and distill knowledge—with zero copy-paste. Your Learning Book grows as a byproduct of the conversation.*
 
----
-
-# 🏭 LTC The Effective Execution Engine
-
-> *"Success is not the maximization of output. It is the efficient and scalable management of failure risks."* — Approach 2
-
-Welcome to the **Long Term Capital (LTC) Venture Factory Master Template**. 
-
-This is not a standard software engineering boilerplate. It is a proprietary, AI-first venture building environment designed specifically for Solo Founders. It strips away the administrative bloat of traditional Software Development Life Cycles (SDLC) and replaces it with a relentless, mathematically verified execution loop.
-
-## 📖 The Philosophy: Why This Exists
-
-Most startups fail because they operate on **Approach 1**: They optimize for direct value creation (writing a lot of code, building a lot of features) under the assumption that their idea is always correct. This leads to the ultimate startup killer: *Building in Isolation*. 
-
-This workspace is strictly engineered on **Approach 2 (The 90/10 Rule)**: 90% of our resources are spent identifying and neutralizing failure risks; 10% on output delivery. We apply the **Chinese Venture Playbook**—where execution speed and extreme founder proximity beat idea quality—fused with the **High-frequency Hypothesis-Driven Learning Loop (HFVLL)**.
-
-We do not write code until the psychological reality of the User is mapped. We do not advance to the next task until the current task is mathematically proven.
+Built for the **LTC Advanced Effective Learning Framework**. *Engine and brain from [my-ai-devkit-templates](https://github.com/chrislongnguyen/my-ai-devkit-templates) (template 1.1.0).*
 
 ---
 
-## ⚙️ The Engine: How It Works
+## The LTC Advanced Effective Learning Framework
 
-We have destroyed the traditional 8-step Waterfall engineering methodology. This workspace operates on a hyper-agile **2-State Engine**, driven by the Founder (Accountable) and the AI Agent (Responsible).
+**You don't consume knowledge—you *build* it.** The LTC Advanced Effective Learning Framework turns learning into a structured, traceable process. You write your own Learning Book per subject. The AI Agent is your sparring partner: it guides you, questions you, and helps you organise knowledge from high-level concepts down to deep-root layers.
 
-### State A: Strategy & Planning (The Discovery Engine)
-Before any Noun (code/feature) is built, the AI acts as a Venture Architect to map the causal reality:
-1. **The System Map:** Discover the User's Ultimate Desired Outcome (**UDO**), the forces driving them (**UDS**), and the forces blocking them (**UBS**).
-2. **The System Design:** Define the Principles, Environment, Tools, and SOP.
-3. **The User's Requirements:** Strict translation of psychology into technology using Verbs (Action), Adverbs (Effective Outcomes: Sustainability, Efficiency, Scalability),  Nouns (Tools/Solution/Enablement) , and Adjectives (Attributes of Noun).
-4. **The 4-Iteration Roadmap:** Tasks are sequenced strictly by iteration: Concept ➔ Prototype ➔ MVE ➔ Leadership.
+### What makes it different
 
-### State B: The Micro-Execution Loop (The Founder Gate)
-The AI executes exactly **ONE** micro-task from the Planning Matrix at a time. It builds the minimal viable code, presents the exact Evidence of Truth to prove the Acceptance Criteria is met, and then **HARD STOPS**. The AI cannot proceed until the Founder explicitly approves. 
 
----
+| Traditional learning                   | LTC Advanced Effective Learning                                                                                                                                          |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Passive consumption (videos, articles) | **Active recall** — you explain, the Agent probes                                                                                                                        |
+| Flat notes, scattered across apps      | **Hierarchical structure** — 0. Overview → 1. Ultimate Blockers → 2. Ultimate Drivers → 4. Principles → 5. Components -> 6. Steps to Apply -> 7. Distilled Understanding |
+| Manual copy-paste from chat to docs    | **Documentation as byproduct** — the Learning Book updates as you talk                                                                                                   |
+| Linear chat that forgets context       | **Persistent memory** — the document *is* the memory; you never repeat yourself                                                                                          |
+| Ad hoc progression                     | **Level-aligned** — Subject Roadmap (A) guides L1→L7 mastery (SFIA)                                                                                                      |
 
-## 🚀 Quick Start Guide
 
-To start building a new feature, database, or venture, open your AI IDE (Cursor) and use your custom Utility Belt:
-
-* **`/state-a`** — Start here. Tell the AI what you want to build. It will guide you through the psychological mapping and generate your pristine `requirements`, `design`, and `planning` docs.
-* **`/state-b`** — Run this to execute the plan. The AI will do one task, prove it works, and wait for your approval.
-* **`/ship`** — Ready to save your progress? Run this. The AI will read the git status, draft a clean commit message, and safely push your code after you say "Yes."
-* **`/debug`** — Hit a bug? Do not guess. Run this to force the AI into a Root-Cause Analysis to identify the Ultimate Blocking System (UBS) before changing any code.
-* **`/remember`** — Push new First-Principles or venture rules into the persistent AI memory server (`@ai-devkit/memory`).
-
-**New venture checklist:** 1. Clone this repo (or duplicate the folder). 2. Open in Cursor. 3. Run **/state-a** and give the feature/venture name; complete the four sub-steps. 4. Run **/state-b** to execute the first task; approve and repeat. *When to use which:* /state-a = new feature or re-planning; /state-b = next task; /debug = something broke; /ship = ready to commit; /remember = capture a principle for future runs.
+**You are the author.** The learner is the best teacher for themselves. The Agent and others are references. You write your own book, continuously from L1 (Follow) to L7 (Strategic Visionary).
 
 ---
 
-## 📂 The Holy Trinity (Documentation)
+## The Process: Capture → Organise → Distill
 
-You will notice there are no folders for testing, implementation, deployment, or monitoring. Those are *Actions*, not *Documents*. The `docs/ai/archive/` folder is historical only; do not edit. Live docs are `docs/ai/requirements/`, `docs/ai/design/`, and `docs/ai/planning/`.
+Three phases. One flow. No handoff.
 
-Our state is managed entirely within `docs/ai/` via three canonical templates:
-1.  **`requirements-README.md`**: The System Map & Grammar (Phase 3: A.C. with stable IDs — Verb-AC1, SustainAdv-AC1, etc.).
-2.  **`design-README.md`**: The Architecture & Adjectives (maps to Requirements A.C. and Planning iterations; defines how to build).
-3.  **`planning-README.md`**: The 4-Iteration Execution Matrix (Master Scope Mapping = which A.C. in which iteration + evidence; tasks per iteration).
+```
+A. Subject Roadmap (L1–L7, where you are) 
+        ↓
+B. Capture  — Raw facts, information
+        ↓
+B. Organise — Structured knowledge (Overview, UBS, UDS, EPS, UES, EOP)
+        ↓
+D. Distill  — Condensed understanding
+        ↓
+E. Expressed Expertise — Your proof of mastery
+```
 
-*Document flow:* Requirements Phase 3 → A.C.; Design → architecture & attributes; Planning Master Scope → which A.C. in which iteration + deterministic evidence; Execution Matrix → tasks. *For full operational details, read the [Effective Execution Manifesto](docs/ai/Effective_Execution_Manifesto.md).*
+- **Capture:** Gather raw facts and information. The Agent helps you capture without losing structure.
+- **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Process (EOP). *You* articulate; the Agent writes into the right section.
+- **Distill:** Compress Organised Knowledge into the Distilled Understanding format. The Agent helps condense on demand.
+
+**Consumption is in-scope.** Digestion (reflection, practice, internalisation) is explicitly *outside* the system—you do that in your head and in the real world.
 
 ---
-**⚠️ CANONICAL SOURCE:** This repository is the LTC Master Template. To start a new venture, clone or duplicate this folder. Do not overwrite the underlying `.cursor/skills/` logic without explicit Founder approval.
+
+## How the ILE Helps You Learn Most Effectively
+
+*UDS = Ultimate Driving System (your drive to master). UBS = Ultimate Blocking System (admin tax, copy-paste). UD = Driver. UB = Blocker.*
+
+### 1. One workspace. No copy-paste.
+
+Chat and Learning Book live in the same place (Cursor + Markdown repo). You choose phase and entry point. The Agent loads the right template and scopes the conversation. What you discuss is written *directly* into the Learning Book—no extract, format, or paste.
+
+→ **Addresses UBS** (no manual copy-paste). **Removes UBS.UD** (no separation of chat and docs). **ILE = UBS.UB** (integrated workspace).
+
+### 2. Hierarchy over chronology
+
+Linear chat collapses context. Scrolling back is lost. The ILE flips this: **the document is the source of truth.** Chat is ephemeral; the Learning Book persists. The Agent reads the doc to orient and recover context. Structure survives; you don't repeat yourself.
+
+→ **Removes UDS.UB** (linear chat no longer breaks hierarchy; doc preserves structure).
+
+### 3. Subject Roadmap (A) as your anchor
+
+**A** defines L1–L7 for each subject (requirements, credentials, progression). It holds your **Learner Progress Tracker** (current level, target, last entry point), **Session Log** (where you worked, when), and **Level Completion Checklist**. The Agent reads A at session start and writes to A at session end. You always know where you are and what's next.
+
+→ **Supports UDS** (mastery drive). **Removes UDS.UB** (checkpoint survives; no context loss).
+
+### 4. Resume without re-entering context
+
+Close the session. Come back next week. The Agent reads A + the current entry point's file. *"You're at L2. Last session: Chapter 1 UBS Topic 0—you worked on Blockers. Next suggested: finish Topic 0 or move to Topic 1."* No pasting. No re-explaining.
+
+→ **Removes UDS.UB** (user no longer forced to repeat context).
+
+### 5. Long sessions without context collapse
+
+Even 1M+ token sessions stay manageable. The Agent loads **only** the current entry point + A. It checkpoints progress into the document and Session Log. If chat history is lost, the Agent re-reads the doc and continues. The hierarchical structure survives; you never repeat context.
+
+→ **Removes UDS.UB** (context collapse addressed; doc + checkpoint recover).
+
+### 6. Scoped, level-appropriate learning
+
+Entry points are informed by your current level and A. The Agent suggests level-aligned Chapters/Topics so you avoid scattered learning (e.g. jumping to L4 content while still at L1/L2). You can still choose any entry point—the "right" path is visible.
+
+→ **Enables UDS.UD** (hierarchical questioning, level-aligned structure). **Supports UDS** (mastery drive).
+
+---
+
+## Quick Start
+
+1. **Clone** this repo and open in Cursor.
+2. **Choose a subject** (e.g. Data Science) under `learning-book/COE_DS/`.
+3. **Start or resume** — Tell the Agent: "Start a new subject" or "Resume Data Science."
+4. **Choose phase** — A. Capture | B. Organise | C. Distill.
+5. **Pick an entry point** — e.g. Chapter 1 UBS, Topic 0. Overview.
+6. **Learn and capture** — Conduct hierarchical Q&A. The Agent updates the Learning Book as you go.
+
+The Agent uses the Subject Roadmap (A) to orient, suggest next steps, and keep your progression on track. See `docs/ai/implementation/ile-minimal-flow.md` for the full flow.
+
+---
+
+## Project Structure
+
+```
+learning-book/
+├── COE_DS/                          # Example: Data Science Area
+│   ├── A. Subject Roadmap & Level Specifications/
+│   ├── B. Captured Facts & Information/
+│   ├── B. Organised Knowledge/
+│   │   ├── 0. Overview & Summary/
+│   │   ├── 1. UBS/   (Ultimate Blocking System)
+│   │   ├── 2. UDS/   (Ultimate Driving System)
+│   │   ├── 3. EPS/   (Effective Principle System)
+│   │   ├── 4. UES/   (Ultimate Effective System)
+│   │   └── 5. EOP/   (Effective Operating Process)
+│   ├── D. Distilled Understanding/
+│   └── E. Expressed Expertise/
+templates/                           # Universal templates (A, B/C, D, E)
+docs/ai/                             # Requirements, Design, Planning, Implementation
+```
+
+Full tree map: `docs/ai/implementation/learning-book-tree-map.md`
+
+---
+
+## Deeper Docs
+
+
+| Doc                                                               | Purpose                                                               |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `docs/ai/requirements/feature-integrated-learning-environment.md` | Requirements, UDO/UDS/UBS, acceptance criteria                        |
+| `docs/ai/implementation/ile-minimal-flow.md`                      | Minimal flow, A as checkpoint, persistent memory, mid-session context |
+| `docs/ai/implementation/learning-book-tree-map.md`                | Full Learning Book structure (6 Chapters × 6 Topics)                  |
+| `learning-book/README.md`                                         | Folder layout, structure verification                                 |
+
+
+---
+
+*This repository is the ILE project. To start learning, clone or duplicate this folder, open in Cursor, and begin a session. Do not overwrite the underlying `.cursor/skills/` or template logic without approval.*

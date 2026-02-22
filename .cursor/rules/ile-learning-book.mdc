@@ -1,0 +1,18 @@
+---
+description: Rule for ILE Learning Book — canonical questions, Hierarchy of Science, Organise vs Distilled column counts.
+globs: 
+  - "**/learning-book/**"
+  - "**/docs/ai/implementation/learning-book-tree-map.md"
+  - "**/templates/**"
+alwaysApply: false
+---
+
+# ILE Learning Book — Canonical Questions & Hierarchy of Science
+
+When helping with learning content (Area, Chapter, Topic) or Learning Book structure:
+
+1. **Canonical questions (headers):** Use the 14-question set plus notes. See `docs/ai/implementation/learning-book-tree-map.md` § Canonical Questions (Headers). Organise level = 16 columns (14 questions + 2 notes). Distilled level = 17 columns (14 questions + 3 notes). "Other Questions (Others)" appears only in Distilled Understanding and Expressed Expertise.
+
+2. **Hierarchy of Science:** Structure answers with full respect to the hierarchy: Sociology → Psychology → Biology → Chemistry → Physics → Mathematics → Logic → Philosophy. Trace phenomena to their governing layer (e.g. behaviour → psychological mechanism → biological substrate → chemical process → physical law). This supports indefinite mapping of the tree of knowledge and progression to L7 SFIA.
+
+3. **Source:** [Hierarchy of the sciences (Wikipedia)](https://en.wikipedia.org/wiki/Hierarchy_of_the_sciences)

@@ -11,7 +11,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 ### Added
 - **Master Scope Mapping** (Planning): Single source of truth for which A.C. is tackled in which iteration; MECE, no redundant Deferred lists.
 - **Standardized A.C. IDs** (Holy Trinity): Naming convention across Requirements, Design, Planning (Verb-ACn, SustainAdv-ACn, EffAdv-ACn, ScalAdv-ACn, Noun-ACn, SustainAdj-ACn, EffAdj-ACn, ScalAdj-ACn).
-- **Status flow (solo Founder):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed (by the Agent) → 🟢 Reviewed/Tested (by the User); 🟠 Stuck = off-ramp.
+- **Status flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed (by the Agent) → 🟢 Reviewed/Tested (by the User); 🟠 Stuck = off-ramp.
 - **Design §4:** Optional guidance on requesting Resources/Budget from the User (when to ask, what to specify, approval gate).
 - **Document flow:** Explicit chain Req → Design → Planning → Execution Matrix in README and Manifesto.
 - **Utility Belt & When to use which:** Manifesto lists /state-a, /state-b, /ship, /debug, /remember and when to use each.
@@ -38,14 +38,36 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ---
 
-## Session handoff (2026-02-21)
+## ILE Iteration 1 Complete (2026-02-22)
+
+**Iteration 1: Concept — T-101, T-102, T-103 all 🟢 Reviewed/Tested.**
+
+### Added
+- **A. Subject Roadmap & Level Specifications** — Universal template and populated Data Science example with Learner Progress Tracker, Level Completion Checklist, Session Log, Gap Analysis, Links to Learning Book. A is the canonical checkpoint for session start/resume.
+- **ile-minimal-flow.md** — Minimal ILE flow (phase A/B/C → entry points → template load → conversation → doc update). A as checking point. Agent Persistent Memory (file-based: A + Learning Book). Mid-session context (hierarchy over chronology, scoped context, checkpointing).
+- **ile-iteration-1-validation.md** — T-103 validation checklist; User confirmed one workspace + no manual paste solves UBS; approved moving to Iteration 2.
+- **learning-book-tree-map.md** — Full tree map (6 Chapters × 6 Topics). **entry-point-to-template-mapping.md** — Entry point → template resolution.
+- **learning-book/COE_DS/** — Minimal Learning Book structure (A, B. Captured, B. Organised Knowledge, D, E); Data Science Subject Roadmap populated.
+- **templates/** — A-subject-roadmap-and-level-specifications.md, 0-overview-and-summary.md.
+- **scripts/** — check-learning-book-structure.sh.
+- **.cursor/rules/** — ile-learning-book.mdc, long-n-naming-convention.mdc, use-user-not-founder.mdc.
+
+### Changed
+- **README.md** — Rewritten for LTC Advanced Effective Learning Framework. Removed Effective Execution Engine. Added: Framework, Process (Capture → Organise → Distill), How ILE Helps (6 principles with UDS/UBS mappings), Quick Start, Project Structure.
+- **Planning** — T-103 marked 🟢 Reviewed/Tested. Iteration 2 (T-201) unlocked.
+
+---
+
+## Session handoff (2025-02-21)
 
 **What was done this session:**
-- Linked project folder to GitHub repo [Integrated-Learning-Environment](https://github.com/chrislongnguyen/Integrated-Learning-Environment); initial push.
-- Brought in latest template (my-ai-devkit-templates 1.1.0) from local `~/Documents/my-ai-devkit-templates`: `.cursor/` (commands, rules, skills, mcp), `docs/ai/` READMEs, Manifesto, frameworks; README, CHANGELOG.
-- Updated feature docs to new template: Requirements Phase 3 with A.C. IDs (Verb-AC1.., SustainAdv-AC1.., etc.); Design §3 (attributes mapped to A.C. IDs and iterations), §4 (Resource Impact + Requesting Resources/Budget); Planning §1.2 Master Scope Mapping as two tables (Table A by iteration, Table B one row per A.C. with requirement, iteration, evidence, status).
+- Iteration 1 completed: T-101, T-102, T-103 all 🟢 Reviewed/Tested.
+- A. Subject Roadmap template + populated Data Science example (Learner Progress Tracker, Session Log, Level Completion Checklist, Gap Analysis, Links to Learning Book).
+- ile-minimal-flow.md: A as checkpoint; Agent Persistent Memory; Mid-session context (UDS.UB resolution).
+- README rewritten for LTC Advanced Effective Learning Framework (removed Effective Execution Engine).
+- T-103 validated: one workspace + no manual paste solves root blocker; approved Iteration 2.
 
-**What to do when you continue:**
-- Tell the Agent: *"We're on the ILE project. State A is complete (Causal Map, System Design, User's Requirements, 4-Iteration Roadmap approved). Planning uses the two-table Master Scope Mapping (Table A by iteration, Table B by A.C.). Next: run `/state-b` to execute the first task (T-101) from the planning doc, or continue from where we left off."*
-- First uncompleted task: **T-101** (Define and document the minimal ILE flow; confirm with User that this is the desired wrapper). All planning tasks are still 🔴 To Do.
-- To ship pending work: run `/ship` and approve the commit message.
+**What to do when you continue (laptop):**
+- Tell the Agent: *"We're on the ILE project. Iteration 1 complete (T-101, T-102, T-103). Next: T-201 — Wire persistent memory (MCP or equivalent) so Agent can store/recall context tied to subject/Learning Book."*
+- First uncompleted task: **T-201** (Iteration 2: Working Prototype).
+- Key context: A (Subject Roadmap) is the checking point. Doc is source of truth; chat is ephemeral. See `docs/ai/implementation/ile-minimal-flow.md`.

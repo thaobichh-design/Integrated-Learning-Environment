@@ -1,0 +1,13 @@
+---
+description: Use "User" instead of "Founder" in all communications and files.
+alwaysApply: true
+---
+
+# Use User Instead of Founder
+
+Use **User** instead of **Founder** in all communications and files.
+
+- Planning docs: "User confirms", "User approves"
+- Execution SOP: "User validation", "User Gate"
+- Commands and skills: "User" for the person approving/validating
+- Agent responses: address as User, not Founder

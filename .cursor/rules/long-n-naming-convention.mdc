@@ -1,0 +1,15 @@
+---
+description: [LONG N.] = [OWNER] level in naming convention; LTC company member.
+globs: 
+  - "**/learning-book/**"
+  - "**/docs/ai/implementation/**"
+alwaysApply: false
+---
+
+# [LONG N.] Naming Convention
+
+**[LONG N.]** is only a member in the company **LTC (Long-term Capital Partners)**. In the naming convention, [LONG N.] is the **same level as [OWNER]** — i.e. both represent a member's identifier (e.g. `[COE DS]_[LONG N.]_1. DATA SCIENCE UBS - 0. OVERVIEW - Personal Learning Area`).
+
+- [OWNER] = generic placeholder for any member
+- [LONG N.] = specific member (Long Nguyen or similar); structurally equivalent to [OWNER]
+- EFF = Effectiveness (an Area). Data Science = another Area. COE_DS = COE Data Science (short for [COE DS]).

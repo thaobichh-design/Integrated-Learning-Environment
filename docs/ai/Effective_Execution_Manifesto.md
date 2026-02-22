@@ -6,21 +6,21 @@ This document summarizes the logic and process of the **LTC Effective Execution 
 
 ## The 2-State Engine
 
-We operate a **2-State Effective Execution Engine** instead of a multi-phase waterfall. The Agent (e.g. Cursor) has exactly two modes, both under Founder validation.
+We operate a **2-State Effective Execution Engine** instead of a multi-phase waterfall. The Agent (e.g. Cursor) has exactly two modes, both under User validation.
 
 ### State A: Strategy & Planning (The Discovery Engine)
 - **Purpose:** Map the causal reality of a problem and define the Execution Grammar.
-- **No code.** The Agent helps the Founder discover UDO (Ultimate Desired Outcome), UDS (Drivers), UBS (Blockers), then derives Principles, Environment, Tools, SOP, and the 4-Iteration Roadmap.
-- **Output:** Requirements, Design, and Planning docs written into `docs/ai/` using workspace templates. Founder approves each sub-step before the Agent continues.
+- **No code.** The Agent helps the User discover UDO (Ultimate Desired Outcome), UDS (Drivers), UBS (Blockers), then derives Principles, Environment, Tools, SOP, and the 4-Iteration Roadmap.
+- **Output:** Requirements, Design, and Planning docs written into `docs/ai/` using workspace templates. User approves each sub-step before the Agent continues.
 - **Entry:** Use `/state-a` or trigger the Dev Lifecycle Skill → State A.
 
 ### State B: Execute One Micro-Task (The Execution Loop)
-- **Purpose:** Execute exactly ONE task from the planning document, then hard-stop for Founder validation.
-- **One task per run.** The Agent reads `docs/ai/planning/README.md`, picks the first `🔴 To Do` task (skips `🟠 Stuck` until the Founder unblocks), builds the minimal deliverable, presents evidence, marks the task **🔵 Draft Completed (by the Agent)**, then stops. No next task until the Founder replies "Approved" (then mark **🟢 Reviewed/Tested (by the User)**) or gives feedback.
-- **Task flow (solo Founder):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed → 🟢 Reviewed/Tested. 🟠 Stuck = off-ramp when blocked.
+- **Purpose:** Execute exactly ONE task from the planning document, then hard-stop for User validation.
+- **One task per run.** The Agent reads `docs/ai/planning/README.md`, picks the first `🔴 To Do` task (skips `🟠 Stuck` until the User unblocks), builds the minimal deliverable, presents evidence, marks the task **🔵 Draft Completed (by the Agent)**, then stops. No next task until the User replies "Approved" (then mark **🟢 Reviewed/Tested (by the User)**) or gives feedback.
+- **Task flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed → 🟢 Reviewed/Tested. 🟠 Stuck = off-ramp when blocked.
 - **Entry:** Use `/state-b` or trigger the Dev Lifecycle Skill → State B.
 
-**Document flow (Holy Trinity):** Requirements Phase 3 → A.C. with stable IDs; Design → architecture & attributes (maps to those A.C. and Planning iterations); Planning Master Scope Mapping → which A.C. in which iteration + deterministic evidence; Execution Matrix → tasks. All tasks require User review and approval before marking 🟢 Reviewed/Tested (last node for solo Founder projects).
+**Document flow (Holy Trinity):** Requirements Phase 3 → A.C. with stable IDs; Design → architecture & attributes (maps to those A.C. and Planning iterations); Planning Master Scope Mapping → which A.C. in which iteration + deterministic evidence; Execution Matrix → tasks. All tasks require User review and approval before marking 🟢 Reviewed/Tested (last node for solo User projects).
 
 **Utility Belt:** `/state-a` (plan), `/state-b` (execute one task), `/ship` (commit & push), `/debug` (root-cause before fix), `/remember` (persist principles to memory).
 
