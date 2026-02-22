@@ -25,7 +25,7 @@ feature: integrated-learning-environment
 | **1** | Verb-AC1, Verb-AC2, Verb-AC3, SustainAdv-AC1 |
 | **2** | Verb-AC4, Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC1, Noun-AC2, Noun-AC3, Noun-AC4, Noun-AC5, SustainAdj-AC1, SustainAdj-AC2, SustainAdj-AC3 |
 | **3** | EffAdv-AC1, EffAdv-AC2, EffAdv-AC3, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3, Noun-AC9 |
-| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, Noun-AC6, Noun-AC7, Noun-AC8, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4 |
+| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, **ScalAdv-AC5**, Noun-AC6, Noun-AC7, Noun-AC8, **Noun-AC10**, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4 |
 
 *Use this table to see at a glance which A.C. are tackled in each iteration. For requirement text, evidence, and status, use Table B.*
 
@@ -69,6 +69,8 @@ feature: integrated-learning-environment
 | ScalAdj-AC2 | New entry points or templates can be added via configuration or defined structure without changing core integration (chat + memory + doc). | 4 | Configurable entry points/templates; core integration unchanged. | ⚪ |
 | ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking core flow. | 4 | Optional capabilities addable without breaking flow. | ⚪ |
 | ScalAdj-AC4 | ILE pattern can be applied to other ClickUp spaces and different doc template sets; hierarchy, templates, space mapping configurable. | 4 | Hierarchy, templates, ClickUp space mapping configurable (e.g. per workspace or mode). | ⚪ |
+| **ScalAdv-AC5** | **Usage analytics (options open):** Product owner can obtain quality data from ILE usage (incl. vocal feedback) so Descriptive, Diagnostic, Predictive, Prescriptive analytics can drive feature development and bug fixes; data sources and implementation remain open. | 4 | Data collection/management supports four analytics types; evidence TBD per chosen implementation. | ⚪ |
+| **Noun-AC10** | **Usage data for analytics (options open):** ILE supports (or will support) data collection and management of usage data for Descriptive, Diagnostic, Predictive, Prescriptive analytics to drive features and bug fixes; implementation options remain open. | 4 | Robust usage data available for four analytics types; evidence TBD per chosen implementation. | ⚪ |
 
 *Populated from Requirements Phase 3. Use Table A to see scope per iteration; use Table B to trace each A.C. to its requirement and evidence.*
 

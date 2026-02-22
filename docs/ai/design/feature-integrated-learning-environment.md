@@ -45,6 +45,10 @@ The ILE pattern (Capture → Organise → Distill with AI Agent; template-driven
 
 To support this, **hierarchy**, **templates**, and **ClickUp space mapping** must be **configurable** (e.g. per workspace or per "mode"), not hard-coded to COE and AEL. Then the core integration (chat + memory + real-time doc update + template load + sync) stays the same; only the config changes.
 
+### 1.4 Usage analytics (I4, options open)
+
+The product owner (or ILE operator) must be able to obtain **quality data from ILE usage** so that **Descriptive, Diagnostic, Predictive, and Prescriptive analytics** can be applied to drive future feature development and bug fixes (ScalAdv-AC5, Noun-AC10). Data sources and implementation remain open; the design accommodates, for example: (1) **A + Session Log** as the primary source of truth (session frequency, entry points, checkpoints, level progression); (2) optional **event stream** (e.g. session start/end, EOP step reached, checkpoint done); (3) **sync pipeline** (e.g. when syncing to ClickUp, same pipeline can feed an analytics store); (4) **vocal feedback** as first-class input (e.g. explicit feedback event). Consent and purpose (e.g. "improve ILE, not performance evaluation") are design constraints. No single implementation is mandated in design; options are to be chosen in I4.
+
 ---
 
 # 2. TECHNICAL ARCHITECTURE (The Noun)
@@ -98,6 +102,7 @@ flowchart LR
 * **Template structure:** Each template is a known structure: e.g. table or section list with headers = questions, rows/sections = components (Overview, Blockers, Drivers, Principles, etc.). Stored as repo files (Markdown or config); Template Loader resolves entry point → template path/content.
 * **COE map (for ClickUp sync, I4):** Representation of LTC COE hierarchy: COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area. Stored as config or repo file; used to map user + topic → ClickUp location for sync. No external API in I1–I2; ClickUp API or integration in I4 (sync to company space).
 * **APIs / interfaces:** (1) Agent ↔ filesystem: read/write Learning Book Markdown. (2) Agent ↔ MCP: store/recall (e.g. `memory.storeKnowledge`, recall by key/tag). (3) Agent ↔ template config: resolve entry point → template content. (4) Optional later: Agent ↔ ClickUp API for sync (I4). All interfaces are local or existing (IDE, MCP, file I/O) in I1–I3; no new hosted backend.
+* **Usage analytics (I4, options open):** To support Noun-AC10 and ScalAdv-AC5, the system will support (or will support) **data collection and data management** of usage data so that Descriptive, Diagnostic, Predictive, and Prescriptive analytics can be applied. Design accommodates: A + Session Log (and optional structured fields) as primary source; optional event stream (session/step/checkpoint/error/feedback); sync pipeline as analytics feed; vocal feedback as first-class event. Storage, schema, and consent flow are not fixed; implementation to be chosen in I4.
 
 ---
 
@@ -114,6 +119,8 @@ flowchart LR
 
 * **Scalability (Growth):** Template-driven — ScalAdj-AC1..AC4. *Validated in:* Iteration 4 (Leadership).
   * **Exact Implementation Strategy:** (1) New subjects reuse the same Learning Book template (same folder layout A., B. Capture Facts & Data, C. Organise Information, D., E.); adding a subject = new root folder + same structure. (2) New entry points or template variants are added via config or new repo files; core integration (chat + memory + doc read/write) does not change—only the template and Learning Map config. (3) Optional capabilities (e.g. Audio Overview, Infographics, Quiz) are additive modules or external tools; core flow (phase → entry → template → conversation → doc update) remains unchanged. (4) Hierarchy, templates, and ClickUp space mapping are configurable (e.g. per workspace or mode) so the same ILE code can drive other ClickUp spaces and different doc template sets; config holds COE map, template paths, and optional sync target.
+* **Usage analytics (I4, options open):** ScalAdv-AC5, Noun-AC10. *Validated in:* Iteration 4 (Leadership).
+  * **Implementation strategy (options open):** (1) Product owner can obtain quality data from usage (incl. vocal feedback) for Descriptive, Diagnostic, Predictive, Prescriptive analytics to drive features and bug fixes. (2) Data sources may include: A + Session Log (and optional structured fields) as primary; optional event stream (session, step, checkpoint, error, feedback); sync pipeline as analytics feed. (3) Data collection and management must be robust enough to support the four analytics types; consent and purpose (e.g. improve ILE, not performance evaluation) are constraints. (4) Exact mechanism (storage, schema, ETL) is not fixed in design; to be chosen in I4.
 
 ---
 

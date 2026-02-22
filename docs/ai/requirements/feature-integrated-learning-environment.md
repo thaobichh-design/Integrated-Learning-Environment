@@ -104,6 +104,7 @@ feature: integrated-learning-environment
 | ScalAdv-AC2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing the core flow; only content and entry points change. |
 | ScalAdv-AC3 | The system can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression; A acts as the UDO anchor so the user can respect level-appropriate learning. |
 | ScalAdv-AC4 | Sync from the user's Book (local or Google Drive) to the company's ClickUp respects the COE map and places content in the user's respective location (Topic → that user's Personal Learning Area). |
+| ScalAdv-AC5 | **Usage analytics (options open):** The product owner (or ILE operator) can obtain quality data from ILE usage—including but not limited to vocal feedback—so that **Descriptive, Diagnostic, Predictive, and Prescriptive analytics** can be applied to drive future feature development and bug fixes. Data sources (e.g. A + Session Log, event stream, sync pipeline, explicit feedback) and implementation (collection, storage, consent) remain open. |
 
 ## 3. FEATURE
 
@@ -120,6 +121,7 @@ feature: integrated-learning-environment
 | Noun-AC7 | The ILE can **map a single user's learning** to **that user's respective location on ClickUp** (correct Topic → that user's Personal Learning Area within the Chapter/Topic Members' Learning Area). |
 | Noun-AC8 | The ILE supports (or will support) **syncing** the user's learning (from their Book) **to the company's ClickUp** in the correct place, using the LTC ClickUp Space for COE and User mapping. |
 | Noun-AC9 | The ILE can **surface the user's current mastery level** and the relevant **Subject Roadmap (A)** content (e.g. level requirements, recommended sources) so the user can consciously respect level-appropriate progression and avoid scattered learning. |
+| Noun-AC10 | **Usage data for analytics (options open):** The ILE supports (or will support) **data collection and data management** of usage data so that quality inputs are available for Descriptive, Diagnostic, Predictive, and Prescriptive analytics to drive feature development and bug fixes. Implementation options (e.g. A + Session Log as primary source, optional event stream, sync pipeline, vocal feedback as first-class input) remain open; the requirement is that the operator can get robust, usable data for the four analytics types. |
 
 **Adjectives (Attributes of the Noun)**
 
