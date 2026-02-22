@@ -38,6 +38,24 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ---
 
+## ILE Iteration 2 — T-201 Reviewed/Tested (2026-02-21)
+
+**T-201: Persistent memory wired. 🟢 Reviewed/Tested.**
+
+### Added
+- **ile-effective-learning-contract.md** — Minimal EPS (3 principles), full EOP (RACI + all 8 steps with Required Input, Desired Output, RACI, gates), ILE Strategy. Contract loading: Option B (MCP digest `ile:contract`) preferred; Option A (load doc) fallback.
+- **ile-persistent-memory.md** — Persistent memory contract: primary A + Learning Book; optional MCP key `ile:session:{subject}`; §3 Principles and EOP (contract) Option B/A. Wiring: contract, rules.
+- **.cursor/rules/ile-effective-learning.mdc** — Follow contract at ILE session start; all EOP steps 1–8; mandatory gates (Step 2 before Step 3, Step 7 before switch/exit); RACI (no A write or switch without Learner approval).
+- **.cursor/rules/ile-session-memory.mdc** — Session start/resume (read A, optional MCP recall); session end/switch (append Session Log, optional MCP store). Key by subject/Learning Book.
+- **docs/ai/reference/** — ltc-advanced-effective-learning-system.md (Section 8 replaced with pointer to implementation contract).
+
+### Changed
+- **ile-minimal-flow.md** — Maps 1:1 to EOP steps 1–8; cross-refs contract, persistent memory, rule; pre-session (Step 2) and checkpoint (Step 7) gates; “What counts as persistent memory” includes contract Option B/A; core flow table EOP step mapping.
+- **ltc-advanced-effective-learning-system.md** — Section 8 (ILE Strategy) moved to implementation; §8 now points to `ile-effective-learning-contract.md`. Chain of Logic item 8 updated.
+- **Planning** — T-201 marked 🟢 Reviewed/Tested. Noun-AC2 evidence and status (🔵) updated. T-201 task cell: Done, Next (T-202), I2 enhancements (contract, rule, flow↔EOP).
+
+---
+
 ## ILE Iteration 1 Complete (2026-02-22)
 
 **Iteration 1: Concept — T-101, T-102, T-103 all 🟢 Reviewed/Tested.**

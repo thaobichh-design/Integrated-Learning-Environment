@@ -1,0 +1,31 @@
+---
+description: ILE session context — store/recall persistent memory tied to subject/Learning Book (T-201, Noun-AC2).
+globs:
+  - "**/learning-book/**"
+  - "**/docs/ai/implementation/ile-*.md"
+alwaysApply: false
+---
+
+# ILE Session Memory — Store & Recall
+
+When working in ILE/learning-book context (session start, session end, or resume):
+
+## Session start / Resume
+
+1. **Determine subject** — From the open Learning Book path or user message (e.g. COE_DS, Data Science).
+2. **Recall context:**
+   - **Primary:** Read **A. Subject Roadmap & Level Specifications** for that subject. Use Learner Progress Tracker and Session Log to orient: current level, last entry point, last session date, next recommended entry point.
+   - **Optional:** If MCP `memory` is available, recall by tag/key `ile`, `session`, and subject to get the latest session pointer (last_entry_point, last_session_date).
+3. **Orient the user:** e.g. *"You're at [level]. Last session [date]: [last entry point]—[progress note]. Next suggested: …"*
+
+## Session end / Before phase or entry switch
+
+1. **Store context:**
+   - **Primary:** Append to **A's Session Log** (Date, Entry Point, Progress). Update Learner Progress Tracker if level changed.
+   - **Optional:** If MCP `memory` is available, call `memory.storeKnowledge` with title e.g. `ILE session: {subject}` and content JSON: `{ "subject", "last_entry_point", "last_session_date", "learning_book_path" }`. Tag with `ile`, `session`, and subject.
+2. **Key:** Always key by subject or Learning Book path so context is tied to the current subject/Learning Book.
+
+## Contract
+
+- Full spec: `docs/ai/implementation/ile-persistent-memory.md`
+- Flow: `docs/ai/implementation/ile-minimal-flow.md`

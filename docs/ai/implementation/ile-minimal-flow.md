@@ -1,22 +1,22 @@
 ---
 phase: implementation
 title: ILE Minimal Flow (T-101)
-description: Minimal ILE flow in the current IDE—phase B/C/D (Capture, Organise, Distill) → entry points → template load → conversation → doc update. A (Roadmap) as checking point. Deterministic evidence for Verb-AC1, Verb-AC2, Verb-AC3 (Iteration 1 Concept).
+description: Minimal ILE flow in the current IDE—phase B/C/D (Capture, Organise, Distill) → entry points → template load → conversation → doc update. A (Roadmap) as checking point. Maps 1:1 to EOP steps 1–8 (contract). Aligned with T-201 persistent memory and I2 contract (Iteration 2).
 feature: integrated-learning-environment
 task: T-101
 ---
 
 # Minimal ILE Flow in Current IDE (Cursor)
 
-*One workspace: chat (Cursor Chat) + structural document (Learning Book Markdown repo). User does not switch app. This flow validates desirability of the Wrapper before building the Effective Core.*
+*One workspace: chat (Cursor Chat) + structural document (Learning Book Markdown repo). User does not switch app. This flow validates desirability of the Wrapper before building the Effective Core. In Iteration 2 it maps 1:1 to the full EOP (steps 1–8) and is used together with the ILE Effective Learning Contract and T-201 persistent memory.*
 
-**Cross-references:** Structure → `docs/ai/implementation/learning-book-tree-map.md` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md` | A Template → `templates/A-subject-roadmap-and-level-specifications.md` | Folder layout → `learning-book/README.md`
+**Cross-references:** Contract (EPS + full EOP + Strategy) → `docs/ai/implementation/ile-effective-learning-contract.md` | Persistent memory (A + Learning Book; contract Option B/A) → `docs/ai/implementation/ile-persistent-memory.md` | Rule (all EOP steps, gates) → `.cursor/rules/ile-effective-learning.mdc` | Structure → `docs/ai/implementation/learning-book-tree-map.md` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md` | A Template → `templates/A-subject-roadmap-and-level-specifications.md` | Folder layout → `learning-book/README.md`
 
 ---
 
 ## A. Subject Roadmap & Level Specifications as the Checking Point
 
-**A is the canonical checkpoint for learning state.** The Agent reads A at session start and writes to A at session end (or on phase/entry switch). This replaces reliance on ephemeral chat history for context.
+**A is the canonical checkpoint for learning state.** The Agent reads A at session start and writes to A at session end (or on phase/entry switch). This replaces reliance on ephemeral chat history for context. This flow maps 1:1 to EOP steps 1–8; for the full sequence (including Step 2 pre-session checklist and mandatory gates), see `docs/ai/implementation/ile-effective-learning-contract.md`.
 
 | A Section | Role | When Agent Uses It |
 |-----------|------|--------------------|
@@ -43,9 +43,12 @@ task: T-101
 |--------|----------|-------------|
 | **A. Subject Roadmap & Level Specifications** | Learner Progress Tracker, Session Log, Level Completion Checklist, Gap Analysis, Links to Learning Book | File-based; survives sessions |
 | **Learning Book Markdown** | B/C/D/E content per entry point | File-based; survives sessions |
-| **Project rules / Cursor memory** | Principles, conventions (e.g. `.cursor/rules`, `/remember`) | Optional; cross-session if configured |
+| **ILE Effective Learning Contract** | Minimal EPS + full EOP + ILE Strategy. Option B: MCP digest key `ile:contract`; Option A: load `ile-effective-learning-contract.md` at session start. | Per `ile-persistent-memory.md` §3 |
+| **Project rules / Cursor memory** | Principles, conventions, ILE rules (e.g. `.cursor/rules/ile-effective-learning.mdc`, `ile-session-memory.mdc`) | Optional; cross-session if configured |
 
 ### Session Start (Resume)
+
+In ILE context the full sequence is **EOP Step 1 (Open)** → **Step 2 (Pre-session checklist:** principles, environment, tools; Learner confirms or defers) → **Step 3 (Resume**, below). Do not proceed to Step 3 without Step 2 confirm/defer (see contract).
 
 1. Agent reads A for the chosen subject.
 2. From **Learner Progress Tracker:** Current Level, Target Level, Last Session, Last Entry Point, Next Recommended Entry Point.
@@ -101,6 +104,8 @@ If the context window is exceeded or chat history is lost:
 
 ### Session start: New book vs Resume
 
+In ILE context the full sequence is **EOP Step 1 (Open)** → **Step 2 (Pre-session checklist)** per contract → then route below. Do not proceed to Resume without Step 2 confirm/defer.
+
 - **Explicit choice:** At session start, Agent asks: "Start a new subject?" or "Resume [Subject]?" to route into (a) or (b).
 - **Initial check:** Always verify A (Subject Roadmap) exists and is readable for the chosen subject; if not, treat as new book and populate A first (see `templates/A-subject-roadmap-and-level-specifications.md`).
 
@@ -117,17 +122,32 @@ If the context window is exceeded or chat history is lost:
 - **A as anchor:** Agent orients: e.g. "You were at L2, Last Entry Point: Chapter 1 UBS Topic 0. Next suggested: complete UBS or move to UDS."
 - **Optional prompt:** "Resume where you left off ([last entry]) or pick another entry point?"
 
-## Core flow (5 steps)
+## Core flow (maps to EOP steps 1–8)
 
-1. **Start or resume session** — User opens Cursor workspace with Learning Book repo. Chooses subject: COE → Area → Chapter → Topic (or creates new). Session context scoped to that subject. *(Verb-AC1)*
+This core flow corresponds to **EOP steps 1–8** (see `ile-effective-learning-contract.md`). **Step 2 (Pre-session)** and **Step 7 (Checkpoint)** are mandatory gates: no proceed to Resume without Step 2 confirm/defer; no switch entry/phase or end session without Step 7 approval. RACI: no A write or entry/phase switch without Learner approval.
 
-2. **Choose phase** — Agent asks: "Which phase? B. Capture Facts & Data | C. Organise Information | D. Distill Understanding." User chooses one. Agent presents entry points from the Learning Map (6 Chapters × 6 Topics; see `learning-book-tree-map.md`) for that phase, informed by Subject Roadmap (A) and current level where available. *(Verb-AC2)*
+| EOP step | This flow |
+|----------|-----------|
+| 1 Open | User opens Cursor workspace with Learning Book repo; confirm A exists for subject. |
+| 2 Pre-session | Agent states 3 principles + environment + tools checklists; Learner confirms or defers. (Must complete before Step 3.) |
+| 3 Resume | Below: Start or resume session. |
+| 4 Phase | Choose phase (B/C/D). |
+| 5 Entry | Select entry point; Agent loads template. |
+| 6 Learn | Learning conversation. |
+| 7 Checkpoint | Before switch or exit: approve save → Agent updates A (Session Log, Progress Tracker). |
+| 8+ Repeat | Next entry/phase or end; next time start at Step 3. |
 
-3. **Select entry point** — User selects an entry point (e.g. Chapter 1 UBS, Topic 0. Overview). Agent loads the correct template per `entry-point-to-template-mapping.md` and scopes conversation and document context to that entry. *(Verb-AC3)*
+**Operational steps:**
 
-4. **Learning conversation** — User and Agent conduct hierarchical Q&A (active recall, deep questioning) within the template. Later: structural Markdown is updated in real time as a byproduct. *(Concept: flow only; real-time update in Iteration 2.)*
+1. **Start or resume session** — User opens Cursor workspace with Learning Book repo. Chooses subject: COE → Area → Chapter → Topic (or creates new). Session context scoped to that subject. *(EOP 3; Verb-AC1)*
 
-5. **Progress / next** — User can switch entry point or phase at any time; progress is retained or committed before switch. Optional: distill (Phase C) when user chooses. **Validation before switch:** Prompt to save or confirm in-progress draft before changing phase or entry. **Checkpoint:** Agent appends to A's Session Log and updates Learner Progress Tracker if level changed.
+2. **Choose phase** — Agent asks: "Which phase? B. Capture Facts & Data | C. Organise Information | D. Distill Understanding." User chooses one. Agent presents entry points from the Learning Map (6 Chapters × 6 Topics; see `learning-book-tree-map.md`) for that phase, informed by Subject Roadmap (A) and current level where available. *(EOP 4; Verb-AC2)*
+
+3. **Select entry point** — User selects an entry point (e.g. Chapter 1 UBS, Topic 0. Overview). Agent loads the correct template per `entry-point-to-template-mapping.md` and scopes conversation and document context to that entry. *(EOP 5; Verb-AC3)*
+
+4. **Learning conversation** — User and Agent conduct hierarchical Q&A (active recall, deep questioning) within the template. Later: structural Markdown is updated in real time as a byproduct. *(EOP 6; Concept: flow only; real-time update in Iteration 2.)*
+
+5. **Progress / next** — User can switch entry point or phase at any time; progress is retained or committed before switch. **EOP Step 7 (Checkpoint) required before switch or exit:** Prompt to save or confirm; Learner approves; Agent appends to A's Session Log and updates Learner Progress Tracker if level changed. *(EOP 7, 8+)*
 
 ## Learning as a tree (entry points and levels)
 
@@ -155,6 +175,7 @@ If the context window is exceeded or chat history is lost:
 - **Desirability / Hook:** User wants to learn-and-capture in one environment with no chat→docs handoff.
 - **UDO Resolution:** The flow (phase → entry points → template load → conversation → doc update) is the desired wrapper; the root blocker (manual paste) is addressed by design (doc update as byproduct in later iterations).
 - **UDS.UB Resolution:** Linear, chronological chat that suffers from context collapse is addressed by (1) A as the checking point (persistent, file-based); (2) hierarchy over chronology (doc is source of truth, chat is ephemeral); (3) scoped context (one entry point at a time); (4) checkpointing to A's Session Log and the Learning Book during long sessions.
+- **Iteration 2 alignment:** Flow maps 1:1 to full EOP (steps 1–8) per contract; T-201 persistent memory (A + Learning Book; contract Option B/A) and `.cursor/rules/ile-effective-learning.mdc` enforce gates and RACI.
 
 ## User confirmation
 

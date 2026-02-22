@@ -1,0 +1,34 @@
+---
+description: ILE Effective Learning Contract — follow EPS + full EOP (all steps 1–8), gates, and RACI. Load or recall contract at session start.
+globs:
+  - "**/learning-book/**"
+  - "**/docs/ai/implementation/ile-*.md"
+alwaysApply: false
+---
+
+# ILE Effective Learning — Contract & EOP
+
+When working in ILE/learning-book context, the Agent follows the **ILE Effective Learning Contract** (EPS + full EOP + ILE Strategy). All EOP steps 1–8 apply; Step 2 and Step 7 are mandatory gates.
+
+## At ILE session start
+
+1. **Load or recall the contract:**
+   - **Option B (Preferred):** If MCP `memory` is available, recall by key/tag `ile:contract` (or `ile:effective-learning-contract`) to get the contract digest (minimal EPS + full EOP + Strategy). Use this so the Agent has Principles and full EOP in scope with minimal tokens.
+   - **Option A (Fallback):** If MCP is unavailable or recall fails, load `docs/ai/implementation/ile-effective-learning-contract.md` so the Agent has the full contract in context.
+2. **Follow all EOP steps 1–8** as defined in the contract: Open → Pre-session checklist → Resume → Phase → Entry → Learn → Checkpoint → Repeat. Do not skip steps or gates.
+
+## Mandatory gates
+
+- **Step 2 (Pre-session):** Do not proceed to Step 3 (Resume) without Learner confirm or explicit defer on principles and checklists.
+- **Step 7 (Checkpoint):** Do not switch entry point, phase, or end session without Step 7 (save progress, update A) and Learner approval.
+
+## RACI
+
+- **Responsible = Agent:** Execute steps (load template, read/write A, suggest next). **Accountable = Learner:** Approve progress, choose subject/phase/entry.
+- **No A write and no entry/phase switch without Learner approval.** Every such action requires explicit "Approve?" or "Confirm?" from the Learner.
+
+## Contract and flow
+
+- Full contract: `docs/ai/implementation/ile-effective-learning-contract.md`
+- Persistent memory (Option B/A): `docs/ai/implementation/ile-persistent-memory.md` §3
+- Flow: `docs/ai/implementation/ile-minimal-flow.md`

@@ -44,7 +44,7 @@ feature: integrated-learning-environment
 | SustainAdv-AC2 | Updates from conversation map to a known template (questions × components); mapping rule is explicit. | 2 | Mapping rule (conversation → file/section) documented and used. | ⚪ |
 | SustainAdv-AC3 | User or Agent can point to the exact file(s) and section(s) created or updated for a given exchange. | 2 | Agent can point to exact file/section; or user can inspect. | ⚪ |
 | Noun-AC1 | One workspace supports both "conversation" and "structural document" (chat + Markdown repo); user does not switch app to edit Learning Book. | 2 | Same workspace used for chat and Markdown. | ⚪ |
-| Noun-AC2 | Persistent memory (e.g. MCP) available to Agent, tied to current subject/Learning Book; context preserved across sessions. | 2 | MCP or equivalent wired; context tied to subject/Book. | ⚪ |
+| Noun-AC2 | Persistent memory (e.g. MCP) available to Agent, tied to current subject/Learning Book; context preserved across sessions. | 2 | `docs/ai/implementation/ile-persistent-memory.md` (A + Learning Book primary; optional MCP `ile:session:{subject}`; contract Option B/A). | 🔵 |
 | Noun-AC3 | When user selects phase and entry point, correct template is loaded and conversation/document context scoped to that entry. | 2 | Template loading implemented; context scoped to entry. | ⚪ |
 | Noun-AC4 | Agent can read and write structural Markdown for current subject so conversation outcomes written into correct files/sections as byproduct. | 2 | Agent read/write of Markdown from conversation implemented. | ⚪ |
 | Noun-AC5 | Entry points presented from Learning Map, informed by Subject Roadmap (A) (current level L1–L7); level-appropriate progression suggested. | 2 | Entry points derived from Learning Map; A used where available. | ⚪ |
@@ -97,7 +97,7 @@ feature: integrated-learning-environment
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-201** | Wire persistent memory (e.g. MCP @ai-devkit/memory or equivalent) so the Agent can store/recall context tied to the current subject/Learning Book. | Technical Feasibility | T-103 | 🔴 To Do |
+| **T-201** | Wire persistent memory (e.g. MCP @ai-devkit/memory or equivalent) so the Agent can store/recall context tied to the current subject/Learning Book. **Done:** `ile-persistent-memory.md` (A + Learning Book; optional MCP `ile:session:{subject}`; contract Option B/A §3); `ile-effective-learning-contract.md`, `.cursor/rules/ile-effective-learning.mdc`, `ile-minimal-flow.md` aligned to EOP. **Next:** T-202. **I2 enhancements (no new task):** contract (minimal EPS + full EOP + Strategy), rule (all EOP steps 1–8, gates, RACI), flow↔EOP. | Technical Feasibility | T-103 | 🟢 Reviewed/Tested |
 | **T-202** | Implement Agent read/write of one Learning Book Markdown file from conversation (e.g. one section updated as byproduct of one Q&A); document the mapping rule (conversation → file/section). | Technical Feasibility | T-201 | 🔴 To Do |
 | **T-203** | Implement loading of one canonical template (questions × components) when user selects an entry point; scope conversation/document context to that entry. | Technical Feasibility | T-202 | 🔴 To Do |
 | **T-204** | Add a single check (e.g. script or manual step) that the repo still matches the expected Learning Book structure after updates. | Sustainability | T-203 | 🔴 To Do |
