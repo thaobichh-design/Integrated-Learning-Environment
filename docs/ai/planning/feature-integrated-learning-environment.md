@@ -65,7 +65,7 @@ feature: integrated-learning-environment
 | Noun-AC6 | ILE has a defined representation of LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | 4 | COE map representation defined and implemented. | ⚪ |
 | Noun-AC7 | ILE can map a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | 4 | User→ClickUp location mapping implemented. | ⚪ |
 | Noun-AC8 | ILE supports (or will support) syncing user's learning from their Book to company's ClickUp in correct place (COE and User mapping). | 4 | Sync to ClickUp implemented or stubbed; correct place per COE/User mapping. | ⚪ |
-| ScalAdj-AC1 | New subjects reuse same Learning Book template (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise). | 4 | Template reused for new subjects. | ⚪ |
+| ScalAdj-AC1 | New subjects reuse same Learning Book template (A. Subject Roadmap, B. Capture Facts & Data, C. Organise Information, D. Distill Understanding, E. Express Expertise). | 4 | Template reused for new subjects. | ⚪ |
 | ScalAdj-AC2 | New entry points or templates can be added via configuration or defined structure without changing core integration (chat + memory + doc). | 4 | Configurable entry points/templates; core integration unchanged. | ⚪ |
 | ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking core flow. | 4 | Optional capabilities addable without breaking flow. | ⚪ |
 | ScalAdj-AC4 | ILE pattern can be applied to other ClickUp spaces and different doc template sets; hierarchy, templates, space mapping configurable. | 4 | Hierarchy, templates, ClickUp space mapping configurable (e.g. per workspace or mode). | ⚪ |
@@ -87,7 +87,7 @@ feature: integrated-learning-environment
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **T-101** | Define and document the minimal ILE flow in the current IDE (phase A/B/C → entry points → template load → conversation → doc update) and confirm with User that this is the desired wrapper. | Desirability / Hook | None | 🟢 Reviewed/Tested |
-| **T-102** | Create a minimal Learning Book folder structure for one COE Area (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise) and one stub template (e.g. one questions×components table) so the wrapper is tangible. | UDO Resolution / One workspace | T-101 | 🟢 Reviewed/Tested |
+| **T-102** | Create a minimal Learning Book folder structure for one COE Area (A. Subject Roadmap, B. Capture Facts & Data, C. Organise Information, D. Distill Understanding, E. Express Expertise) and one stub template (e.g. one questions×components table) so the wrapper is tangible. | UDO Resolution / One workspace | T-101 | 🟢 Reviewed/Tested |
 | **T-103** | Validate with User: "One workspace (chat + Markdown) with no manual paste" solves the root blocker; approve moving to Iteration 2. | UDO Resolution | T-102 | 🟢 Reviewed/Tested |
 
 ### ITERATION 2: WORKING PROTOTYPE
@@ -109,7 +109,7 @@ feature: integrated-learning-environment
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-301** | Implement phase choice (A. Capture \| B. Organise \| C. Distill) and present entry points from the Learning Map for the chosen phase; entry points informed by Subject Roadmap (A) / current level where A is available. | Efficiency / Usability | T-204 | 🔴 To Do |
+| **T-301** | Implement phase choice (B. Capture \| C. Organise \| D. Distill) and present entry points from the Learning Map for the chosen phase; entry points informed by Subject Roadmap (A) / current level where A is available. | Efficiency / Usability | T-204 | 🔴 To Do |
 | **T-302** | Ensure updates to Markdown occur as a byproduct of the conversation (no separate copy-paste); user can switch entry point or phase without losing in-progress context (retain or commit draft). | Zero-friction capture | T-301 | 🔴 To Do |
 | **T-303** | Surface the user's current mastery level and relevant Subject Roadmap (A) content (e.g. level requirements, next-step recommendations) so the user can respect level-appropriate progression. | UDO Anchor | T-302 | 🔴 To Do |
 

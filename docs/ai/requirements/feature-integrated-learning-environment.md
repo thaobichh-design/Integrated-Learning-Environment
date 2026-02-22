@@ -9,7 +9,7 @@ feature: integrated-learning-environment
 *Goal: Understand the human reality before introducing technology.*
 
 * **User Persona & Anti-Persona:** Solo learner / User mastering new domains (L1–L7 SFIA) using the LTC Advanced Effective Learning Framework. Anti-persona: passive consumer who does not write their own learning book.
-* **Ultimate Desired Outcome (UDO):** The User reaches biological mastery (from L1 to L7 SFIA) of a new domain, with deterministic proof generated automatically in the form of a strictly structured Markdown repository (Capture → Organise → Distill). **The Subject Roadmap (A) is the UDO anchor:** it defines the target mastery levels, requirements, and recommended progression (L1→L7) per subject. Learning that respects A is level-appropriate and sequenced; learning that ignores A tends to be scattered (e.g. jumping to L4 content while still at L1/L2/L3).
+* **Ultimate Desired Outcome (UDO):** The User reaches biological mastery (from L1 to L7 SFIA) of a new domain, with deterministic proof generated automatically in the form of a strictly structured Markdown repository (B. Capture Facts & Data → C. Organise Information → D. Distill Understanding). **The Subject Roadmap (A) is the UDO anchor:** it defines the target mastery levels, requirements, and recommended progression (L1→L7) per subject. Learning that respects A is level-appropriate and sequenced; learning that ignores A tends to be scattered (e.g. jumping to L4 content while still at L1/L2/L3).
 * **User's Action:** Learn via hierarchical questioning and active recall, while the structural Learning Book (Markdown) is updated in real time as a byproduct of the conversation—no manual extract/format/paste. The user is encouraged to respect the Subject Roadmap (A) so progression is deliberate, not ad hoc.
 
 ## The Drivers (UDS - Ultimate Driving System)
@@ -37,7 +37,7 @@ feature: integrated-learning-environment
   * **Consumption in-scope, digestion out-of-scope:** The system supports consumption (capture, organise, distill with the Agent). Digestion (reflection, internalisation) is explicitly outside the system.
   * **Subject Roadmap (A) as UDO anchor:** The user's learning path and the system's presentation of entry points should be informed by the user's current mastery level and the Subject Roadmap (A). Respecting A (level-appropriate progression L1→L7) prevents scattered learning; the ILE should surface A, suggest level-aligned entry points, and let the user choose while making the "right" path visible.
 
-* **Environment (Where):** Digital, local-first. Primary artifact: a Markdown repository (Learning Book) on the user's machine. Structure: LTC COE → Areas of Expertise (Effectiveness, Data Science, WellBeing, Business Excellence, Investment, Technology, Leadership, …) → Chapters → Topics. Per subject: A. Subject Roadmap & Level Specifications (SFIA L1–L7); B. Captured Facts & Information; B. Organised Knowledge (components: 0. Overview, 1. UBS, 2. UDS, 3. EPS, 4. UES, 5. EOP, …); D. Distilled Understanding; E. Expressed Expertise. Primary interfaces: Cursor Chat and/or AntiGravity; optional later: NotebookLM-like capabilities (Audio Overview, Infographics, Quiz) with the constraint that the system must allow exploration outside given sources.
+* **Environment (Where):** Digital, local-first. Primary artifact: a Markdown repository (Learning Book) on the user's machine. Structure: LTC COE → Areas of Expertise (Effectiveness, Data Science, WellBeing, Business Excellence, Investment, Technology, Leadership, …) → Chapters → Topics. Per subject: A. Subject Roadmap & Level Specifications (SFIA L1–L7); B. Capture Facts & Data; C. Organise Information (components: 0. Overview, 1. UBS, 2. UDS, 3. EPS, 4. UES, 5. EOP, …); D. Distill Understanding; E. Express Expertise. Primary interfaces: Cursor Chat and/or AntiGravity; optional later: NotebookLM-like capabilities (Audio Overview, Infographics, Quiz) with the constraint that the system must allow exploration outside given sources.
 
 * **Tools (What):**
   * *Desirable Wrapper:* The experience of a learning conversation (natural dialogue, hierarchical Q&A, active recall) where notes are never lost, stay structured, and the user does not do manual admin. The user chooses which phase (A/B/C) and which entry point to work on; the Agent assists within that structure.
@@ -45,10 +45,10 @@ feature: integrated-learning-environment
 
 * **SOP (How):**
   1. **Start a new area of expertise:** User selects COE → Area of Expertise → Chapter → Topic (or creates a new subject). System resolves or creates the Learning Book for that subject.
-  2. **Phase and entry point:** Agent asks which phase (A. Capture | B. Organise | C. Distill) and presents a relevant list of entry points from the Learning Map for that phase. **Entry points are informed by the Subject Roadmap (A):** the user's current level (L1–L7) and A's recommended requirements/sources are used to prioritise or suggest level-appropriate entry points, so the user can respect A and avoid scattered learning. User can still choose any entry point.
+  2. **Phase and entry point:** Agent asks which phase (B. Capture Facts & Data | C. Organise Information | D. Distill Understanding) and presents a relevant list of entry points from the Learning Map for that phase. **Entry points are informed by the Subject Roadmap (A):** the user's current level (L1–L7) and A's recommended requirements/sources are used to prioritise or suggest level-appropriate entry points, so the user can respect A and avoid scattered learning. User can still choose any entry point.
   3. **Load template:** User selects an entry point; Agent loads the corresponding template (table: headers = questions, rows = components, cells = answers). Conversation and document context are scoped to that entry.
   4. **Conduct learning conversation:** User and Agent work through the template; Agent updates the structural document in real time as a byproduct; user can switch entry point or phase at any time.
-  5. **Optional: Distill:** When the user chooses Phase C, Agent helps condense Organised Knowledge into the Distilled Understanding format (on demand).
+  5. **Optional: Distill:** When the user chooses Phase D (Distill), Agent helps condense Organise Information into the Distill Understanding format (on demand).
   6. **Progress and roadmap:** The Markdown repo accumulates the Learning Book as deterministic proof. **Subject Roadmap (A) is the UDO anchor:** it is used to assess growth (SFIA L1–L7), identify gaps, and plan next steps. The user is encouraged to consult A and to respect level-appropriate progression so learning stays on track.
   7. **Digestion:** Consumption (steps 1–6) is in-scope. Digestion (reflection, practice, internalisation) is outside the system.
 
@@ -73,7 +73,7 @@ feature: integrated-learning-environment
 | A.C. ID | Acceptance Criteria |
 | :--- | :--- |
 | Verb-AC1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. |
-| Verb-AC2 | User can choose phase (A. Capture \| B. Organise \| C. Distill) and see a list of entry points from the Learning Map for that phase; entry points are informed by the user's current level and Subject Roadmap (A) so level-appropriate options are visible. |
+| Verb-AC2 | User can choose phase (B. Capture Facts & Data \| C. Organise Information \| D. Distill Understanding) and see a list of entry points from the Learning Map for that phase; entry points are informed by the user's current level and Subject Roadmap (A) so level-appropriate options are visible. |
 | Verb-AC3 | User can select an entry point and have the correct template (e.g. table: questions × components) loaded and scoped to that entry. |
 | Verb-AC4 | User can conduct dialogue with the Agent; the Agent's responses are grounded in persistent memory and the current document context. |
 | Verb-AC5 | After a learning conversation, the corresponding structural Markdown file(s) reflect the new or updated content (no manual paste required). |
@@ -143,7 +143,7 @@ feature: integrated-learning-environment
 
 | A.C. ID | Acceptance Criteria |
 | :--- | :--- |
-| ScalAdj-AC1 | New subjects reuse the same Learning Book template (A. Subject Roadmap, B. Captured, B. Organised Knowledge, D. Distilled, E. Expressed Expertise). |
+| ScalAdj-AC1 | New subjects reuse the same Learning Book template (A. Subject Roadmap, B. Capture Facts & Data, C. Organise Information, D. Distill Understanding, E. Express Expertise). |
 | ScalAdj-AC2 | New entry points or templates (e.g. new component types) can be added via configuration or defined structure without changing the core integration (chat + memory + doc). |
 | ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking the core flow of phase → entry point → template → conversation → doc update. |
 | ScalAdj-AC4 | **Reusability:** The ILE pattern (Capture, Organise, Distill with AI Agent; template-driven; sync to a defined location) can later be applied to **other ClickUp spaces** (not only COE) and **different doc template sets**. Hierarchy, templates, and space mapping are **configurable** so the same setup can drive other use cases (e.g. project spaces, sales, operations) with their own templates and ClickUp structure. |

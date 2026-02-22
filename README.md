@@ -33,18 +33,18 @@ Three phases. One flow. No handoff.
 ```
 A. Subject Roadmap (L1–L7, where you are) 
         ↓
-B. Capture  — Raw facts, information
+B. Capture Facts & Data — Raw facts, information
         ↓
-B. Organise — Structured knowledge (Overview, UBS, UDS, EPS, UES, EOP)
+C. Organise Information — Structured knowledge (Overview, UBS, UDS, EPS, UES, EOP)
         ↓
-D. Distill  — Condensed understanding
+D. Distill Understanding — Condensed understanding
         ↓
-E. Expressed Expertise — Your proof of mastery
+E. Express Expertise — Your proof of mastery
 ```
 
 - **Capture:** Gather raw facts and information. The Agent helps you capture without losing structure.
 - **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Process (EOP). *You* articulate; the Agent writes into the right section.
-- **Distill:** Compress Organised Knowledge into the Distilled Understanding format. The Agent helps condense on demand.
+- **Distill:** Compress Organise Information into the Distill Understanding format. The Agent helps condense on demand.
 
 **Consumption is in-scope.** Digestion (reflection, practice, internalisation) is explicitly *outside* the system—you do that in your head and in the real world.
 
@@ -97,7 +97,7 @@ Entry points are informed by your current level and A. The Agent suggests level-
 1. **Clone** this repo and open in Cursor.
 2. **Choose a subject** (e.g. Data Science) under `learning-book/COE_DS/`.
 3. **Start or resume** — Tell the Agent: "Start a new subject" or "Resume Data Science."
-4. **Choose phase** — A. Capture | B. Organise | C. Distill.
+4. **Choose phase** — B. Capture Facts & Data | C. Organise Information | D. Distill Understanding.
 5. **Pick an entry point** — e.g. Chapter 1 UBS, Topic 0. Overview.
 6. **Learn and capture** — Conduct hierarchical Q&A. The Agent updates the Learning Book as you go.
 
@@ -111,16 +111,16 @@ The Agent uses the Subject Roadmap (A) to orient, suggest next steps, and keep y
 learning-book/
 ├── COE_DS/                          # Example: Data Science Area
 │   ├── A. Subject Roadmap & Level Specifications/
-│   ├── B. Captured Facts & Information/
-│   ├── B. Organised Knowledge/
+│   ├── B. Capture Facts & Data/
+│   ├── C. Organise Information/
 │   │   ├── 0. Overview & Summary/
 │   │   ├── 1. UBS/   (Ultimate Blocking System)
 │   │   ├── 2. UDS/   (Ultimate Driving System)
 │   │   ├── 3. EPS/   (Effective Principle System)
 │   │   ├── 4. UES/   (Ultimate Effective System)
 │   │   └── 5. EOP/   (Effective Operating Process)
-│   ├── D. Distilled Understanding/
-│   └── E. Expressed Expertise/
+│   ├── D. Distill Understanding/
+│   └── E. Express Expertise/
 templates/                           # Universal templates (A, B/C, D, E)
 docs/ai/                             # Requirements, Design, Planning, Implementation
 ```

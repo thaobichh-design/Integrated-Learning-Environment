@@ -11,16 +11,16 @@ One Learning Book per COE Area. This structure validates SustainAdv-AC1: same pa
 ```
 [COE]_[Area]_[Subject]/
 ├── A. Subject Roadmap & Level Specifications/
-├── B. Captured Facts & Information/
-├── B. Organised Knowledge/
+├── B. Capture Facts & Data/
+├── C. Organise Information/
 │   ├── 0. Overview & Summary/
 │   ├── 1. UBS/   (Ultimate Blocking System)
 │   ├── 2. UDS/   (Ultimate Driving System)
 │   ├── 3. EPS/   (Effective Principle System)
 │   ├── 4. UES/   (Ultimate Effective System)
 │   └── 5. EOP/   (Effective Operating Process)
-├── D. Distilled Understanding/
-└── E. Expressed Expertise/
+├── D. Distill Understanding/
+└── E. Express Expertise/
 ```
 
 ## Example

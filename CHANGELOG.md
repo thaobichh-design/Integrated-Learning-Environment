@@ -44,10 +44,10 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ### Added
 - **A. Subject Roadmap & Level Specifications** — Universal template and populated Data Science example with Learner Progress Tracker, Level Completion Checklist, Session Log, Gap Analysis, Links to Learning Book. A is the canonical checkpoint for session start/resume.
-- **ile-minimal-flow.md** — Minimal ILE flow (phase A/B/C → entry points → template load → conversation → doc update). A as checking point. Agent Persistent Memory (file-based: A + Learning Book). Mid-session context (hierarchy over chronology, scoped context, checkpointing).
+- **ile-minimal-flow.md** — Minimal ILE flow (phase B/C/D: Capture, Organise, Distill → entry points → template load → conversation → doc update). A as checking point. Agent Persistent Memory (file-based: A + Learning Book). Mid-session context (hierarchy over chronology, scoped context, checkpointing).
 - **ile-iteration-1-validation.md** — T-103 validation checklist; User confirmed one workspace + no manual paste solves UBS; approved moving to Iteration 2.
 - **learning-book-tree-map.md** — Full tree map (6 Chapters × 6 Topics). **entry-point-to-template-mapping.md** — Entry point → template resolution.
-- **learning-book/COE_DS/** — Minimal Learning Book structure (A, B. Captured, B. Organised Knowledge, D, E); Data Science Subject Roadmap populated.
+- **learning-book/COE_DS/** — Minimal Learning Book structure (A, B. Capture Facts & Data, C. Organise Information, D, E); Data Science Subject Roadmap populated.
 - **templates/** — A-subject-roadmap-and-level-specifications.md, 0-overview-and-summary.md.
 - **scripts/** — check-learning-book-structure.sh.
 - **.cursor/rules/** — ile-learning-book.mdc, long-n-naming-convention.mdc, use-user-not-founder.mdc.

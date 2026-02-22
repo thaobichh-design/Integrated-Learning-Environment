@@ -1,6 +1,6 @@
 # Template: 0. Overview & Summary
 
-*Entry point: 0. Overview & Summary (Phase B. Organise). Questions × components. Stub for T-102 (Verb-AC3).*
+*Entry point: 0. Overview & Summary (Phase C. Organise Information). Questions × components. Stub for T-102 (Verb-AC3).*
 
 ## Questions × Components
 
@@ -17,7 +17,7 @@
 
 ## Links to further study (optional)
 
-| Component | Link to Organised Knowledge |
+| Component | Link to Organise Information |
 |-----------|-----------------------------|
 | Overview | — |
 | Introduction | — |

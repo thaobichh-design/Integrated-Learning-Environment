@@ -16,15 +16,15 @@ task: T-102
 
 *6 Chapters × 6 Topics. Each Topic has 7 pages (0–5 + Page 7 Topic Distilled Understanding). Organise level = 16 columns (14 questions + 2 notes). Distilled level = 17 columns (14 questions + 3 notes).*
 
-| — | — | **A. Subject Roadmap & Level Specifications** | A. Capture / Define | `templates/A-subject-roadmap-and-level-specifications.md` |
-| 0 | 0. Overview & Summary | Chapter 0, Topic 0 | B. Organise | `templates/0-overview-and-summary.md` |
-| 1 | 0. Overview & Summary | Chapter 1 UBS, Topic 0 | B. Organise | `templates/1-ubs-0-overview-and-summary.md` |
-| 1 | 1. Ultimate Blockers | Chapter 1 UBS, Topic 1 | B. Organise | `templates/1-ubs-1-ultimate-blockers.md` |
-| 1 | 2. Ultimate Drivers | Chapter 1 UBS, Topic 2 | B. Organise | `templates/1-ubs-2-ultimate-drivers.md` |
-| 1 | 3. Principles | Chapter 1 UBS, Topic 3 | B. Organise | `templates/1-ubs-3-principles.md` |
-| 1 | 4. Components | Chapter 1 UBS, Topic 4 | B. Organise | `templates/1-ubs-4-components.md` |
-| 1 | 5. Steps to Overcome | Chapter 1 UBS, Topic 5 | B. Organise | `templates/1-ubs-5-steps-to-overcome.md` |
-| 2–5 | (same pattern) | Chapter X, Topic Y | B. Organise | `templates/{chapter}-{topic}.md` |
+| — | — | **A. Subject Roadmap & Level Specifications** | A. Subject Roadmap | `templates/A-subject-roadmap-and-level-specifications.md` |
+| 0 | 0. Overview & Summary | Chapter 0, Topic 0 | C. Organise Information | `templates/0-overview-and-summary.md` |
+| 1 | 0. Overview & Summary | Chapter 1 UBS, Topic 0 | C. Organise Information | `templates/1-ubs-0-overview-and-summary.md` |
+| 1 | 1. Ultimate Blockers | Chapter 1 UBS, Topic 1 | C. Organise Information | `templates/1-ubs-1-ultimate-blockers.md` |
+| 1 | 2. Ultimate Drivers | Chapter 1 UBS, Topic 2 | C. Organise Information | `templates/1-ubs-2-ultimate-drivers.md` |
+| 1 | 3. Principles | Chapter 1 UBS, Topic 3 | C. Organise Information | `templates/1-ubs-3-principles.md` |
+| 1 | 4. Components | Chapter 1 UBS, Topic 4 | C. Organise Information | `templates/1-ubs-4-components.md` |
+| 1 | 5. Steps to Overcome | Chapter 1 UBS, Topic 5 | C. Organise Information | `templates/1-ubs-5-steps-to-overcome.md` |
+| 2–5 | (same pattern) | Chapter X, Topic Y | C. Organise Information | `templates/{chapter}-{topic}.md` |
 
 *Stub: `templates/0-overview-and-summary.md` exists (T-102). Remaining templates to be added per tree map.*
 

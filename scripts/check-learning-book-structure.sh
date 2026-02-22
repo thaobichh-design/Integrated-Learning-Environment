@@ -6,10 +6,10 @@ set -e
 ROOT="${1:-learning-book}"
 REQUIRED=(
   "A. Subject Roadmap & Level Specifications"
-  "B. Captured Facts & Information"
-  "B. Organised Knowledge"
-  "D. Distilled Understanding"
-  "E. Expressed Expertise"
+  "B. Capture Facts & Data"
+  "C. Organise Information"
+  "D. Distill Understanding"
+  "E. Express Expertise"
 )
 
 for area in "$ROOT"/*/; do

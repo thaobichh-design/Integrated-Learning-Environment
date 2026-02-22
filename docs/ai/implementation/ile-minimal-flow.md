@@ -1,7 +1,7 @@
 ---
 phase: implementation
 title: ILE Minimal Flow (T-101)
-description: Minimal ILE flow in the current IDE—phase A/B/C → entry points → template load → conversation → doc update. A (Roadmap) as checking point. Deterministic evidence for Verb-AC1, Verb-AC2, Verb-AC3 (Iteration 1 Concept).
+description: Minimal ILE flow in the current IDE—phase B/C/D (Capture, Organise, Distill) → entry points → template load → conversation → doc update. A (Roadmap) as checking point. Deterministic evidence for Verb-AC1, Verb-AC2, Verb-AC3 (Iteration 1 Concept).
 feature: integrated-learning-environment
 task: T-101
 ---
@@ -121,7 +121,7 @@ If the context window is exceeded or chat history is lost:
 
 1. **Start or resume session** — User opens Cursor workspace with Learning Book repo. Chooses subject: COE → Area → Chapter → Topic (or creates new). Session context scoped to that subject. *(Verb-AC1)*
 
-2. **Choose phase** — Agent asks: "Which phase? B. Capture | C. Organise | D Distill." User chooses one. Agent presents entry points from the Learning Map (6 Chapters × 6 Topics; see `learning-book-tree-map.md`) for that phase, informed by Subject Roadmap (A) and current level where available. *(Verb-AC2)*
+2. **Choose phase** — Agent asks: "Which phase? B. Capture Facts & Data | C. Organise Information | D. Distill Understanding." User chooses one. Agent presents entry points from the Learning Map (6 Chapters × 6 Topics; see `learning-book-tree-map.md`) for that phase, informed by Subject Roadmap (A) and current level where available. *(Verb-AC2)*
 
 3. **Select entry point** — User selects an entry point (e.g. Chapter 1 UBS, Topic 0. Overview). Agent loads the correct template per `entry-point-to-template-mapping.md` and scopes conversation and document context to that entry. *(Verb-AC3)*
 
