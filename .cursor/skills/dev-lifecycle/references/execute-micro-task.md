@@ -26,3 +26,5 @@ Once the task is built, you must prove to the User that it works. Output your re
 
 **🛑 WAITING FOR USER APPROVAL**
 *Please review the evidence above. Reply with 'Approved' to mark this task 🟢 Reviewed/Tested (by the User) and proceed to the next task, or provide feedback for revision. I will not proceed until you answer.*
+
+**When the User approves a task (mark 🟢 in Execution Matrix):** Also update **Table B** (Master Scope Mapping) in `docs/ai/planning/README.md` for every A.C. that task delivers or evidences: set that A.C. row's **Status** to 🟢 and **Deterministic Evidence** to the task's deliverables (e.g. doc refs, `T-XXX approved`). See the task row for which A.C. it addresses (e.g. T-201 → Noun-AC2, Verb-AC4; T-202 → Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC4; T-203 → Verb-AC3, Noun-AC3). Each task row may list multiple A.C. IDs in "Active A.C. in Scope" or in the task description; update Table B for each of those A.C. rows.

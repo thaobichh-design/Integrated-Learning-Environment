@@ -1,0 +1,2 @@
+# For scripts/pdf_table_to_md.py (PDF table → Markdown)
+pdfplumber>=0.10.0

@@ -1,24 +1,28 @@
-# Template: 0. Overview & Summary
+# Template: Page 7 — Topic Distilled Understanding
 
-*Entry point: 0. Overview & Summary (Phase C. Organise Information). Questions × components. Stub for T-102 (Verb-AC3). Layout: banner, OVERVIEW & SUMMARY (rowspan 2), INTRODUCTION (2), SUCCESS (6), FAILURE (6), LEARNER'S NOTE (2). Table in scrollable container for wide previews.*
+*Page type: Topic Distilled Understanding (Phase C. Organise Information). Use for any (chapter, topic, page=7).*
+
+**Canonical reference:** Full subject-level structure and column definitions are in `templates/D-distilled-understanding-full.md`. Spec and page→block mapping: `docs/ai/implementation/distilled-understanding-template-spec.md`.
+
+Page 7 = **one topic’s slice** of the D. Distilled Understanding table: same column set (OVERVIEW | SUCCESS 7 | FAILURE 6 | LEARNER'S NOTES 3), rows = that topic’s sub-topics (e.g. UBS → 1.0–1.6). All content from pages 0–6 for that topic maps into these rows.
 
 ## Target table format
 
-*Write content in the **SUBJECT CONTENT** row. Merge headers as shown. **LEARNER'S NOTE** columns are the last two (far right).*
+*Write condensed content per sub-topic (X.0–X.6 as applicable). Columns must match canonical: 1 OVERVIEW + 7 SUCCESS + 6 FAILURE + 3 LEARNER'S NOTES.*
 
 <div style="overflow-x: auto;">
 
 <table>
 <thead>
 <tr>
-<th colspan="17"><strong>OVERVIEW &amp; SUMMARY OF THE SUBJECT</strong></th>
+<th colspan="18"><strong>TOPIC DISTILLED UNDERSTANDING (Page 7)</strong></th>
 </tr>
 <tr>
-<th rowspan="2"><strong>OVERVIEW &amp; SUMMARY</strong><br/><strong>SUBJECT CONTENT</strong></th>
-<th colspan="2"><strong>INTRODUCTION</strong></th>
-<th colspan="6"><strong>SUCCESS</strong></th>
+<th rowspan="2"><strong>ROW LABEL</strong><br/><strong>SUBJECT CONTENT</strong></th>
+<th colspan="1"><strong>OVERVIEW</strong></th>
+<th colspan="7"><strong>SUCCESS</strong></th>
 <th colspan="6"><strong>FAILURE</strong></th>
-<th colspan="2"><strong>LEARNER'S NOTE</strong></th>
+<th colspan="3"><strong>LEARNER'S NOTES</strong></th>
 </tr>
 <tr>
 <th>What is it for? Why is it important? (Relevance)</th>
@@ -36,38 +40,16 @@
 <th>What tool(s) do the ultimate blockers require to work? (Risky Tools)</th>
 <th>What environmental conditions do the ultimate blockers require to work? (Risky Environments)</th>
 <th>What to do if it fails? (What else?)</th>
+<th>Other Questions (Others)</th>
 <th>Next Steps to Take (Now What? Now How?)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>SUBJECT CONTENT</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><strong>SUB-TOPIC X.0–X.6 (e.g. 1.0–1.6 for UBS)</strong></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 </tr>
 </tbody>
 </table>
 
 </div>
-
-## Links to further study (optional)
-
-| Component | Link to Organise Information |
-|-----------|-----------------------------|
-| Overview | — |
-| Introduction | — |
-| … | — |

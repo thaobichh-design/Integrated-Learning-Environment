@@ -1,20 +1,20 @@
-# Template: 0. Overview & Summary
+# Template: Page 1 — Ultimate Blockers
 
-*Entry point: 0. Overview & Summary (Phase C. Organise Information). Questions × components. Stub for T-102 (Verb-AC3). Layout: banner, OVERVIEW & SUMMARY (rowspan 2), INTRODUCTION (2), SUCCESS (6), FAILURE (6), LEARNER'S NOTE (2). Table in scrollable container for wide previews.*
+*Page type: Ultimate Blockers (Phase C. Organise Information). Same canonical questions as Page 0; rows = ULTIMATE BLOCKER #1..#5 per tree map § 6 Pages per Topic. Use for any (chapter, topic, page=1).*
 
 ## Target table format
 
-*Write content in the **SUBJECT CONTENT** row. Merge headers as shown. **LEARNER'S NOTE** columns are the last two (far right).*
+*Write content per row (Blocker #1, #2, … #5). Same column structure as Page 0.*
 
 <div style="overflow-x: auto;">
 
 <table>
 <thead>
 <tr>
-<th colspan="17"><strong>OVERVIEW &amp; SUMMARY OF THE SUBJECT</strong></th>
+<th colspan="17"><strong>ULTIMATE BLOCKERS (Page 1)</strong></th>
 </tr>
 <tr>
-<th rowspan="2"><strong>OVERVIEW &amp; SUMMARY</strong><br/><strong>SUBJECT CONTENT</strong></th>
+<th rowspan="2"><strong>ROW LABEL</strong><br/><strong>SUBJECT CONTENT</strong></th>
 <th colspan="2"><strong>INTRODUCTION</strong></th>
 <th colspan="6"><strong>SUCCESS</strong></th>
 <th colspan="6"><strong>FAILURE</strong></th>
@@ -41,33 +41,11 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>SUBJECT CONTENT</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><strong>ULTIMATE BLOCKER #1</strong></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 </tr>
+<!-- Repeat for BLOCKER #2..#5 as needed -->
 </tbody>
 </table>
 
 </div>
-
-## Links to further study (optional)
-
-| Component | Link to Organise Information |
-|-----------|-----------------------------|
-| Overview | — |
-| Introduction | — |
-| … | — |

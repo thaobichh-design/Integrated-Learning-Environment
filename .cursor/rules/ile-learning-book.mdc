@@ -1,8 +1,9 @@
 ---
-description: Rule for ILE Learning Book — canonical questions, Hierarchy of Science, Organise vs Distilled column counts.
+description: Rule for ILE Learning Book — canonical questions, Hierarchy of Science, conversation→doc mapping (read/write).
 globs: 
   - "**/learning-book/**"
   - "**/docs/ai/implementation/learning-book-tree-map.md"
+  - "**/docs/ai/implementation/ile-conversation-to-doc-mapping.md"
   - "**/templates/**"
 alwaysApply: false
 ---
@@ -16,3 +17,23 @@ When helping with learning content (Area, Chapter, Topic) or Learning Book struc
 2. **Hierarchy of Science:** Structure answers with full respect to the hierarchy: Sociology → Psychology → Biology → Chemistry → Physics → Mathematics → Logic → Philosophy. Trace phenomena to their governing layer (e.g. behaviour → psychological mechanism → biological substrate → chemical process → physical law). This supports indefinite mapping of the tree of knowledge and progression to L7 SFIA.
 
 3. **Source:** [Hierarchy of the sciences (Wikipedia)](https://en.wikipedia.org/wiki/Hierarchy_of_the_sciences)
+
+## Template loading (entry point → template)
+
+When the user selects or states an entry point (subject, phase, chapter, topic, page):
+
+- **Resolve template:** Use **page-type resolution (MECE)** in `docs/ai/implementation/entry-point-to-template-mapping.md` § Page-type resolution: (chapter, topic, **page**) → one of 7 page templates (page 0 → `templates/0-overview-and-summary.md`, page 1 → `templates/page-1-ultimate-blockers.md`, page 2 → `templates/page-2-ultimate-drivers.md`, page 3 → `templates/page-3-principles.md`, page 4 → `templates/page-4-components.md`, page 5 → `templates/page-5-steps-to-overcome.md`, page 7 → `templates/page-7-topic-distilled-understanding.md`). For A. Subject Roadmap use `templates/A-subject-roadmap-and-level-specifications.md`.
+- **Load template:** Read that template file to load the canonical structure (questions × components, target table format). If the template file does not exist, use `templates/0-overview-and-summary.md` as fallback.
+- **Scope context:** Scope the conversation and any proposed doc updates to this entry only: one target file and one section (page) per `ile-conversation-to-doc-mapping.md`. Do not mix content from other entry points in the same exchange.
+
+## Conversation → Doc (read/write)
+
+When conducting a learning conversation and updating the Learning Book from the conversation (T-202):
+
+- **Agent as teacher:** In learning conversations, the Agent must **teach**, not only answer: **elicit** (e.g. ask or clarify before giving the answer), **check understanding** (e.g. confirm in learner's terms), and **apply UDS/UBS** (support drivers, mitigate blockers). See Effective Execution Manifesto § State A (UDO, UDS, UBS).
+- **Target table format:** When writing to a page, place content in the **target table format**: a table with canonical question columns and a **SUBJECT CONTENT** row; content goes in the cells corresponding to the questions for that page. Do not replace the table with prose or standalone headings/bullets.
+- **Entry point:** A **particular page within a topic** — (chapter, topic, **page**). Page ∈ {0,1,2,3,4,5,7} per tree map § 6 Pages per Topic. Target file = one per (chapter, topic); target section = that page (component/row).
+- **Mapping rule:** Use `docs/ai/implementation/ile-conversation-to-doc-mapping.md` to resolve the **target file path** and **section** from current **subject** + **phase** + **entry point**. Folder names under phase use short form per `learning-book/README.md` (e.g. `1. UBS`, not "1. Ultimate Blocking System").
+- **Read:** When loading context for the current entry point, read the target file (and relevant section) per the mapping. If the file does not exist, treat as empty and use template structure for proposed content.
+- **Write:** When the user approves an update from the conversation, write to the target file/section per the mapping. Do not write to a different file/section than the one resolved from current subject + phase + entry point. One exchange (or one Q&A chunk) maps to one file and optionally one section; you can point to the exact file and section (SustainAdv-AC3).
+- **RACI:** No write without Learner approval (per ILE Effective Learning Contract). Propose the update; wait for "Approve" or "Confirm" before writing.

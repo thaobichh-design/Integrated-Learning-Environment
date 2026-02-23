@@ -18,7 +18,7 @@ One Learning Book per COE Area. This structure validates SustainAdv-AC1: same pa
 │   ├── 2. UDS/   (Ultimate Driving System)
 │   ├── 3. EPS/   (Effective Principle System)
 │   ├── 4. UES/   (Ultimate Effective System)
-│   └── 5. EOP/   (Effective Operating Process)
+│   └── 5. EOP/   (Effective Operating Procedure)
 ├── D. Distill Understanding/
 └── E. Express Expertise/
 ```

@@ -43,7 +43,7 @@ E. Express Expertise — Your proof of mastery
 ```
 
 - **Capture:** Gather raw facts and information. The Agent helps you capture without losing structure.
-- **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Process (EOP). *You* articulate; the Agent writes into the right section.
+- **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Procedure (EOP). *You* articulate; the Agent writes into the right section.
 - **Distill:** Compress Organise Information into the Distill Understanding format. The Agent helps condense on demand.
 
 **Consumption is in-scope.** Digestion (reflection, practice, internalisation) is explicitly *outside* the system—you do that in your head and in the real world.
@@ -118,7 +118,7 @@ learning-book/
 │   │   ├── 2. UDS/   (Ultimate Driving System)
 │   │   ├── 3. EPS/   (Effective Principle System)
 │   │   ├── 4. UES/   (Ultimate Effective System)
-│   │   └── 5. EOP/   (Effective Operating Process)
+│   │   └── 5. EOP/   (Effective Operating Procedure)
 │   ├── D. Distill Understanding/
 │   └── E. Express Expertise/
 templates/                           # Universal templates (A, B/C, D, E)

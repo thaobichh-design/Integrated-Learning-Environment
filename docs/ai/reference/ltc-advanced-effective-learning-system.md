@@ -699,7 +699,7 @@ Environment design follows the same two-sub-category structure as EPS. Risk Mana
 
 ---
 
-#### 3. Effective Operating Process (EOP)
+#### 3. Effective Operating Procedure (EOP)
 
 The EOP below is structured in line with a standard SOP: **Section 3. Roles & Assignments** (RACI) and **Section 4. Procedures & Responsibilities** (step-by-step with Required Input, Desired Output, RACI per step, Operating Tools, Typical Blockers, References, and Derisk). The roles are set as: **Responsible** = Agent, **Accountable** = Learner, **Consulted** = Tester / Expert of the subject domain, **Informed** = Peers within LTC Company.
 
