@@ -44,9 +44,9 @@ From the planning doc (Execution Matrix + Master Scope Mapping Table B), collect
 
 **Reflection prompt:**
 > *Based on the evidence above:*
-> 1. *Does the original UDO still describe what the User actually wants?*
-> 2. *Have we discovered new Blockers (UBS) or Drivers (UDS) during this iteration?*
-> 3. *Does the scope for the next iteration still make sense, or should we re-plan?*
+> 1. *Does the original UDO still describe what the User actually wants?* What would have to be true for the UDO to be wrong or incomplete?
+> 2. *Have we discovered new Blockers (UBS) or Drivers (UDS) during this iteration?* Have we discovered new Nouns, Verbs, or Adverbs we care about (e.g. a capability that should be first-class)?
+> 3. *Does the scope for the next iteration still make sense, or should we re-plan?* Any outcomes from this iteration that should change what we do in the next iteration? Re-plan = run /state-a to update requirements, design, and planning.
 >
 > *Reply "Proceed to Iteration N+1" to advance, "Re-plan" to run /state-a, or share your thoughts for discussion.*
 

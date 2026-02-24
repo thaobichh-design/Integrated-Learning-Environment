@@ -11,7 +11,7 @@ feature: integrated-learning-environment
 * **Iteration 1: Concept (Validate the Wrapper & Verb):** Prove the User wants the ILE (learn-and-capture in one environment) and that the core action solves the root blocker (no chat→docs handoff). Validate desirability of phase → entry point → template → conversation flow.
 * **Iteration 2: Working Prototype (Validate the Core & Sustainability):** Prove the Effective Core is feasible: persistent memory + real-time Markdown update + template loading. Prove structure is deterministic (Learning Book hierarchy, templates).
 * **Iteration 3: Minimum Viable Enablement / MVE (Validate Efficiency):** Fuse Wrapper and Core. Full SOP in one workspace; zero-friction capture; progress persisted; Subject Roadmap (A) surfaced and entry points informed by level.
-* **Iteration 4: Enablement Leadership (Validate Scalability):** COE map representation; user→ClickUp mapping; sync to company space; configurable hierarchy/templates/space for reuse (other ClickUp spaces, other template sets).
+* **Iteration 4: Enablement Leadership (Validate Scalability):** COE map representation; user→ClickUp mapping; sync to company space; configurable hierarchy/templates/space for reuse (other ClickUp spaces, other template sets). Operational hardening: health check, integration smoke test, concrete session walkthrough, lightweight runtime stats, doc duplication reduction, session recording for analytics, multi-user validation.
 
 ## 1.2 Master Scope Mapping
 *Goal: One single source of truth for which Acceptance Criterion (from Requirements) is tackled in which Iteration. Must be MECE — each A.C. appears exactly once.*
@@ -25,7 +25,7 @@ feature: integrated-learning-environment
 | **1** | Verb-AC1, Verb-AC2, Verb-AC3, SustainAdv-AC1 |
 | **2** | Verb-AC4, Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC1, Noun-AC2, Noun-AC3, Noun-AC4, Noun-AC5, SustainAdj-AC1, SustainAdj-AC2, SustainAdj-AC3 |
 | **3** | EffAdv-AC1, EffAdv-AC2, EffAdv-AC3, **EffAdv-AC4**, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3, **EffAdj-AC4**, **EffAdj-AC5**, Noun-AC9, **Noun-AC11**, **Verb-AC9**, **Verb-AC10** |
-| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, **ScalAdv-AC5**, Noun-AC6, Noun-AC7, Noun-AC8, **Noun-AC10**, **Noun-AC12**, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4 |
+| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, **ScalAdv-AC5**, Noun-AC6, Noun-AC7, Noun-AC8, **Noun-AC10**, **Noun-AC12**, **Noun-AC13**, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4, **SustainAdj-AC4**, **SustainAdj-AC5** |
 
 *Use this table to see at a glance which A.C. are tackled in each iteration. For requirement text, evidence, and status, use Table B.*
 
@@ -59,25 +59,28 @@ feature: integrated-learning-environment
 | EffAdj-AC3 | User can switch entry point or phase without losing in-progress context for current entry (draft retained or committed before switch). | 3 | Rule § Before entry/phase switch (Step 7, commit to doc + A before switch); contract § Step 7; T-302 approved. | 🟢 |
 | Noun-AC9 | ILE can surface user's current mastery level and relevant Subject Roadmap (A) content so user can respect level-appropriate progression. | 3 | `ile-phase-and-entry-points.md` §4 (T-303): surface in chat current level + level requirements + next-step recommendations; rule § Present entry points; T-301, T-303 approved. | 🟢 |
 | **Verb-AC9** | User experiences a clear completion moment after each chunk (e.g. one entry point or one component completed). | 3 | Rule § Completion moment and progress summary (T-304); `ile-minimal-flow.md` § T-304; T-304 approved. | 🟢 |
-| **Verb-AC10** | User can view progress and, where implemented, stats/achievements (e.g. streaks, completed entry points). | 3, 4 | I3: progress summary in chat (rule § T-304, flow § T-304); T-304 approved; I4: T-405, T-406. | 🟢 |
+| **Verb-AC10** | User can view progress and, where implemented, stats/achievements (e.g. streaks, completed entry points). | 3, 4 | I3: progress summary in chat (rule § T-304); T-304 approved; I4: T-405, T-406; `ile-stats-achievements-streaks.md`, dashboard Stats stub; T-406 approved. | 🟢 |
 | **EffAdv-AC4** | User receives immediate feedback after completing one chunk so completion is visible and rewarding. | 3 | Completion moment + optional reward per rule § T-304; T-304 approved. | 🟢 |
 | **EffAdj-AC4** | Completion of a chunk is signalled clearly (e.g. confirmation message, optional lightweight reward). | 3 | Rule § Completion moment and progress summary (T-304); T-304 approved. | 🟢 |
 | **EffAdj-AC5** | Engagement features do not add mandatory steps to the core flow; they are additive and optional. | 3 | Rule § T-304: "No new UI; no mandatory steps"; flow § T-304; T-304 approved. | 🟢 |
-| **Noun-AC11** | ILE surfaces progress (and, where implemented, stats/achievements) in-conversation and/or via UI. | 3, 4 | I3: progress summary in chat (rule § T-304); T-304 approved; I4: T-405, T-406. | 🟢 |
-| ScalAdv-AC1 | Same SOP (phase → entry points → template load → conversation → doc update) applies to any subject within Learning Book structure. | 4 | SOP applies to any subject; flow unchanged. | ⚪ |
-| ScalAdv-AC2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing core flow; only content and entry points change. | 4 | New subject = new content/entry points; core flow unchanged. | ⚪ |
-| ScalAdv-AC3 | System can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression. | 4 | A and Learning Map referenced; scaling with L1–L7. | ⚪ |
-| ScalAdv-AC4 | Sync from user's Book (local or Google Drive) to company's ClickUp respects COE map and places content in user's respective location. | 4 | Sync to ClickUp implemented or stubbed; COE map and user location respected. | ⚪ |
-| Noun-AC6 | ILE has a defined representation of LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | 4 | COE map representation defined and implemented. | ⚪ |
-| Noun-AC7 | ILE can map a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | 4 | User→ClickUp location mapping implemented. | ⚪ |
-| Noun-AC8 | ILE supports (or will support) syncing user's learning from their Book to company's ClickUp in correct place (COE and User mapping). | 4 | Sync to ClickUp implemented or stubbed; correct place per COE/User mapping. | ⚪ |
-| ScalAdj-AC1 | New subjects reuse same Learning Book template (A. Subject Roadmap, B. Capture Facts & Data, C. Organise Information, D. Distill Understanding, E. Express Expertise). | 4 | Template reused for new subjects. | ⚪ |
-| ScalAdj-AC2 | New entry points or templates can be added via configuration or defined structure without changing core integration (chat + memory + doc). | 4 | Configurable entry points/templates; core integration unchanged. | ⚪ |
-| ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking core flow. | 4 | Optional capabilities addable without breaking flow. | ⚪ |
-| ScalAdj-AC4 | ILE pattern can be applied to other ClickUp spaces and different doc template sets; hierarchy, templates, space mapping configurable. | 4 | Hierarchy, templates, ClickUp space mapping configurable (e.g. per workspace or mode). | ⚪ |
+| **Noun-AC11** | ILE surfaces progress (and, where implemented, stats/achievements) in-conversation and/or via UI. | 3, 4 | I3: progress summary in chat (rule § T-304); T-304 approved; I4: T-405, T-406; `ile-stats-achievements-streaks.md`, dashboard Stats stub; T-406 approved. | 🟢 |
+| ScalAdv-AC1 | Same SOP (phase → entry points → template load → conversation → doc update) applies to any subject within Learning Book structure. | 4 | `ile-minimal-flow.md` (same SOP); phase → entry points → template load → conversation → doc update; applies to any subject in Learning Book structure. | 🟢 |
+| ScalAdv-AC2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing core flow; only content and entry points change. | 4 | learning-book/README.md (new subject = new root folder + same structure); `config/ile.yaml`, coe-map; T-102, T-404. | 🟢 |
+| ScalAdv-AC3 | System can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression. | 4 | `ile-phase-and-entry-points.md`, `entry-point-to-template-mapping.md`; A and Learning Map referenced; L1–L7 in A. | 🟢 |
+| ScalAdv-AC4 | Sync from user's Book (local or Google Drive) to company's ClickUp respects COE map and places content in user's respective location. | 4 | `ile-sync-clickup.md`, `scripts/sync-learning-book-to-clickup-dryrun.sh`; T-403 approved. | 🟢 |
+| Noun-AC6 | ILE has a defined representation of LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | 4 | `docs/ai/implementation/ile-coe-map.md`, `config/coe-map.yaml`; T-401 approved. | 🟢 |
+| Noun-AC7 | ILE can map a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | 4 | `ile-user-clickup-mapping.md`, `scripts/resolve-user-clickup-location.sh`, `config/coe-map.yaml`; T-402 approved. | 🟢 |
+| Noun-AC8 | ILE supports (or will support) syncing user's learning from their Book to company's ClickUp in correct place (COE and User mapping). | 4 | `ile-sync-clickup.md`, `scripts/sync-learning-book-to-clickup-dryrun.sh`; T-403 approved. | 🟢 |
+| ScalAdj-AC1 | New subjects reuse same Learning Book template (A. Subject Roadmap, B. Capture Facts & Data, C. Organise Information, D. Distill Understanding, E. Express Expertise). | 4 | learning-book/README.md (same folder layout A/B/C/D/E); T-102; Design § Scalability (1). | 🟢 |
+| ScalAdj-AC2 | New entry points or templates can be added via configuration or defined structure without changing core integration (chat + memory + doc). | 4 | `entry-point-to-template-mapping.md`, templates in repo; `config/ile.yaml` templates_path; T-203, T-404. | 🟢 |
+| ScalAdj-AC3 | Optional future capabilities (e.g. Audio Overview, Infographics, Quiz) can be added without breaking core flow. | 4 | Design § Scalability (3); dedicated UI and stats optional (T-405, T-406); core flow unchanged. | 🟢 |
+| ScalAdj-AC4 | ILE pattern can be applied to other ClickUp spaces and different doc template sets; hierarchy, templates, space mapping configurable. | 4 | `config/ile.yaml`, `ile-configurable-mapping.md`; ILE_LEARNING_BOOK_ROOT in dry-run; T-404 approved. | 🟢 |
 | **ScalAdv-AC5** | **Usage analytics (options open):** Product owner can obtain quality data from ILE usage (incl. vocal feedback) so Descriptive, Diagnostic, Predictive, Prescriptive analytics can drive feature development and bug fixes; data sources and implementation remain open. | 4 | Data collection/management supports four analytics types; evidence TBD per chosen implementation. | ⚪ |
 | **Noun-AC10** | **Usage data for analytics (options open):** ILE supports (or will support) data collection and management of usage data for Descriptive, Diagnostic, Predictive, Prescriptive analytics to drive features and bug fixes; implementation options remain open. | 4 | Robust usage data available for four analytics types; evidence TBD per chosen implementation. | ⚪ |
-| **Noun-AC12** | **Optional dedicated UI:** ILE may provide a dedicated UI for progress, entry points, and stats (e.g. Duolingo-style dashboard) as an optional entry point. | 4 | Dedicated UI for progress/entry points/stats implemented or stubbed; T-405, T-406. | ⚪ |
+| **Noun-AC12** | **Optional dedicated UI:** ILE may provide a dedicated UI for progress, entry points, and stats (e.g. Duolingo-style dashboard) as an optional entry point. | 4 | `ile-dedicated-ui.md`, `ile-dashboard-stub.html`; T-405 approved; T-406 for stats. | 🟢 |
+| **Noun-AC13** | **Concrete session walkthrough:** A documented real-session transcript (not abstract) shows step-by-step what happens (user input, Agent response, file changes); onboarding and regression reference. | 4 | Evidence TBD per T-409. | ⚪ |
+| **SustainAdj-AC4** | **System health check:** Single command validates config (`ile.yaml`, `coe-map.yaml`) parseable and schema-valid (required keys/structure for both), templates exist for all page types, learning-book structure correct, A exists for at least one subject, rules present. Output: "system is healthy" or list of issues. | 4 | Evidence TBD per T-407. | ⚪ |
+| **SustainAdj-AC5** | **Integration smoke test:** Repeatable script validates dry-run sync output format and all Learning Book files map to valid PLAs in COE map. | 4 | Evidence TBD per T-408. | ⚪ |
 
 *Populated from Requirements Phase 3. Use Table A to see scope per iteration; use Table B to trace each A.C. to its requirement and evidence.*
 
@@ -85,6 +88,8 @@ feature: integrated-learning-environment
 
 # 2. EXECUTION MATRIX (Micro Sequencing)
 *Tasks are derived from the Master Scope Mapping above. Implementation details (how to build) come from Design. Do not invent new scope here.*
+
+**Traceability rule:** Every A.C. in Table A for an iteration must be linked to at least one task (or prior work) and have explicit deterministic evidence in Table B. When adding tasks for an iteration, verify each A.C. in scope has evidence; if an A.C. is satisfied by prior structure, set Table B evidence to the relevant task(s) and doc(s).
 
 ## 2.2 Iteration Sequencing
 
@@ -124,18 +129,25 @@ feature: integrated-learning-environment
 | **T-304** | **Engagement light:** Deliver a clear completion moment after each chunk (e.g. one component or entry point) and a progress summary in chat (e.g. "X of Y completed for this phase"); Agent behavior only, no new UI. Ensures engagement does not add mandatory steps. | Engagement / Return | T-303 | 🟢 Reviewed/Tested |
 
 ### ITERATION 4: ENABLEMENT LEADERSHIP
-*Focus: Scalability, COE map, ClickUp mapping, sync, configurable.*
+*Focus: Scalability, COE map, ClickUp mapping, sync, configurable, operational hardening.*
 
-**Active A.C. in Scope:** ScalAdv-AC1..AC5, Noun-AC6..AC8, Noun-AC10, Noun-AC12, ScalAdj-AC1..AC4
+**Active A.C. in Scope:** ScalAdv-AC1..AC5, Noun-AC6..AC8, Noun-AC10, Noun-AC12, Noun-AC13, ScalAdj-AC1..AC4, SustainAdj-AC4, SustainAdj-AC5
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-401** | Define and implement the ILE's representation of the LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | Scalability | T-304 | 🔴 To Do |
-| **T-402** | Implement mapping of a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | Scalability | T-401 | 🔴 To Do |
-| **T-403** | Implement (or stub and document) sync of the user's Book (local or Google Drive) to the company's ClickUp in the correct place using the COE map and user mapping. | Scalability | T-402 | 🔴 To Do |
-| **T-404** | Make hierarchy, templates, and ClickUp space mapping configurable (e.g. per workspace or mode) so the ILE pattern can be applied to other ClickUp spaces and different doc template sets. | Reusability | T-403 | 🔴 To Do |
-| **T-405** | **Engagement full — dedicated UI:** Implement or stub a dedicated UI for progress, entry points, and optional stats (e.g. Duolingo-style dashboard) as an optional entry point; in-conversation progress remains sufficient for minimum engagement. | Engagement / Scalability | T-304 | 🔴 To Do |
-| **T-406** | **Engagement full — stats/achievements/streaks:** Implement (or stub and document) stats, achievements, and streaks (e.g. completed entry points, daily return) so the user can view progress and sustain motivation; optional to consume, no mandatory steps. | Engagement / Return | T-405 | 🔴 To Do |
+| **T-401** | Define and implement the ILE's representation of the LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | Scalability | T-304 | 🟢 Reviewed/Tested |
+| **T-402** | Implement mapping of a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | Scalability | T-401 | 🟢 Reviewed/Tested |
+| **T-403** | Implement (or stub and document) sync of the user's Book (local or Google Drive) to the company's ClickUp in the correct place using the COE map and user mapping. | Scalability | T-402 | 🟢 Reviewed/Tested |
+| **T-404** | Make hierarchy, templates, and ClickUp space mapping configurable (e.g. per workspace or mode) so the ILE pattern can be applied to other ClickUp spaces and different doc template sets. | Reusability | T-403 | 🟢 Reviewed/Tested |
+| **T-405** | **Engagement full — dedicated UI:** Implement or stub a dedicated UI for progress, entry points, and optional stats (e.g. Duolingo-style dashboard) as an optional entry point; in-conversation progress remains sufficient for minimum engagement. | Engagement / Scalability | T-304 | 🟢 Reviewed/Tested |
+| **T-406** | **Engagement full — stats/achievements/streaks:** Implement (or stub and document) stats, achievements, and streaks (e.g. completed entry points, daily return) so the user can view progress and sustain motivation; optional to consume, no mandatory steps. | Engagement / Return | T-405 | 🟢 Reviewed/Tested |
+| **T-407** | **Health check command:** Add a `/health` command (or extend `/status`) that validates in one pass: config files `config/ile.yaml` and `config/coe-map.yaml` parseable **and** pass schema validation (required keys and structure for both; wrong key or missing field → enumerated issue); templates exist for all page types; learning-book structure passes `check-learning-book-structure.sh`; A exists for at least one subject; rules (`.cursor/rules/ile-*.mdc`) present. Output: "system is healthy" or enumerated list of issues. | Sustainability / Hardening | T-406 | ⚪ Pending |
+| **T-408** | **Integration smoke test:** Create a script that runs `sync-learning-book-to-clickup-dryrun.sh`, validates the output format (expected fields and structure), and checks that all Learning Book files map to a valid PLA in `config/coe-map.yaml`. Repeatable smoke test for sync pipeline. | Sustainability / Hardening | T-407 | ⚪ Pending |
+| **T-409** | **Concrete session walkthrough:** Document a real session as a step-by-step transcript (not abstract): "I typed X, the Agent did Y, the file at Z was updated with W." Concrete onboarding reference and regression baseline beyond `docs/ai/examples/walkthrough.md`. | Documentation / Onboarding | T-407 | ⚪ Pending |
+| **T-410** | **Lightweight runtime stats:** Create a small script (Python or Node) that reads `config/ile.yaml` + `config/coe-map.yaml` + A's Session Log and computes stats (completed entry points, streak, last session). Dashboard gets real data without depending on the Agent; validates config files are consumable by code. | Scalability / Analytics | T-406 | ⚪ Pending |
+| **T-411** | **Reduce doc duplication:** Make `config/coe-map.yaml` the single source of truth for the COE hierarchy; update other docs that re-describe the hierarchy to reference `coe-map.yaml` instead. | Sustainability / Single source of truth | T-401 | ⚪ Pending |
+| **T-412** | **Session recording for analytics:** When a learning session happens, append structured events (session start, entry point selected, chunk completed, session end) to a simple JSON log. Lightest path to ScalAdv-AC5 / Noun-AC10 (usage analytics) without choosing a full analytics platform. | Scalability / Analytics | T-410 | ⚪ Pending |
+| **T-413** | **Test multi-user:** Add a second user to `config/coe-map.yaml`, run the dry-run sync, and verify the output maps correctly for both users. Low effort; validates the design assumption that COE map and user→PLA mapping scales per user. | Scalability / Validation | T-408 | ⚪ Pending |
 
 ---
 
@@ -164,4 +176,4 @@ feature: integrated-learning-environment
 
 ---
 
-*Last updated: Commands & rules §4 added; Roadmap Discovery + Agent-as-teacher (Verb-AC6/7/8) in rules. Table A/B MECE. Ready for State B: execute one task at a time with `/state-b`.*
+*Last updated: T-407 extended for schema validation of both `config/ile.yaml` and `config/coe-map.yaml`. I4 hardening T-407..T-413; Table A/B SustainAdj-AC4, AC5, Noun-AC13. Ready for State B: execute one task at a time with `/state-b`.*

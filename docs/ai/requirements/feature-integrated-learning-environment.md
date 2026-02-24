@@ -131,6 +131,7 @@ feature: integrated-learning-environment
 | Noun-AC10 | **Usage data for analytics (options open):** The ILE supports (or will support) **data collection and data management** of usage data so that quality inputs are available for Descriptive, Diagnostic, Predictive, and Prescriptive analytics to drive feature development and bug fixes. Implementation options (e.g. A + Session Log as primary source, optional event stream, sync pipeline, vocal feedback as first-class input) remain open; the requirement is that the operator can get robust, usable data for the four analytics types. |
 | Noun-AC11 | The ILE surfaces progress (and, where implemented, stats/achievements) **in-conversation** and/or via UI so the user can see completion and return daily without leaving the flow. |
 | Noun-AC12 | **Optional dedicated UI:** The ILE may provide a dedicated UI for progress, entry points, and stats (e.g. Duolingo-style dashboard) as an optional entry point; in-conversation progress remains sufficient for minimum engagement. |
+| Noun-AC13 | **Concrete session walkthrough:** A documented real-session transcript (not abstract) shows step-by-step what happens in a real learning session: user input, Agent response, file changes; serves as onboarding reference and regression baseline. |
 
 **Adjectives (Attributes of the Noun)**
 
@@ -141,6 +142,8 @@ feature: integrated-learning-environment
 | SustainAdj-AC1 | All writes to the Learning Book conform to the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C). |
 | SustainAdj-AC2 | Template loading uses the canonical component set (e.g. Overview, UBS, UDS, EPS, UES, EOP) and question set; no ad hoc structure is introduced without definition. |
 | SustainAdj-AC3 | User can verify (e.g. by inspection or a single check command) that the repo still matches the expected structure after updates. |
+| SustainAdj-AC4 | **System health check:** User can run a single command that validates: config files `config/ile.yaml` and `config/coe-map.yaml` parseable and schema-valid (required keys and structure for both; wrong key or missing field reported), templates exist for all page types, learning-book structure correct, A exists for at least one subject, and rules are present. Output is "system is healthy" or a list of specific issues. |
+| SustainAdj-AC5 | **Integration smoke test:** A repeatable script validates that dry-run sync produces correct output format and all Learning Book files map to valid PLAs in the COE map. |
 
 * **Efficiency Adjective:** *Zero-friction capture* — No extra steps for "saving" or "exporting" from chat to doc.
 
@@ -163,4 +166,4 @@ feature: integrated-learning-environment
 
 ---
 
-*Last updated: State A Sub-Step 4 approved (engagement A.C. + 4-iteration roadmap). Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Ready for State B.*
+*Last updated: Hardening A.C. added (SustainAdj-AC4, SustainAdj-AC5, Noun-AC13) for I4 short & medium term hardening. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Ready for State B.*

@@ -56,6 +56,18 @@ The product owner (or ILE operator) must be able to obtain **quality data from I
 * **I3 — Engagement light (T-304):** Agent behavior only. After each chunk (e.g. one component or entry point completed), the Agent delivers a **completion moment** (explicit confirmation; optional lightweight reward). The Agent can surface a **progress summary in chat** (e.g. "X of Y completed for this phase"). No new UI; no mandatory steps. Data source: same as Session Log / A (what’s completed per phase/entry).
 * **I4 — Engagement full (T-405, T-406):** Optional **dedicated UI** for progress, entry points, and stats (Duolingo-style dashboard). Optional **stats, achievements, streaks** (e.g. completed entry points, daily return). In-conversation progress remains sufficient for minimum engagement; dedicated UI and stats are additive and optional to consume.
 
+### 1.6 Operational hardening (I4)
+
+**Goal:** Ensure the ILE is reliable, self-diagnosable, and testable before the project scales or onboards others. Hardening does not change the core flow; it adds validation, documentation, and lightweight runtime capabilities.
+
+* **Health check (SustainAdj-AC4):** Single command validates all config, templates, structure, A, and rules. For **`config/ile.yaml`** and **`config/coe-map.yaml`**: validate parseable (syntax) and schema-valid (required keys and structure; wrong key or missing field → enumerated issue). Enables "is the system set up correctly?" before a learning session.
+* **Integration smoke test (SustainAdj-AC5):** Repeatable script validates dry-run sync output and PLA mapping. Catches regressions in the COE map / user mapping pipeline.
+* **Concrete session walkthrough (Noun-AC13):** Real-session transcript (user typed X → Agent did Y → file Z updated with W). Onboarding reference and regression baseline beyond the abstract walkthrough.
+* **Lightweight runtime stats (Noun-AC11, Verb-AC10, ScalAdv-AC5, Noun-AC10):** Small script (Python or Node) reads `config/ile.yaml` + `config/coe-map.yaml` + A's Session Log; computes completed entry points, streak, last session. Dashboard gets real data without depending on the Agent; validates config files are consumable by code.
+* **Doc duplication reduction (SustainAdj-AC1):** Make `config/coe-map.yaml` the single source of truth for COE hierarchy; other docs reference it instead of re-describing the hierarchy.
+* **Session recording for analytics (ScalAdv-AC5, Noun-AC10):** Append structured events (session start, entry point selected, chunk completed, session end) to a simple JSON log. Lightest path to usage analytics without choosing a full analytics platform.
+* **Multi-user validation (Noun-AC7, ScalAdv-AC4):** Add a second user to `config/coe-map.yaml`, run the dry-run, verify output. Validates the design assumption that mapping scales per user.
+
 ---
 
 # 2. TECHNICAL ARCHITECTURE (The Noun)
@@ -118,8 +130,8 @@ flowchart LR
 
 *Map each attribute below to the corresponding Requirements A.C. IDs and to the Planning iteration where that A.C. is validated. Design defines how; Requirements and Planning define what and when.*
 
-* **Sustainability (Risk/Safety):** Structure-faithful — SustainAdj-AC1..AC3. *Validated in:* Iteration 2 (Working Prototype).
-  * **Exact Implementation Strategy:** (1) All writes to the Learning Book go through a single logical path: Agent writes only to paths that match the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C); path resolution is deterministic from current subject + phase + entry point. (2) Template loading reads only from canonical repo files; component set (Overview, UBS, UDS, EPS, UES, EOP) and question set are defined in template config—no ad hoc structure at runtime. (3) A check script or manual step verifies that the repo folder structure and key files still match the expected layout after updates; run on demand or before marking a task done.
+* **Sustainability (Risk/Safety):** Structure-faithful — SustainAdj-AC1..AC5. *Validated in:* Iteration 2 (Working Prototype) for AC1–AC3; Iteration 4 (Leadership) for AC4–AC5.
+  * **Exact Implementation Strategy:** (1) All writes to the Learning Book go through a single logical path: Agent writes only to paths that match the defined hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C); path resolution is deterministic from current subject + phase + entry point. (2) Template loading reads only from canonical repo files; component set (Overview, UBS, UDS, EPS, UES, EOP) and question set are defined in template config—no ad hoc structure at runtime. (3) A check script or manual step verifies that the repo folder structure and key files still match the expected layout after updates; run on demand or before marking a task done. (4) **System health check (SustainAdj-AC4, I4):** A single `/health` command (or extension of `/status`) validates in one pass: **config files** `config/ile.yaml` and `config/coe-map.yaml` **parseable and schema-valid** (required keys and structure for both; wrong key or missing field → enumerated issue; schema per `ile-configurable-mapping.md` for ile.yaml, per `ile-coe-map.md` / `config/coe-map.yaml` for coe-map); templates exist for all page types (7 pages); learning-book structure passes `check-learning-book-structure.sh`; A exists for at least one subject; rules (`.cursor/rules/ile-*.mdc`) are present. Output: "system is healthy" or enumerated list of issues. (5) **Integration smoke test (SustainAdj-AC5, I4):** A repeatable script runs the dry-run sync (`sync-learning-book-to-clickup-dryrun.sh`), validates the output format (expected fields and structure), and checks that every Learning Book file maps to a valid PLA in `config/coe-map.yaml`. Catches mapping regressions before real sync.
 
 * **Efficiency (Speed/Utility):** Zero-friction capture — EffAdj-AC1..AC3. *Validated in:* Iteration 3 (MVE).
   * **Exact Implementation Strategy:** (1) No separate "export" or "copy from chat and paste into doc" step: Agent writes to Markdown as part of the same conversation turn (e.g. after user confirms or at end of a logical chunk); the mechanism is "conversation scope → target file/section → write". (2) Updates are triggered by the conversation (Agent proposes write or user says "save"; trigger is explicit and repeatable). (3) When user switches entry point or phase, in-progress context for the current entry is either retained in session (e.g. draft in memory) or committed to the doc (written to Markdown) before the switch so no loss of draft.
@@ -147,4 +159,4 @@ flowchart LR
 
 ---
 
-*Last updated: Aligned with template 1.1.0. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Full design (§2–4) refined in State B.*
+*Last updated: §1.6 Operational hardening + §3 Sustainability extended (SustainAdj-AC4, AC5). Aligned with template 1.1.0. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Full design (§2–4) refined in State B.*
