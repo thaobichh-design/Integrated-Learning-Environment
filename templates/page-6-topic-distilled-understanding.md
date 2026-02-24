@@ -4,7 +4,7 @@
 
 **Canonical reference:** Full subject-level structure and column definitions are in `templates/D-distilled-understanding-full.md`. Spec and page→block mapping: `docs/ai/implementation/distilled-understanding-template-spec.md`.
 
-Page 7 = **one topic’s slice** of the D. Distilled Understanding table: same column set (OVERVIEW | SUCCESS 7 | FAILURE 6 | LEARNER'S NOTES 3), rows = that topic’s sub-topics (e.g. UBS → 1.0–1.6). All content from pages 0–6 for that topic maps into these rows.
+Page 7 = **one topic's slice** of the D. Distilled Understanding table: same column set (OVERVIEW | SUCCESS 7 | FAILURE 6 | LEARNER'S NOTES 3), rows = that topic's sub-topics (e.g. UBS → 1.0–1.6). All content from pages 0–6 for that topic maps into these rows.
 
 ## Target table format
 
@@ -18,8 +18,8 @@ Page 7 = **one topic’s slice** of the D. Distilled Understanding table: same c
 <th colspan="18"><strong>TOPIC DISTILLED UNDERSTANDING (Page 7)</strong></th>
 </tr>
 <tr>
-<th rowspan="2"><strong>ROW LABEL</strong><br/><strong>SUBJECT CONTENT</strong></th>
-<th colspan="1"><strong>OVERVIEW</strong></th>
+<th rowspan="2"><strong></strong><br/><strong></strong></th>
+<th colspan="2"><strong>OVERVIEW</strong></th>
 <th colspan="7"><strong>SUCCESS</strong></th>
 <th colspan="6"><strong>FAILURE</strong></th>
 <th colspan="3"><strong>LEARNER'S NOTES</strong></th>

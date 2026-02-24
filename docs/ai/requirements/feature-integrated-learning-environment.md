@@ -81,6 +81,8 @@ feature: integrated-learning-environment
 | Verb-AC6 | **Agent as world-class professional:** The Agent acts as a world-class professional in the subject matter being learned; responses are expert-level and grounded in the domain and, when available, in Phase B. Capture Facts & Data source materials. |
 | Verb-AC7 | **Agent asks clarifying questions:** The Agent asks clarifying questions to understand the Learner's current understanding and desired outcome for the subject or entry point, so that guidance is tailored and level-appropriate. |
 | Verb-AC8 | **Agent generates possibilities; Learner chooses:** During learning, the Agent generates multiple possibilities (e.g. candidate answers, options) based on its knowledge and/or source materials provided in Phase B. Capture Facts & Data; the Agent presents these for the Learner to contemplate and choose which possibilities to append to the page; the Agent does not append content to the Learning Book without the Learner's explicit choice or approval. |
+| Verb-AC9 | **Completion moment:** User experiences a clear completion moment after each chunk (e.g. one entry point or one component completed) so learning feels incremental and finishable. |
+| Verb-AC10 | User can view progress and, where implemented, stats/achievements (e.g. streaks, completed entry points) to sustain motivation and return. |
 
 **Adverbs (Effectiveness Outcomes)**
 
@@ -99,6 +101,7 @@ feature: integrated-learning-environment
 | EffAdv-AC1 | User can open a session, pick one entry point, complete or partially complete it, and close; progress is persisted. |
 | EffAdv-AC2 | User can resume later without re-entering context; persistent memory and document state are sufficient to continue. |
 | EffAdv-AC3 | No mandatory "export" or "sync" step for local/Drive Book updates; updates to Markdown occur as a byproduct of the conversation (within session or defined sync rule). |
+| EffAdv-AC4 | User receives immediate feedback after completing one chunk (e.g. one component or one entry point) so completion is visible and rewarding. |
 
 * **Scalability Adverb:** *Repeatedly* — Same flow works across subjects and over the L1–L7 journey.
 
@@ -126,6 +129,8 @@ feature: integrated-learning-environment
 | Noun-AC8 | The ILE supports (or will support) **syncing** the user's learning (from their Book) **to the company's ClickUp** in the correct place, using the LTC ClickUp Space for COE and User mapping. |
 | Noun-AC9 | The ILE can **surface the user's current mastery level** and the relevant **Subject Roadmap (A)** content (e.g. level requirements, recommended sources) so the user can consciously respect level-appropriate progression and avoid scattered learning. |
 | Noun-AC10 | **Usage data for analytics (options open):** The ILE supports (or will support) **data collection and data management** of usage data so that quality inputs are available for Descriptive, Diagnostic, Predictive, and Prescriptive analytics to drive feature development and bug fixes. Implementation options (e.g. A + Session Log as primary source, optional event stream, sync pipeline, vocal feedback as first-class input) remain open; the requirement is that the operator can get robust, usable data for the four analytics types. |
+| Noun-AC11 | The ILE surfaces progress (and, where implemented, stats/achievements) **in-conversation** and/or via UI so the user can see completion and return daily without leaving the flow. |
+| Noun-AC12 | **Optional dedicated UI:** The ILE may provide a dedicated UI for progress, entry points, and stats (e.g. Duolingo-style dashboard) as an optional entry point; in-conversation progress remains sufficient for minimum engagement. |
 
 **Adjectives (Attributes of the Noun)**
 
@@ -144,6 +149,8 @@ feature: integrated-learning-environment
 | EffAdj-AC1 | No separate "copy from chat and paste into doc" step is required for content to appear in the structural Markdown. |
 | EffAdj-AC2 | Updates to the document are triggered by the conversation (e.g. Agent writes, or user confirms a write); the mechanism is defined and repeatable. |
 | EffAdj-AC3 | User can switch entry point or phase without losing in-progress context for the current entry (e.g. draft is retained or committed to the doc before switch). |
+| EffAdj-AC4 | Completion of a chunk is signalled clearly (e.g. confirmation message, optional lightweight reward) so the user feels a dopamine hit without mandatory gamification. |
+| EffAdj-AC5 | Engagement features (completion moment, progress, stats, achievements) do not add mandatory steps to the core flow; they are additive and optional to consume. |
 
 * **Scalability Adjective:** *Template-driven* — New subjects and levels use the same template and flow; sync respects company COE map.
 
@@ -156,4 +163,4 @@ feature: integrated-learning-environment
 
 ---
 
-*Last updated: State A Sub-Step 4 approved. Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Ready for State B.*
+*Last updated: State A Sub-Step 4 approved (engagement A.C. + 4-iteration roadmap). Planning: `docs/ai/planning/feature-integrated-learning-environment.md`. Ready for State B.*

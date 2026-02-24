@@ -1,14 +1,36 @@
 ---
-description: Rule for ILE Learning Book — canonical questions, Hierarchy of Science, conversation→doc mapping (read/write).
+description: Rule for ILE Learning Book — phase choice, entry points, canonical questions, Hierarchy of Science, conversation→doc mapping (read/write).
 globs: 
   - "**/learning-book/**"
   - "**/docs/ai/implementation/learning-book-tree-map.md"
   - "**/docs/ai/implementation/ile-conversation-to-doc-mapping.md"
+  - "**/docs/ai/implementation/ile-phase-and-entry-points.md"
+  - "**/docs/ai/implementation/ile-roadmap-discovery.md"
   - "**/templates/**"
 alwaysApply: false
 ---
 
-# ILE Learning Book — Canonical Questions & Hierarchy of Science
+# ILE Learning Book — Phase Choice, Entry Points, Canonical Questions
+
+## Roadmap Discovery (populate A)
+
+When **A. Subject Roadmap & Level Specifications** is missing (new Area) or the Learner asks to **(re)define** or **(re)populate** their roadmap:
+
+- Follow **`docs/ai/implementation/ile-roadmap-discovery.md`**: guide the Learner through the structured interview (Context, Goal, Learning habits, Current level & gaps, Curriculum fit, Level specifications) so A is fitted to the individual—like PM Problem Discovery / User's Requirements.
+- One block at a time; propose content for A from the Learner's answers; write only with Learner approval. Do not skip to phase/entry-point flow until A exists (or Learner explicitly defers).
+- User can invoke **`/roadmap-discovery`** to start or resume the interview.
+
+## Phase choice and entry points (T-301)
+
+When the user is in ILE context and needs to **choose phase** or **see entry points**:
+
+1. **Offer phase:** Ask: "Which phase? **B.** Capture Facts & Data | **C.** Organise Information | **D.** Distill Understanding." Wait for user to pick one.
+2. **Present entry points:** Follow `docs/ai/implementation/ile-phase-and-entry-points.md`: derive the list from the Learning Map (6 chapters × 6 topics for chosen phase); if A (Subject Roadmap) exists, **surface in chat** (T-303): state current mastery level and relevant A content (e.g. level requirements for current level, next-step recommendations) so the user can respect level-appropriate progression; then read Learner Progress Tracker, Session Log, Next Recommended Entry Point and inform the list (suggest next, last worked on, then full list by chapter).
+3. **User selects** (chapter, topic) [and optionally page] → then **load template** per Template loading below and scope context to that entry.
+
+*Full procedure: `docs/ai/implementation/ile-phase-and-entry-points.md`.*
+
+---
 
 When helping with learning content (Area, Chapter, Topic) or Learning Book structure:
 
@@ -22,7 +44,7 @@ When helping with learning content (Area, Chapter, Topic) or Learning Book struc
 
 When the user selects or states an entry point (subject, phase, chapter, topic, page):
 
-- **Resolve template:** Use **page-type resolution (MECE)** in `docs/ai/implementation/entry-point-to-template-mapping.md` § Page-type resolution: (chapter, topic, **page**) → one of 7 page templates (page 0 → `templates/0-overview-and-summary.md`, page 1 → `templates/page-1-ultimate-blockers.md`, page 2 → `templates/page-2-ultimate-drivers.md`, page 3 → `templates/page-3-principles.md`, page 4 → `templates/page-4-components.md`, page 5 → `templates/page-5-steps-to-overcome.md`, page 7 → `templates/page-7-topic-distilled-understanding.md`). For A. Subject Roadmap use `templates/A-subject-roadmap-and-level-specifications.md`.
+- **Resolve template:** Use **page-type resolution (MECE)** in `docs/ai/implementation/entry-point-to-template-mapping.md` § Page-type resolution: (chapter, topic, **page**) → one of 7 page templates (page 0 → `templates/0-overview-and-summary.md`, page 1 → `templates/page-1-ultimate-blockers.md`, page 2 → `templates/page-2-ultimate-drivers.md`, page 3 → `templates/page-3-principles.md`, page 4 → `templates/page-4-components.md`, page 5 → `templates/page-5-steps-to-overcome.md`, page 7 → `templates/page-6-topic-distilled-understanding.md`). For A. Subject Roadmap use `templates/A-subject-roadmap-and-level-specifications.md`.
 - **Load template:** Read that template file to load the canonical structure (questions × components, target table format). If the template file does not exist, use `templates/0-overview-and-summary.md` as fallback.
 - **Scope context:** Scope the conversation and any proposed doc updates to this entry only: one target file and one section (page) per `ile-conversation-to-doc-mapping.md`. Do not mix content from other entry points in the same exchange.
 
@@ -30,10 +52,31 @@ When the user selects or states an entry point (subject, phase, chapter, topic, 
 
 When conducting a learning conversation and updating the Learning Book from the conversation (T-202):
 
-- **Agent as teacher:** In learning conversations, the Agent must **teach**, not only answer: **elicit** (e.g. ask or clarify before giving the answer), **check understanding** (e.g. confirm in learner's terms), and **apply UDS/UBS** (support drivers, mitigate blockers). See Effective Execution Manifesto § State A (UDO, UDS, UBS).
+- **Agent as teacher (Verb-AC6, AC7, AC8):** In learning conversations, the Agent must **teach**, not only answer: **elicit** (e.g. ask or clarify before giving the answer), **check understanding** (e.g. confirm in learner's terms), **apply UDS/UBS** (support drivers, mitigate blockers), and **generate multiple possibilities** (candidate answers, options) for the Learner to contemplate and choose—do not append to the Learning Book without the Learner's explicit choice or approval. See Effective Execution Manifesto § State A (UDO, UDS, UBS).
 - **Target table format:** When writing to a page, place content in the **target table format**: a table with canonical question columns and a **SUBJECT CONTENT** row; content goes in the cells corresponding to the questions for that page. Do not replace the table with prose or standalone headings/bullets.
 - **Entry point:** A **particular page within a topic** — (chapter, topic, **page**). Page ∈ {0,1,2,3,4,5,7} per tree map § 6 Pages per Topic. Target file = one per (chapter, topic); target section = that page (component/row).
 - **Mapping rule:** Use `docs/ai/implementation/ile-conversation-to-doc-mapping.md` to resolve the **target file path** and **section** from current **subject** + **phase** + **entry point**. Folder names under phase use short form per `learning-book/README.md` (e.g. `1. UBS`, not "1. Ultimate Blocking System").
 - **Read:** When loading context for the current entry point, read the target file (and relevant section) per the mapping. If the file does not exist, treat as empty and use template structure for proposed content.
 - **Write:** When the user approves an update from the conversation, write to the target file/section per the mapping. Do not write to a different file/section than the one resolved from current subject + phase + entry point. One exchange (or one Q&A chunk) maps to one file and optionally one section; you can point to the exact file and section (SustainAdv-AC3).
 - **RACI:** No write without Learner approval (per ILE Effective Learning Contract). Propose the update; wait for "Approve" or "Confirm" before writing.
+
+## Before entry/phase switch (T-302)
+
+When the user requests or implies a switch of **entry point** or **phase** (e.g. "switch to Chapter 2", "go to Phase D", "pick another topic"):
+
+1. **Do not switch until Step 7 (Checkpoint) is complete.** Per `docs/ai/implementation/ile-effective-learning-contract.md`: no entry/phase switch without Step 7 approval.
+2. **Prompt to save:** Ask the Learner to confirm or approve saving current progress (e.g. "Save current progress before switching? Approve to write to the doc and update A.").
+3. **Commit before switch:** Once the Learner approves, (a) write current progress to the **target file/section** per `docs/ai/implementation/ile-conversation-to-doc-mapping.md`, (b) optionally append a row to **A's Session Log** (Date, Entry Point, Progress). Then proceed to the new entry/phase and load the new template.
+4. **No copy-paste:** All updates to the Learning Book come from this flow (conversation → propose → Learner approves → write per mapping). Never ask the user to copy from chat and paste into the doc.
+
+*Evidence for EffAdv-AC3, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3.*
+
+## Completion moment and progress summary (T-304)
+
+After each **chunk** (one component or one entry point for which the Learner has approved an update and you have written to the doc):
+
+1. **Completion moment:** Deliver a short explicit confirmation in chat (e.g. "✓ [Component/entry] updated. Chunk complete." or "Done. Another component here, or switch entry point?"). Optional: lightweight positive reinforcement (e.g. "Nice progress."). Do not add mandatory steps—this is additive only (Verb-AC9, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5).
+
+2. **Progress summary (when appropriate):** After a completion moment, or when the Learner asks (e.g. "how am I doing?"), surface in chat a brief progress summary (e.g. "This phase: you've completed [N] entry points (or components)." or "X of Y completed for this phase."). Data source: A's Session Log + current phase; infer from Session Log how many distinct entry points/components completed this phase. If A is missing, infer from conversation (Verb-AC10, Noun-AC11).
+
+*No new UI; no mandatory steps. Engagement is additive and optional to consume.*

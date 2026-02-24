@@ -6,11 +6,46 @@
 
 *Write content per row (component). Same column structure as Page 0.*
 
+<div style="overflow-x: auto;">
 
-| **ULTIMATE DRIVERS (Page 2)**                    |                            |                                                              |                                                                          |                                                                                       |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
-| ------------------------------------------------ | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------ | --------------------------------------- | --- |
-| **ROW LABEL** **SUBJECT CONTENT**                | **INTRODUCTION**           | **SUCCESS**                                                  | **FAILURE**                                                              | **LEARNER'S NOTE**                                                                    |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
-| What is it for? Why is it important? (Relevance) | What is it? (Introduction) | How does it work successfully? (Effective Operating Procedure) | What ultimately cause it to work successfully? (Ultimate Driving System) | How do the Ultimate Driving System cause it to work successfully? (Success Mechanism) | What principles are the Ultimate Driving System based on? (Effective Principle System) | What tool(s) do the ultimate drivers require to work? (Ultimate Effective System) | What environmental conditions do the ultimate drivers require to work? (Ultimate Effective System) | How can it fail? (Failure Actions) | What ultimately cause it to fail? (Ultimate Blocking System) | How do the ultimate blockers cause it to fail? (Failure Mechanism) | What principles are the ultimate blockers based on? (Risky Principles) | What tool(s) do the ultimate blockers require to work? (Risky Tools) | What environmental conditions do the ultimate blockers require to work? (Risky Environments) | What to do if it fails? (What else?) | Next Steps to Take (Now What? Now How?) |     |
-| COMPONENTS #1                                    |                            |                                                              |                                                                          |                                                                                       |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
+<table>
+<thead>
+<tr>
+<th colspan="17"><strong>COMPONENTS (Page 4)</strong></th>
+</tr>
+<tr>
+<th rowspan="2"><strong></strong><br/><strong></strong></th>
+<th colspan="2"><strong>INTRODUCTION</strong></th>
+<th colspan="6"><strong>SUCCESS</strong></th>
+<th colspan="6"><strong>FAILURE</strong></th>
+<th colspan="2"><strong>LEARNER'S NOTE</strong></th>
+</tr>
+<tr>
+<th>What is it for? Why is it important? (Relevance)</th>
+<th>What is it? (Introduction)</th>
+<th>How does it work successfully? (Effective Operating Procedure)</th>
+<th>What ultimately cause it to work successfully? (Ultimate Driving System)</th>
+<th>How do the Ultimate Driving System cause it to work successfully? (Success Mechanism)</th>
+<th>What principles are the Ultimate Driving System based on? (Effective Principle System)</th>
+<th>What tool(s) do the ultimate drivers require to work? (Ultimate Effective System)</th>
+<th>What environmental conditions do the ultimate drivers require to work? (Ultimate Effective System)</th>
+<th>How can it fail? (Failure Actions)</th>
+<th>What ultimately cause it to fail? (Ultimate Blocking System)</th>
+<th>How do the ultimate blockers cause it to fail? (Failure Mechanism)</th>
+<th>What principles are the ultimate blockers based on? (Risky Principles)</th>
+<th>What tool(s) do the ultimate blockers require to work? (Risky Tools)</th>
+<th>What environmental conditions do the ultimate blockers require to work? (Risky Environments)</th>
+<th>What to do if it fails? (What else?)</th>
+<th>Next Steps to Take (Now What? Now How?)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COMPONENT #1</strong></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+<!-- Repeat for COMPONENT #2..#5 as needed -->
+</tbody>
+</table>
 
-
+</div>

@@ -35,7 +35,7 @@ task: T-203
 | 3 | `templates/page-3-principles.md` |
 | 4 | `templates/page-4-components.md` |
 | 5 | `templates/page-5-steps-to-overcome.md` |
-| 7 | `templates/page-7-topic-distilled-understanding.md` |
+| 7 | `templates/page-6-topic-distilled-understanding.md` |
 
 *All 7 page templates exist. Use this table when (subject, phase, chapter, topic, page) is known; target file/section still resolved per `ile-conversation-to-doc-mapping.md`.*
 

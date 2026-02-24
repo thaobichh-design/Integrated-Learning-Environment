@@ -24,8 +24,8 @@ feature: integrated-learning-environment
 | :--- | :--- |
 | **1** | Verb-AC1, Verb-AC2, Verb-AC3, SustainAdv-AC1 |
 | **2** | Verb-AC4, Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC1, Noun-AC2, Noun-AC3, Noun-AC4, Noun-AC5, SustainAdj-AC1, SustainAdj-AC2, SustainAdj-AC3 |
-| **3** | EffAdv-AC1, EffAdv-AC2, EffAdv-AC3, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3, Noun-AC9 |
-| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, **ScalAdv-AC5**, Noun-AC6, Noun-AC7, Noun-AC8, **Noun-AC10**, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4 |
+| **3** | EffAdv-AC1, EffAdv-AC2, EffAdv-AC3, **EffAdv-AC4**, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3, **EffAdj-AC4**, **EffAdj-AC5**, Noun-AC9, **Noun-AC11**, **Verb-AC9**, **Verb-AC10** |
+| **4** | ScalAdv-AC1, ScalAdv-AC2, ScalAdv-AC3, ScalAdv-AC4, **ScalAdv-AC5**, Noun-AC6, Noun-AC7, Noun-AC8, **Noun-AC10**, **Noun-AC12**, ScalAdj-AC1, ScalAdj-AC2, ScalAdj-AC3, ScalAdj-AC4 |
 
 *Use this table to see at a glance which A.C. are tackled in each iteration. For requirement text, evidence, and status, use Table B.*
 
@@ -36,7 +36,7 @@ feature: integrated-learning-environment
 | A.C. ID | Requirement (from Req Phase 3) | Iter | Deterministic Evidence | Status |
 | :--- | :--- | :---: | :--- | :---: |
 | Verb-AC1 | User can start or resume a learning session for a chosen subject (COE → Area → Chapter → Topic) in one workspace. | 1 | `docs/ai/implementation/ile-minimal-flow.md`; User confirms. | 🟢 |
-| Verb-AC2 | User can choose phase (A/B/C) and see entry points from Learning Map for that phase (informed by Subject Roadmap A). | 1 | `learning-book-tree-map.md` + `entry-point-to-template-mapping.md`; User confirms. | 🟢 |
+| Verb-AC2 | User can choose phase (A/B/C) and see entry points from Learning Map for that phase (informed by Subject Roadmap A). | 1 | `learning-book-tree-map.md` + `entry-point-to-template-mapping.md`; T-301: `ile-phase-and-entry-points.md` + rules; User confirms. | 🟢 |
 | Verb-AC3 | User can select an entry point and have the correct template (questions × components) loaded and scoped to that entry. | 1 | `templates/0-overview-and-summary.md` + `entry-point-to-template-mapping.md`; User confirms. | 🟢 |
 | SustainAdv-AC1 | Document structure (COE → Area → Chapter → Topic, phases A/B/C, components) defined and consistent; same path → same logical place. | 1 | `learning-book/COE_DS/` + `scripts/check-learning-book-structure.sh`; User confirms. | 🟢 |
 | Verb-AC4 | User can conduct dialogue with the Agent; Agent's responses grounded in persistent memory and current document context. | 2 | Persistent memory wired (T-201); Agent uses memory + doc context per contract and `ile-minimal-flow.md`; T-201 approved. | 🟢 |
@@ -47,17 +47,23 @@ feature: integrated-learning-environment
 | Noun-AC2 | Persistent memory (e.g. MCP) available to Agent, tied to current subject/Learning Book; context preserved across sessions. | 2 | `docs/ai/implementation/ile-persistent-memory.md` (A + Learning Book primary; optional MCP `ile:session:{subject}`; contract Option B/A); T-201 approved. | 🟢 |
 | Noun-AC3 | When user selects phase and entry point, correct template is loaded and conversation/document context scoped to that entry. | 2 | `entry-point-to-template-mapping.md` § Loading procedure; `.cursor/rules/ile-learning-book.mdc` § Template loading; T-203 approved. | 🟢 |
 | Noun-AC4 | Agent can read and write structural Markdown for current subject so conversation outcomes written into correct files/sections as byproduct. | 2 | `ile-conversation-to-doc-mapping.md` + `.cursor/rules/ile-learning-book.mdc`: read/write to target file/section per mapping on approval; T-202 approved. | 🟢 |
-| Noun-AC5 | Entry points presented from Learning Map, informed by Subject Roadmap (A) (current level L1–L7); level-appropriate progression suggested. | 2 | Entry points from `learning-book-tree-map.md` + `entry-point-to-template-mapping.md`; A in structure; T-203 approved. | 🟢 |
+| Noun-AC5 | Entry points presented from Learning Map, informed by Subject Roadmap (A) (current level L1–L7); level-appropriate progression suggested. | 2 | Entry points from `learning-book-tree-map.md` + `entry-point-to-template-mapping.md`; A in structure; T-203, T-301 (`ile-phase-and-entry-points.md`) approved. | 🟢 |
 | SustainAdj-AC1 | All writes to Learning Book conform to hierarchy (COE → Area → Chapter → Topic) and phase structure (A/B/C). | 2 | `ile-conversation-to-doc-mapping.md` enforces path; `check-learning-book-structure.sh` verifies structure; T-202, T-204 approved. | 🟢 |
 | SustainAdj-AC2 | Template loading uses canonical component set (Overview, UBS, UDS, EPS, UES, EOP) and question set; no ad hoc structure. | 2 | `entry-point-to-template-mapping.md` + 7 page templates (canonical set); no ad hoc; T-203 approved. | 🟢 |
 | SustainAdj-AC3 | User can verify (inspection or check command) that repo still matches expected structure after updates. | 2 | `scripts/check-learning-book-structure.sh` (5 phases + 6 chapters under C); run from repo root; T-204 approved. | 🟢 |
 | EffAdv-AC1 | User can open a session, pick one entry point, complete or partially complete it, and close; progress is persisted. | 3 | Progress persisted; session can be closed and resumed. | ⚪ |
 | EffAdv-AC2 | User can resume later without re-entering context; persistent memory and document state sufficient to continue. | 3 | Resume uses memory + document state; no re-entry of context. | ⚪ |
-| EffAdv-AC3 | No mandatory "export" or "sync" step for local/Drive Book updates; updates to Markdown occur as byproduct of conversation. | 3 | Updates occur as byproduct; no separate export/sync step. | ⚪ |
-| EffAdj-AC1 | No separate "copy from chat and paste into doc" step required for content to appear in structural Markdown. | 3 | Content appears in Markdown as byproduct of conversation. | ⚪ |
-| EffAdj-AC2 | Updates to document triggered by conversation (Agent writes or user confirms); mechanism defined and repeatable. | 3 | Trigger and mechanism documented and repeatable. | ⚪ |
-| EffAdj-AC3 | User can switch entry point or phase without losing in-progress context for current entry (draft retained or committed before switch). | 3 | Context retained or committed on switch; no loss of draft. | ⚪ |
-| Noun-AC9 | ILE can surface user's current mastery level and relevant Subject Roadmap (A) content so user can respect level-appropriate progression. | 3 | Current level and A content visible; entry points informed by A. | ⚪ |
+| EffAdv-AC3 | No mandatory "export" or "sync" step for local/Drive Book updates; updates to Markdown occur as byproduct of conversation. | 3 | `.cursor/rules/ile-learning-book.mdc` § Conversation→Doc + § Before entry/phase switch; `ile-minimal-flow.md` § T-302; T-302 approved. | 🟢 |
+| EffAdj-AC1 | No separate "copy from chat and paste into doc" step required for content to appear in structural Markdown. | 3 | Rule § Before entry/phase switch (no copy-paste); `ile-conversation-to-doc-mapping.md`; T-302 approved. | 🟢 |
+| EffAdj-AC2 | Updates to document triggered by conversation (Agent writes or user confirms); mechanism defined and repeatable. | 3 | Rule § Conversation→Doc + § Before entry/phase switch; mapping + checkpoint documented; T-302 approved. | 🟢 |
+| EffAdj-AC3 | User can switch entry point or phase without losing in-progress context for current entry (draft retained or committed before switch). | 3 | Rule § Before entry/phase switch (Step 7, commit to doc + A before switch); contract § Step 7; T-302 approved. | 🟢 |
+| Noun-AC9 | ILE can surface user's current mastery level and relevant Subject Roadmap (A) content so user can respect level-appropriate progression. | 3 | `ile-phase-and-entry-points.md` §4 (T-303): surface in chat current level + level requirements + next-step recommendations; rule § Present entry points; T-301, T-303 approved. | 🟢 |
+| **Verb-AC9** | User experiences a clear completion moment after each chunk (e.g. one entry point or one component completed). | 3 | Rule § Completion moment and progress summary (T-304); `ile-minimal-flow.md` § T-304; T-304 approved. | 🟢 |
+| **Verb-AC10** | User can view progress and, where implemented, stats/achievements (e.g. streaks, completed entry points). | 3, 4 | I3: progress summary in chat (rule § T-304, flow § T-304); T-304 approved; I4: T-405, T-406. | 🟢 |
+| **EffAdv-AC4** | User receives immediate feedback after completing one chunk so completion is visible and rewarding. | 3 | Completion moment + optional reward per rule § T-304; T-304 approved. | 🟢 |
+| **EffAdj-AC4** | Completion of a chunk is signalled clearly (e.g. confirmation message, optional lightweight reward). | 3 | Rule § Completion moment and progress summary (T-304); T-304 approved. | 🟢 |
+| **EffAdj-AC5** | Engagement features do not add mandatory steps to the core flow; they are additive and optional. | 3 | Rule § T-304: "No new UI; no mandatory steps"; flow § T-304; T-304 approved. | 🟢 |
+| **Noun-AC11** | ILE surfaces progress (and, where implemented, stats/achievements) in-conversation and/or via UI. | 3, 4 | I3: progress summary in chat (rule § T-304); T-304 approved; I4: T-405, T-406. | 🟢 |
 | ScalAdv-AC1 | Same SOP (phase → entry points → template load → conversation → doc update) applies to any subject within Learning Book structure. | 4 | SOP applies to any subject; flow unchanged. | ⚪ |
 | ScalAdv-AC2 | Adding a new subject (new Area/Chapter/Topic or new Learning Book) does not require changing core flow; only content and entry points change. | 4 | New subject = new content/entry points; core flow unchanged. | ⚪ |
 | ScalAdv-AC3 | System can reference Subject Roadmap (A) and Learning Map so entry points and templates scale with L1–L7 progression. | 4 | A and Learning Map referenced; scaling with L1–L7. | ⚪ |
@@ -71,6 +77,7 @@ feature: integrated-learning-environment
 | ScalAdj-AC4 | ILE pattern can be applied to other ClickUp spaces and different doc template sets; hierarchy, templates, space mapping configurable. | 4 | Hierarchy, templates, ClickUp space mapping configurable (e.g. per workspace or mode). | ⚪ |
 | **ScalAdv-AC5** | **Usage analytics (options open):** Product owner can obtain quality data from ILE usage (incl. vocal feedback) so Descriptive, Diagnostic, Predictive, Prescriptive analytics can drive feature development and bug fixes; data sources and implementation remain open. | 4 | Data collection/management supports four analytics types; evidence TBD per chosen implementation. | ⚪ |
 | **Noun-AC10** | **Usage data for analytics (options open):** ILE supports (or will support) data collection and management of usage data for Descriptive, Diagnostic, Predictive, Prescriptive analytics to drive features and bug fixes; implementation options remain open. | 4 | Robust usage data available for four analytics types; evidence TBD per chosen implementation. | ⚪ |
+| **Noun-AC12** | **Optional dedicated UI:** ILE may provide a dedicated UI for progress, entry points, and stats (e.g. Duolingo-style dashboard) as an optional entry point. | 4 | Dedicated UI for progress/entry points/stats implemented or stubbed; T-405, T-406. | ⚪ |
 
 *Populated from Requirements Phase 3. Use Table A to see scope per iteration; use Table B to trace each A.C. to its requirement and evidence.*
 
@@ -107,25 +114,28 @@ feature: integrated-learning-environment
 ### ITERATION 3: MINIMUM VIABLE ENABLEMENT (MVE)
 *Focus: Fuse Wrapper & Core; Efficiency.*
 
-**Active A.C. in Scope:** EffAdv-AC1..AC3, EffAdj-AC1..AC3, Noun-AC9
+**Active A.C. in Scope:** EffAdv-AC1..AC4, EffAdj-AC1..AC5, Noun-AC9, Noun-AC11, Verb-AC9, Verb-AC10
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-301** | Implement phase choice (B. Capture \| C. Organise \| D. Distill) and present entry points from the Learning Map for the chosen phase; entry points informed by Subject Roadmap (A) / current level where A is available. | Efficiency / Usability | T-204 | 🔴 To Do |
-| **T-302** | Ensure updates to Markdown occur as a byproduct of the conversation (no separate copy-paste); user can switch entry point or phase without losing in-progress context (retain or commit draft). | Zero-friction capture | T-301 | 🔴 To Do |
-| **T-303** | Surface the user's current mastery level and relevant Subject Roadmap (A) content (e.g. level requirements, next-step recommendations) so the user can respect level-appropriate progression. | UDO Anchor | T-302 | 🔴 To Do |
+| **T-301** | Implement phase choice (B. Capture \| C. Organise \| D. Distill) and present entry points from the Learning Map for the chosen phase; entry points informed by Subject Roadmap (A) / current level where A is available. | Efficiency / Usability | T-204 | 🟢 Reviewed/Tested |
+| **T-302** | Ensure updates to Markdown occur as a byproduct of the conversation (no separate copy-paste); user can switch entry point or phase without losing in-progress context (retain or commit draft). | Zero-friction capture | T-301 | 🟢 Reviewed/Tested |
+| **T-303** | Surface the user's current mastery level and relevant Subject Roadmap (A) content (e.g. level requirements, next-step recommendations) so the user can respect level-appropriate progression. | UDO Anchor | T-302 | 🟢 Reviewed/Tested |
+| **T-304** | **Engagement light:** Deliver a clear completion moment after each chunk (e.g. one component or entry point) and a progress summary in chat (e.g. "X of Y completed for this phase"); Agent behavior only, no new UI. Ensures engagement does not add mandatory steps. | Engagement / Return | T-303 | 🟢 Reviewed/Tested |
 
 ### ITERATION 4: ENABLEMENT LEADERSHIP
 *Focus: Scalability, COE map, ClickUp mapping, sync, configurable.*
 
-**Active A.C. in Scope:** ScalAdv-AC1..AC4, Noun-AC6..AC8, ScalAdj-AC1..AC4
+**Active A.C. in Scope:** ScalAdv-AC1..AC5, Noun-AC6..AC8, Noun-AC10, Noun-AC12, ScalAdj-AC1..AC4
 
 | ID | Task (Verb) | Risk Validated | Deps | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **T-401** | Define and implement the ILE's representation of the LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | Scalability | T-303 | 🔴 To Do |
+| **T-401** | Define and implement the ILE's representation of the LTC COE hierarchical map (COE → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area). | Scalability | T-304 | 🔴 To Do |
 | **T-402** | Implement mapping of a single user's learning to that user's respective location on ClickUp (correct Topic → that user's Personal Learning Area). | Scalability | T-401 | 🔴 To Do |
 | **T-403** | Implement (or stub and document) sync of the user's Book (local or Google Drive) to the company's ClickUp in the correct place using the COE map and user mapping. | Scalability | T-402 | 🔴 To Do |
 | **T-404** | Make hierarchy, templates, and ClickUp space mapping configurable (e.g. per workspace or mode) so the ILE pattern can be applied to other ClickUp spaces and different doc template sets. | Reusability | T-403 | 🔴 To Do |
+| **T-405** | **Engagement full — dedicated UI:** Implement or stub a dedicated UI for progress, entry points, and optional stats (e.g. Duolingo-style dashboard) as an optional entry point; in-conversation progress remains sufficient for minimum engagement. | Engagement / Scalability | T-304 | 🔴 To Do |
+| **T-406** | **Engagement full — stats/achievements/streaks:** Implement (or stub and document) stats, achievements, and streaks (e.g. completed entry points, daily return) so the user can view progress and sustain motivation; optional to consume, no mandatory steps. | Engagement / Return | T-405 | 🔴 To Do |
 
 ---
 
@@ -139,4 +149,19 @@ feature: integrated-learning-environment
 
 ---
 
-*Last updated: Aligned with template 1.1.0. Ready for State B: execute one task at a time with `/state-b`.*
+# 4. COMMANDS & RULES (ILE — Learner journey)
+
+*MECE coverage for the Learner's journey with the Agent. Commands are user-invokable; rules apply when globs match (learning-book, implementation docs, templates).*
+
+| Purpose | Command / Rule | Reference |
+| :--- | :--- | :--- |
+| Populate or refresh A (Subject Roadmap) | **`/roadmap-discovery`** | `docs/ai/implementation/ile-roadmap-discovery.md`; rule: `.cursor/rules/ile-learning-book.mdc` § Roadmap Discovery |
+| Session start/resume, EOP 1–8, gates, RACI | Rule: **ile-effective-learning.mdc** | Contract: `ile-effective-learning-contract.md`; flow: `ile-minimal-flow.md` |
+| Session memory (read A, optional MCP; session end append) | Rule: **ile-session-memory.mdc** | `ile-persistent-memory.md` |
+| Phase choice, entry points, template load, conversation→doc, checkpoint before switch, Agent as teacher | Rule: **ile-learning-book.mdc** | `ile-phase-and-entry-points.md`, `ile-conversation-to-doc-mapping.md`, `entry-point-to-template-mapping.md` |
+
+*No further ILE-specific commands required for current scope; journey is conversational (resume, phase choice, entry point) with rules applying in context. For execution: `/state-b` for next task.*
+
+---
+
+*Last updated: Commands & rules §4 added; Roadmap Discovery + Agent-as-teacher (Verb-AC6/7/8) in rules. Table A/B MECE. Ready for State B: execute one task at a time with `/state-b`.*

@@ -44,7 +44,7 @@ feature: integrated-learning-environment
 | Page 3: Principles | `templates/page-3-principles.md` | Yes |
 | Page 4: Components | `templates/page-4-components.md` | Yes |
 | Page 5: Steps to Overcome | `templates/page-5-steps-to-overcome.md` | Yes |
-| Page 7: Topic Distilled Understanding | `templates/page-7-topic-distilled-understanding.md` | Yes |
+| Page 7: Topic Distilled Understanding | `templates/page-6-topic-distilled-understanding.md` | Yes |
 
 **Status:** All **8 templates** exist. Template resolution uses **page-type resolution (MECE)** in `entry-point-to-template-mapping.md` § Page-type resolution: (chapter, topic, **page**) → one of 7 page templates.
 

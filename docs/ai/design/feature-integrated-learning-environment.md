@@ -49,6 +49,13 @@ To support this, **hierarchy**, **templates**, and **ClickUp space mapping** mus
 
 The product owner (or ILE operator) must be able to obtain **quality data from ILE usage** so that **Descriptive, Diagnostic, Predictive, and Prescriptive analytics** can be applied to drive future feature development and bug fixes (ScalAdv-AC5, Noun-AC10). Data sources and implementation remain open; the design accommodates, for example: (1) **A + Session Log** as the primary source of truth (session frequency, entry points, checkpoints, level progression); (2) optional **event stream** (e.g. session start/end, EOP step reached, checkpoint done); (3) **sync pipeline** (e.g. when syncing to ClickUp, same pipeline can feed an analytics store); (4) **vocal feedback** as first-class input (e.g. explicit feedback event). Consent and purpose (e.g. "improve ILE, not performance evaluation") are design constraints. No single implementation is mandated in design; options are to be chosen in I4.
 
+### 1.5 Learner engagement (I3 light, I4 full)
+
+**Goal:** Clear completion moments and visible progress so learners return daily (Cursor-style task-completion loop), without adding mandatory steps (Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11, Noun-AC12).
+
+* **I3 — Engagement light (T-304):** Agent behavior only. After each chunk (e.g. one component or entry point completed), the Agent delivers a **completion moment** (explicit confirmation; optional lightweight reward). The Agent can surface a **progress summary in chat** (e.g. "X of Y completed for this phase"). No new UI; no mandatory steps. Data source: same as Session Log / A (what’s completed per phase/entry).
+* **I4 — Engagement full (T-405, T-406):** Optional **dedicated UI** for progress, entry points, and stats (Duolingo-style dashboard). Optional **stats, achievements, streaks** (e.g. completed entry points, daily return). In-conversation progress remains sufficient for minimum engagement; dedicated UI and stats are additive and optional to consume.
+
 ---
 
 # 2. TECHNICAL ARCHITECTURE (The Noun)

@@ -1,5 +1,5 @@
 ---
-description: ILE session context — store/recall persistent memory tied to subject/Learning Book (T-201, Noun-AC2).
+description: ILE session context — store/recall persistent memory tied to subject/Learning Book (T-201, Noun-AC2). Engagement: completion moment + progress in chat (T-304).
 globs:
   - "**/learning-book/**"
   - "**/docs/ai/implementation/ile-*.md"
@@ -17,6 +17,7 @@ When working in ILE/learning-book context (session start, session end, or resume
    - **Primary:** Read **A. Subject Roadmap & Level Specifications** for that subject. Use Learner Progress Tracker and Session Log to orient: current level, last entry point, last session date, next recommended entry point.
    - **Optional:** If MCP `memory` is available, recall by tag/key `ile`, `session`, and subject to get the latest session pointer (last_entry_point, last_session_date).
 3. **Orient the user:** e.g. *"You're at [level]. Last session [date]: [last entry point]—[progress note]. Next suggested: …"*
+4. **Phase and entry points:** Offer phase choice (B | C | D) and present entry points from the Learning Map for the chosen phase, informed by A. Follow `docs/ai/implementation/ile-phase-and-entry-points.md` (T-301).
 
 ## Session end / Before phase or entry switch
 
@@ -25,7 +26,12 @@ When working in ILE/learning-book context (session start, session end, or resume
    - **Optional:** If MCP `memory` is available, call `memory.storeKnowledge` with title e.g. `ILE session: {subject}` and content JSON: `{ "subject", "last_entry_point", "last_session_date", "learning_book_path" }`. Tag with `ile`, `session`, and subject.
 2. **Key:** Always key by subject or Learning Book path so context is tied to the current subject/Learning Book.
 
+## Engagement (T-304)
+
+- After each chunk (e.g. one component or entry point completed): deliver a **completion moment** (clear confirmation; optional lightweight reward). Surface **progress summary in chat** (e.g. "X of Y completed for this phase") when relevant. No mandatory steps.
+
 ## Contract
 
 - Full spec: `docs/ai/implementation/ile-persistent-memory.md`
 - Flow: `docs/ai/implementation/ile-minimal-flow.md`
+- Design engagement: `docs/ai/design/feature-integrated-learning-environment.md` §1.5

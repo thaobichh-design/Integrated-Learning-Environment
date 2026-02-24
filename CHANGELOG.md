@@ -76,6 +76,42 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ---
 
+## ILE Iteration 3 — T-302, T-303, T-304 Reviewed/Tested (2026-02-21)
+
+**Iteration 3 (MVE): Zero-friction capture, UDO anchor surfacing, engagement light. All 🟢 Reviewed/Tested.**
+
+### Added
+- **T-302 (Zero-friction capture and retain-on-switch):** `.cursor/rules/ile-learning-book.mdc` § Before entry/phase switch — no switch until Step 7 (Checkpoint); prompt to save; commit to target file/section + A's Session Log before switch; no copy-paste. `ile-minimal-flow.md` § T-302. EffAdv-AC3, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3.
+- **T-303 (Surface current mastery level and A content):** `ile-phase-and-entry-points.md` §4 T-303 — surface in chat: current mastery level; level requirements; next-step recommendations (session start/resume and when presenting entry points). Rule § Present entry points; flow § A as anchor (T-303). Noun-AC9.
+- **T-304 (Engagement light — completion moment + progress summary):** `ile-minimal-flow.md` § T-304; `.cursor/rules/ile-learning-book.mdc` § Completion moment and progress summary (T-304). After each chunk (one component or entry point completed): (1) completion moment (explicit confirmation; optional lightweight reward); (2) when appropriate, progress summary in chat (e.g. "X of Y completed for this phase"). Agent behavior only; no new UI; no mandatory steps. Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11.
+- **Roadmap Discovery (populate A via Learner interview):** `docs/ai/implementation/ile-roadmap-discovery.md` — structured interview (Context, Goal, Learning habits, Current level & gaps, Curriculum fit, Level specifications) so A is fitted to the individual (PM Problem Discovery / User's Requirements style). Blocks 5 & 6: if Learner cannot populate, Agent populates from standard + blocks 1–4; Learner confirms or edits. `.cursor/commands/roadmap-discovery.md` — `/roadmap-discovery`. Rule § Roadmap Discovery; flow § (a) Entirely new book.
+- **ile-phase-and-entry-points.md** — Procedure: phase choice (B/C/D), Learning Map entry points per phase, §3 Informed by A, §4 T-303 surfacing, §5 Procedure summary, §6 Evidence. Cross-refs flow, tree map, entry→template, conversation→doc.
+- **Planning §4 Commands & rules (ILE)** — MECE table: `/roadmap-discovery`, ile-effective-learning.mdc, ile-session-memory.mdc, ile-learning-book.mdc with purpose and references.
+- **Agent as teacher (Verb-AC6, AC7, AC8):** Rule § Conversation → Doc — explicit: generate multiple possibilities for Learner to contemplate and choose; no append without Learner's explicit choice or approval.
+
+### Changed
+- **ile-minimal-flow.md** — Initial check: if A missing, run Roadmap Discovery first. (a) Entirely new book: Roadmap Discovery per ile-roadmap-discovery.md; `/roadmap-discovery`. § T-302, § T-304. A as anchor (T-303) resume: surface in chat current level + A content.
+- **Planning** — T-302, T-303, T-304 marked 🟢 Reviewed/Tested. Table B updated for EffAdv-AC3, EffAdj-AC1–AC3, Noun-AC9, Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11 with deterministic evidence. §4 Commands & rules (ILE) added.
+- **ile-learning-book.mdc** — Globs: + ile-roadmap-discovery.md. § Roadmap Discovery (populate A). § Before entry/phase switch (T-302). § Completion moment and progress summary (T-304). § Agent as teacher: + generate possibilities; Learner chooses (Verb-AC6, AC7, AC8).
+
+---
+
+## Distilled-understanding template + archive cleanup (2026-02-21)
+
+### Added
+- **distilled-understanding-template-spec.md** — Optional read-only duplicate: `templates/D-distilled-understanding-full.json` (same content as xlsx; keys = sheet names, values = row arrays).
+- **templates/D-distilled-understanding-full.json** — JSON duplicate of D-distilled-understanding-full.xlsx for read-only consumption.
+- **archive/** — Obsolete MD/HTML and scripts moved here: archive/templates/ (D-distilled-understanding-full.md, D-distilled-understanding-table-editor.html), archive/scripts/ (build_table_editor_html.py, build_distilled_understanding_md.py, pdf_table_to_md.py).
+
+### Removed
+- **templates/** — D-distilled-understanding-full.backup-*.md, _table_data.json, _table_data_escaped.txt (backups/temp). D-distilled-understanding-full.md, D-distilled-understanding-table-editor.html (→ archive).
+- **scripts/** — README-pdf-table-to-md.md (removed). pdf_table_to_md.py, build_table_editor_html.py, build_distilled_understanding_md.py (→ archive).
+
+### Changed
+- **docs/ai/implementation/distilled-understanding-template-spec.md** — Canonical source: D-distilled-understanding-full.xlsx; optional duplicate: D-distilled-understanding-full.json.
+
+---
+
 ## Session handoff (2025-02-21)
 
 **What was done this session:**

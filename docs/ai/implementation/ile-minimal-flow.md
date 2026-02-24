@@ -107,11 +107,12 @@ If the context window is exceeded or chat history is lost:
 In ILE context the full sequence is **EOP Step 1 (Open)** → **Step 2 (Pre-session checklist)** per contract → then route below. Do not proceed to Resume without Step 2 confirm/defer.
 
 - **Explicit choice:** At session start, Agent asks: "Start a new subject?" or "Resume [Subject]?" to route into (a) or (b).
-- **Initial check:** Always verify A (Subject Roadmap) exists and is readable for the chosen subject; if not, treat as new book and populate A first (see `templates/A-subject-roadmap-and-level-specifications.md`).
+- **Initial check:** Always verify A (Subject Roadmap) exists and is readable for the chosen subject; if not, treat as new book and **run Roadmap Discovery** first (see below).
 
 ### (a) Entirely new book
 
 - **A. Subject Roadmap first:** Populate or complete A before any B/C/D/E work. A defines L1–L7 (Requirements, Credentials), Learner Progress Tracker, Level Completion Checklist, Session Log, Links to Learning Book.
+- **Roadmap Discovery:** When A is missing, the Agent offers to run **Roadmap Discovery** per `docs/ai/implementation/ile-roadmap-discovery.md`: a structured interview (like PM Problem Discovery / User's Requirements) so the curriculum and level specs fit the individual—context, goal (desired outcome), learning habits, current level and gaps, curriculum fit. The Agent guides the Learner through each block, proposes content for A, and writes only with Learner approval. Command: `/roadmap-discovery` or "run roadmap discovery."
 - **A as checking point:** Use A as the reference for level-appropriate entry points; Agent suggests next steps based on Learner Progress Tracker (Current Level, Target Level, Next Recommended Entry Point).
 - **Session-end checkpoint:** After each session, Agent appends to A's Session Log (Date, Entry Point, Progress) and updates Learner Progress Tracker if level changed (e.g. L1.2 → L1.3).
 - **Entry choice:** When A exists, Agent uses Learner Progress Tracker + Links to Learning Book to suggest entry points; user can still choose any entry point.
@@ -119,7 +120,7 @@ In ILE context the full sequence is **EOP Step 1 (Open)** → **Step 2 (Pre-sess
 ### (b) Picking up an already-learning subject
 
 - **Resume logic:** On "Resume [Subject]," Agent reads A: Learner Progress Tracker (Last Session, Last Entry Point, Current Level, Next Recommended Entry Point) + Session Log (last N rows).
-- **A as anchor:** Agent orients: e.g. "You were at L2, Last Entry Point: Chapter 1 UBS Topic 0. Next suggested: complete UBS or move to UDS."
+- **A as anchor (T-303):** Agent **surfaces in chat**: current mastery level and relevant A content (e.g. level requirements for current level, next-step recommendations). Example: "You were at L2, Last Entry Point: Chapter 1 UBS Topic 0. At L2 for this subject: [brief requirement from A]. Next recommended: complete UBS or move to UDS." See `ile-phase-and-entry-points.md` §4.
 - **Optional prompt:** "Resume where you left off ([last entry]) or pick another entry point?"
 
 ## Core flow (maps to EOP steps 1–8)
@@ -141,7 +142,7 @@ This core flow corresponds to **EOP steps 1–8** (see `ile-effective-learning-c
 
 1. **Start or resume session** — User opens Cursor workspace with Learning Book repo. Chooses subject: COE → Area → Chapter → Topic (or creates new). Session context scoped to that subject. *(EOP 3; Verb-AC1)*
 
-2. **Choose phase** — Agent asks: "Which phase? B. Capture Facts & Data | C. Organise Information | D. Distill Understanding." User chooses one. Agent presents entry points from the Learning Map (6 Chapters × 6 Topics; see `learning-book-tree-map.md`) for that phase, informed by Subject Roadmap (A) and current level where available. *(EOP 4; Verb-AC2)*
+2. **Choose phase** — Agent asks: "Which phase? B. Capture Facts & Data | C. Organise Information | D. Distill Understanding." User chooses one. Agent presents entry points from the Learning Map for that phase per **`docs/ai/implementation/ile-phase-and-entry-points.md`** (6 chapters × 6 topics; informed by Subject Roadmap (A) and current level where available). *(EOP 4; Verb-AC2; T-301)*
 
 3. **Select entry point** — User selects an entry point (e.g. Chapter 1 UBS, Topic 0. Overview). Agent loads the correct template per `entry-point-to-template-mapping.md` and scopes conversation and document context to that entry. *(EOP 5; Verb-AC3)*
 
@@ -169,6 +170,24 @@ This core flow corresponds to **EOP steps 1–8** (see `ile-effective-learning-c
 | Structural document | Learning Book Markdown in same workspace (open folder or file tree) |
 | User action | Conversational: state phase, pick entry point, conduct Q&A |
 | No | Separate app for docs; manual copy-paste from chat to doc |
+
+## T-302: Zero-friction capture and retain-on-switch
+
+**Task T-302** ensures: (1) updates to Markdown occur only as a **byproduct of the conversation** per `ile-conversation-to-doc-mapping.md`—no separate copy-paste (EffAdv-AC3, EffAdj-AC1, EffAdj-AC2); (2) on **entry/phase switch**, EOP Step 7 (Checkpoint) is required and progress is **committed to the doc (and A)** before switch so the user does not lose in-progress context (EffAdj-AC3).
+
+**Evidence:** `.cursor/rules/ile-learning-book.mdc` § Before entry/phase switch (T-302); `ile-effective-learning-contract.md` § Step 7 and mandatory gates; this flow § Core flow (Step 7, Entry-point switch).
+
+## T-304: Engagement light (completion moment + progress summary)
+
+**Task T-304** ensures: (1) after each **chunk** (one component or one entry point completed—e.g. Learner approves a write for one component/section), the Agent delivers a **completion moment** (explicit confirmation; optional lightweight reward); (2) when appropriate (e.g. after a completion moment, or when the Learner asks), the Agent surfaces a **progress summary in chat** (e.g. "X of Y completed for this phase"). Agent behavior only; no new UI; no mandatory steps (EffAdj-AC5).
+
+**Chunk:** One component (one page/section within a topic) or one entry point (one topic) for which the Learner has approved an update and the Agent has written to the doc.
+
+**Completion moment:** One short sentence in chat after the write is confirmed (e.g. "✓ [Component/entry] updated. Chunk complete." or "Done. Another component here, or switch entry point?"). Optional: lightweight positive reinforcement (e.g. "Nice progress.").
+
+**Progress summary:** When appropriate (after a completion moment, or when the Learner asks "how am I doing?"), state in chat how much is completed for the current phase (e.g. "This phase: you've completed [N] entry points (or components)." or "X of Y completed for this phase."). Data source: A's Session Log + current phase entry-point list; infer from Session Log how many distinct entry points (or components) have been worked on/completed this phase. If A or Session Log is missing, infer from conversation (e.g. "You've completed [current entry] and [N] others this session.").
+
+**Evidence:** `.cursor/rules/ile-learning-book.mdc` § Completion moment and progress summary (T-304). Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11.
 
 ## What this validates
 

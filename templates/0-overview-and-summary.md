@@ -6,68 +6,25 @@
 
 *Write content in the **SUBJECT CONTENT** row. Merge headers as shown. **LEARNER'S NOTE** columns are the last two (far right).*
 
-<div style="overflow-x: auto;">
 
-<table>
-<thead>
-<tr>
-<th colspan="17"><strong>OVERVIEW &amp; SUMMARY OF THE SUBJECT</strong></th>
-</tr>
-<tr>
-<th rowspan="2"><strong>OVERVIEW &amp; SUMMARY</strong><br/><strong>SUBJECT CONTENT</strong></th>
-<th colspan="2"><strong>INTRODUCTION</strong></th>
-<th colspan="6"><strong>SUCCESS</strong></th>
-<th colspan="6"><strong>FAILURE</strong></th>
-<th colspan="2"><strong>LEARNER'S NOTE</strong></th>
-</tr>
-<tr>
-<th>What is it for? Why is it important? (Relevance)</th>
-<th>What is it? (Introduction)</th>
-<th>How does it work successfully? (Effective Operating Procedure)</th>
-<th>What ultimately cause it to work successfully? (Ultimate Driving System)</th>
-<th>How do the Ultimate Driving System cause it to work successfully? (Success Mechanism)</th>
-<th>What principles are the Ultimate Driving System based on? (Effective Principle System)</th>
-<th>What tool(s) do the ultimate drivers require to work? (Ultimate Effective System)</th>
-<th>What environmental conditions do the ultimate drivers require to work? (Ultimate Effective System)</th>
-<th>How can it fail? (Failure Actions)</th>
-<th>What ultimately cause it to fail? (Ultimate Blocking System)</th>
-<th>How do the ultimate blockers cause it to fail? (Failure Mechanism)</th>
-<th>What principles are the ultimate blockers based on? (Risky Principles)</th>
-<th>What tool(s) do the ultimate blockers require to work? (Risky Tools)</th>
-<th>What environmental conditions do the ultimate blockers require to work? (Risky Environments)</th>
-<th>What to do if it fails? (What else?)</th>
-<th>Next Steps to Take (Now What? Now How?)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SUBJECT CONTENT</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
-</div>
+
+| **OVERVIEW & SUMMARY OF THE SUBJECT**            |                            |                                                                |                                                                          |                                                                                       |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
+| ------------------------------------------------ | -------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------ | --------------------------------------- | --- |
+|                                                  | **INTRODUCTION**           | **SUCCESS**                                                    | **FAILURE**                                                              | **LEARNER'S NOTE**                                                                    |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
+| What is it for? Why is it important? (Relevance) | What is it? (Introduction) | How does it work successfully? (Effective Operating Procedure) | What ultimately cause it to work successfully? (Ultimate Driving System) | How do the Ultimate Driving System cause it to work successfully? (Success Mechanism) | What principles are the Ultimate Driving System based on? (Effective Principle System) | What tool(s) do the ultimate drivers require to work? (Ultimate Effective System) | What environmental conditions do the ultimate drivers require to work? (Ultimate Effective System) | How can it fail? (Failure Actions) | What ultimately cause it to fail? (Ultimate Blocking System) | How do the ultimate blockers cause it to fail? (Failure Mechanism) | What principles are the ultimate blockers based on? (Risky Principles) | What tool(s) do the ultimate blockers require to work? (Risky Tools) | What environmental conditions do the ultimate blockers require to work? (Risky Environments) | What to do if it fails? (What else?) | Next Steps to Take (Now What? Now How?) |     |
+| **SUBJECT CONTENT**                              |                            |                                                                |                                                                          |                                                                                       |                                                                                        |                                                                                   |                                                                                                    |                                    |                                                              |                                                                    |                                                                        |                                                                      |                                                                                              |                                      |                                         |     |
+
+
+
 
 ## Links to further study (optional)
 
-| Component | Link to Organise Information |
-|-----------|-----------------------------|
-| Overview | — |
-| Introduction | — |
-| … | — |
+
+| Component    | Link to Organise Information |
+| ------------ | ---------------------------- |
+| Overview     | —                            |
+| Introduction | —                            |
+| …            | —                            |
+
+
