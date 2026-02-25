@@ -16,8 +16,8 @@ task: T-203
 
 *Deterministic behavior when user selects an entry point.*
 
-1. **Resolve entry point** — From user: (subject, phase, chapter, topic, **page**). Example: COE_DS, C. Organise Information, Chapter 1 UBS, Topic 1 (Ultimate Blockers), Page 0.
-2. **Resolve template path** — Use **page-type resolution (MECE)** for Phase C topic content: (chapter, topic, **page**) → one of the 7 page templates per the table below. For A. Subject Roadmap, use `templates/A-subject-roadmap-and-level-specifications.md`. If page is missing or unknown, fallback to `templates/0-overview-and-summary.md`.
+1. **Resolve entry point** — From user: (subject, phase, chapter, topic, **page**). Example: COE_DS, C. Organise Information, Chapter 1 UBS, Topic 1 (Ultimate Blockers), Page 0. For Phase B, entry is subject-level only (no chapter/topic/page).
+2. **Resolve template path** — For **Phase B** use `templates/B-captured-facts-and-information.md` (one file per subject). Use **page-type resolution (MECE)** for Phase C topic content: (chapter, topic, **page**) → one of the 7 page templates per the table below. For A. Subject Roadmap, use `templates/A-subject-roadmap-and-level-specifications.md`. If page is missing or unknown, fallback to `templates/0-overview-and-summary.md`.
 3. **Load template** — Read the template file at the resolved path. Use its structure (questions × components, target table format) for the conversation and for any proposed doc updates. If the file does not exist, use the structure from `templates/0-overview-and-summary.md`.
 4. **Scope context** — Resolve target file and section per `ile-conversation-to-doc-mapping.md`. Keep conversation and doc updates scoped to this single entry (one file, one section). Do not mix other entry points in the same exchange.
 
@@ -35,9 +35,19 @@ task: T-203
 | 3 | `templates/page-3-principles.md` |
 | 4 | `templates/page-4-components.md` |
 | 5 | `templates/page-5-steps-to-overcome.md` |
-| 7 | `templates/page-6-topic-distilled-understanding.md` |
+| 7 | `templates/page-7-topic-distilled-understanding.md` |
 
 *All 7 page templates exist. Use this table when (subject, phase, chapter, topic, page) is known; target file/section still resolved per `ile-conversation-to-doc-mapping.md`.*
+
+## Phase B (B. Capture Facts & Data)
+
+*Phase B is **one file per subject** (not per chapter/topic). The file contains a single table: USER GUIDE + rows for chapters 0–5 with subtopics and learning-tool columns. No (chapter, topic, page) entry-point resolution for B—the whole subject is one entry.*
+
+| Phase | Entry | Template path |
+|-------|-------|----------------|
+| B | B. Capture Facts & Data (subject-level) | `templates/B-captured-facts-and-information.md` |
+
+*When user selects Phase B, load `templates/B-captured-facts-and-information.md` and scope context to the single B file for the current subject per `ile-conversation-to-doc-mapping.md`.*
 
 ## Mapping table (legacy / A. Subject Roadmap)
 

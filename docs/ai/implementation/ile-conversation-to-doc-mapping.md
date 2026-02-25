@@ -1,10 +1,10 @@
 ---
-phase: implementation
+
+## phase: implementation
 title: ILE Conversation → Doc Mapping (T-202)
 description: Mapping rule from conversation scope (subject, phase, entry point) to Learning Book file path and section. Deterministic evidence for Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC4.
 feature: integrated-learning-environment
 task: T-202
----
 
 # ILE Conversation → Doc Mapping
 
@@ -19,26 +19,26 @@ task: T-202
 ## 1. Inputs (Conversation Scope)
 
 
-| Input           | Source                                                                                       | Example                                                     |
-| --------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **subject**     | User choice at session start / resume                                                        | `COE_DS`                                                    |
-| **phase**       | User choice (B \| C \| D)                                                                     | `C` (Organise Information)                                  |
-| **entry point** | User selection from Learning Map; (chapter_id, topic_id, **page**) — **page** = particular page within topic (0..5 or 7) | Chapter 1 UBS, Topic 0, Page 0 (Overview & Summary)        |
+| Input           | Source                                                                                                                   | Example                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| **subject**     | User choice at session start / resume                                                                                    | `COE_DS`                                            |
+| **phase**       | User choice (B | C | D)                                                                                                  | `C` (Organise Information)                          |
+| **entry point** | User selection from Learning Map; (chapter_id, topic_id, **page**) — **page** = particular page within topic (0..5 or 7) | Chapter 1 UBS, Topic 0, Page 0 (Overview & Summary) |
 
 
 ---
 
 ## 2. Mapping Rule: Conversation Scope → File Path & Section
 
-**Rule:** `target_path = learning-book/{subject}/{phase_folder}/{chapter_folder}/{filename}`
+**Rule:** **Phase B:** `target_path = learning-book/{subject}/{phase_folder}/{filename}` (no chapter_folder; one file per subject). **Phase C/D:** `target_path = learning-book/{subject}/{phase_folder}/{chapter_folder}/{filename}`.
 
 
 | Part               | Derivation                                                                                                                                                                                                                                               | Example                                                           |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | **subject**        | Current subject (e.g. COE_DS)                                                                                                                                                                                                                            | `COE_DS`                                                          |
 | **phase_folder**   | B → `B. Capture Facts & Data`; C → `C. Organise Information`; D → `D. Distill Understanding`                                                                                                                                                             | `C. Organise Information`                                         |
-| **chapter_folder** | From entry point: 0 → `0. Overview & Summary`; 1 → `1. UBS`; 2 → `2. UDS`; 3 → `3. EPS`; 4 → `4. UES`; 5 → `5. EOP`                                                                                                                                      | `1. UBS`                                                          |
-| **filename**       | One file per (chapter, topic) in this phase. Convention: `[COE AREA]_[OWNER]_[CHAPTER]. [CHAPTER NAME] - [TOPIC ID]. [TOPIC NAME].md` or stub `[chapter]-[topic].md`. Same logical place as entry-point-to-template-mapping (entry X → content address). | `1. UBS - 0. Overview & Summary.md` or stub `1-ubs-0-overview.md` |
+| **chapter_folder** | **Phase B:** none (one file at phase folder). **Phase C/D:** From entry point: 0 → `0. Overview & Summary`; 1 → `1. UBS`; 2 → `2. UDS`; 3 → `3. EPS`; 4 → `4. UES`; 5 → `5. EOP`                                                                          | `1. UBS`                                                          |
+| **filename**       | **Phase B:** One file per subject: `[COE AREA]_[OWNER]_[SUBJECT TITLE] - B. CAPTURED FACTS & INFORMATION.md` (e.g. `[COE DS]_[OWNER]_DATA SCIENCE - B. CAPTURED FACTS & INFORMATION.md`). **Phase C:** One file per (chapter, topic): `[COE AREA]_[OWNER]_[CHAPTER]. [CHAPTER NAME] - [TOPIC ID]. [TOPIC NAME].md` or stub. | `1. UBS - 0. Overview & Summary.md` or stub `1-ubs-0-overview.md` |
 
 
 **Section (within file) — Layer 6: 7 pages:** Each topic file in the Individual Learning Book has **exactly 7 pages** as sections: Page 0, Page 1, Page 2, Page 3, Page 4, Page 5, **Page 7: Topic Distilled Understanding**. Section = **page** within the topic (entry point's page). Do not use Phase D at subject root for topic-level distilled—Page 7 is inside each topic. Pages 0–5 and 7 map to components/rows per `learning-book-tree-map.md` § 6 Pages per Topic. Optionally, section = component (row) × question (column) for cell-level write. Agent writes to the section (page/component) that matches the current entry point and Q&A focus.
@@ -53,8 +53,8 @@ task: T-202
 2. **Resolve phase folder** — B → `B. Capture Facts & Data`; C → `C. Organise Information`; D → `D. Distill Understanding`.
 3. **Resolve chapter folder** — 0 → `0. Overview & Summary`; 1 → `1. UBS`; 2 → `2. UDS`; 3 → `3. EPS`; 4 → `4. UES`; 5 → `5. EOP`. *Folder names must match `learning-book/README.md` (short form: 1. UBS, not "1. Ultimate Blocking System").*
 4. **Resolve filename** — One file per (chapter, topic). Use naming from tree map or stub: e.g. `[COE DS]_[OWNER]_1. UBS - 0. Overview & Summary.md` or `1-ubs-0-overview.md`.
-5. **Full path** — `learning-book/{subject}/{phase_folder}/{chapter_folder}/{filename}`.
-6. **Section (Layer 6: 7 pages)** — Section = **page** (component/row) within that topic file. Each topic file has exactly 7 pages: Page 0 = Overview & Summary, 1 = Ultimate Blockers, 2 = Ultimate Drivers, 3 = Principles, 4 = Components, 5 = Steps to Overcome, **7 = Topic Distilled Understanding**. Topic-level distilled is Page 7 within the topic, not Phase D at subject root. Agent reads/writes that section when the entry point includes that page.
+5. **Full path** — For Phase B: `learning-book/{subject}/B. Capture Facts & Data/{filename}`. For Phase C/D: `learning-book/{subject}/{phase_folder}/{chapter_folder}/{filename}`.
+6. **Section** — **Phase B:** Section = table row (topic/subtopic) within the single B file; no page. **Phase C/D:** Section = **page** (component/row) within that topic file. Each topic file has exactly 7 pages: Page 0 = Overview & Summary, 1 = Ultimate Blockers, 2 = Ultimate Drivers, 3 = Principles, 4 = Components, 5 = Steps to Overcome, **7 = Topic Distilled Understanding**. Topic-level distilled is Page 7 within the topic, not Phase D at subject root. Agent reads/writes that section when the entry point includes that page.
 
 ---
 

@@ -31,6 +31,16 @@ One Learning Book per COE Area. This structure validates SustainAdv-AC1: same pa
 
 Per `learning-book-tree-map.md`: Area → A/B/C/D/E (D and E have per-member subpages) → 6 Chapters (each with A/B/C/D/E + 6 Topics) → each Topic: Personal Learning Area per member → 7 pages (0–5 + Page 7 Topic Distilled Understanding).
 
+## Pre-populating Phase C (all entry points)
+
+To create all 36 topic files with full 7-page structure so you can start at any (chapter, topic, page) without waiting for creation:
+
+```bash
+python scripts/populate_learning_book_phase_c.py [subject]
+```
+
+Default subject is `COE_DS`. Each file contains Page 0–5 and Page 7 (Topic Distilled Understanding) from the canonical templates. Re-running overwrites existing topic files.
+
 ## Verification
 
 Run `scripts/check-learning-book-structure.sh` to verify the minimal structure.

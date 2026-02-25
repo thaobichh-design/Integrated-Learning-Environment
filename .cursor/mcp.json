@@ -3,6 +3,14 @@
     "ai-devkit-memory": {
       "command": "npx",
       "args": ["-y", "@ai-devkit/memory"]
+    },
+    "claude-ptc-mcp": {
+      "command": "node",
+      "args": [
+        "--env-file=tools/claude-ptc-mcp/.env",
+        "tools/claude-ptc-mcp/src/index.js"
+      ],
+      "cwd": "."
     }
   }
 }

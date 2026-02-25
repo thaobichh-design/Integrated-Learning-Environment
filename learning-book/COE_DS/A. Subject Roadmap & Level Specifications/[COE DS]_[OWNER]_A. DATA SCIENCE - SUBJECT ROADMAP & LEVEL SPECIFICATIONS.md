@@ -18,12 +18,12 @@
 
 | Field | Value |
 |-------|-------|
-| **Current Level** | L1 / L2 / … / L7 (or sub-level e.g. L1.2) |
-| **Target Level** | L1 / L2 / … / L7 |
-| **Target Date** | YYYY-MM |
-| **Last Session** | YYYY-MM-DD |
-| **Last Entry Point** | e.g. Chapter 1 UBS, Topic 0. Overview |
-| **Next Recommended Entry Point** | *Agent suggests based on current level and A* |
+| **Current Level** | L1 |
+| **Target Level** | L3 |
+| **Target Date** | — |
+| **Last Session** | — |
+| **Last Entry Point** | — |
+| **Next Recommended Entry Point** | Chapter 0. Overview & Summary, Topic 0 |
 
 ---
 
@@ -49,7 +49,7 @@
 
 | Level | Gap | Priority |
 |-------|-----|----------|
-| L1 | *Describe gaps* | — |
+| L1 | *Run /roadmap-discovery to assess* | High |
 | L2 | — | — |
 | L3 | — | — |
 | L4 | — | — |
@@ -92,7 +92,7 @@
 
 | Date | Entry Point | Progress |
 |------|-------------|----------|
-| YYYY-MM-DD | *e.g. Chapter 1, Topic 0* | *Brief note* |
+| — | — | — |
 
 ---
 
@@ -186,4 +186,4 @@
 
 ---
 
-*Last updated: Populated from universal template. Align with Hierarchy of Science when refining competencies.*
+*Last updated: 2026-02-25. Defaults set for first session. Run `/roadmap-discovery` to personalise.*

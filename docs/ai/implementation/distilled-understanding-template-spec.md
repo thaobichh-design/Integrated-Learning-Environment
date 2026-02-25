@@ -67,7 +67,7 @@ Use these markdown templates only as output format contracts:
 - `templates/page-3-principles.md`
 - `templates/page-4-components.md`
 - `templates/page-5-steps-to-overcome.md`
-- `templates/page-6-topic-distilled-understanding.md`
+- `templates/page-7-topic-distilled-understanding.md`
 
 The data source must remain the XLSX sheets above.
 

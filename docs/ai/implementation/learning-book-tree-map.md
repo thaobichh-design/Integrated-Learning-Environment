@@ -2,6 +2,8 @@
 
 *One diagram to align on: Area → Chapters → Topics → Pages. Source: E. DATA SCIENCE - AREA EXPRESSED EXPERTISE, user templates, and ClickUp structure.*
 
+**COE hierarchy (company-side):** The single source of truth for the LTC COE hierarchical map (COE → Area → Chapter → Topic → Topic Members' Learning Area → Personal Learning Area) is **`config/coe-map.yaml`**. See `ile-coe-map.md`. This doc describes the tree for alignment; structural details (areas, chapters, topics, PLAs) live in the config.
+
 **Two views in this doc:** (1) **Individual's full effective learning tree** (§ below) — the folder/file structure that **one person's** Learning Book contains (`learning-book/`). This is what the ILE repo holds and what T-202 conversation→doc mapping targets. (2) **Company tree** (§ Mermaid and § Tree Map) — where each member's learning sits in the org (ClickUp, COE); per-member branches.
 
 **Cross-references:** Flow → `docs/ai/implementation/ile-minimal-flow.md` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md` | Conversation→Doc → `docs/ai/implementation/ile-conversation-to-doc-mapping.md` | Folder layout → `learning-book/README.md`

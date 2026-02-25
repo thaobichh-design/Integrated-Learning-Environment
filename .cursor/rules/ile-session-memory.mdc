@@ -30,8 +30,22 @@ When working in ILE/learning-book context (session start, session end, or resume
 
 - After each chunk (e.g. one component or entry point completed): deliver a **completion moment** (clear confirmation; optional lightweight reward). Surface **progress summary in chat** (e.g. "X of Y completed for this phase") when relevant. No mandatory steps.
 
+## Session recording (T-412)
+
+When in ILE context, at these four moments append one line to **`logs/ile-session-events.jsonl`** (JSONL: one JSON object per line). Use `scripts/append_session_event.py <event> [--subject SUBJECT] [--phase PHASE] [--entry-point "…"]` when possible; else write a JSON line per `docs/ai/implementation/ile-session-recording.md` schema.
+
+| Moment | Event | When |
+|--------|-------|------|
+| After orienting at session start | `session_start` | After Session start/Resume (user oriented). |
+| After user selects entry point and template is loaded | `entry_point_selected` | After scope context to entry. |
+| After chunk completed (write approved, doc updated) | `chunk_completed` | After completion moment. |
+| After session end or phase/entry switch (Step 7 done) | `session_end` | After progress committed, A updated if applicable. |
+
+Schema: `event`, `timestamp` (ISO8601), optional `subject`, `phase`, `entry_point`. See `ile-session-recording.md`.
+
 ## Contract
 
 - Full spec: `docs/ai/implementation/ile-persistent-memory.md`
 - Flow: `docs/ai/implementation/ile-minimal-flow.md`
 - Design engagement: `docs/ai/design/feature-integrated-learning-environment.md` §1.5
+- Session recording: `docs/ai/implementation/ile-session-recording.md`

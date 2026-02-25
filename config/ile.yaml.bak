@@ -1,0 +1,18 @@
+# ILE workspace configuration (T-404)
+# Hierarchy, templates, and ClickUp space mapping are configurable per workspace or mode.
+# See docs/ai/implementation/ile-configurable-mapping.md
+
+# COE / hierarchy map path (used by T-402, T-403 for user→ClickUp mapping)
+coe_map_path: config/coe-map.yaml
+
+# Template root (entry-point→template resolution; phase C page templates)
+templates_path: templates
+
+# Learning Book root (sync dry-run, conversation→doc mapping)
+learning_book_root: learning-book
+
+# Optional: ClickUp Space ID or sync target (for future full sync; null = not set)
+clickup_space_id: null
+
+# Optional: mode name (e.g. coe, sales) — when set, can load config/ile-{mode}.yaml instead
+# mode: coe

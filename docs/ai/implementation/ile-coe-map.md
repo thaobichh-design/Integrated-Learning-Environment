@@ -10,7 +10,9 @@ task: T-401
 
 **Purpose:** The ILE has a **defined representation** of the **LTC COE hierarchical map** so that user learning can be mapped to the correct ClickUp location (Topic → that user's Personal Learning Area). Noun-AC6. Used by T-402 (user→ClickUp mapping) and T-403 (sync).
 
-**Hierarchy (from Requirements):**
+**Single source of truth (T-411):** The canonical COE hierarchy and structure are defined **only** in **`config/coe-map.yaml`**. Other docs (design, requirements, sync, mapping, tree map) reference this file or this doc and do not re-state the full hierarchy; see T-411.
+
+**Hierarchy (from Requirements; authoritative schema in config):**
 
 | Level | Description |
 |-------|-------------|

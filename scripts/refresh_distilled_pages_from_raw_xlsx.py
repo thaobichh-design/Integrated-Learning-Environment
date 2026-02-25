@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""Refresh Distilled Understanding page sheets from a raw XLSX workbook.
+
+Reads the PDF_RAW_TABLE sheet, extracts rows by chapter/topic marker,
+and creates per-page sheets (Page-0 through Page-6) with header styling.
+
+Usage:  python scripts/refresh_distilled_pages_from_raw_xlsx.py <xlsx_path>
+
+Requires: openpyxl  (pip install openpyxl)
+
+Internal tool — not part of the core ILE session flow.
+"""
 from pathlib import Path
 import re
 from openpyxl import load_workbook

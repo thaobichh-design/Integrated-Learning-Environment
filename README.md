@@ -16,7 +16,7 @@ Built for the **LTC Advanced Effective Learning Framework**. *Engine and brain f
 | Traditional learning                   | LTC Advanced Effective Learning                                                                                                                                          |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Passive consumption (videos, articles) | **Active recall** — you explain, the Agent probes                                                                                                                        |
-| Flat notes, scattered across apps      | **Hierarchical structure** — 0. Overview → 1. Ultimate Blockers → 2. Ultimate Drivers → 4. Principles → 5. Components -> 6. Steps to Apply -> 7. Distilled Understanding |
+| Flat notes, scattered across apps      | **Hierarchical structure** — 0. Overview → 1. Ultimate Blockers → 2. Ultimate Drivers → 3. Principles → 4. Components → 5. Steps to Apply → 7. Distilled Understanding |
 | Manual copy-paste from chat to docs    | **Documentation as byproduct** — the Learning Book updates as you talk                                                                                                   |
 | Linear chat that forgets context       | **Persistent memory** — the document *is* the memory; you never repeat yourself                                                                                          |
 | Ad hoc progression                     | **Level-aligned** — Subject Roadmap (A) guides L1→L7 mastery (SFIA)                                                                                                      |
@@ -95,11 +95,13 @@ Entry points are informed by your current level and A. The Agent suggests level-
 ## Quick Start
 
 1. **Clone** this repo and open in Cursor.
-2. **Choose a subject** (e.g. Data Science) under `learning-book/COE_DS/`.
-3. **Start or resume** — Tell the Agent: "Start a new subject" or "Resume Data Science."
-4. **Choose phase** — B. Capture Facts & Data | C. Organise Information | D. Distill Understanding.
-5. **Pick an entry point** — e.g. Chapter 1 UBS, Topic 0. Overview.
-6. **Learn and capture** — Conduct hierarchical Q&A. The Agent updates the Learning Book as you go.
+2. **Check your setup** — Run `/health` in Cursor Chat to validate configs, templates, and Learning Book structure.
+3. **Choose a subject** (e.g. Data Science) under `learning-book/COE_DS/`.
+4. **Set up your roadmap (first time only)** — Run `/roadmap-discovery` to personalise your Subject Roadmap (A) with your current level, goals, and gaps.
+5. **Start or resume** — Tell the Agent: "Start a new subject" or "Resume Data Science."
+6. **Choose phase** — B. Capture Facts & Data | C. Organise Information | D. Distill Understanding.
+7. **Pick an entry point** — e.g. Chapter 1 UBS, Topic 0. Overview.
+8. **Learn and capture** — Conduct hierarchical Q&A. The Agent updates the Learning Book as you go.
 
 The Agent uses the Subject Roadmap (A) to orient, suggest next steps, and keep your progression on track. See `docs/ai/implementation/ile-minimal-flow.md` for the full flow.
 
@@ -126,6 +128,24 @@ docs/ai/                             # Requirements, Design, Planning, Implement
 ```
 
 Full tree map: `docs/ai/implementation/learning-book-tree-map.md`
+
+---
+
+## MCP and /heavy (optional)
+
+The **`/heavy`** command delegates heavy analysis to the Anthropic API (PTC) so the IDE gets only a summary. It uses a local MCP server that ships with this repo.
+
+**Prerequisites:** Node.js 18+ and npm (required for MCP servers including `ai-devkit-memory` and `claude-ptc-mcp`).
+
+**On each device** where you want `/heavy` to work:
+
+1. **Dependencies** (if you pulled without `node_modules`):  
+   `cd tools/claude-ptc-mcp && npm install`
+2. **API key:** Copy `tools/claude-ptc-mcp/.env.example` to `tools/claude-ptc-mcp/.env` and set `ANTHROPIC_API_KEY`. Or set it in Cursor → Settings → MCP → claude-ptc-mcp → Environment.
+3. **Optional:** Set `WORKSPACE_ROOT` (in `.env` or MCP env) to this repo’s root so the server can read files when you pass a scope.
+4. **Restart Cursor** so it loads `.cursor/mcp.json`. The server is already registered there (`node tools/claude-ptc-mcp/src/index.js`, cwd: repo root).
+
+After that, `/heavy` will call the `run_heavy_analysis_ptc` tool. No cloud install—the server is in the repo.
 
 ---
 

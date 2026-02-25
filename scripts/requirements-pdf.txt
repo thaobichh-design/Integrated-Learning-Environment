@@ -1,2 +1,3 @@
-# For scripts/pdf_table_to_md.py (PDF table → Markdown)
+# Optional: for PDF table extraction (internal tooling, not part of core ILE flow).
+# Script pdf_table_to_md.py is not currently included; this file is kept for reference.
 pdfplumber>=0.10.0
