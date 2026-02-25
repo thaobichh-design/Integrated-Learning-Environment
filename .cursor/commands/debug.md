@@ -16,11 +16,11 @@ Analyze the system to find the Root Blocker.
 - If the bug relates to a specific task, note the task ID and A.C. from Planning (Master Scope Mapping or Execution Matrix in the active planning doc: `docs/ai/planning/feature-{name}.md` if it exists, else `docs/ai/planning/README.md`) so the fix is traceable.
 
 ## Step 3: The Fix
-Present the proposed solution to the User. 
+Present the proposed solution to the User.
 - Explain how this fix neutralizes the UBS.
 - Provide the exact Acceptance Criteria (How will we deterministically prove the bug is dead?)
 
-**🛑 WAITING FOR FOUNDER APPROVAL:** *"Do you approve this root-cause analysis and proposed fix? Reply 'Yes' to execute."*
+**🛑 WAITING FOR USER APPROVAL:** *"Do you approve this root-cause analysis and proposed fix? Reply 'Yes' to execute."* (Canonical phrase for /debug — see `docs/ai/Effective_Execution_Manifesto.md`.)
 
 ## Step 4: Execute & Verify
 ONLY upon explicit "Yes", write the code, run the verification, and confirm to the User that the Acceptance Criteria is met.

@@ -4,10 +4,12 @@ description: Iteration retrospective — review all evidence before advancing. U
 
 # UTILITY: REVIEW (Iteration Retrospective)
 
+**Process:** See `docs/ai/Effective_Execution_Manifesto.md` for approval phrases. At iteration boundaries, `/state-b` will hard-stop; run `/review` before replying "Proceed to Iteration N+1" or "Re-plan".
+
 **PRIME DIRECTIVE:** Produce a structured evidence review of a completed (or in-progress) iteration so the User can make an informed decision about whether the UDO/UDS/UBS mapping still holds before advancing. Read-only — do not modify docs or execute tasks.
 
 ## Step 0: Determine Active Feature
-Same logic as State B Step 0. Identify the active feature and its planning doc.
+Use the same logic as **execute-micro-task.md Step 0 (Canonical)** — only `docs/ai/planning/feature-*.md`, **excluding `docs/ai/archive/`**. Identify the active feature and its planning doc.
 
 ## Step 1: Identify the Iteration to Review
 - Default: the **most recently completed iteration** (the highest iteration number where all tasks are 🟢 Reviewed/Tested).
@@ -44,9 +46,9 @@ From the planning doc (Execution Matrix + Master Scope Mapping Table B), collect
 
 **Reflection prompt:**
 > *Based on the evidence above:*
-> 1. *Does the original UDO still describe what the User actually wants?* What would have to be true for the UDO to be wrong or incomplete?
-> 2. *Have we discovered new Blockers (UBS) or Drivers (UDS) during this iteration?* Have we discovered new Nouns, Verbs, or Adverbs we care about (e.g. a capability that should be first-class)?
-> 3. *Does the scope for the next iteration still make sense, or should we re-plan?* Any outcomes from this iteration that should change what we do in the next iteration? Re-plan = run /state-a to update requirements, design, and planning.
+> 1. *Does the original UDO still describe what the User actually wants?*
+> 2. *Have we discovered new Blockers (UBS) or Drivers (UDS) during this iteration?*
+> 3. *Does the scope for the next iteration still make sense, or should we re-plan?*
 >
 > *Reply "Proceed to Iteration N+1" to advance, "Re-plan" to run /state-a, or share your thoughts for discussion.*
 

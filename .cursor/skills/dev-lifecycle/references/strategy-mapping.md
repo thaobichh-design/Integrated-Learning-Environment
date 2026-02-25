@@ -15,7 +15,7 @@
    * **The Premise:** The underlying logic/worldview of this path.
    * **The Causal Map:** Proposed UDO, UDS (Driver/Blocker), and UBS (Driver/Blocker).
 6. Ask the User to choose a path or mix-and-match.
-**🛑 WAITING FOR FOUNDER APPROVAL:** *"Does this accurately map the causal reality?"*
+**🛑 WAITING FOR USER APPROVAL:** *"Does this accurately map the causal reality?"*
 
 ## SUB-STEP 2: THE SYSTEM DESIGN
 Once Sub-Step 1 is approved, translate the psychology into a system.
@@ -23,7 +23,7 @@ Once Sub-Step 1 is approved, translate the psychology into a system.
 2. Define the **Environment** (Where it lives: Physical/Digital/Cultural).
 3. Define the **Tools** (The Desirable Wrapper + The Effective Core).
 4. Define the **SOP** (The step-by-step human action).
-**🛑 WAITING FOR FOUNDER APPROVAL:** *"Do you approve this System Design?"*
+**🛑 WAITING FOR USER APPROVAL:** *"Do you approve this System Design?"*
 
 ## SUB-STEP 3: THE User's Requirements (Requirements)
 Once Sub-Step 2 is approved, define the strict technical parameters. 
@@ -32,7 +32,7 @@ Once Sub-Step 2 is approved, define the strict technical parameters.
 3. Define the **Noun** (The Tool).
 4. Define the **Adjectives** (Technical Attributes).
 *Note: Every item MUST have deterministic Acceptance Criteria.*
-**🛑 WAITING FOR FOUNDER APPROVAL:** *"Do you approve this User's Requirements?"*
+**🛑 WAITING FOR USER APPROVAL:** *"Do you approve this User's Requirements?"*
 
 ## SUB-STEP 4: THE 4-ITERATION ROADMAP (Planning)
 Once Sub-Step 3 is approved, sequence the work strictly by risk. Use the **feature name** from Sub-Step 1 for all doc paths below.

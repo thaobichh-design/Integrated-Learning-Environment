@@ -16,7 +16,7 @@ We operate a **2-State Effective Execution Engine** instead of a multi-phase wat
 
 ### State B: Execute One Micro-Task (The Execution Loop)
 - **Purpose:** Execute exactly ONE task from the planning document, then hard-stop for User validation.
-- **One task per run.** The Agent reads `docs/ai/planning/README.md`, picks the first `🔴 To Do` task (skips `🟠 Stuck` until the User unblocks), builds the minimal deliverable, presents evidence, marks the task **🔵 Draft Completed (by the Agent)**, then stops. No next task until the User replies "Approved" (then mark **🟢 Reviewed/Tested (by the User)**) or gives feedback.
+- **One task per run.** The Agent reads the planning doc (`docs/ai/planning/feature-{name}.md` if it exists, else `docs/ai/planning/README.md`), picks the first `🔴 To Do` task (skips `🟠 Stuck` until the User unblocks), builds the minimal deliverable, presents evidence, marks the task **🔵 Draft Completed (by the Agent)**, then stops. No next task until the User replies "Approved" (then mark **🟢 Reviewed/Tested (by the User)**) or gives feedback.
 - **Task flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed → 🟢 Reviewed/Tested. 🟠 Stuck = off-ramp when blocked.
 - **Entry:** Use `/state-b` or trigger the Dev Lifecycle Skill → State B.
 
@@ -54,6 +54,8 @@ For freeform feature/add-on requests (no command invoked), the Agent follows `.c
 ---
 
 ## Recovery Protocol (What To Do When Things Go Wrong)
+
+*Commands (`.cursor/commands/`) and rules (`.cursor/rules/`) reference this section and the approval table above for deterministic recovery and approval phrases.*
 
 | Situation | Recovery Steps |
 | :--- | :--- |

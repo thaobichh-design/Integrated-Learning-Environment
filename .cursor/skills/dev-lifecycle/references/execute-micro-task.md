@@ -6,12 +6,15 @@
 
 ## THE 3-STEP EXECUTION SOP
 
-### Step 0: DETERMINE ACTIVE FEATURE (Project / Feature Name)
+### Step 0: DETERMINE ACTIVE FEATURE (Project / Feature Name) — CANONICAL
+*This logic is the single source of truth for "active feature" across /status, /handoff, /state-b, /review, and context-preservation. All commands that need an active feature MUST use this logic and MUST exclude `docs/ai/archive/`.*
+
 You must know which project or feature you are executing for, so you read and update the correct docs.
-1. **Check for feature docs:** List files matching `docs/ai/planning/feature-*.md` (excluding `docs/ai/archive/`). If **exactly one** exists, use its name (e.g. `feature-integrated-learning-environment.md` → name = `integrated-learning-environment`) as the active feature. Skip to Step 1.
-2. **If none or multiple feature docs exist:** Read `README.md` and `CHANGELOG.md` in the repo root for project or feature context (e.g. "Integrated Learning Environment", a named venture, or recent feature work). If you can infer a single feature name that matches an existing `docs/ai/planning/feature-{name}.md` or `docs/ai/requirements/feature-{name}.md`, use it.
-3. **If still ambiguous or no feature docs exist:** Ask the user: **"What is the name of the project or feature you're working on? I'll use it to load the right requirements, design, and planning docs (e.g. integrated-learning-environment)."** Normalize their answer to kebab-case for file paths.
-4. **Doc path rule:** For the rest of this run, use `docs/ai/planning/feature-{name}.md`, `docs/ai/requirements/feature-{name}.md`, and `docs/ai/design/feature-{name}.md` when they exist; otherwise fall back to `docs/ai/planning/README.md`, `docs/ai/requirements/README.md`, and `docs/ai/design/README.md`.
+1. **Check for feature docs:** List files matching `docs/ai/planning/feature-*.md` **only under `docs/ai/planning/`** — do **not** include any file under `docs/ai/archive/`. If **exactly one** exists, use its name (e.g. `feature-integrated-learning-environment.md` → name = `integrated-learning-environment`) as the active feature. Skip to Step 1.
+2. **If multiple feature docs exist:** Use the **most recently modified** `docs/ai/planning/feature-*.md` (by file mtime) as the active feature, unless the User has just specified a feature name in this run.
+3. **If none exist:** Read `README.md` and `CHANGELOG.md` in the repo root for project or feature context. If you can infer a single feature name that matches an existing `docs/ai/requirements/feature-{name}.md`, use it for doc paths.
+4. **If still ambiguous or no feature docs exist:** Ask the user: **"What is the name of the project or feature you're working on? I'll use it to load the right requirements, design, and planning docs (e.g. integrated-learning-environment)."** Normalize their answer to kebab-case for file paths.
+5. **Doc path rule:** For the rest of this run, use `docs/ai/planning/feature-{name}.md`, `docs/ai/requirements/feature-{name}.md`, and `docs/ai/design/feature-{name}.md` when they exist; otherwise fall back to `docs/ai/planning/README.md`, `docs/ai/requirements/README.md`, and `docs/ai/design/README.md`.
 
 ### Step 1: INITIALIZE (Read the Context)
 1. Read the **planning doc** for the active feature: `docs/ai/planning/feature-{name}.md` if it exists, else `docs/ai/planning/README.md` (Master Scope Mapping and Execution Matrix, Iteration Sequencing).
@@ -24,6 +27,7 @@ You must know which project or feature you are executing for, so you read and up
 1. Write the minimal amount of code/markdown required to complete the task.
 2. Adhere strictly to the @docs/ai/frameworks/effective-system-design.md principles.
 3. Do NOT optimize for 100% test coverage or speculative future features. Only build what is required to pass the Acceptance Criteria.
+4. **Resource Impact:** Before adding any new dependency, library, or service, check the design doc **Resource Impact** section (Design §4 or equivalent). If the resource is not allowed or not mentioned, ask the User before adding. See `.cursor/rules/anti-patterns.mdc` rule 2.
 
 ### Step 3: VALIDATE & HARD EXIT (The User Gate)
 Once the task is built, you must prove to the User that it works. Output your response in the following strict format, then update the planning doc: set this task's Status to **🔵 Draft Completed (by the Agent)**. Cease generation immediately.
@@ -32,7 +36,7 @@ Once the task is built, you must prove to the User that it works. Output your re
 * **The Action:** [What you did]
 * **The Evidence of Truth:** [List the exact file paths, CLI output, or code snippets that prove the Acceptance Criteria is mathematically met]
 
-**🛑 WAITING FOR FOUNDER APPROVAL**
+**🛑 WAITING FOR USER APPROVAL**
 *Please review the evidence above. Reply with 'Approved' to mark this task 🟢 Reviewed/Tested (by the User) and proceed to the next task, or provide feedback for revision. I will not proceed until you answer.*
 
 **When the User approves a task (mark 🟢 in Execution Matrix):** Also update **Table B** (Master Scope Mapping) in the **same planning doc you read in Step 1** (i.e. `docs/ai/planning/feature-{name}.md` if it exists, else `docs/ai/planning/README.md`) for every A.C. that task delivers or evidences: set that A.C. row's **Status** to 🟢 and **Deterministic Evidence** to the task's deliverables (e.g. doc refs, `T-XXX approved`). See the task row for which A.C. it addresses (e.g. T-201 → Noun-AC2, Verb-AC4; T-202 → Verb-AC5, SustainAdv-AC2, SustainAdv-AC3, Noun-AC4; T-203 → Verb-AC3, Noun-AC3). Each task row may list multiple A.C. IDs in "Active A.C. in Scope" or in the task description; update Table B for each of those A.C. rows.
