@@ -14,3 +14,4 @@
 
 # Session/analytics log (T-412; usage data)
 logs/
+.~lock.*

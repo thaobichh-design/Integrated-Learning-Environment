@@ -18,7 +18,7 @@ CURSOR_RULES = REPO_ROOT / ".cursor" / "rules"
 REQUIRED_TEMPLATES = [
     "A-subject-roadmap-and-level-specifications.md",
     "B-captured-facts-and-information.md",
-    "0-overview-and-summary.md",
+    "page-0-overview-and-summary.md",
     "page-1-ultimate-blockers.md",
     "page-2-ultimate-drivers.md",
     "page-3-principles.md",

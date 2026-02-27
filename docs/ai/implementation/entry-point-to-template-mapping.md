@@ -17,8 +17,8 @@ task: T-203
 *Deterministic behavior when user selects an entry point.*
 
 1. **Resolve entry point** — From user: (subject, phase, chapter, topic, **page**). Example: COE_DS, C. Organise Information, Chapter 1 UBS, Topic 1 (Ultimate Blockers), Page 0. For Phase B, entry is subject-level only (no chapter/topic/page).
-2. **Resolve template path** — For **Phase B** use `templates/B-captured-facts-and-information.md` (one file per subject). Use **page-type resolution (MECE)** for Phase C topic content: (chapter, topic, **page**) → one of the 7 page templates per the table below. For A. Subject Roadmap, use `templates/A-subject-roadmap-and-level-specifications.md`. If page is missing or unknown, fallback to `templates/0-overview-and-summary.md`.
-3. **Load template** — Read the template file at the resolved path. Use its structure (questions × components, target table format) for the conversation and for any proposed doc updates. If the file does not exist, use the structure from `templates/0-overview-and-summary.md`.
+2. **Resolve template path** — For **Phase B** use `templates/B-captured-facts-and-information.md` (one file per subject). Use **page-type resolution (MECE)** for Phase C topic content: (chapter, topic, **page**) → one of the 7 page templates per the table below. For A. Subject Roadmap, use `templates/A-subject-roadmap-and-level-specifications.md`. If page is missing or unknown, fallback to `templates/page-0-overview-and-summary.md`.
+3. **Load template** — Read the template file at the resolved path. Use its structure (questions × components, target table format) for the conversation and for any proposed doc updates. If the file does not exist, use the structure from `templates/page-0-overview-and-summary.md`.
 4. **Scope context** — Resolve target file and section per `ile-conversation-to-doc-mapping.md`. Keep conversation and doc updates scoped to this single entry (one file, one section). Do not mix other entry points in the same exchange.
 
 **Evidence:** Agent can state the loaded template path and the target file/section for the current entry point (SustainAdv-AC3, Verb-AC3).
@@ -29,7 +29,7 @@ task: T-203
 
 | Page | Template path |
 |------|----------------|
-| 0 | `templates/0-overview-and-summary.md` |
+| 0 | `templates/page-0-overview-and-summary.md` |
 | 1 | `templates/page-1-ultimate-blockers.md` |
 | 2 | `templates/page-2-ultimate-drivers.md` |
 | 3 | `templates/page-3-principles.md` |
@@ -54,7 +54,7 @@ task: T-203
 *6 Chapters × 6 Topics. Each Topic has 7 pages (0–5 + Page 7 Topic Distilled Understanding). Organise level = 16 columns (14 questions + 2 notes). Distilled level = 17 columns (14 questions + 3 notes).*
 
 | — | — | **A. Subject Roadmap & Level Specifications** | A. Subject Roadmap | `templates/A-subject-roadmap-and-level-specifications.md` |
-| 0 | 0. Overview & Summary | Chapter 0, Topic 0 | C. Organise Information | `templates/0-overview-and-summary.md` |
+| 0 | 0. Overview & Summary | Chapter 0, Topic 0 | C. Organise Information | `templates/page-0-overview-and-summary.md` |
 | 1 | 0. Overview & Summary | Chapter 1 UBS, Topic 0 | C. Organise Information | `templates/1-ubs-0-overview-and-summary.md` |
 | 1 | 1. Ultimate Blockers | Chapter 1 UBS, Topic 1 | C. Organise Information | `templates/1-ubs-1-ultimate-blockers.md` |
 | 1 | 2. Ultimate Drivers | Chapter 1 UBS, Topic 2 | C. Organise Information | `templates/1-ubs-2-ultimate-drivers.md` |

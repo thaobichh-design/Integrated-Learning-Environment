@@ -1,52 +1,84 @@
-# Template: Page 5 — Steps to Overcome / Steps to Utilize
+# Template: Page 5 — EOP (Effective Operating Procedure)
 
-*Page type: Steps to Overcome (UBS) or Steps to Utilize (UDS) (Phase C. Organise Information). Same canonical questions as Page 0; rows = steps per tree map § 6 Pages per Topic. Use for any (chapter, topic, page=5).*
+*Page type: Steps to Apply — the operating procedure for this Topic (Phase C. Organise Information).*
 
-## Target table format
+---
 
-*Write content per row (step). Same column structure as Page 0.*
+## Purpose
 
+Page 5 defines the **Effective Operating Procedure (EOP)** for this Topic: the actionable steps that apply the Principles (Page 3), leverage the Environment & Tools (Page 4), to:
+- **Overcome the UBS** (Page 1) — disable the blockers
+- **Enable the UDS** (Page 2) — amplify the drivers
 
-<div style="overflow-x: auto;">
+This page turns knowledge into action. It answers: *"Given everything we know about this Topic's system, how do we actually execute it?"*
 
-<table>
-<thead>
-<tr>
-<th colspan="17"><strong>STEPS TO OVERCOME / ULTILIZE (Page 5)</strong></th>
-</tr>
-<tr>
-<th rowspan="2"><strong></strong><br/><strong></strong></th>
-<th colspan="2"><strong>INTRODUCTION</strong></th>
-<th colspan="6"><strong>SUCCESS</strong></th>
-<th colspan="6"><strong>FAILURE</strong></th>
-<th colspan="2"><strong>LEARNER'S NOTE</strong></th>
-</tr>
-<tr>
-<th>What is it for? Why is it important? (Relevance)</th>
-<th>What is it? (Introduction)</th>
-<th>How does it work successfully? (Effective Operating Procedure)</th>
-<th>What ultimately cause it to work successfully? (Ultimate Driving System)</th>
-<th>How do the Ultimate Driving System cause it to work successfully? (Success Mechanism)</th>
-<th>What principles are the Ultimate Driving System based on? (Effective Principle System)</th>
-<th>What tool(s) do the ultimate drivers require to work? (Ultimate Effective System)</th>
-<th>What environmental conditions do the ultimate drivers require to work? (Ultimate Effective System)</th>
-<th>How can it fail? (Failure Actions)</th>
-<th>What ultimately cause it to fail? (Ultimate Blocking System)</th>
-<th>How do the ultimate blockers cause it to fail? (Failure Mechanism)</th>
-<th>What principles are the ultimate blockers based on? (Risky Principles)</th>
-<th>What tool(s) do the ultimate blockers require to work? (Risky Tools)</th>
-<th>What environmental conditions do the ultimate blockers require to work? (Risky Environments)</th>
-<th>What to do if it fails? (What else?)</th>
-<th>Next Steps to Take (Now What? Now How?)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>STEPS TO OVERCOME / ULTILIZE #1</strong></td>
-<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-</tr>
-<!-- Repeat for STEPS TO OVERCOME / ULTILIZE #2..#5 as needed -->
-</tbody>
-</table>
+---
 
-</div>
+## Row Structure (all Topics)
+
+- **N rows — one step per row**, ordered sequentially (each step must be completed before the next)
+- Row labels: `STEP.1`, `STEP.2`, `STEP.3` ... (sequential)
+- Each step must reference at least one element from Pages 1–4:
+  - Which Principle (P3) it applies
+  - Which Tool/Environment (P4) it uses
+  - Which UBS element (P1) it overcomes OR which UDS element (P2) it enables
+
+### Step count guide
+- Topic 0: ~4–6 steps (overview-level, high-level phases)
+- Topics 1–5: More detailed, more specific steps for that Topic's system
+
+---
+
+## Step Design Principles
+
+1. **Sequential and dependent**: Step N+1 requires Step N to be complete. No steps in parallel unless explicitly designed as parallel.
+2. **Linked to UBS/UDS/Principles**: Every step must have a clear purpose rooted in the blockers/drivers of this Topic.
+3. **Includes a gate/checkpoint**: Each step ends with a verifiable output or decision point before proceeding.
+4. **RACI-ready**: For advanced Topics, steps can specify who Does, Approves, is Consulted, Informed (even if the solo operator plays all roles).
+
+---
+
+## Causal Logic
+
+For each step row, answer the 16 canonical questions AS IF that step is the subject:
+- Col 1: Why does this step exist? What blocker does it overcome or what driver does it enable?
+- Col 2: What exactly is the step (action + output)?
+- Col 3: How is it done successfully?
+- Col 4: What drives this step to succeed?
+- Col 10: What ultimately blocks this step?
+- Col 15: What to do if this step fails?
+
+---
+
+## Format
+
+```markdown
+# Topic {X}. {Topic Name} — Page 5: Steps to Apply
+*Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 5. Steps to Apply*
+*Subject: AI Orchestration / Engineering | UDO: ...*
+
+---
+
+## Column Key
+[standard 16-question key]
+
+---
+
+## Table
+
+| Row | 1 · Relevance | 2 · Introduction | 3 · EOP | 4 · UDS | 5 · Success Mechanism | 6 · EPS | 7 · Tools (UES) | 8 · Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Risky Principles | 13 · Risky Tools | 14 · Risky Environment | 15 · What Else? | 16 · Next Steps |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **STEP.1** | | | | | | | | | | | | | | | | |
+| **STEP.2** | | | | | | | | | | | | | | | | |
+| **STEP.3** | | | | | | | | | | | | | | | | |
+```
+
+---
+
+## Rules
+
+- Steps are sequential — order matters.
+- Every step must trace back to at least one UBS, UDS, or Principle from this Topic's Pages 1–3.
+- Each step should end with a verifiable output or gate.
+- EOP for deeper Topics goes more granular than EOP for Topic 0.
+- Do not restate principles as steps — steps are ACTIONS, not rules.

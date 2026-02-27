@@ -112,6 +112,40 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ---
 
+## Template improvement recommendations (2026-02-25)
+
+*Logged for session resumption. These are recommendations from an objective review of `templates/` in the ILE project — not yet implemented.*
+
+### Recommendations — Phase B and phase seams
+
+1. **B → C derivation gap**  
+   B template uses a wide capture table (LEARN / WATCH / LISTEN / READ / VIEW / DO). Phase C uses the 16-column causal question set. There is **no documented derivation path** from B to C (e.g. "captured source in B row X.Y informs C row UBS.UB in chapter/topic Z"). Consider adding a short implementation note or rule: how B captures map into Phase C seeds (or that the learner re-derives C from B manually).
+
+2. **B template: add agent-facing instructions**  
+   B has only a USER GUIDE (three bullets for the learner). Phase C templates have Purpose, Derivation Rules, Causal Logic, Format, Rules for the agent. Add an agent-facing section to `templates/B-captured-facts-and-information.md`: e.g. how many rows per subtopic, how to link a source to a subtopic, how "Consumed = Green" is represented in Markdown (or that it is human-only).
+
+3. **A template: L-level requirements are placeholders**  
+   The Level Specifications table uses `*Define for this subject*` for every level. There is no default or heuristic for a new subject. Consider: (a) a generic L1–L7 default in the template or a separate "generic level spec" doc agents can copy from, or (b) documenting in Roadmap Discovery / A-population that the agent must obtain or propose L1–L7 requirements before A is usable.
+
+### Recommendations — Consistency and maintenance
+
+4. **Page 7: markdown vs HTML**  
+   Pages 0–5 use markdown tables; Page 7 uses raw HTML (`<table>`, `colspan`, `rowspan`). Document in `entry-point-to-template-mapping.md` or the page-7 template that Page 7 is HTML for column-grouping reasons, so agents treat it as a special case.
+
+5. **Template versioning**  
+   If the 16-column set or row structure changes, all pre-generated topic files (e.g. 252 under C) can become stale with no way to detect it. Consider adding a `template_version` or `canonical_question_set_version` field to templates and/or generated files, and a check in `health_check.py` or `check-learning-book-structure.sh` that reports version mismatch.
+
+6. **Topic 0 vs Topics 1–5**  
+   Every page template branches on "Topic 0: N rows; Topics 1–5: M rows." The agent must know (chapter, topic) before generating. Consider making this explicit in the loading procedure (e.g. "resolve topic index first; then apply template branch") so it is never ambiguous.
+
+### Summary for resumption
+
+- **Phase C (pages 0–5, 7):** Causal chain and 16-column set are strong; no structural change recommended.  
+- **Risks:** B→C bridge undocumented; B not agent-ready; A L-levels blank; Page 7 format inconsistency; no template versioning; Topic 0 vs 1–5 branch must be resolved at load time.  
+- **Next steps (optional):** Implement one or more of the above (e.g. B agent section, B→C mapping note, A generic L1–L7 stub, template_version field, or health-check version check).
+
+---
+
 ## Session handoff (2025-02-21)
 
 **What was done this session:**
