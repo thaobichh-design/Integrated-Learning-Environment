@@ -20,9 +20,9 @@ Page 2 explores the **driving layer** of this Topic. It answers: what ultimately
 
 ### Topics 1–5 (Deep-Dive)
 - **3 rows**
-- Row 1 label: `{parent}.UD` — derived from **this Topic's Page 0, col 4 · UDS**
-- Row 2 label: `{parent}.UD.UB` — derived from **Row 1, col 10 · UBS**
-- Row 3 label: `{parent}.UD.UD` — derived from **Row 1, col 4 · UDS**
+- Row 1 label: `UBS: {Hierarchical Name} - {parent}.UD: {Description}` — derived from **this Topic's Page 0, col 4 · UDS**
+- Row 2 label: `{parent}.UD: {Description from Row 1} - {parent}.UD.UB: {Description}` — derived from **Row 1, col 10 · UBS**
+- Row 3 label: `{parent}.UD: {Description from Row 1} - {parent}.UD.UD: {Description}` — derived from **Row 1, col 4 · UDS**
 
 ### Notation guide for this page
 ```
@@ -61,17 +61,17 @@ Each row's col 6 (EPS) and col 12 (Risky Principles) generate principles. These 
 ---
 
 ## Column Key
-[standard 16-question key]
+[standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Introduction | 3 · EOP | 4 · UDS | 5 · Success Mechanism | 6 · EPS | 7 · Tools (UES) | 8 · Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Risky Principles | 13 · Risky Tools | 14 · Risky Environment | 15 · What Else? | 16 · Next Steps |
+| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **{parent}.UD** | | | | | | | | | | | | | | | | |
-| **{parent}.UD.UB** | | | | | | | | | | | | | | | | |
-| **{parent}.UD.UD** | | | | | | | | | | | | | | | | |
+| **UBS: {Hierarchical Name} - {parent}.UD: {Description}** | | | | | | | | | | | | | | | | |
+| **{parent}.UD: {Description from Row 1} - {parent}.UD.UB: {Description}** | | | | | | | | | | | | | | | | |
+| **{parent}.UD: {Description from Row 1} - {parent}.UD.UD: {Description}** | | | | | | | | | | | | | | | | |
 ```
 
 ---

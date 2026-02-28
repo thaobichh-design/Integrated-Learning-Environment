@@ -73,8 +73,8 @@ feature: integrated-learning-environment
 | Field | Content |
 |-------|---------|
 | **Required input** | Subject chosen; A file path for that subject. |
-| **Desired output** | Agent read A (Progress Tracker, Session Log, Level Completion Checklist, Gap Analysis); Agent orients Learner (level, last entry, next suggested). |
-| **Agent** | Read A; summarize level, last entry point, last session date, next recommended; ask "Resume or pick another?" Do not skip A; do not assume last entry. |
+| **Desired output** | Agent read A (Progress Tracker, Session Log, Level Completion Checklist, Gap Analysis); if A contains Phase C state (Approved Pages, Current State), Agent also read those sections and the last approved page file; Agent orients Learner (level, last entry, next suggested). |
+| **Agent** | Read A; if A has a "Phase C Organise — state" section (Approved Pages, Current State, Last approved page), read that section and then read the last approved page file (path in A) before orienting — do not start Phase C work until both are read. Summarize level, last entry point, last session date, next recommended; ask "Resume or pick another?" Do not skip A; do not assume last entry. |
 | **Learner** | Confirm subject; decide resume or pick another; approve orientation. |
 | **References** | `ile-minimal-flow.md` § Session Start (Resume); `ile-persistent-memory.md`. |
 
@@ -121,11 +121,11 @@ feature: integrated-learning-environment
 | Field | Content |
 |-------|---------|
 | **Required input** | Session progress; Learner approval to save. |
-| **Desired output** | Session Log appended; Progress Tracker and Level Completion Checklist updated if level changed; optional Tester/Expert review; LTC Peers informed. |
-| **Agent** | Append Session Log; update Progress Tracker/Checklist if level changed; prompt "Notify LTC Peers?"; on approval, sync to ClickUp if configured. Do not update A or sync without Learner approval. |
+| **Desired output** | Target file/section written per conversation→doc mapping; Session Log appended; if Phase C, A's Approved Pages, Decisions log, and Current state updated; Progress Tracker/Checklist updated if level changed; optional Tester/Expert review; LTC Peers informed; next entry suggested. |
+| **Agent** | **After-chunk checklist:** (1) Write to target file/section per `ile-conversation-to-doc-mapping.md`. (2) Append A Session Log (Date, Entry Point, Progress). (3) If Phase C and content was approved, update A's Phase C state: Approved Pages, Decisions log (if any decision), Current state / Next action. (4) Update Progress Tracker/Checklist if level changed. (5) Suggest next entry. (6) Prompt "Notify LTC Peers?"; on approval, sync to ClickUp if configured. Do not update A or sync without Learner approval. |
 | **Learner** | Approve save; confirm level change; optionally request review; confirm inform LTC Peers. |
 | **Gate** | **Mandatory:** Do not switch entry/phase or end session without Step 7 approval. |
-| **References** | `ile-minimal-flow.md`; `ile-persistent-memory.md` § Session end. |
+| **References** | `ile-minimal-flow.md`; `ile-conversation-to-doc-mapping.md`; `ile-persistent-memory.md` § Session end. |
 
 ---
 
@@ -167,9 +167,21 @@ feature: integrated-learning-environment
 
 1. **Persistent reference** — This contract (minimal EPS + full EOP + Strategy) is the single source of truth the Agent follows in ILE context. Full reference: `docs/ai/reference/ltc-advanced-effective-learning-system.md`.
 2. **EOP as the flow** — ILE flow must map 1:1 to EOP steps 1–8. **Gates:** No Step 3 without Step 2 confirm/defer; no entry/phase switch or exit without Step 7.
-3. **Principles in behavior** — Agent must not suggest multitasking; must not rely on chat as memory; must always read A at start and write A at checkpoint; single entry; evidence over speed.
-4. **RACI by design** — No A write and no entry/phase switch without Learner approval. Every such action requires explicit "Approve?" or "Confirm?".
-5. **Checklist** — Agent has access to this contract at ILE session start (Option A or B); EOP steps 1–8 implemented in flow with gates; Agent behavior reflects EPS; RACI enforced; templates align with EPS.
+3. **Single entry-point loop** — One entry → load template → conversation → propose → approve → write per mapping → update A (Session Log and, if Phase C, Approved Pages / Decisions / Current state) → suggest next.
+4. **Principles in behavior** — Agent must not suggest multitasking; must not rely on chat as memory; must always read A at start and write A at checkpoint; single entry; evidence over speed.
+5. **RACI by design** — No A write and no entry/phase switch without Learner approval. Every such action requires explicit "Approve?" or "Confirm?".
+6. **Checklist** — Agent has access to this contract at ILE session start (Option A or B); EOP steps 1–8 implemented in flow with gates; Agent behavior reflects EPS; RACI enforced; templates align with EPS.
+
+**Key rules (do not override):** One entry until Step 7; no write without Learner approval; A is truth; for Phase C, read A (and last approved page) before generating next.
+
+**Known agent failure modes and mitigations:**
+
+| Failure mode | Mitigation |
+|--------------|------------|
+| Agent batches pages or jumps entries | One entry until Step 7; do not switch without checkpoint. |
+| Agent skips template or wrong structure | Load template for this page type before generating (per `entry-point-to-template-mapping.md`). |
+| Context loss / state missing | Read A first; if Phase C, read A's Phase C state and last approved page before work. |
+| Format drift (wrong table/structure) | Use template structure; follow Phase C content rules in `learning-book-tree-map.md`. |
 
 ---
 

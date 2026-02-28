@@ -92,13 +92,13 @@ For each component row, answer the 16 canonical questions AS IF that component i
 ---
 
 ## Column Key
-[standard 16-question key]
+[standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Introduction | 3 · EOP | 4 · UDS | 5 · Success Mechanism | 6 · EPS | 7 · Tools (UES) | 8 · Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Risky Principles | 13 · Risky Tools | 14 · Risky Environment | 15 · What Else? | 16 · Next Steps |
+| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **[LAYER1].1** | | | | | | | | | | | | | | | | |
 | **[LAYER1].2** | | | | | | | | | | | | | | | | |

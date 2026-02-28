@@ -10,6 +10,21 @@ Page 3 **consolidates all principles already embedded in Pages 0, 1, and 2** of 
 
 ---
 
+## S/E/Sc Labeling (MANDATORY)
+
+**Every principle must be labeled with its Effectiveness pillar.** This bucketing happens during ELF — not later during ESD. The label tells the agent which pillar this principle serves when translated into Adverb A.C.s.
+
+- **P[n](S)** — Sustainability principle: governs correct, safe, risk-managed operation. Primarily disables UBS elements.
+- **P[n](E)** — Efficiency principle: governs fast, lean, frugal operation. Primarily enables UDS elements via speed/resource optimization.
+- **P[n](Sc)** — Scalability principle: governs repeatable, comparable, growth-capable operation. Primarily enables UDS elements at recursive depth.
+
+**How to determine the pillar:**
+- Ask: "Does this principle prevent failure/harm (S), reduce waste/time (E), or enable growth/repeatability (Sc)?"
+- If a principle spans two pillars, assign it to the *higher-priority* pillar (S > E > Sc) — Sustainability always wins.
+- The pillar label goes in the row label: `P1(S)`, `P2(E)`, `P3(Sc)`, etc.
+
+---
+
 ## Row Structure (all Topics)
 
 - **N rows — one principle per row**
@@ -17,12 +32,17 @@ Page 3 **consolidates all principles already embedded in Pages 0, 1, and 2** of 
   - Page 0: col 6 (EPS from success side) + col 12 (Risky Principles from failure side)
   - Page 1: col 6 + col 12 from each row
   - Page 2: col 6 + col 12 from each row
-- Row labels: `P1`, `P2`, `P3` ... (sequential)
+- Row labels: `P1(S)`, `P2(E)`, `P3(Sc)` ... (sequential, with S/E/Sc pillar label)
 - Each principle must explicitly state: **"Enables [UDS element]"** OR **"Disables [UBS element]"**
 
 ### Principle count guide
 - Topic 0: ~2–4 principles (overview depth — sparse, not greedy)
 - Topics 1–5: ~4–8 principles (deeper layers uncovered = more principles derivable)
+
+### Pillar distribution guide
+- At overview depth (Topic 0), expect mostly (S) principles — Sustainability is the foundation.
+- Deeper Topics (1–5) will surface more (E) and (Sc) principles as recursive UDS layers are uncovered.
+- There is no required ratio — the distribution is driven by the UBS/UDS content, not by quota.
 
 ---
 
@@ -47,17 +67,18 @@ Respect the Hierarchy of Science when identifying which layer the principle oper
 ---
 
 ## Column Key
-[standard 16-question key]
+[standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Introduction | 3 · EOP | 4 · UDS | 5 · Success Mechanism | 6 · EPS | 7 · Tools (UES) | 8 · Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Risky Principles | 13 · Risky Tools | 14 · Risky Environment | 15 · What Else? | 16 · Next Steps |
+| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **P1** | | | | | | | | | | | | | | | | |
-| **P2** | | | | | | | | | | | | | | | | |
-| **P3** | | | | | | | | | | | | | | | | |
+| **P1(S)** | | | | | | | | | | | | | | | | |
+| **P2(S)** | | | | | | | | | | | | | | | | |
+| **P3(E)** | | | | | | | | | | | | | | | | |
+| **P4(Sc)** | | | | | | | | | | | | | | | | |
 ```
 
 ---
@@ -66,5 +87,7 @@ Respect the Hierarchy of Science when identifying which layer the principle oper
 
 - Do NOT invent principles not derivable from Pages 0–2 of this Topic.
 - Each principle row must explicitly name which UDS or UBS element it links to in col 1 (Relevance).
+- **Every principle must carry a pillar label: (S), (E), or (Sc).** This is required for ESD translation.
 - Principles accumulate across Topics — Topic 1 principles build on Topic 0 principles; later Topics add more.
 - Do not be greedy — fewer precise principles > many vague ones.
+- If a principle from a prior Topic is now better understood, it may be refined in a deeper Topic — but the pillar label must remain consistent (or be explicitly corrected with a note in A's Decisions log, in the Phase C Organise — state section).

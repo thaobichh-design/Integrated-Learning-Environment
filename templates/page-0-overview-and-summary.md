@@ -49,32 +49,35 @@ Page 0 is the **entry point** for the Topic. It gives a single high-level view o
 
 ---
 
+## Perspective Rule
+> *All questions in cols 3–14 are answered from the row subject's own perspective. Identify the row subject type (Effective System / UDS / UBS) before filling cols 4 and 10. The direction of 'works' and 'fails' inverts depending on type.*
+
 ## Column Key
 
 | # | Group | Question |
 |---|---|---|
-| 1 | INTRODUCTION | What is it for? Why is it important? (Relevance) |
-| 2 | INTRODUCTION | What is it? (Introduction) |
-| 3 | SUCCESS | How does it work successfully? (Effective Operating Procedure) |
-| 4 | SUCCESS | What ultimately causes it to work successfully? (Ultimate Driving System) |
-| 5 | SUCCESS | How does the UDS cause it to work successfully? (Success Mechanism) |
-| 6 | SUCCESS | What principles is the UDS based on? (Effective Principle System) |
-| 7 | SUCCESS | What tools do the ultimate drivers require? (Ultimate Effective System) |
-| 8 | SUCCESS | What environmental conditions do the ultimate drivers require? (Ultimate Effective System) |
-| 9 | FAILURE | How can it fail? (Failure Actions) |
-| 10 | FAILURE | What ultimately causes it to fail? (Ultimate Blocking System) |
-| 11 | FAILURE | How does the UBS cause it to fail? (Failure Mechanism) |
-| 12 | FAILURE | What principles are the blockers based on? (Risky Principles) |
-| 13 | FAILURE | What tools do the blockers require? (Risky Tools) |
-| 14 | FAILURE | What environmental conditions do the blockers require? (Risky Environments) |
-| 15 | LEARNER'S NOTE | What to do if it fails? (What else?) |
+| 1 | INTRODUCTION | What is the row subject for? Why does it matter to the Learner? (Relevance) |
+| 2 | INTRODUCTION | What is it precisely — and what is it NOT? (Precise Definition) |
+| 3 | SUCCESS | How does the row subject operate when functioning as designed? *(UBS row: how does it block? UDS row: how does it drive?)* (Success Actions) |
+| 4 | SUCCESS | What ultimately causes the row subject to function as designed? *(UBS row → UBS.UD: drives the blocker — works AGAINST Learner. UDS row → UDS.UD: drives the driver — works FOR Learner.)* (UDS) |
+| 5 | SUCCESS | How does col 4 (UDS) cause the row subject to function as designed? (Success Mechanism) |
+| 6 | SUCCESS | What principles is the UDS based on? (Success EPS) |
+| 7 | SUCCESS | What tools do the ultimate drivers require? (Success Tools — UES) |
+| 8 | SUCCESS | What environmental conditions do the ultimate drivers require? (Success Environment — UES) |
+| 9 | FAILURE | How can the row subject fail to function as designed? *(UBS row: how does the blocker get disabled? UDS row: how does the driver get blocked?)* (Failure Actions) |
+| 10 | FAILURE | What ultimately causes the row subject to fail to function as designed? *(UBS row → UBS.UB: disables the blocker — works FOR Learner. UDS row → UDS.UB: blocks the driver — works AGAINST Learner.)* (UBS) |
+| 11 | FAILURE | How does col 10 (UBS) cause the row subject to fail? (Failure Mechanism) |
+| 12 | FAILURE | What principles are the failure causes based on? (Failure EPS) |
+| 13 | FAILURE | What tools do the failure causes require? (Failure Tools — UES) |
+| 14 | FAILURE | What environmental conditions do the failure causes require? (Failure Environment — UES) |
+| 15 | LEARNER'S NOTE | If the row subject fails as designed, what should the Learner do? (What Else?) |
 | 16 | LEARNER'S NOTE | Next Steps to Take (Now What? Now How?) |
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Introduction | 3 · EOP | 4 · UDS | 5 · Success Mechanism | 6 · EPS | 7 · Tools (UES) | 8 · Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Risky Principles | 13 · Risky Tools | 14 · Risky Environment | 15 · What Else? | 16 · Next Steps |
+| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | **Effective {Subject Name}** | | | | | | | | | | | | | | | | |
 ```

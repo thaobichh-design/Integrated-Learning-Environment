@@ -1,33 +1,34 @@
 # Project Handoff Status
-*Generated: 2026-02-25. Use /status for a quick snapshot; use this file for full handoff.*
+*Generated: 2026-02-28 (end of session). Use /status for a quick snapshot; use this file for full handoff.*
 
 ## Active feature
-**integrated-learning-environment**
+**integrated-learning-environment** (planning doc); current execution focus: **Phase C Learning Book (COE_AI_ORCH)**.
 
 ## Planning doc
 `docs/ai/planning/feature-integrated-learning-environment.md`
 
-## Current iteration
-**4 — Enablement Leadership** (Scalability, COE map, ClickUp mapping, sync, configurable, operational hardening)
+## Phase C state (Learning Book — source of truth in A)
+- **Subject:** COE_AI_ORCH (AI Orchestration / Engineering).
+- **Last approved page:** `learning-book/COE_AI_ORCH/C. Organise Information/2. UDS/2. UDS - 1. Ultimate Blockers.md`
+- **Next action:** Review **T2.P2** (`2. UDS - 2. Ultimate Drivers.md`) in sidebar; approve to proceed to **T2.P3** (EPS harvest from T2.P0+P1+P2).
+- **State file:** `learning-book/COE_AI_ORCH/A. Subject Roadmap & Level Specifications/[COE AI_ORCH]_[OWNER]_A. AI ORCHESTRATION - SUBJECT ROADMAP & LEVEL SPECIFICATIONS.md` — read first when resuming Phase C.
 
-## Next task
-- **ID:** None (all I4 tasks T-401..T-413 🟢 Reviewed/Tested)
-- **Title:** Optional follow-ups: template improvement recommendations (see CHANGELOG § Template improvement recommendations 2026-02-25); or define next iteration/scope.
-- **Status:** ⚪ Pending
+## Current iteration (planning)
+I4 complete (all tasks 🟢). Optional follow-ups or next iteration.
 
-## Last approved task
-- **ID:** T-413 (multi-user dry-run validation); I4 hardening T-407, T-408 also 🟢.
-- **Evidence:** health_check.py, smoke-test-sync-dryrun.sh; session walkthrough; T-407..T-413 approved.
+## Next task (Phase C)
+- **Page:** T2.P2 (UD Layer) — pending User approval.
+- **After T2.P2 approved:** Generate T2.P3 (EPS harvest), then T2.P4 (UES), T2.P5 (EOP).
 
-## Modified / uncommitted files (before this ship)
-- **Modified (M):** `CHANGELOG.md`, `learning-book/COE_DS/C. Organise Information/1. UBS/1. UBS - 0. Overview & Summary.md`, `templates/page-1-ultimate-blockers.md` … `page-5-steps-to-overcome.md`
-- **Deleted (D):** `templates/0-overview-and-summary.md`
-- **Untracked (??) — tracked in this ship:** `CLAUDE.md`, `learning-book/COE_AI_ORCH/` (new subject AI Orchestration), `templates/page-0-overview-and-summary.md` (overview template rename from `0-overview-and-summary.md`)
+## Last approved (Phase C)
+- T2.P0 (Overview), T2.P1 (UB Layer: Pattern Blindness, Absence of Forcing Mechanism, Multi-Domain Curriculum Discipline). Table separator fixed to 17 columns.
 
-## Note
-This handoff was generated alongside a ship that adds all of the above (including previously untracked files). Template naming: Page 0 template is now `page-0-overview-and-summary.md`. References in `scripts/health_check.py`, `docs/ai/implementation/entry-point-to-template-mapping.md`, and `.cursor/rules/ile-learning-book.mdc` were updated to the new name so `/health` and template loading remain valid.
+## Modified / uncommitted files (summary)
+- **Modified:** CLAUDE.md (formatting pitfalls, /remember ref), .cursor/commands/remember.md (MCP tool name + fallback), .cursor/rules/ile-session-memory.mdc, docs/ai/implementation/ile-persistent-memory.md (§2.0 MCP tool reference), A file and Phase C pages (T0, T1, T2.P0–P2), templates, learning-book tree-map and entry-point mapping, _CONTEXT_ANCHOR.md.
+- **Deleted:** learning-book/COE_DS/ (full removal — focus is COE_AI_ORCH).
+- **Untracked:** 1. UBS P2–P5 (T1.P2–P5), .cursor/rules/markdown_fix.mdc, templates/effective-system-design.md, templates/system-wiki-template.md.
 
 ## Next actions
 1. Run **/status** when resuming to confirm state.
-2. If continuing ILE: consider implementing one or more template improvements from CHANGELOG (2026-02-25), or run **/state-b** if a new task is added to the Execution Matrix.
-3. For COE_AI_ORCH: A and C. Organise Information structure are in place; populate content per templates and entry-point mapping.
+2. Read **A** (Subject Roadmap) and **last approved page** (T2.P1) before generating or reviewing the next page.
+3. Review **T2.P2** (2. UDS - 2. Ultimate Drivers.md); approve to continue to T2.P3 (EPS harvest).

@@ -25,11 +25,16 @@ task: T-101
 | **Gap Analysis** | Current vs Target gaps by level | Session start (priorities) |
 | **Links to Learning Book (per Level)** | Level → Chapters/Topics mapping | Suggest entry points based on current level |
 | **Session Log** | Date, Entry Point, Progress | Session start (resume context); session end (append row) |
+| **Phase C: Approved Pages** | Ordered list of Phase C pages with status (Approved / Generated pending approval) | Session start (orient for Phase C); Step 7 (update after approval) |
+| **Phase C: Decisions Log** | Date, Scope, Decision (terminology, structure, corrections) | Session start (reference); Step 7 (append when decision made) |
+| **Phase C: Current state / Next action** | Last approved page path; next action (e.g. generate T1.P5) | Session start (read before Phase C work); Step 7 (update after approval) |
+| **Phase C: Causal Seeds** | From page, Col, Content, Seeds into (derivation chain) | Session start (reference when generating); Step 7 (extend when new seeds uncovered) |
 
 **Checkpoint protocol:**
-- **Session start:** Agent reads A → Learner Progress Tracker + Session Log + Level Completion Checklist. Uses this to orient: "You were at L2, working on Chapter 1 UBS Topic 0. Next suggested: …"
-- **Before phase/entry switch:** Agent prompts to save; writes current progress to the active doc and (optionally) appends to A's Session Log.
-- **Session end:** Agent appends to A's Session Log (Date, Entry Point, Progress); updates Learner Progress Tracker if level changed.
+- **Session start:** Agent reads A → Learner Progress Tracker + Session Log + Level Completion Checklist. If A contains "Phase C Organise — state" (Approved Pages, Current state), read that section and the last approved page file before orienting. Uses this to orient: "You were at L2, working on Chapter 1 UBS Topic 0. Next suggested: …"
+- **Fallbacks:** If A is missing for the chosen subject → offer roadmap discovery. If A exists but Phase C state sections are empty and the subject has Phase C content → ask "Which page are we on?" and orient from Learning Book file list or Session Log.
+- **Before phase/entry switch:** Agent prompts to save; writes current progress to the active doc and (optionally) appends to A's Session Log; if Phase C, update Approved Pages, Decisions log, Current state.
+- **Session end:** Agent appends to A's Session Log (Date, Entry Point, Progress); updates Learner Progress Tracker if level changed; if Phase C, update Phase C state sections in A.
 
 ---
 
@@ -53,8 +58,11 @@ In ILE context the full sequence is **EOP Step 1 (Open)** → **Step 2 (Pre-sess
 1. Agent reads A for the chosen subject.
 2. From **Learner Progress Tracker:** Current Level, Target Level, Last Session, Last Entry Point, Next Recommended Entry Point.
 3. From **Session Log:** Last N rows (recent history).
-4. Agent orients: *"You're at L2. Last session YYYY-MM-DD: Chapter 1 UBS Topic 0—[progress note]. Next suggested: complete Topic 0 or move to Topic 1."*
-5. User chooses: resume where left off or pick another entry point.
+4. **For Phase C Organise:** If A contains a "Phase C Organise — state" section (Approved Pages, Current state, Last approved page), read that section and then read the **last approved page file** (path in A) before orienting. Do not start generating or reviewing the next page until both are read.
+5. Agent orients: *"You're at L2. Last session YYYY-MM-DD: Chapter 1 UBS Topic 0—[progress note]. Next suggested: complete Topic 0 or move to Topic 1."*
+6. User chooses: resume where left off or pick another entry point.
+
+**Fallbacks:** If A is missing → offer roadmap discovery. If A exists but Phase C state is empty and the subject has Phase C content → ask "Which page are we on?" and rebuild state from Learning Book or Session Log.
 
 ### Session Resume Without Chat History
 

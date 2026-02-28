@@ -27,17 +27,17 @@ task: T-203
 
 *For Phase C. Organise Information topic content: resolve template by **page** so every section (36 × 7 = 252) is covered by exactly one of 7 page templates. See `docs/ai/implementation/ile-template-mece-checklist.md`.*
 
-| Page | Template path |
-|------|----------------|
-| 0 | `templates/page-0-overview-and-summary.md` |
-| 1 | `templates/page-1-ultimate-blockers.md` |
-| 2 | `templates/page-2-ultimate-drivers.md` |
-| 3 | `templates/page-3-principles.md` |
-| 4 | `templates/page-4-components.md` |
-| 5 | `templates/page-5-steps-to-overcome.md` |
-| 7 | `templates/page-7-topic-distilled-understanding.md` |
+| Page | Template path | Key derivation rule |
+|------|----------------|---------------------|
+| 0 | `templates/page-0-overview-and-summary.md` | Topic 0: 1 row (Effective system). Topics 1–5: COPY parent page (T1→T0.P1, T2→T0.P2, etc.); do not regenerate. |
+| 1 | `templates/page-1-ultimate-blockers.md` | Topic 0: 1 row from P0 col 10 (UBS). Topics 1–5: 3 rows — Row1=parent.UB, Row2=parent.UB.UB, Row3=parent.UB.UD. |
+| 2 | `templates/page-2-ultimate-drivers.md` | Topic 0: 1 row from P0 col 4 (UDS). Topics 1–5: 3 rows — Row1=parent.UD, Row2=parent.UD.UB, Row3=parent.UD.UD. |
+| 3 | `templates/page-3-principles.md` | Harvest cols 6+12 from P0+P1+P2 of THIS topic only. Each row = one principle: "Enables [UDS]" or "Disables [UBS]". No new principles invented. |
+| 4 | `templates/page-4-components.md` | Layer 1 first, Layer 2 second, Layer 3 third (e.g. INFRA→WORKSPACE→INTEL). Each component traceable to at least one Principle from P3. MECE within each layer. |
+| 5 | `templates/page-5-steps-to-overcome.md` | STEP.1, STEP.2 … sequential, gated. Each step references UBS (P1), UDS (P2), or Principle (P3) it acts on. |
+| 7 | `templates/page-7-topic-distilled-understanding.md` | Topic-level distilled understanding; 18 columns (adds "Other Questions"). |
 
-*All 7 page templates exist. Use this table when (subject, phase, chapter, topic, page) is known; target file/section still resolved per `ile-conversation-to-doc-mapping.md`.*
+*All 7 page templates exist. Use this table when (subject, phase, chapter, topic, page) is known; target file/section still resolved per `ile-conversation-to-doc-mapping.md`. Load the template **before** generating content for this page type.*
 
 ## Phase B (B. Capture Facts & Data)
 

@@ -1,0 +1,9 @@
+# Markdown Rendering Rules
+To ensure compatibility with my Markdown Preview Enhanced extension:
+1. NEVER use nested backticks (``` inside ```) for code blocks; use 4-space indentation instead.
+2. Always provide a clean separator between conversational text and raw markdown files.
+3. If generating complex tables or Mermaid diagrams, wrap them in clear XML-style tags like <pre> to avoid rendering conflicts.
+4. Avoid "greedy" generation—output changes in small, manageable chunks to prevent UI freezes.
+---
+alwaysApply: true
+---

@@ -16,5 +16,6 @@ Ask the User for:
 Ensure the knowledge prioritizes Risk Management over pure Driving Output. If it is too vague, ask the User to clarify the deterministic boundaries.
 
 ## Step 3: Store & Confirm
-1. Call `memory.storeKnowledge` via MCP.
-2. Confirm to the User exactly what was stored and how it will be used to protect future Execution Loops.
+1. **Call MCP:** Use `call_mcp_tool` with server `project-0-Integrated-Learning-Environment-ai-devkit-memory` and toolName `memory_storeKnowledge`. Arguments: `title` (required), `content` (required, markdown), optional `tags` array. See `docs/ai/implementation/ile-persistent-memory.md` §2.0 for the exact identifiers.
+2. **If MCP returns UNKNOWN_TOOL:** Store the knowledge in the project instead: add it to `CLAUDE.md` §6 (e.g. under "Formatting pitfalls" or a new subsection) or to `docs/ai/implementation/ile-persistent-memory.md`, then confirm to the User what was stored and where. Tell the User the MCP tool name may need to be verified in Cursor's MCP/Tools list and updated in §2.0.
+3. **Confirm to the User** exactly what was stored and how it will be used to protect future Execution Loops.

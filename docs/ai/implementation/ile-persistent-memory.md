@@ -23,7 +23,17 @@ The Agent reads A at session start and writes to A at session end (see `ile-mini
 
 When **MCP** (e.g. `@ai-devkit/memory`) is available, the Agent may use it to store/recall a **lightweight session pointer** so resume does not require re-reading the whole Book. MCP is configured in `.cursor/mcp.json` as `ai-devkit-memory`.
 
-### 2.1 Memory keys (subject-scoped)
+### 2.0 MCP tool reference (single source of truth)
+
+Use these **exact** identifiers when calling MCP from the Agent. If the store tool returns `UNKNOWN_TOOL`, the name the server registers may differ; check Cursor's MCP/Tools list for the ai-devkit-memory server and update this section with the exact tool name shown there.
+
+| Purpose | MCP server identifier | MCP tool name |
+|---------|------------------------|---------------|
+| Store knowledge | `project-0-Integrated-Learning-Environment-ai-devkit-memory` | `memory_storeKnowledge` |
+| Search knowledge | `project-0-Integrated-Learning-Environment-ai-devkit-memory` | `memory_searchKnowledge` |
+| Update knowledge | `project-0-Integrated-Learning-Environment-ai-devkit-memory` | `memory_updateKnowledge` |
+
+**Agent usage:** Call `call_mcp_tool` with `server` = server identifier and `toolName` = tool name. Arguments for store: `title` (required), `content` (required), optional `tags`, optional `scope`. If the call returns `UNKNOWN_TOOL`, use the file-based fallback (see `/remember` command and §2.2).
 
 All ILE session context MUST be keyed by subject or Learning Book path so context is tied to the current subject/Learning Book.
 
@@ -38,7 +48,7 @@ All ILE session context MUST be keyed by subject or Learning Book path so contex
 
 ### 2.2 MCP API usage
 
-- **Store:** Call `memory.storeKnowledge` (or equivalent) with a title and content that includes the JSON above; tag with `ile`, `session`, and the subject so recall can filter by key/tag.
+- **Store:** Call MCP with server `project-0-Integrated-Learning-Environment-ai-devkit-memory` and tool `memory_storeKnowledge` (see §2.0); pass title and content that includes the JSON above; tag with `ile`, `session`, and the subject so recall can filter by key/tag.
 - **Recall:** Query memory by tag/key (e.g. `ile`, `session`, subject) to retrieve the most recent session context for this subject.
 
 If the MCP server does not support keyed recall, the Agent MUST use **A** (read Learner Progress Tracker and Session Log) as the source of truth for resume. MCP is an optimization, not a requirement.
@@ -61,7 +71,7 @@ The Agent must have the **ILE Effective Learning Contract** (minimal EPS + full 
 | Layer | What | Where |
 |-------|------|--------|
 | **Primary** | Session context (current level, last entry point, session log) | A (Subject Roadmap) — read/write at session start/end |
-| **Optional** | Lightweight session pointer for fast resume | MCP `memory.storeKnowledge` / recall, keyed by `ile:session:{subject}` |
+| **Optional** | Lightweight session pointer for fast resume | MCP store tool `memory_storeKnowledge` (§2.0) / recall, keyed by `ile:session:{subject}` |
 | **Contract** | EPS + full EOP + Strategy at session start | Option B: MCP digest key `ile:contract`; Option A: `docs/ai/implementation/ile-effective-learning-contract.md` |
 | **Rule** | Agent behavior for store/recall at session boundaries | `.cursor/rules/ile-session-memory.mdc` |
 | **Rule** | Agent behavior for contract + all EOP steps 1–8 | `.cursor/rules/ile-effective-learning.mdc` |

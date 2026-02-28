@@ -74,6 +74,174 @@
 | Date | Entry Point | Progress |
 |------|-------------|----------|
 | 2026-02-27 | Chapter 0. Overview, Page 0 | Initial Effective System Design populated via Claude Cowork. High-level overview of AI Orchestration, UBS/UDS/EPS/UES/EOP all populated. Framework comparison (Agno vs CrewAI vs OpenFang vs OpenClaw) completed. Agno selected as primary. |
+| 2026-02-28 | Topic 1 complete | T1.P0–P1.P5 all approved. Topic 1 (UBS / Capability Gap) is a complete system: 6 pages, 1 Overview + 3 UB rows + 3 UD rows + 7 principles + 7 components + 6 EOP steps. 12 of 36 pages done. |
+| 2026-02-28 | Topic 2 started | T2.P0 APPROVED (copy of T0.P2, Relevance edited for Topic 2). T2.P1 APPROVED (UB Layer: Pattern Blindness, Absence of Forcing Mechanism, Multi-Domain Curriculum Discipline; table separator fixed to 17 columns). T2.P2 GENERATED (UD Layer: Deliberate post-build reflection, Reflection bypass, Structured same-session extraction gate). Pending User approval of T2.P2. |
+
+---
+
+## Phase C Organise — state (read first when resuming Phase C)
+
+*This section holds the persistent state for Phase C (Organise Information) page-by-page work. Agent: read this and the last approved page file before generating or reviewing the next page. Update here at every approval.*
+
+### UDO (Ultimate Desired Outcome)
+
+Build and master an OE System (AI Orchestration Engine) that any analyst/operator can use to build domain-specific UE systems. Effective = Sustainable, Efficient, Scalable. This is the system that builds systems — NOT a specific domain project. Investment Research is one example instance only.
+
+### Structure
+
+- 6 Topics (0-5) × 6 Pages (0-5) = 36 .md files under Phase C
+- Each page = ONE pure markdown table, as many rows as needed, 17 columns (1 row label + 16 canonical questions)
+- Column Key reference section above every table
+- NO HTML tables — they do not render in Cowork sidebar Preview mode
+
+### Topic Map
+
+| Topic | Name | Role |
+|---|---|---|
+| 0 | Overview & Summary | Root level, overview depth only |
+| 1 | UBS | Deep dive into root UBS from T0.P1 |
+| 2 | UDS | Deep dive into root UDS from T0.P2 |
+| 3 | EPS | Deep dive into principles from T0.P3 |
+| 4 | UES | Deep dive into components from T0.P4 |
+| 5 | EOP | Deep dive into procedure from T0.P5 |
+
+### Notation (CRITICAL — dot-notation only)
+
+- UBS = Ultimate Blocking System (root blocker). UBS.UB = what disables the UBS → works IN User's favour. UBS.UD = what drives the UBS harder → works AGAINST User.
+- UDS = Ultimate Driving System (root driver). UDS.UD = what drives the UDS further → works IN User's favour. UDS.UB = what blocks the UDS → works AGAINST User.
+- Recursive: UBS.UB.UB, UBS.UB.UD, UBS.UD.UB, UBS.UD.UD, etc. **NEVER use UBS1, UBS2, UDS1, UDS2.**
+
+### Page Structure Rules
+
+**Topic 0:** P0 = 1 row (Effective system). P1 = 1 row from P0 col 10 (UBS). P2 = 1 row from P0 col 4 (UDS). P3 = N rows harvest cols 6+12 from P0+P1+P2. P4 = N rows INFRA→WORKSPACE→INTEL. P5 = N rows STEP.1….
+
+**Topics 1–5:** P0 = COPY parent page (T1→T0.P1, etc.). P1 = 3 rows: parent.UB, parent.UB.UB, parent.UB.UD. P2 = 3 rows: parent.UD, parent.UD.UB, parent.UD.UD. P3 = harvest from P0+P1+P2 of THIS topic. P4 = INFRA→WORKSPACE→INTEL, each traces to P3. P5 = steps referencing P1–P4.
+
+### UES = 3 Causal Layers (AI Orchestration)
+
+- Layer 1: INFRASTRUCTURE — Python, Agno, Anthropic API, compute (must exist first)
+- Layer 2: WORKSPACE — Cursor, Git, ILE, ClickUp (requires Infrastructure)
+- Layer 3: INTELLIGENCE — Claude LLM, YFinance, Exa, prompts, community (requires Workspace)
+- Row labels: INFRA.n → WORKSPACE.n → INTEL.n (always this order). Each component traceable to at least one Principle from Page 3 of the same Topic.
+
+### Key Rules (Phase C — do not override)
+
+1. EPS derives DIRECTLY from UBS and UDS — never generic best practices.
+2. One blocker or driver per row — not greedy. Depth comes in later Topics.
+3. Each row builds causally on the previous (causal chain — not a list).
+4. Topic 0 = overview depth. Topics 1–5 = one recursive layer deeper each.
+5. Present each page in sidebar → User reviews → challenges → approves → update A (this section) → next page.
+6. Do NOT regenerate Topics 1–5 Page 0 — copy the parent file and rename.
+7. EPS must explicitly state "Enables [UDS element]" OR "Disables [UBS element]" per row.
+8. UES components ordered: INFRA first, WORKSPACE second, INTEL third — always.
+
+### Frameworks
+
+- Primary: Agno (Python) — Agent → Team (Coordinator) → Workflow (Loop, Parallel, Condition, Router). AgentOS for monitoring.
+- Secondary: CrewAI (Python) — evaluate at L4+.
+- IDE: Cursor | Model: Claude LLM.
+
+### Session Protocol (Hybrid — Option C)
+
+- **Content state:** A (this file) is the source of truth for Phase C approved pages, current state, next action, causal seeds, and decisions.
+- **In Cursor:** Step 2 at session start; Step 7 before phase/entry switch; conversation→doc mapping for every write; Session Log updated. Both read A first.
+- **On Claude:** CLAUDE.md + A only; handoff = update this file (Session Log + Phase C state sections).
+
+### Causal Seeds (carry forward to next pages)
+
+| From page | Col | Content | Seeds into |
+|---|---|---|---|
+| T0.P0 | col 10 (UBS) | Capability Gap — User lacks mental model for agent decomposition | T0.P1 row label; T1.P0 (copy) |
+| T0.P0 | col 4 (UDS) | Hierarchical decomposition thinking | T0.P2 row label; T2.P0 (copy) |
+| T0.P1 | col 4 (UDS) | Activation Barrier — drives the Capability Gap harder (UBS.UD, works AGAINST Learner) | T1.P2 Row1 (UBS.UD) |
+| T0.P1 | col 10 (UBS) | Incremental build-test cycles — disables the Capability Gap (UBS.UB, works FOR Learner) | T1.P1 Row1 (UBS.UB) |
+
+### Decisions Log
+
+| Date | Scope | Decision |
+|---|---|---|
+| 2026-02-27 | P0 | EPS must derive from UBS/UDS — not generic best practices |
+| 2026-02-27 | P0 | UES = Infrastructure/Workspace/Intelligence (3 causal layers) |
+| 2026-02-27 | P0 | T0.P0 revised to 1 row only — greedy extra rows removed |
+| 2026-02-27 | All | CLAUDE.md created at ILE root — auto-loads at session start |
+| 2026-02-27 | All | Page structure finalised: T0 P1/P2 = 1 row; T1-5 P1/P2 = 3 rows |
+| 2026-02-27 | All | UES confirmed = Environment + Tools. Each Topic = its own complete system. |
+| 2026-02-27 | All | All 6 template files rewritten to pure markdown with derivation instructions |
+| 2026-02-27 | All | page-4-components.md updated: generic [LAYER1/2/3] placeholders; AI Orch names in CLAUDE.md |
+| 2026-02-27 | All | Old `0. Overview & Summary.md` (wrong format) deleted |
+| 2026-02-27 | All | Duplicate parent file rule confirmed: T1-5 P0 = copy of T0.Px, no regeneration |
+| 2026-02-27 | All | Session handoff = A (this file) Session Log + Phase C state sections |
+| 2026-02-27 | All | Min files to resume: CLAUDE.md + A (this file) + last approved page |
+| 2026-02-27 | Model | Sonnet for Topics 0–3; Opus only for Topic 5 EOP if needed |
+| 2026-02-27 | T0.P0 | APPROVED by User |
+| 2026-02-27 | T0.P1 | APPROVED by User |
+| 2026-02-27 | T0.P2 | APPROVED by User (row label updated: "Hierarchical Decomposition Thinking (Systems Thinking)") |
+| 2026-02-27 | T0.P3 | APPROVED by User (P1 reframed as ELF→System Design; P2 as hypothesis-driven; P3 as Learn→Build→Test→Validate→Measure loop) |
+| 2026-02-27 | T0.P4 | APPROVED by User (7 rows: INFRA.1-2, WORKSPACE.1-3, INTEL.1+2. INTEL.2 domain tools removed — belongs in domain instance, not OE meta-system. Original INTEL.3 AgentOS renumbered to INTEL.2 after removal.) |
+| 2026-02-28 | All | TERMINOLOGY: "ILE Framework" → "Effective Learning Framework (ELF)" everywhere. ILE = digital environment/tool built on Cursor. ELF = the methodology (UDO→Roles→UBS→UDS→EPS→UES→EOP). Applied across T0.P3 and T0.P5. |
+| 2026-02-28 | All | TERMINOLOGY: "kill criteria" → "Acceptance Criteria (A.C.)" everywhere. A.C. = single, deterministic pass/fail test traceable to a design decision (Verb/Adverb/Noun/Adjective) → EPS → UBS/UDS. Applied across T0.P3 and T0.P5. |
+| 2026-02-28 | ELF gap | Phase 3 Formalization (Verb+Adverb+Noun+Adjective + A.C.) has NO ELF equivalent. Desirable Wrapper / Effective Core distinction not in ELF. User Persona / Anti-Persona not in ELF. These gaps to be addressed in Topics 3–5, not blocking Topic 0. |
+| 2026-02-28 | T0.P5 | STEP.8 reframed: not just extracting patterns — explicitly packaging the OE meta-system with OE README (≤2 pages) and named domain-agnostic templates under /oe-system/ in Git, so other solo operators can run STEP.1–7 for their own domain. Gate updated to require README committed + second domain STEP.2 faster. |
+| 2026-02-28 | T0.P5 | APPROVED by User. Topic 0 complete. Proceeding to Topic 1 generation. |
+| 2026-02-28 | T1.P2 | Generated and APPROVED by User (pre-fix version — content correct, structural position wrong due to col 4/10 swap). |
+| 2026-02-28 | All | **COLUMN KEY REVISION**: Canonical questions strengthened to prevent perspective error. Col 3→"Success Actions" (symmetric with col 9). Col 6→"Success EPS". Col 7→"Success Tools (UES)". Col 8→"Success Environment (UES)". Col 12→"Failure EPS". Col 13→"Failure Tools (UES)". Col 14→"Failure Environment (UES)". Cols 3, 4, 9, 10 include explicit row-subject-type guidance. Perspective Rule added above every Column Key. |
+| 2026-02-28 | All | **COL 4/10 SWAP FIX**: When row subject is a UBS, col 4 = UBS.UD (drives blocker — AGAINST Learner) and col 10 = UBS.UB (disables blocker — FOR Learner). T0.P1 had these swapped. Cascade: T1.P0 (copy), T1.P1 (seeded from wrong col), T1.P2 (seeded from wrong col). Fix: swap col 4↔10 in T0.P1/T1.P0, swap T1.P1↔T1.P2 content with corrected notation. COMPLETED AND APPROVED. |
+| 2026-02-28 | T1 | T1.P0 APPROVED (corrected copy of T0.P1 with col 4/10 fixed). T1.P1 APPROVED (3 rows: UBS.UB=Incremental Build-Test Cycles, UBS.UB.UB=Scope Indiscipline, UBS.UB.UD=Principle Extraction Discipline). T1.P2 APPROVED (3 rows: UBS.UD=Activation Barrier, UBS.UD.UB=Permission to Start Small, UBS.UD.UD=Unlimited Preparation as Avoidance). T1.P3 GENERATED (7 rows: P1–P7 harvested from T1.P0+P1+P2 col 6+12. P6+P7 are risky principles. Pending User approval in sidebar). |
+| 2026-02-28 | All | **COL 2 REVISION — HEADER**: Col 2 question updated from "What is it? (Introduction)" to "What is it precisely — and what is it NOT? (Precise Definition)" across all 6 templates + all 10 approved pages. Table header label updated from "2 · Introduction" to "2 · Precise Definition". |
+| 2026-02-28 | All | **COL 2 REVISION — CONTENT**: Col 2 cell content regenerated for all 35 rows across 10 approved pages using IS / IS NOT structure. Each cell now states the precise bounded definition + explicit boundary contrast (what it is NOT, what it could be confused with). Replaces old "Introduction" content that echoed the row label without adding precision. Applied in session 2026-02-28. |
+| 2026-02-28 | T1.P4 | APPROVED by User. Full template restored (Perspective Rule, Column Key, Layer Map, 7×16 table); content streamlined and UBS-specific per column. Proceeding to T1.P5. |
+| 2026-02-28 | T1.P5 | Generated (6 steps). STEP.2 revised: ELF before A.C. STEP.4 revised: technical (AgentOS) + usage (A.C.) testing. APPROVED by User. Topic 1 complete. |
+| 2026-02-28 | T1 complete | All 6 pages (T1.P0–T1.P5) approved. Topic 1 (UBS / Capability Gap via Incremental Build-Test Cycles) is now a complete, usable system. 12 of 36 pages done (T0: 6, T1: 6). |
+| 2026-02-28 | T2.P1 | APPROVED by User. Table separator fixed (17 columns). T2.P2 GENERATED (UD Layer: UDS.UD = Deliberate post-build reflection, UDS.UD.UB = Reflection bypass, UDS.UD.UD = Structured same-session extraction gate). |
+
+### Approved Pages (in order)
+
+| # | File | Status |
+|---|---|---|
+| 1 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 0. Overview & Summary.md` | ✅ APPROVED |
+| 2 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 1. Ultimate Blockers.md` | ✅ APPROVED |
+| 3 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 2. Ultimate Drivers.md` | ✅ APPROVED |
+| 4 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 3. Principles.md` | ✅ APPROVED |
+| 5 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 4. Components.md` | ✅ APPROVED |
+| 6 | `C. Organise Information/0. Overview & Summary/0. Overview & Summary - 5. Steps to Apply.md` | ✅ APPROVED |
+| 7 | `C. Organise Information/1. UBS/1. UBS - 0. Overview & Summary.md` | ✅ APPROVED |
+| 8 | `C. Organise Information/1. UBS/1. UBS - 1. Ultimate Blockers.md` | ✅ APPROVED |
+| 9 | `C. Organise Information/1. UBS/1. UBS - 2. Ultimate Drivers.md` | ✅ APPROVED |
+| 10 | `C. Organise Information/1. UBS/1. UBS - 3. Principles.md` | ✅ APPROVED |
+| 11 | `C. Organise Information/1. UBS/1. UBS - 4. Components.md` | ✅ APPROVED |
+| 12 | `C. Organise Information/1. UBS/1. UBS - 5. Steps to Apply.md` | ✅ APPROVED |
+| 13 | `C. Organise Information/2. UDS/2. UDS - 0. Overview & Summary.md` | ✅ APPROVED |
+| 14 | `C. Organise Information/2. UDS/2. UDS - 1. Ultimate Blockers.md` | ✅ APPROVED |
+| 15 | `C. Organise Information/2. UDS/2. UDS - 2. Ultimate Drivers.md` | 📝 Generated |
+
+### Current State (Phase C)
+
+*Last updated: 2026-02-28 (session 4)*
+
+- T0.P0–T0.P5: ✅ ALL APPROVED (Topic 0 complete)
+- **T1.P0–T1.P5: ✅ ALL APPROVED (Topic 1 complete)**
+  - T1.P0 (Overview): corrected copy of T0.P1
+  - T1.P1 (UB Layer): 3 rows (Incremental Build-Test Cycles / Scope Indiscipline / Principle Extraction Discipline)
+  - T1.P2 (UD Layer): 3 rows (Activation Barrier / Permission to Start Small / Unlimited Preparation as Avoidance)
+  - T1.P3 (EPS): 7 rows (P1–P7, including P6+P7 as risky principles)
+  - T1.P4 (UES): 7 rows (INFRA/WORKSPACE/INTEL, UBS-specific)
+  - T1.P5 (EOP): 6 steps (confirm components → ELF+A.C. → build → test (technical+usage) → commit → principle)
+- **T2 (UDS / Hierarchical Decomposition Thinking):**
+  - T2.P0 (Overview): ✅ APPROVED — copy of T0.P2.
+  - T2.P1 (UB Layer): ✅ APPROVED — 3 rows (Pattern Blindness / Absence of Forcing Mechanism / Multi-Domain Curriculum Discipline). Table separator fixed (17 columns).
+  - T2.P2 (UD Layer): Generated — 3 rows (Deliberate post-build reflection / Reflection bypass / Structured same-session extraction gate). Pending User approval.
+  - T2.P3–T2.P5: Not yet generated
+- Topics 3–5: Not yet generated
+
+**Last approved page:** `C. Organise Information/2. UDS/2. UDS - 1. Ultimate Blockers.md`
+
+**Next action:** Review T2.P2 (UD Layer) in sidebar. Approve to proceed to T2.P3 (EPS harvest).
+
+---
+
+## Agent role for this subject
+
+**The Agent acts as the Learner's subject teacher and world-class expert in AI Orchestration for this Learning Book.** The Agent teaches the subject (agents, teams, workflows, Agno, CrewAI, orchestration patterns, OE systems) by answering questions, explaining concepts, and helping the Learner explore the boundaries of knowledge — in addition to executing the ILE process (templates, Phase C state, one entry at a time). The Agent should use full domain knowledge and, when useful, web search to bring in the most recent knowledge. The Agent must be honest and explicitly state when it does not know something or is at the edge of its knowledge.
 
 ---
 

@@ -413,6 +413,41 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 
 ---
 
+## Phase C Organise — content rules (do not override)
+
+*When generating or reviewing Phase C (Organise Information) content, Agents and Learners must follow these rules. They prevent greedy generation, format drift, and content that does not build causally on prior approved pages.*
+
+### Row and depth
+
+1. **One concept per row.** Each row has exactly one blocker (UBS) or one driver (UDS) or one principle or one component or one step. Do not list multiple blockers, drivers, or principles in a single row.
+2. **Causal chain, not a list.** Each row builds on the previous. For UBS/UDS pages: a row's col 10 (UBS) reveals what becomes the next row (UBS.UB); a row's col 4 (UDS) reveals UDS.UD for the next row. The table is a derivation chain, not a flat list of related items.
+3. **Topic 0 = overview depth.** Page 0 and Topic 0 pages use overview depth only. Do not front-load everything into the overview. Deeper layers (more rows, more specific causation) belong in Topics 1–5.
+4. **Topics 1–5 = one recursive layer deeper.** Each deeper topic expands one level (e.g. parent.UB, parent.UB.UB, parent.UB.UD). Do not skip layers or merge layers.
+
+### Principles (Page 3)
+
+5. **Principles derive from UBS and UDS only.** Harvest from cols 6 and 12 of P0+P1+P2 of the same topic. Do not invent generic best practices. Each principle must explicitly "Enables [UDS element]" or "Disables [UBS element]".
+6. **No new principles.** All principles on Page 3 come from harvesting existing pages; do not add principles that are not traceable to a prior row's Success EPS or Failure EPS.
+
+### Components (Page 4 — UES)
+
+7. **Three causal layers, fixed order.** Components must be ordered: Layer 1 (e.g. Infrastructure) first, Layer 2 (e.g. Workspace) second, Layer 3 (e.g. Intelligence) last. Do not reorder or skip a layer. Layer names are subject-specific (e.g. INFRA, WORKSPACE, INTEL for AI Orchestration).
+8. **Each component traces to at least one Principle.** Every row on Page 4 must be traceable to a Principle from Page 3 of the same topic. Do not add components that do not implement a stated principle.
+
+### Notation and perspective
+
+9. **UBS/UDS dot-notation only.** Use UBS.UB, UBS.UD, UDS.UD, UDS.UB and their recursions (e.g. UBS.UB.UB). Do not use UBS1, UBS2, UDS1, UDS2.
+10. **Row subject determines col 4 and col 10 meaning.** For a UBS row: col 4 = UBS.UD (drives the blocker — works against Learner); col 10 = UBS.UB (disables the blocker — works for Learner). For a UDS row: col 4 = UDS.UD (drives the driver — works for Learner); col 10 = UDS.UB (blocks the driver — works against Learner). Do not swap these.
+
+### Format and process
+
+11. **Pure markdown tables only.** Use markdown tables with the canonical 17 columns (1 row label + 16 questions). Do not use HTML tables. Include the Column Key and Perspective Rule above the table.
+12. **Page 0 for Topics 1–5 = copy parent.** Do not regenerate. T1.P0 = copy of T0.P1; T2.P0 = copy of T0.P2; etc. Copy the file and rename.
+
+*Reference: For template paths and derivation rules per page type, see `entry-point-to-template-mapping.md`. For state (Approved Pages, Current state, Decisions), see A (Subject Roadmap) Phase C section.*
+
+---
+
 ## Knowledge Flow: Capture → Organise → Distill → Express
 
 

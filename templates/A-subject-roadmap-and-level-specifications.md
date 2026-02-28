@@ -10,6 +10,8 @@
 2. **Identify gaps** between current and required levels for each role.
 3. **Plan progression** via mentoring, stretch assignments, and the credentials shown—moving one level at a time.
 
+**Agent role (subject teaching):** The Agent should act as the expert in the subject domain and teach the subject to the Learner by answering questions and helping the Learner explore the boundaries of knowledge. The Agent should use its full knowledge and web search tools to keep the subject knowledge up to date. The Agent must always be honest and state when it does not know something or is at the edge of its knowledge.
+
 ---
 
 ## Learner Progress Tracker
@@ -89,6 +91,98 @@
 | Date | Entry Point | Progress |
 |------|-------------|----------|
 | YYYY-MM-DD | *e.g. Chapter 1, Topic 0* | *Brief note* |
+
+---
+
+## Phase C Organise — state (optional)
+
+*Use this section when doing Phase C (Organise Information) page-by-page work. **Agent guidance:** (1) Read this entire section and the **last approved page** file (path below) before generating or reviewing any next page. (2) At every User approval, update Approved Pages, Current state, and optionally Decisions log and Causal Seeds. (3) Follow the Structure, Notation, Page Structure Rules, and UES layer order when generating content — they ensure maximum clarity and accuracy in C. Organise Information. If the subject has a `_CONTEXT_ANCHOR.md` in its folder, that file is only a pointer to A; all state lives in this document.*
+
+### UDO (Ultimate Desired Outcome)
+
+*One sentence: what the Learner is building or mastering for this subject in Phase C. Example: "Build and master an OE System that any analyst can use to build domain-specific UE systems. Effective = Sustainable, Efficient, Scalable."*
+
+### Structure
+
+- 6 Topics (0–5) × 6 Pages (0–5) = 36 .md files under Phase C
+- Each page = ONE pure markdown table, as many rows as needed, 17 columns (1 row label + 16 canonical questions)
+- Column Key reference section above every table
+- NO HTML tables (they do not render in some preview modes)
+
+### Topic Map
+
+| Topic | Name | Role |
+|-------|------|------|
+| 0 | Overview & Summary | Root level, overview depth only |
+| 1 | UBS | Deep dive into root UBS from T0.P1 |
+| 2 | UDS | Deep dive into root UDS from T0.P2 |
+| 3 | EPS | Deep dive into principles from T0.P3 |
+| 4 | UES | Deep dive into components from T0.P4 |
+| 5 | EOP | Deep dive into procedure from T0.P5 |
+
+### Notation (CRITICAL — dot-notation only)
+
+- **UBS** = Ultimate Blocking System (root blocker). **UBS.UB** = what disables the UBS → works IN Learner's favour. **UBS.UD** = what drives the UBS harder → works AGAINST Learner.
+- **UDS** = Ultimate Driving System (root driver). **UDS.UD** = what drives the UDS further → works IN Learner's favour. **UDS.UB** = what blocks the UDS → works AGAINST Learner.
+- Recursive: UBS.UB.UB, UBS.UB.UD, UBS.UD.UB, UBS.UD.UD, etc. **NEVER use UBS1, UBS2, UDS1, UDS2.**
+
+### Page Structure Rules
+
+- **Topic 0:** P0 = 1 row (Effective system). P1 = 1 row from P0 col 10 (UBS). P2 = 1 row from P0 col 4 (UDS). P3 = N rows harvest cols 6+12 from P0+P1+P2. P4 = N rows, Layer 1→Layer 2→Layer 3. P5 = N rows STEP.1…
+- **Topics 1–5:** P0 = COPY parent page (T1→T0.P1, T2→T0.P2, etc.); do not regenerate. P1 = 3 rows: parent.UB, parent.UB.UB, parent.UB.UD. P2 = 3 rows: parent.UD, parent.UD.UB, parent.UD.UD. P3 = harvest from P0+P1+P2 of THIS topic. P4 = Layer 1→Layer 2→Layer 3, each component traceable to P3. P5 = steps referencing P1–P4.
+
+### UES = 3 Causal Layers (define for this subject)
+
+- **Layer 1 (e.g. INFRASTRUCTURE):** *Define — must exist first. Example: Python, runtime, API, compute.*
+- **Layer 2 (e.g. WORKSPACE):** *Define — requires Layer 1. Example: IDE, Git, ILE, task tool.*
+- **Layer 3 (e.g. INTELLIGENCE):** *Define — requires Layer 2. Example: LLM, domain tools, prompts, community.*
+- Row labels on Page 4: Layer1.n → Layer2.n → Layer3.n (always this order). Each component traceable to at least one Principle from Page 3 of the same Topic.
+
+### Key Rules (Phase C — do not override)
+
+1. EPS derives DIRECTLY from UBS and UDS — never generic best practices.
+2. One blocker or driver per row — not greedy. Depth comes in later Topics.
+3. Each row builds causally on the previous (causal chain — not a list).
+4. Topic 0 = overview depth. Topics 1–5 = one recursive layer deeper each.
+5. Present each page in sidebar → User reviews → challenges → approves → update A (this section) → next page.
+6. Do NOT regenerate Topics 1–5 Page 0 — copy the parent file and rename.
+7. EPS must explicitly state "Enables [UDS element]" OR "Disables [UBS element]" per row.
+8. UES components ordered: Layer 1 first, Layer 2 second, Layer 3 third — always.
+
+### Frameworks (optional — for this subject)
+
+*e.g. Primary: [framework]. Secondary: [framework]. IDE / Model / tools.*
+
+### Session Protocol (Hybrid)
+
+- **Content state:** A (this file) is the source of truth for Phase C approved pages, current state, next action, causal seeds, and decisions.
+- **In Cursor:** Step 2 at session start; Step 7 before phase/entry switch; conversation→doc mapping for every write; Session Log updated. Read A first.
+- **On Claude:** CLAUDE.md + A only; handoff = update this file (Session Log + Phase C state sections).
+
+### Causal Seeds (carry forward to next pages)
+
+| From page | Col | Content | Seeds into |
+|-----------|-----|---------|-----------|
+| *e.g. T0.P0* | *col 10 (UBS)* | *root UBS name* | *T0.P1 row label; T1.P0 (copy)* |
+| *e.g. T0.P0* | *col 4 (UDS)* | *root UDS name* | *T0.P2 row label; T2.P0 (copy)* |
+
+### Decisions Log
+
+| Date | Scope | Decision |
+|------|-------|----------|
+| YYYY-MM-DD | *scope* | *decision* |
+
+### Approved Pages (in order)
+
+| # | File | Status |
+|---|------|--------|
+| 1 | *e.g. C. Organise Information/0. Overview & Summary/0. Overview & Summary - 0. Overview & Summary.md* | ✅ APPROVED |
+| … | … | … |
+
+### Current State (Phase C)
+
+- **Last approved page:** *path to last approved page file (relative to learning-book/{subject}/)*
+- **Next action:** *e.g. Generate T1.P5 (EOP) or approve T1.P4*
 
 ---
 
