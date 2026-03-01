@@ -1,14 +1,35 @@
 # Changelog — Integrated-Learning-Environment (ILE)
 
-This project uses the **engine and brain** from [my-ai-devkit-templates](https://github.com/chrislongnguyen/my-ai-devkit-templates). Template updates are brought in manually; ILE-specific changes are documented here. **Template changelog (what was brought in) is below.**
+This project uses the **engine and brain** from [effective-build-agent](https://github.com/chrislongnguyen/effective-build-agent). Template updates are brought in manually; ILE-specific changes are documented here. **Template changelog (what was brought in) is below.** Tracked template version: `.template-version` (currently 2.0.0).
+
+---
+
+## Template 2.0.0 (upstream — 2026-02-28; ILE adopted engine/)
+
+_Source: [effective-build-agent CHANGELOG 2.0.0](https://github.com/chrislongnguyen/effective-build-agent/blob/main/CHANGELOG.md)_
+
+The upstream template moved to a **portable engine**: `engine/` is the single canonical core (SKILL.md, engine/commands, engine/rules, engine/skills); `.cursor/` and `.claude/` are thin pointer adapters (`See: engine/commands/...`). It added **check-engine.sh** (validates canonical paths, no legacy paths, no broken See: refs, no IDE paths in engine), **setup.sh**, **tests/** skeleton (run-tests.sh, AC-TEST-MAP), **deploy/** skeleton, **new-enablement-checklist.md**, and removed legacy (legacy_codeaholic, .ai-devkit.json, ai-devkit-init-merge.yaml, docs/ai/implementation in the template).
+
+**ILE position:** ILE retains **docs/ai/implementation** by design — the ILE product _is_ implementation docs, Learning Book flow, and Phase C. We do **not** run the template's check-engine.sh as-is (it would fail: it forbids docs/ai/implementation).
+
+**ILE adoption (2026-02-21):** ILE now uses the engine for future feature development. Added: **engine/** (full copy from template: SKILL.md, commands/, rules/, skills/dev-lifecycle); **.cursor/commands** converted to thin pointers for state-a, state-b, state-b-iteration, status, ship, debug, handoff, review, remember, help, heavy, test, test-write (each "See: engine/commands/..."); **.cursor/commands/health.md** and **roadmap-discovery.md** kept as full ILE-only commands; **.cursor/rules/engine-canonical.mdc** so engine/rules apply when running engine commands; **check-engine-ile.sh** (ILE-safe: allows docs/ai/implementation, ILE-only commands without See:). Run `./check-engine-ile.sh` to validate. To pull future template improvements: re-copy `engine/` from effective-build-agent. Version refs and .template-version track upstream 2.0.0.
+
+**Engine rename (2026-02-21):** Upstream repo renamed to **[effective-build-agent](https://github.com/chrislongnguyen/effective-build-agent)**. ILE synced: **engine/** re-copied from effective-build-agent (latest); all references (README, CHANGELOG, check-engine-ile.sh) updated from my-ai-devkit-templates to effective-build-agent. .template-version remains 2.0.0.
+
+### ILE follow-up (2026-02-21): tests skeleton, codeaholic cleanup, path-of-least-effort
+
+- **tests/ skeleton:** Added from template: `tests/run-tests.sh` (executable), `tests/AC-TEST-MAP-TEMPLATE.md`, `tests/README.md`, `tests/append-learning-loop.sh`, `tests/AC-TEST-MAP-automated-test-verification.md`. Enables `/test` and `/test-write` at iteration boundaries.
+- **Codeaholic legacy removed:** Deleted `.cursor/skills/dev-lifecycle/references/legacy_codeaholic/` and all contents. **check-engine-ile.sh** now treats that path as legacy again (script fails if it reappears). **docs/ai/Effective_Execution_Manifesto.md** and **README.md** updated to reference `engine/skills/dev-lifecycle/` as canonical (replacing `.cursor/skills/dev-lifecycle/`).
+- **Path of least effort:** **engine/rules/path-of-least-effort.md** listed in **engine/SKILL.md** Rules section. **.cursor/rules/path-of-least-effort.mdc** is the full Cursor rule (Execution Economy: cost model, decision trees, 3-call rule, MCP-aware, hard constraints); **.cursor/rules/path-of-least-effort-reference.mdc** is the extended reference (terminal patterns, scenarios E–I). Engine version is the short, portable principle; Cursor rules expand it with tool-specific guidance. Added one-line note in engine rule that IDE adapters may expand into cost model and decision trees; core principle remains canonical.
 
 ---
 
 ## Template 1.1.0 (brought in 2026-02-21)
 
-*Source: my-ai-devkit-templates CHANGELOG [1.1.0] — 2026-02-21*
+_Source: effective-build-agent CHANGELOG [1.1.0] — 2026-02-21_
 
 ### Added
+
 - **Master Scope Mapping** (Planning): Single source of truth for which A.C. is tackled in which iteration; MECE, no redundant Deferred lists.
 - **Standardized A.C. IDs** (Holy Trinity): Naming convention across Requirements, Design, Planning (Verb-ACn, SustainAdv-ACn, EffAdv-ACn, ScalAdv-ACn, Noun-ACn, SustainAdj-ACn, EffAdj-ACn, ScalAdj-ACn).
 - **Status flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed (by the Agent) → 🟢 Reviewed/Tested (by the User); 🟠 Stuck = off-ramp.
@@ -24,6 +45,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 - **Ambient flow rule** (`.cursor/rules/ambient-flow.mdc`): When user requests a new feature/add-on without /state-a or /state-b, nudge to /state-a, help populate requirements/design/planning from their request, get approval before any execution.
 
 ### Changed
+
 - State B and execute-micro-task use `docs/ai/planning/README.md` (Execution Matrix, Iteration Sequencing); A.C. resolved from Master Scope Mapping.
 - State A (strategy-mapping) Sub-Step 4: populate Master Scope Mapping from Requirements Phase 3 A.C. IDs.
 - Planning §3 (Resource & Budget Tracker): note to update Hard Limit after User approval per Design §4.
@@ -34,7 +56,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 - **State A complete:** Causal Map, System Design, User's Requirements, 4-Iteration Roadmap for feature `integrated-learning-environment`; docs in `docs/ai/requirements/`, `docs/ai/design/`, `docs/ai/planning/` (feature-integrated-learning-environment.md).
 - **Repo:** [Integrated-Learning-Environment](https://github.com/chrislongnguyen/Integrated-Learning-Environment).
-- **Template 1.1.0 brought in (2026-02-21):** `.cursor/` (commands, rules/ambient-flow.mdc, skills), `docs/ai/` READMEs and Manifesto, CHANGELOG, README from local my-ai-devkit-templates. Feature docs (requirements, design, planning) updated to new template: standardized A.C. IDs, Design §4, Master Scope Mapping two-table structure (Table A by iteration, Table B by A.C. with requirement + evidence + status).
+- **Template 1.1.0 brought in (2026-02-21):** `.cursor/` (commands, rules/ambient-flow.mdc, skills), `docs/ai/` READMEs and Manifesto, CHANGELOG, README from local effective-build-agent. Feature docs (requirements, design, planning) updated to new template: standardized A.C. IDs, Design §4, Master Scope Mapping two-table structure (Table A by iteration, Table B by A.C. with requirement + evidence + status).
 
 ---
 
@@ -43,6 +65,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 **T-201: Persistent memory wired. 🟢 Reviewed/Tested.**
 
 ### Added
+
 - **ile-effective-learning-contract.md** — Minimal EPS (3 principles), full EOP (RACI + all 8 steps with Required Input, Desired Output, RACI, gates), ILE Strategy. Contract loading: Option B (MCP digest `ile:contract`) preferred; Option A (load doc) fallback.
 - **ile-persistent-memory.md** — Persistent memory contract: primary A + Learning Book; optional MCP key `ile:session:{subject}`; §3 Principles and EOP (contract) Option B/A. Wiring: contract, rules.
 - **.cursor/rules/ile-effective-learning.mdc** — Follow contract at ILE session start; all EOP steps 1–8; mandatory gates (Step 2 before Step 3, Step 7 before switch/exit); RACI (no A write or switch without Learner approval).
@@ -50,6 +73,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 - **docs/ai/reference/** — ltc-advanced-effective-learning-system.md (Section 8 replaced with pointer to implementation contract).
 
 ### Changed
+
 - **ile-minimal-flow.md** — Maps 1:1 to EOP steps 1–8; cross-refs contract, persistent memory, rule; pre-session (Step 2) and checkpoint (Step 7) gates; “What counts as persistent memory” includes contract Option B/A; core flow table EOP step mapping.
 - **ltc-advanced-effective-learning-system.md** — Section 8 (ILE Strategy) moved to implementation; §8 now points to `ile-effective-learning-contract.md`. Chain of Logic item 8 updated.
 - **Planning** — T-201 marked 🟢 Reviewed/Tested. Noun-AC2 evidence and status (🔵) updated. T-201 task cell: Done, Next (T-202), I2 enhancements (contract, rule, flow↔EOP).
@@ -61,6 +85,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 **Iteration 1: Concept — T-101, T-102, T-103 all 🟢 Reviewed/Tested.**
 
 ### Added
+
 - **A. Subject Roadmap & Level Specifications** — Universal template and populated Data Science example with Learner Progress Tracker, Level Completion Checklist, Session Log, Gap Analysis, Links to Learning Book. A is the canonical checkpoint for session start/resume.
 - **ile-minimal-flow.md** — Minimal ILE flow (phase B/C/D: Capture, Organise, Distill → entry points → template load → conversation → doc update). A as checking point. Agent Persistent Memory (file-based: A + Learning Book). Mid-session context (hierarchy over chronology, scoped context, checkpointing).
 - **ile-iteration-1-validation.md** — T-103 validation checklist; User confirmed one workspace + no manual paste solves UBS; approved moving to Iteration 2.
@@ -71,6 +96,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 - **.cursor/rules/** — ile-learning-book.mdc, long-n-naming-convention.mdc, use-user-not-founder.mdc.
 
 ### Changed
+
 - **README.md** — Rewritten for LTC Advanced Effective Learning Framework. Removed Effective Execution Engine. Added: Framework, Process (Capture → Organise → Distill), How ILE Helps (6 principles with UDS/UBS mappings), Quick Start, Project Structure.
 - **Planning** — T-103 marked 🟢 Reviewed/Tested. Iteration 2 (T-201) unlocked.
 
@@ -81,6 +107,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 **Iteration 3 (MVE): Zero-friction capture, UDO anchor surfacing, engagement light. All 🟢 Reviewed/Tested.**
 
 ### Added
+
 - **T-302 (Zero-friction capture and retain-on-switch):** `.cursor/rules/ile-learning-book.mdc` § Before entry/phase switch — no switch until Step 7 (Checkpoint); prompt to save; commit to target file/section + A's Session Log before switch; no copy-paste. `ile-minimal-flow.md` § T-302. EffAdv-AC3, EffAdj-AC1, EffAdj-AC2, EffAdj-AC3.
 - **T-303 (Surface current mastery level and A content):** `ile-phase-and-entry-points.md` §4 T-303 — surface in chat: current mastery level; level requirements; next-step recommendations (session start/resume and when presenting entry points). Rule § Present entry points; flow § A as anchor (T-303). Noun-AC9.
 - **T-304 (Engagement light — completion moment + progress summary):** `ile-minimal-flow.md` § T-304; `.cursor/rules/ile-learning-book.mdc` § Completion moment and progress summary (T-304). After each chunk (one component or entry point completed): (1) completion moment (explicit confirmation; optional lightweight reward); (2) when appropriate, progress summary in chat (e.g. "X of Y completed for this phase"). Agent behavior only; no new UI; no mandatory steps. Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11.
@@ -90,6 +117,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 - **Agent as teacher (Verb-AC6, AC7, AC8):** Rule § Conversation → Doc — explicit: generate multiple possibilities for Learner to contemplate and choose; no append without Learner's explicit choice or approval.
 
 ### Changed
+
 - **ile-minimal-flow.md** — Initial check: if A missing, run Roadmap Discovery first. (a) Entirely new book: Roadmap Discovery per ile-roadmap-discovery.md; `/roadmap-discovery`. § T-302, § T-304. A as anchor (T-303) resume: surface in chat current level + A content.
 - **Planning** — T-302, T-303, T-304 marked 🟢 Reviewed/Tested. Table B updated for EffAdv-AC3, EffAdj-AC1–AC3, Noun-AC9, Verb-AC9, Verb-AC10, EffAdv-AC4, EffAdj-AC4, EffAdj-AC5, Noun-AC11 with deterministic evidence. §4 Commands & rules (ILE) added.
 - **ile-learning-book.mdc** — Globs: + ile-roadmap-discovery.md. § Roadmap Discovery (populate A). § Before entry/phase switch (T-302). § Completion moment and progress summary (T-304). § Agent as teacher: + generate possibilities; Learner chooses (Verb-AC6, AC7, AC8).
@@ -99,22 +127,25 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 ## Distilled-understanding template + archive cleanup (2026-02-21)
 
 ### Added
+
 - **distilled-understanding-template-spec.md** — Optional read-only duplicate: `templates/D-distilled-understanding-full.json` (same content as xlsx; keys = sheet names, values = row arrays).
 - **templates/D-distilled-understanding-full.json** — JSON duplicate of D-distilled-understanding-full.xlsx for read-only consumption.
 - **archive/** — Obsolete MD/HTML and scripts moved here: archive/templates/ (D-distilled-understanding-full.md, D-distilled-understanding-table-editor.html), archive/scripts/ (build_table_editor_html.py, build_distilled_understanding_md.py, pdf_table_to_md.py).
 
 ### Removed
-- **templates/** — D-distilled-understanding-full.backup-*.md, _table_data.json, _table_data_escaped.txt (backups/temp). D-distilled-understanding-full.md, D-distilled-understanding-table-editor.html (→ archive).
+
+- **templates/** — D-distilled-understanding-full.backup-\*.md, \_table_data.json, \_table_data_escaped.txt (backups/temp). D-distilled-understanding-full.md, D-distilled-understanding-table-editor.html (→ archive).
 - **scripts/** — README-pdf-table-to-md.md (removed). pdf_table_to_md.py, build_table_editor_html.py, build_distilled_understanding_md.py (→ archive).
 
 ### Changed
+
 - **docs/ai/implementation/distilled-understanding-template-spec.md** — Canonical source: D-distilled-understanding-full.xlsx; optional duplicate: D-distilled-understanding-full.json.
 
 ---
 
 ## Template improvement recommendations (2026-02-25)
 
-*Logged for session resumption. These are recommendations from an objective review of `templates/` in the ILE project — not yet implemented.*
+_Logged for session resumption. These are recommendations from an objective review of `templates/` in the ILE project — not yet implemented._
 
 ### Recommendations — Phase B and phase seams
 
@@ -140,8 +171,8 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 
 ### Summary for resumption
 
-- **Phase C (pages 0–5, 7):** Causal chain and 16-column set are strong; no structural change recommended.  
-- **Risks:** B→C bridge undocumented; B not agent-ready; A L-levels blank; Page 7 format inconsistency; no template versioning; Topic 0 vs 1–5 branch must be resolved at load time.  
+- **Phase C (pages 0–5, 7):** Causal chain and 16-column set are strong; no structural change recommended.
+- **Risks:** B→C bridge undocumented; B not agent-ready; A L-levels blank; Page 7 format inconsistency; no template versioning; Topic 0 vs 1–5 branch must be resolved at load time.
 - **Next steps (optional):** Implement one or more of the above (e.g. B agent section, B→C mapping note, A generic L1–L7 stub, template_version field, or health-check version check).
 
 ---
@@ -149,6 +180,7 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 ## Session handoff (2025-02-21)
 
 **What was done this session:**
+
 - Iteration 1 completed: T-101, T-102, T-103 all 🟢 Reviewed/Tested.
 - A. Subject Roadmap template + populated Data Science example (Learner Progress Tracker, Session Log, Level Completion Checklist, Gap Analysis, Links to Learning Book).
 - ile-minimal-flow.md: A as checkpoint; Agent Persistent Memory; Mid-session context (UDS.UB resolution).
@@ -156,9 +188,11 @@ This project uses the **engine and brain** from [my-ai-devkit-templates](https:/
 - T-103 validated: one workspace + no manual paste solves root blocker; approved Iteration 2.
 
 **What to do when you continue (laptop):**
-- Tell the Agent: *"We're on the ILE project. Iteration 1 complete (T-101, T-102, T-103). Next: T-201 — Wire persistent memory (MCP or equivalent) so Agent can store/recall context tied to subject/Learning Book."*
+
+- Tell the Agent: _"We're on the ILE project. Iteration 1 complete (T-101, T-102, T-103). Next: T-201 — Wire persistent memory (MCP or equivalent) so Agent can store/recall context tied to subject/Learning Book."_
 - First uncompleted task: **T-201** (Iteration 2: Working Prototype).
 - Key context: A (Subject Roadmap) is the checking point. Doc is source of truth; chat is ephemeral. See `docs/ai/implementation/ile-minimal-flow.md`.
+
 # Changelog — LTC Master Template
 
 All notable changes to the Master Template (this repo) are documented here. Ventures clone a snapshot; this log helps you see what changed in the template over time. **When you update the Master Template, add an entry with date and change.**
@@ -168,6 +202,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.3.0] — 2026-02-20
 
 ### Added
+
 - **Glossary** in `docs/ai/frameworks/effective-system-design.md`: 20+ terms (UDO, UBS, Verb, Noun, A.C., MECE, Holy Trinity, etc.) with plain-English definitions. Referenced from README.
 - **Approval language guide** in Manifesto: table mapping every approval situation to the exact phrase the User should type.
 - **`/help` command:** Decision tree — "What do I run?" with all commands, approval phrases, and first-time instructions.
@@ -179,6 +214,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 - **Guided mode for State A:** strategy-mapping now asks "Are you familiar with the framework, or would you like guided mode with examples?" before the Causal Map. Lowers the entry barrier for beginners.
 
 ### Changed
+
 - README: added `/help`, `/review`, guided mode mention, context preservation, approval phrases quick reference, walkthrough link, and updated new venture checklist.
 - strategy-mapping Sub-Step 1: added guided mode check (step 2), renumbered subsequent steps.
 - Manifesto: added Recovery Protocol and User approval phrases sections.
@@ -188,14 +224,16 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.2.0] — 2026-02-20
 
 ### Added
+
 - **`/status` command:** Read-only "where am I?" snapshot — active feature, planning doc, template version, current iteration, next task, last approved task and evidence, task counts (🟢/🔵/🔴/🟠/⚪), next actions. Use when resuming (e.g. new computer).
-- **Iteration transition gate (State B):** Before executing a task in a *new* iteration (e.g. first task of Iteration 2), the agent HARD STOPS and asks the User to confirm "Proceed to Iteration N+1" or "Re-plan". Ensures current iteration is validated before advancing.
+- **Iteration transition gate (State B):** Before executing a task in a _new_ iteration (e.g. first task of Iteration 2), the agent HARD STOPS and asks the User to confirm "Proceed to Iteration N+1" or "Re-plan". Ensures current iteration is validated before advancing.
 - **Memory search at start of State A:** In strategy-mapping Sub-Step 1, after feature name is confirmed, the agent searches `@ai-devkit/memory` for principles/rules/learnings relevant to the feature or domain and presents findings to the User before the Causal Map.
 - **Anti-pattern rule** (`.cursor/rules/anti-patterns.mdc`, `alwaysApply: true`): Hard rules — no code before design; no new dependencies without Resource Impact (Design §4); no optimize/refactor outside A.C.; no skip of evidence step in State B; no iteration jump without gate.
 - **`/handoff` command:** Generates `project_handoff_status.md` in repo root with active feature, current iteration, next task ID, last approved task, modified/uncommitted files (from `git status`), and next actions for resuming.
 - **Template version tracking:** `.template-version` file (e.g. 1.2.0). `/status` reports this version; use with CHANGELOG for "what changed" when syncing from master template.
 
 ### Changed
+
 - execute-micro-task Step 1: renumbered steps; step 3 is the iteration transition gate (HARD STOP when next 🔴 is in a higher iteration than last 🟢).
 - strategy-mapping Sub-Step 1: added memory search step after feature name; renumbered subsequent steps.
 
@@ -204,6 +242,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.1.0] — 2026-02-21
 
 ### Added
+
 - **Master Scope Mapping** (Planning): Single source of truth for which A.C. is tackled in which iteration; MECE, no redundant Deferred lists.
 - **Standardized A.C. IDs** (Holy Trinity): Naming convention across Requirements, Design, Planning (Verb-ACn, SustainAdv-ACn, EffAdv-ACn, ScalAdv-ACn, Noun-ACn, SustainAdj-ACn, EffAdj-ACn, ScalAdj-ACn).
 - **Status flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed (by the Agent) → 🟢 Reviewed/Tested (by the User); 🟠 Stuck = off-ramp.
@@ -219,6 +258,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 - **Ambient flow rule** (`.cursor/rules/ambient-flow.mdc`): When user requests a new feature/add-on without /state-a or /state-b, nudge to /state-a, help populate requirements/design/planning from their request, get approval before any execution.
 
 ### Changed
+
 - State B and execute-micro-task use `docs/ai/planning/README.md` (Execution Matrix, Iteration Sequencing); A.C. resolved from Master Scope Mapping.
 - State A (strategy-mapping) Sub-Step 4: populate Master Scope Mapping from Requirements Phase 3 A.C. IDs.
 - Planning §3 (Resource & Budget Tracker): note to update Hard Limit after User approval per Design §4.
@@ -231,6 +271,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 - Holy Trinity: requirements, design, planning templates in docs/ai/.
 - Utility Belt: /state-a, /state-b, /ship, /debug, /remember.
 - Effective Execution Manifesto; dev-lifecycle skill and references.
+
 # Changelog — LTC Master Template
 
 All notable changes to the Master Template (this repo) are documented here. Ventures clone a snapshot; this log helps you see what changed in the template over time. **When you update the Master Template, add an entry with date and change.**
@@ -240,6 +281,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.3.0] — 2026-02-24
 
 ### Added
+
 - **Glossary** in `docs/ai/frameworks/effective-system-design.md`: 20+ terms (UDO, UBS, Verb, Noun, A.C., MECE, Holy Trinity, etc.) with plain-English definitions. Referenced from README.
 - **Approval language guide** in Manifesto: table mapping every approval situation to the exact phrase the User should type.
 - **`/help` command:** Decision tree — "What do I run?" with all commands, approval phrases, and first-time instructions.
@@ -251,6 +293,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 - **Guided mode for State A:** strategy-mapping now asks "Are you familiar with the framework, or would you like guided mode with examples?" before the Causal Map. Lowers the entry barrier for beginners.
 
 ### Changed
+
 - README: added `/help`, `/review`, guided mode mention, context preservation, approval phrases quick reference, walkthrough link, and updated new venture checklist.
 - strategy-mapping Sub-Step 1: added guided mode check (step 2), renumbered subsequent steps.
 - Manifesto: added Recovery Protocol and User approval phrases sections.
@@ -260,14 +303,16 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.2.0] — 2026-02-20
 
 ### Added
+
 - **`/status` command:** Read-only "where am I?" snapshot — active feature, planning doc, template version, current iteration, next task, last approved task and evidence, task counts (🟢/🔵/🔴/🟠/⚪), next actions. Use when resuming (e.g. new computer).
-- **Iteration transition gate (State B):** Before executing a task in a *new* iteration (e.g. first task of Iteration 2), the agent HARD STOPS and asks the User to confirm "Proceed to Iteration N+1" or "Re-plan". Ensures current iteration is validated before advancing.
+- **Iteration transition gate (State B):** Before executing a task in a _new_ iteration (e.g. first task of Iteration 2), the agent HARD STOPS and asks the User to confirm "Proceed to Iteration N+1" or "Re-plan". Ensures current iteration is validated before advancing.
 - **Memory search at start of State A:** In strategy-mapping Sub-Step 1, after feature name is confirmed, the agent searches `@ai-devkit/memory` for principles/rules/learnings relevant to the feature or domain and presents findings to the User before the Causal Map.
 - **Anti-pattern rule** (`.cursor/rules/anti-patterns.mdc`, `alwaysApply: true`): Hard rules — no code before design; no new dependencies without Resource Impact (Design §4); no optimize/refactor outside A.C.; no skip of evidence step in State B; no iteration jump without gate.
 - **`/handoff` command:** Generates `project_handoff_status.md` in repo root with active feature, current iteration, next task ID, last approved task, modified/uncommitted files (from `git status`), and next actions for resuming.
 - **Template version tracking:** `.template-version` file (e.g. 1.2.0). `/status` reports this version; use with CHANGELOG for "what changed" when syncing from master template.
 
 ### Changed
+
 - execute-micro-task Step 1: renumbered steps; step 3 is the iteration transition gate (HARD STOP when next 🔴 is in a higher iteration than last 🟢).
 - strategy-mapping Sub-Step 1: added memory search step after feature name; renumbered subsequent steps.
 
@@ -276,6 +321,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 ## [1.1.0] — 2026-02-21
 
 ### Added
+
 - **Master Scope Mapping** (Planning): Single source of truth for which A.C. is tackled in which iteration; MECE, no redundant Deferred lists.
 - **Standardized A.C. IDs** (Holy Trinity): Naming convention across Requirements, Design, Planning (Verb-ACn, SustainAdv-ACn, EffAdv-ACn, ScalAdv-ACn, Noun-ACn, SustainAdj-ACn, EffAdj-ACn, ScalAdj-ACn).
 - **Status flow (solo User):** ⚪ Pending → 🔴 To Do → 🔵 Draft Completed (by the Agent) → 🟢 Reviewed/Tested (by the User); 🟠 Stuck = off-ramp.
@@ -291,6 +337,7 @@ All notable changes to the Master Template (this repo) are documented here. Vent
 - **Ambient flow rule** (`.cursor/rules/ambient-flow.mdc`): When user requests a new feature/add-on without /state-a or /state-b, nudge to /state-a, help populate requirements/design/planning from their request, get approval before any execution.
 
 ### Changed
+
 - State B and execute-micro-task use `docs/ai/planning/README.md` (Execution Matrix, Iteration Sequencing); A.C. resolved from Master Scope Mapping.
 - State A (strategy-mapping) Sub-Step 4: populate Master Scope Mapping from Requirements Phase 3 A.C. IDs.
 - Planning §3 (Resource & Budget Tracker): note to update Hard Limit after User approval per Design §4.

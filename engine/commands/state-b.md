@@ -1,0 +1,9 @@
+# STATE B: Execute One Micro-Task
+
+**Process:** See `docs/ai/Effective_Execution_Manifesto.md` for approval phrases and recovery. **Iteration boundary:** When the next 🔴 To Do is in a higher iteration than the last 🟢 Reviewed/Tested, you must stop and present the iteration transition gate (see execute-micro-task.md Step 1). The User may run `/review` to audit evidence before replying "Proceed to Iteration N+1". See `engine/rules/anti-patterns.md` rule 5.
+
+**Optional iteration mode:** For one-shot-one-iteration (run all tasks in current iteration → test → one approval), the User invokes `/state-b-iteration` when machine-verified tests exist. See `engine/commands/state-b-iteration.md`. Default remains one task per run.
+
+**First, determine the active project/feature:** Follow **Step 0** in `engine/skills/dev-lifecycle/references/execute-micro-task.md` (canonical; excludes `docs/ai/archive/`). Then read and update the **feature docs** when they exist, else the README templates.
+
+Load and follow the instructions in `engine/skills/dev-lifecycle/references/execute-micro-task.md`. Execute exactly one task marked 🔴 To Do; do not pick 🟠 Stuck until the User unblocks. Present evidence, mark the task 🔵 Draft Completed (by the Agent), then hard-stop. Do not proceed until the User replies **"Approved"** (then mark 🟢 Reviewed/Tested) or gives feedback.

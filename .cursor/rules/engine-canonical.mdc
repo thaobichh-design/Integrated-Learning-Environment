@@ -1,0 +1,15 @@
+---
+description: When running engine commands, use engine as canonical source for rules and logic.
+globs:
+alwaysApply: true
+---
+
+# Engine as canonical
+
+When the User invokes a command that points to **engine/commands/** (e.g. /state-a, /state-b, /status, /ship, /handoff, /debug, /review, /remember, /help, /heavy, /test, /test-write), treat **engine/** as the single source of truth:
+
+- **Logic:** Follow the referenced `engine/commands/<name>.md` and any `engine/skills/` or docs it specifies.
+- **Rules:** Read and apply **engine/rules/** (anti-patterns, context-preservation, ambient-flow). Override any duplicate .cursor/rules for those topics when executing engine commands.
+- **Entry point:** For full utility belt and approval phrases, see **engine/SKILL.md** and **docs/ai/Effective_Execution_Manifesto.md**.
+
+ILE-specific commands (e.g. /health, /roadmap-discovery) are defined only in .cursor/commands and use ILE rules (ile-\*.mdc, etc.), not engine/rules.

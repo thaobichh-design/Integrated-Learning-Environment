@@ -1,26 +1,24 @@
 # Integrated Learning Environment (ILE)
 
-*Learn with an AI Agent. Capture, organise, and distill knowledge—with zero copy-paste. Your Learning Book grows as a byproduct of the conversation.*
+_Learn with an AI Agent. Capture, organise, and distill knowledge—with zero copy-paste. Your Learning Book grows as a byproduct of the conversation._
 
-Built for the **LTC Advanced Effective Learning Framework**. *Engine and brain from [my-ai-devkit-templates](https://github.com/chrislongnguyen/my-ai-devkit-templates) (template 1.1.0).*
+Built for the **LTC Advanced Effective Learning Framework**. _Engine and brain from [effective-build-agent](https://github.com/chrislongnguyen/effective-build-agent) (template 2.0.0)._ The upstream template uses a portable `engine/` core and thin `.cursor/` adapters; ILE keeps its current `.cursor/` and `docs/ai/implementation` layout by design (Learning Book flow, Phase C, A file). See CHANGELOG for template sync notes.
 
 ---
 
 ## The LTC Advanced Effective Learning Framework
 
-**You don't consume knowledge—you *build* it.** The LTC Advanced Effective Learning Framework turns learning into a structured, traceable process. You write your own Learning Book per subject. The AI Agent is your sparring partner: it guides you, questions you, and helps you organise knowledge from high-level concepts down to deep-root layers.
+**You don't consume knowledge—you _build_ it.** The LTC Advanced Effective Learning Framework turns learning into a structured, traceable process. You write your own Learning Book per subject. The AI Agent is your sparring partner: it guides you, questions you, and helps you organise knowledge from high-level concepts down to deep-root layers.
 
 ### What makes it different
 
-
-| Traditional learning                   | LTC Advanced Effective Learning                                                                                                                                          |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Passive consumption (videos, articles) | **Active recall** — you explain, the Agent probes                                                                                                                        |
+| Traditional learning                   | LTC Advanced Effective Learning                                                                                                                                        |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Passive consumption (videos, articles) | **Active recall** — you explain, the Agent probes                                                                                                                      |
 | Flat notes, scattered across apps      | **Hierarchical structure** — 0. Overview → 1. Ultimate Blockers → 2. Ultimate Drivers → 3. Principles → 4. Components → 5. Steps to Apply → 7. Distilled Understanding |
-| Manual copy-paste from chat to docs    | **Documentation as byproduct** — the Learning Book updates as you talk                                                                                                   |
-| Linear chat that forgets context       | **Persistent memory** — the document *is* the memory; you never repeat yourself                                                                                          |
-| Ad hoc progression                     | **Level-aligned** — Subject Roadmap (A) guides L1→L7 mastery (SFIA)                                                                                                      |
-
+| Manual copy-paste from chat to docs    | **Documentation as byproduct** — the Learning Book updates as you talk                                                                                                 |
+| Linear chat that forgets context       | **Persistent memory** — the document _is_ the memory; you never repeat yourself                                                                                        |
+| Ad hoc progression                     | **Level-aligned** — Subject Roadmap (A) guides L1→L7 mastery (SFIA)                                                                                                    |
 
 **You are the author.** The learner is the best teacher for themselves. The Agent and others are references. You write your own book, continuously from L1 (Follow) to L7 (Strategic Visionary).
 
@@ -31,7 +29,7 @@ Built for the **LTC Advanced Effective Learning Framework**. *Engine and brain f
 Three phases. One flow. No handoff.
 
 ```
-A. Subject Roadmap (L1–L7, where you are) 
+A. Subject Roadmap (L1–L7, where you are)
         ↓
 B. Capture Facts & Data — Raw facts, information
         ↓
@@ -43,20 +41,20 @@ E. Express Expertise — Your proof of mastery
 ```
 
 - **Capture:** Gather raw facts and information. The Agent helps you capture without losing structure.
-- **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Procedure (EOP). *You* articulate; the Agent writes into the right section.
+- **Organise:** Turn facts into knowledge. The Agent guides hierarchical Q&A—Overview, Blockers (UBS), Drivers (UDS), Principles (EPS), Effective System (UES), Operating Procedure (EOP). _You_ articulate; the Agent writes into the right section.
 - **Distill:** Compress Organise Information into the Distill Understanding format. The Agent helps condense on demand.
 
-**Consumption is in-scope.** Digestion (reflection, practice, internalisation) is explicitly *outside* the system—you do that in your head and in the real world.
+**Consumption is in-scope.** Digestion (reflection, practice, internalisation) is explicitly _outside_ the system—you do that in your head and in the real world.
 
 ---
 
 ## How the ILE Helps You Learn Most Effectively
 
-*UDS = Ultimate Driving System (your drive to master). UBS = Ultimate Blocking System (admin tax, copy-paste). UD = Driver. UB = Blocker.*
+_UDS = Ultimate Driving System (your drive to master). UBS = Ultimate Blocking System (admin tax, copy-paste). UD = Driver. UB = Blocker._
 
 ### 1. One workspace. No copy-paste.
 
-Chat and Learning Book live in the same place (Cursor + Markdown repo). You choose phase and entry point. The Agent loads the right template and scopes the conversation. What you discuss is written *directly* into the Learning Book—no extract, format, or paste.
+Chat and Learning Book live in the same place (Cursor + Markdown repo). You choose phase and entry point. The Agent loads the right template and scopes the conversation. What you discuss is written _directly_ into the Learning Book—no extract, format, or paste.
 
 → **Addresses UBS** (no manual copy-paste). **Removes UBS.UD** (no separation of chat and docs). **ILE = UBS.UB** (integrated workspace).
 
@@ -74,7 +72,7 @@ Linear chat collapses context. Scrolling back is lost. The ILE flips this: **the
 
 ### 4. Resume without re-entering context
 
-Close the session. Come back next week. The Agent reads A + the current entry point's file. *"You're at L2. Last session: Chapter 1 UBS Topic 0—you worked on Blockers. Next suggested: finish Topic 0 or move to Topic 1."* No pasting. No re-explaining.
+Close the session. Come back next week. The Agent reads A + the current entry point's file. _"You're at L2. Last session: Chapter 1 UBS Topic 0—you worked on Blockers. Next suggested: finish Topic 0 or move to Topic 1."_ No pasting. No re-explaining.
 
 → **Removes UDS.UB** (user no longer forced to repeat context).
 
@@ -151,7 +149,6 @@ After that, `/heavy` will call the `run_heavy_analysis_ptc` tool. No cloud insta
 
 ## Deeper Docs
 
-
 | Doc                                                               | Purpose                                                               |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `docs/ai/requirements/feature-integrated-learning-environment.md` | Requirements, UDO/UDS/UBS, acceptance criteria                        |
@@ -159,7 +156,6 @@ After that, `/heavy` will call the `run_heavy_analysis_ptc` tool. No cloud insta
 | `docs/ai/implementation/learning-book-tree-map.md`                | Full Learning Book structure (6 Chapters × 6 Topics)                  |
 | `learning-book/README.md`                                         | Folder layout, structure verification                                 |
 
-
 ---
 
-*This repository is the ILE project. To start learning, clone or duplicate this folder, open in Cursor, and begin a session. Do not overwrite the underlying `.cursor/skills/` or template logic without approval.*
+_This repository is the ILE project. To start learning, clone or duplicate this folder, open in Cursor, and begin a session. Do not overwrite the underlying `engine/skills/` or template logic without approval._
