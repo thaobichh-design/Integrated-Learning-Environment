@@ -69,6 +69,77 @@
 
 ---
 
+## Rubrics (per Level)
+
+*Pass/fail criteria per credential. Used by Agent for self-check (T-305) and rubric walk-through (T-306). Same criteria apply to future external assessors.*
+
+| Level | Credential | Pass Criteria | Fail Criteria |
+|-------|-----------|---------------|---------------|
+| **L1** | Working single agent with tools (YFinance) | Script exists, runs without error, creates Agno Agent, YFinance tool is configured and callable, agent retrieves live stock data (e.g., AAPL price), responds to user query with the data | Script missing or cannot be located; script throws errors; agent does not use tools or tool call fails; no response to query |
+| | Screenshot or repo link | Screenshot shows agent output and tool call visible (e.g., YFinance call in output); OR Git repo link provided with agent code accessible | No screenshot provided; screenshot does not show agent/tool output; repo link broken or code missing |
+| | Understand agent vs chatbot + hierarchy | Learner can articulate: "Agent has model, tools, instructions, memory. Chatbot has only model." AND can explain Agent → Team → Workflow hierarchy with examples | Cannot explain difference; hierarchy explanation incomplete or incorrect |
+| **L2** | Working 2-agent Team with Coordinator | Two agents (e.g., Research Analyst, Risk Analyst) configured; Coordinator mode enabled and observable in code; script runs; team delegates between agents | Only one agent; Coordinator not configured; script fails; no delegation visible |
+| | Observable handoff + conversation log | Conversation log shows Agent A output → Coordinator decision → Agent B input; clear message passing between agents; at least one complete handoff cycle | No conversation log; handoff not visible; agents work in isolation |
+| | Session memory persists across turns | Follow-up question references prior context (e.g., "Your earlier research showed..."); proof: screenshot or log showing context carryover | Session memory not tested; follow-up ignores prior context; no proof provided |
+| **L3** | Multi-step Workflow (Parallel, Condition, Loop) | Workflow code includes at least 1 Parallel step, 1 Condition step, 1 Loop step; all configured correctly; workflow structure is clear in code | Workflow missing step types; code structure unclear; fewer than 3 step types |
+| | Deployed to AgentOS + dashboard | Agents deployed to AgentOS (local or cloud); AgentOS dashboard accessible; at least one agent is monitored and visible; screenshots provided | Not deployed; no dashboard evidence; agents not visible in AgentOS |
+| | Investment Team end-to-end (ticker → memo) | 4+ agents (e.g., Market, Financial, Technical, Risk analysts + Memo Writer + Committee Chair); team takes ticker input and outputs investment memo; full run completes without error | Fewer than 4 agents; missing memo output; workflow errors or incomplete run |
+| **L4** | Two domain-specific teams from shared architecture | Investment Team working; second domain team (e.g., Competitive Intelligence, Due Diligence) built using Investment Team base templates; both teams functional | Only one team; second team not built or doesn't work; architecture not reused |
+| | Reusable agent templates + documentation | Base templates for analyst, writer, coordinator created and documented; customisation points clear; templates usable by another person | No templates; no documentation; templates too specific to one domain |
+| | ClickUp integration working | Agent creates or updates ClickUp tasks automatically; tasks appear in ClickUp with correct fields (title, description, status); integration tested | No ClickUp integration; tasks not created or incorrect format |
+| **L5** | Production governance dashboard | Dashboard tracks cost (tokens, API calls), error budget, rate limiting, uptime; data collected and displayed in real-time or near-real-time | Dashboard missing or incomplete; cost/error data not tracked |
+| | Written organisational standards | Document defines: agent naming conventions, prompt templates, tool approval process, error handling rules; adopted by team/organisation | No standards document; if exists, not followed or incomplete |
+| | Framework evaluation report (CrewAI/OpenFang vs Agno) | Report compares Agno vs alternative (e.g., CrewAI Flows, OpenFang v1.0) on criteria: ease of use, feature completeness, cost, performance, community; includes recommendation with justification | No evaluation; evaluation incomplete or biased |
+| **L6** | Multi-team orchestration deployed | 2+ teams (e.g., Investment Team, Research Team, Operations Team) coordinated and working together; inter-team communication clear; system handles handoff between teams | Single team or uncoordinated teams; handoff logic missing |
+| | Business case with measured ROI | Document includes: costs (development, infrastructure, tokens), benefits (time saved, decision quality, revenue impact); calculated ROI with before/after metrics | No business case; case incomplete or unsubstantiated |
+| | Cross-functional deployment evidence | Teams/agents deployed across 2+ business functions (e.g., research + operations, finance + strategy); evidence of adoption and value delivery | Single function; no cross-functional usage |
+| **L7** | Published organisational strategy | Strategy document defines AI orchestration roadmap, org-wide standards, investment areas, governance model; published and communicated to leadership | No strategy; internal draft only or not communicated |
+| | Evidence of organisational mobilisation | Actions taken: team members trained, budget allocated, processes updated to use AI orchestration; measurable adoption (e.g., X teams using framework) | No mobilisation; no adoption metrics |
+| | Vision for human-AI collaboration | Document describes how humans and AI agents work together at organisation (e.g., augmentation, autonomy, oversight); vision adopted by leadership | No vision document; vision not approved |
+
+---
+
+## Level → Phase C Scope (detailed)
+
+*Which chapters/topics/pages from Phase C (Organise Information) belong to each level. Used by Agent to suggest sequence and validate gates.*
+
+| Level | Chapters/Topics Required | Pages within Each | Phase C Completion | Notes |
+|-------|--------------------------|-------------------|--------------------|-------|
+| **L1** | Chapter 0. Overview & Summary; Chapter 1. UBS (Capability Gap) | Ch 0: Pages 0–1 (Overview, Blockers); Ch 1: Pages 0–1 (Overview, Blockers) | Pages 0.0, 0.1, 1.0, 1.1 | Foundation: Learner understands what agents are and the root blocker (Capability Gap) |
+| **L2** | Chapter 1. UBS (full); Chapter 2. UDS (Hierarchical Decomposition) | Ch 1: Pages 0–2 (Overview, Blockers, Drivers); Ch 2: Pages 0–2 (Overview, Blockers, Drivers) | Pages 1.0–1.2, 2.0–2.2 | Extends L1: Learner understands causal layers (UB/UD) and root driver (Hierarchical Decomposition) |
+| **L3** | Chapter 2. UDS (full); Chapter 3. EPS (Principles) | Ch 2: Pages 0–3 (Overview, Blockers, Drivers, Principles); Ch 3: Pages 0–3 | Pages 2.0–2.3, 3.0–3.3 | Deep dive: Learner understands principles that enable/disable blockers and drivers |
+| **L4** | Chapter 4. UES (Components); Chapter 5. EOP (Procedure) | Ch 4: Pages 0–4 (Overview, Blockers, Drivers, Principles, Components); Ch 5: Pages 0–4 | Pages 4.0–4.4, 5.0–5.4 | Tools & steps: Learner knows what tools/env needed and step-by-step procedure |
+| **L5+** | Chapter 5. EOP (full); Area D/E (optional) | Ch 5: Pages 0–5 (all); D. Distill Understanding; E. Express Expertise | All Phase C pages + D/E | Mastery: Learner can distill understanding and teach others |
+
+**Current Status (COE_AI_ORCH):**
+- ✅ **L1 complete:** Pages 0.0, 0.1, 1.0, 1.1 approved (12 of 36 pages: T0.P0–T0.P5, T1.P0–T1.P5)
+- ✅ **L2 in progress:** Pages 2.0–2.1 approved; 2.2 generated (pending approval)
+- ⬜ **L3–L5:** Not yet generated
+
+---
+
+## Proof Landing Zone (per Level)
+
+*Where evidence for each level is stored or linked. Filled after Learner completes level practice and passes rubric walk-through (T-306).*
+
+| Level | Credential 1 Evidence | Credential 2 Evidence | Credential 3 Evidence |
+|-------|----------------------|----------------------|----------------------|
+| **L1** | `evidence/L1-agent.py` | `evidence/L1-agent-screenshot.png` | Session notes: Verbal explanation captured in Cursor chat (2026-02-28) |
+| **L2** | `evidence/L2-team.py` | `evidence/L2-conversation-log.txt` | `evidence/L2-session-memory-test.txt` |
+| **L3** | `evidence/L3-workflow.py` | `evidence/L3-agentOS-dashboard.png` | `evidence/L3-investment-team-run.log` |
+| **L4** | `evidence/L4-ci-team.py` | `evidence/L4-agent-templates.md` | `evidence/L4-clickup-integration.png` |
+| **L5** | `evidence/L5-governance-dashboard.png` | `evidence/L5-standards.md` | `evidence/L5-framework-evaluation.md` |
+| **L6** | `evidence/L6-multi-team-architecture.md` | `evidence/L6-business-case.md` | `evidence/L6-adoption-metrics.xlsx` |
+| **L7** | `evidence/L7-strategy.md` | `evidence/L7-mobilisation.txt` | `evidence/L7-vision.md` |
+
+**Notes:**
+- Leave empty (or with TBD) until practice is complete
+- After rubric walk-through (T-306), Agent records evidence links here
+- Evidence can be file path (relative to learning-book root), URL, or short description (e.g., "Verbal explanation on [date]")
+- Same format and location usable by future external assessor
+
+---
+
 ## Session Log
 
 | Date | Entry Point | Progress |

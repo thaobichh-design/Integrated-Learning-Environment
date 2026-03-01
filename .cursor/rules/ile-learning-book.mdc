@@ -81,3 +81,77 @@ After each **chunk** (one component or one entry point for which the Learner has
 2. **Progress summary (when appropriate):** After a completion moment, or when the Learner asks (e.g. "how am I doing?"), surface in chat a brief progress summary (e.g. "This phase: you've completed [N] entry points (or components)." or "X of Y completed for this phase."). Data source: A's Session Log + current phase; infer from Session Log how many distinct entry points/components completed this phase. If A is missing, infer from conversation (Verb-AC10, Noun-AC11).
 
 *No new UI; no mandatory steps. Engagement is additive and optional to consume.*
+
+## Self-check before practice (T-305)
+
+When the Learner has **completed all Phase C pages for a level** (A → Current State → Approved Pages show all required pages), OR the **Learner explicitly asks for a self-check** before practice:
+
+1. **Offer (don't mandate):** Suggest: "You've completed all Level X learning content (Chapter X, pages 0–Y). Would you like a self-check before you start level practice? This is optional; I can help you assess readiness, or you can jump straight to practice."
+
+2. **Proceed only if Learner accepts.** If Learner says "skip" or "go straight to practice," do not block.
+
+3. **Self-check procedure** (follow `docs/ai/implementation/ile-self-check-before-practice.md`):
+   - Confirm target level (or infer from A's Current Level + Learner context)
+   - Present Level Requirements from A (Subject Roadmap → Level Specifications)
+   - Ask 5–10 conceptual questions **derived from the completed pages** for that level (reference specific page labels and column concepts, e.g., "In T1.P1, what was the root blocker?")
+   - Listen and clarify; identify gaps
+   - Recommend: proceed to practice, or revisit content first
+   - Learner chooses; Agent does not block
+
+4. **Tone:** Supportive, expert, Socratic. No judgment. This is diagnostic, not punitive.
+
+5. **Update A after completion:** Append A's Session Log with one line:
+   ```
+   | [Date] | Self-check L[X] | Completed; gaps: [identified gaps if any]; recommend: [path]. Ready for L[X] practice. |
+   ```
+
+6. **No mandatory gap closure:** If gaps exist, Learner can choose to revisit content or proceed to practice. Agent suggests; Learner decides.
+
+*Evidence for Verb-AC11, EffAdj-AC6. Related to T-306 (rubric walk-through after practice).*
+
+## Rubric walk-through & proof recording (T-306)
+
+When the Learner returns from practice and **claims completion**, OR the **Learner explicitly asks for feedback/review**:
+
+1. **Offer (don't mandate):** Suggest: "You've completed Level X practice. I can walk through the Level X rubric to validate your work against the pass/fail criteria. This is optional; I can provide feedback, or you can submit as-is."
+
+2. **Proceed only if Learner accepts.** If Learner says "skip" or "submit as-is," do not block.
+
+3. **Rubric walk-through procedure** (follow `docs/ai/implementation/ile-rubric-walk-through-proof-recording.md`):
+   - Confirm target level and credential count
+   - Walk through **each credential one at a time**:
+     * Present credential name + pass/fail criteria (from A, "Subject-Specific Requirements & Credentials")
+     * Listen to User's evidence (code, screenshot, conversation log, etc.)
+     * Validate against criteria: ✓ PASS, 🟡 PARTIAL, or ✗ REVISIT
+     * Record outcome
+   - Summarize: count of PASS/PARTIAL/REVISIT
+   - Present options: Pass & move forward, Revisit & resubmit, or Defer
+   - Learner chooses; Agent does not block
+
+4. **Proof recording:** Once Learner chooses, update A:
+   - **Level Completion Checklist:** Update row for target level with status (✅ all pass, 🟡 partial, 🔲 not yet) and date
+   - **Proof Landing Zone:** Record evidence location/link for each credential (e.g., path to code, screenshot, conversation log)
+   - **Session Log:** Append result (Date, "L[X] Rubric Walk-Through", outcome summary)
+
+5. **Tone:** Supportive, collaborative, expert. Not judgmental.
+
+6. **No separate export step:** Proof recording happens in-conversation. Agent proposes update to A; Learner approves; Agent writes. No copy-paste required.
+
+*Evidence for Verb-AC12, EffAdv-AC5, EffAdj-AC6. Related to T-305 (self-check before practice).*
+
+## Agent reads Level→scope and gates from A (T-415)
+
+When **Phase C page is approved**, when **Learner requests level progression**, or at **session start**:
+
+1. **Read A → "Level → Phase C Scope (detailed)"** to determine scope for target level (which chapters/topics/pages).
+2. **Read A → "Phase C Organise — state" → "Approved Pages"** to see which pages Learner has completed.
+3. **Compare:** Are all required pages for target level approved?
+   - **If YES:** Suggest progression: "You've completed L_n scope ✓. Ready for L_n practice?"
+   - **If NO:** Show gap: "L_n requires [required pages]. You've done [approved pages]. Missing: [missing pages]."
+4. **Gate validation:** Gates are **soft** (suggest prerequisites, don't block). Learner can choose to proceed or revisit. Cite A as source.
+
+**No hard-coded map:** All scope comes from A. Same procedure works for any subject; only content in A varies.
+
+**Subject-agnostic:** Each subject's A defines its own Level→Scope. Agent reads from that subject's A; no ILE code changes.
+
+*Evidence for Noun-AC15, ScalAdv-AC6 (final). Full procedure: `docs/ai/implementation/ile-agent-reads-level-scope-gates.md`.*

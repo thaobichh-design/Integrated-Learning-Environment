@@ -84,6 +84,71 @@
 
 ---
 
+## Rubrics (per Level)
+
+*Pass/fail criteria per credential. Used by Agent for self-check (T-305) and rubric walk-through (T-306). Same criteria apply to future external assessors. One row per credential per level.*
+
+| Level | Credential | Pass Criteria | Fail Criteria |
+|-------|-----------|---------------|---------------|
+| **L1** | Credential 1 | *Define specific success markers* | *Define specific gaps or blockers* |
+| | Credential 2 | *Define* | *Define* |
+| | Credential 3 | *Define* | *Define* |
+| **L2** | Credential 1 | *Define* | *Define* |
+| | Credential 2 | *Define* | *Define* |
+| | Credential 3 | *Define* | *Define* |
+| **L3+** | *Continue pattern for remaining levels* | | |
+
+**Notes:**
+- Derive criteria from the Credentials in "Subject-Specific Requirements & Credentials" below
+- Pass criteria: what evidence must show (e.g., "script runs, tool call visible, responds correctly")
+- Fail criteria: what does NOT meet the standard (e.g., "script missing, no tool call, wrong response")
+- Agent uses these criteria in T-305 (self-check) and T-306 (rubric walk-through)
+
+---
+
+## Level → Phase C Scope (detailed)
+
+*Which chapters/topics/pages from Phase C (Organise Information) belong to each level. Used by Agent to suggest sequence (T-415) and validate gates (e.g., "Complete L1 before L2").*
+
+| Level | Chapters/Topics Required | Pages within Each | Notes |
+|-------|--------------------------|-------------------|-------|
+| **L1** | Chapter 0. Overview; Chapter 1. UBS | Chapters 0–1: Pages 0–2 (Overview, Blockers, Drivers) | *Define for this subject* |
+| **L2** | Chapter 1. UBS (full); Chapter 2. UDS | Chapters 1–2: Pages 0–2 | *Define* |
+| **L3** | Chapter 2. UDS (full); Chapter 3. EPS | Chapters 2–3: Pages 0–3 | *Define* |
+| **L4** | Chapter 4. UES; Chapter 5. EOP | Chapters 4–5: Pages 0–4 | *Define* |
+| **L5+** | Chapters 3–5 (full); Area D/E | All pages; optional: D. Distill Understanding, E. Express Expertise | *Define* |
+
+**Notes:**
+- This is the detailed version of "Links to Learning Book" above
+- Each level's Phase C scope is the **prerequisite** for level practice
+- Agent reads this to suggest: "Complete L1 scope, then do L1 practice"
+- Agent validates gates: "Did you complete all L1 pages? Then you're ready for L1 practice"
+
+---
+
+## Proof Landing Zone (per Level)
+
+*Where evidence for each level is stored or linked. Learner records proof here after completing level practice. Agent uses this in T-306 (rubric walk-through) to record evidence. Same location usable by future external assessors.*
+
+| Level | Credential 1 Evidence | Credential 2 Evidence | Credential 3 Evidence |
+|-------|----------------------|----------------------|----------------------|
+| **L1** | *Path/link or empty (fill after practice)* | *Path/link or empty* | *Path/link or empty* |
+| **L2** | *Path/link or empty* | *Path/link or empty* | *Path/link or empty* |
+| **L3** | *Path/link or empty* | *Path/link or empty* | *Path/link or empty* |
+| **L4+** | *Path/link or empty* | *Path/link or empty* | *Path/link or empty* |
+
+**Evidence examples:**
+- **Code artefact:** `learning-book/{subject}/evidence/L1-agent.py` or Git commit link
+- **Screenshot:** `learning-book/{subject}/evidence/L1-screenshot.png` or Markdown `![](path)`
+- **Conversation log:** Link to transcript file or inline text
+- **Written artefact:** Link to standards doc, evaluation report, etc.
+
+**How Agent uses this:**
+- T-306 (rubric walk-through): Learner brings evidence → Agent validates → records link in this table
+- No mandatory format; Agent and Learner agree on what counts as proof
+
+---
+
 ## Session Log
 
 *Brief log for pickup. Agent updates after each session.*
