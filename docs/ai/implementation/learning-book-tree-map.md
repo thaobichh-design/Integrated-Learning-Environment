@@ -1,18 +1,18 @@
 # COE Effective Learning — Full Tree Map
 
-*One diagram to align on: Area → Chapters → Topics → Pages. Source: E. DATA SCIENCE - AREA EXPRESSED EXPERTISE, user templates, and ClickUp structure.*
+_One diagram to align on: Area → Chapters → Topics → Pages. Source: E. DATA SCIENCE - AREA EXPRESSED EXPERTISE, user templates, and ClickUp structure._
 
 **COE hierarchy (company-side):** The single source of truth for the LTC COE hierarchical map (COE → Area → Chapter → Topic → Topic Members' Learning Area → Personal Learning Area) is **`config/coe-map.yaml`**. See `ile-coe-map.md`. This doc describes the tree for alignment; structural details (areas, chapters, topics, PLAs) live in the config.
 
 **Two views in this doc:** (1) **Individual's full effective learning tree** (§ below) — the folder/file structure that **one person's** Learning Book contains (`learning-book/`). This is what the ILE repo holds and what T-202 conversation→doc mapping targets. (2) **Company tree** (§ Mermaid and § Tree Map) — where each member's learning sits in the org (ClickUp, COE); per-member branches.
 
-**Cross-references:** Flow → `docs/ai/implementation/ile-minimal-flow.md` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md` | Conversation→Doc → `docs/ai/implementation/ile-conversation-to-doc-mapping.md` | Folder layout → `learning-book/README.md`
+**Cross-references:** Flow → `docs/ai/implementation/ile-minimal-flow.md` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md` | Conversation→Doc → `docs/ai/implementation/ile-conversation-to-doc-mapping.md` | Folder layout → `learning-book/README.md` | **Naming (folder/phase/topic/page)** → `docs/ai/implementation/ile-learning-book-naming-convention.md`
 
 ---
 
 ## Individual's full effective learning tree (learning-book/ for one person)
 
-*The `learning-book/` folder in the ILE repo contains **solely** one individual's content: one Area (e.g. COE_DS) with phases A/B/C/D/E and under each phase the Chapter → Topic → Pages (files) for that person. There is no "per member" branching here—this is one person's full effective learning tree. The Agent (T-202) resolves conversation scope (subject, phase, entry point) → target file path using this structure. See `ile-conversation-to-doc-mapping.md`.*
+_The `learning-book/` folder in the ILE repo contains **solely** one individual's content: one Area (e.g. COE_DS) with phases A/B/C/D/E and under each phase the Chapter → Topic → Pages (files) for that person. There is no "per member" branching here—this is one person's full effective learning tree. The Agent (T-202) resolves conversation scope (subject, phase, entry point) → target file path using this structure. See `ile-conversation-to-doc-mapping.md`._
 
 ### Individual tree: Mermaid (one Area, one person)
 
@@ -25,7 +25,7 @@ flowchart TB
     D["D. Distill Understanding"]
     E["E. Express Expertise"]
   end
-  
+
   subgraph Chapters["Under C (same under B/D/E)"]
     Ch0["0. Overview & Summary"]
     Ch1["1. UBS"]
@@ -34,7 +34,7 @@ flowchart TB
     Ch4["4. UES"]
     Ch5["5. EOP"]
   end
-  
+
   subgraph TopicFiles["Under 1. UBS (one file per topic)"]
     F0["1. UBS - 0. Overview & Summary.md"]
     F1["1. UBS - 1. Ultimate Blockers.md"]
@@ -43,7 +43,7 @@ flowchart TB
     F4["1. UBS - 4. Components.md"]
     F5["1. UBS - 5. Steps to Overcome.md"]
   end
-  
+
   Root --> A
   Root --> B
   Root --> C
@@ -63,64 +63,62 @@ flowchart TB
   Ch1 --> F5
 ```
 
-
-
-*Flow: Subject (e.g. COE_DS) → Phase (A/B/C/D/E) → Chapter folder (0..5) → one file per (chapter, topic). **Entry point** = (chapter, topic, **page**) — a particular page within a topic; page ∈ {0,1,2,3,4,5,7}. Entry point maps to exactly one file + one section (page/component) in this tree (T-202). Chapter folder names use short form per `learning-book/README.md`: 1. UBS, 2. UDS, 3. EPS, 4. UES, 5. EOP.*
+_Flow: Subject (e.g. COE_DS) → Phase (A/B/C/D/E) → Chapter folder (0..5) → one file per (chapter, topic). **Entry point** = (chapter, topic, **page**) — a particular page within a topic; page ∈ {0,1,2,3,4,5,7}. Entry point maps to exactly one file + one section (page/component) in this tree (T-202). Chapter folder names use short form per `learning-book/README.md`: 1. UBS, 2. UDS, 3. EPS, 4. UES, 5. EOP._
 
 ### Individual tree: folder structure (one Area, one person)
 
+_All phase folders, topic folders, and page files under the subject root **must** use the **subject prefix** so the structure matches the company ClickUp COE naming. Full rule: **`docs/ai/implementation/ile-learning-book-naming-convention.md`**._
+
+**Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `). Phases: `{PREFIX}A. ...`, `{PREFIX}C. Organise Information`, etc. Topics: `{PREFIX}0. Overview & Summary`, `{PREFIX}1. UBS`, … Pages: `{PREFIX}{Chapter} - {Page}.md`.
+
 ```
-learning-book/{subject}/   e.g. learning-book/COE_DS/
-├── A. Subject Roadmap & Level Specifications/
-│   └── [COE DS]_[OWNER]_A. DATA SCIENCE - SUBJECT ROADMAP & LEVEL SPECIFICATIONS.md
-├── B. Capture Facts & Data/
-│   ├── 0. Overview & Summary/
-│   ├── 1. UBS/
-│   ├── 2. UDS/
-│   ├── 3. EPS/
-│   ├── 4. UES/
-│   └── 5. EOP/
-├── C. Organise Information/
-│   ├── 0. Overview & Summary/
-│   │   └── (one file per topic, or one file 0-overview-and-summary.md)
-│   ├── 1. UBS/
-│   │   ├── 1. UBS - 0. Overview & Summary.md
-│   │   ├── 1. UBS - 1. Ultimate Blockers.md
-│   │   ├── 1. UBS - 2. Ultimate Drivers.md
-│   │   ├── 1. UBS - 3. Principles.md
-│   │   ├── 1. UBS - 4. Components.md
-│   │   └── 1. UBS - 5. Steps to Overcome.md
-│   ├── 2. UDS/
-│   ├── 3. EPS/
-│   ├── 4. UES/
-│   └── 5. EOP/
-├── D. Distill Understanding/
-└── E. Express Expertise/
+learning-book/{subject}/   e.g. learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/
+├── [COE AREA]_[MEMBER]_SUBJECT - A. Subject Roadmap & Level Specifications/
+│   └── [COE AREA]_[MEMBER]_A. SUBJECT - SUBJECT ROADMAP & LEVEL SPECIFICATIONS.md
+├── [COE AREA]_[MEMBER]_SUBJECT - B. Capture Facts & Data/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 0. Overview & Summary/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS/
+│   └── ... (chapters 2–5)
+├── [COE AREA]_[MEMBER]_SUBJECT - C. Organise Information/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 0. Overview & Summary/
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 0. Overview & Summary - 0. Overview & Summary.md
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 0. Overview & Summary - 1. Ultimate Blockers.md
+│   │   └── ... (pages 2–5)
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS/
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 0. Overview & Summary.md
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 1. Ultimate Blockers.md
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 2. Ultimate Drivers.md
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 3. Principles.md
+│   │   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 4. Components.md
+│   │   └── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS - 5. Steps to Overcome.md
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 2. UDS/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 3. EPS/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 4. UES/
+│   └── [COE AREA]_[MEMBER]_SUBJECT - 5. EOP/
+├── [COE AREA]_[MEMBER]_SUBJECT - D. Distill Understanding/
+└── [COE AREA]_[MEMBER]_SUBJECT - E. Express Expertise/
 ```
 
-*One individual's Learning Book = one Area root with A/B/C/D/E; under each phase, chapter folders (0..5); under each chapter, one file per topic; **each topic file has exactly 7 pages (Layer 6)** as sections: Page 0 … Page 5 + Page 7 Topic Distilled Understanding. No per-member branches; this is the tree the Agent uses for read/write (T-202).*
+_One individual's Learning Book = one Area root with A/B/C/D/E; under each phase, chapter folders (0..5); under each chapter, one file per topic; **each topic file has exactly 7 pages (Layer 6)** as sections: Page 0 … Page 5 + Page 7 Topic Distilled Understanding. No per-member branches; this is the tree the Agent uses for read/write (T-202)._
 
-### Company vs Individual: 
+### Company vs Individual:
 
 **Company tree (one member [LONG N.]):** Area → Chapter → Topic → **Personal Learning Area (PLA)** → **7 Pages**. The PLA is the per-member container for that topic; inside it are **7 pages** (Page 0 … Page 5 + **Page 7: Topic Distilled Understanding**). When merging to the company tree, **Distilled Understanding lives in every Topic** as Page 7 within that topic's PLA, not only at Area/Chapter Phase D.
 
-**Individual tree:** Area (subject) → Phase (A/B/C/D/E) → Chapter folder → **Topic file** → **Layer 6: 7 pages (as sections within the file)**. The individual has no separate "PLA" folder—the whole `learning-book/` is that person's content, so the **Topic file** is the direct equivalent of the company's **Topic → PLA [member]**; **each topic file has exactly 7 pages**: Page 0, Page 1, Page 2, Page 3, Page 4, Page 5, **Page 7: Topic Distilled Understanding**. Do **not** rely on Phase **D. Distill Understanding** at the subject root for topic-level distilled content—when merging to the company tree, topic-level distilled is **Page 7 within each topic**. Phase D at individual root is for Chapter/Area-level distilled; Layer 6 Page 7 is per-topic. *Note: Topic 0 (Overview & Summary) may or may not have Page 7 per company rules; Individual tree can mirror that if needed.*
+**Individual tree:** Area (subject) → Phase (A/B/C/D/E) → Chapter folder → **Topic file** → **Layer 6: 7 pages (as sections within the file)**. The individual has no separate "PLA" folder—the whole `learning-book/` is that person's content, so the **Topic file** is the direct equivalent of the company's **Topic → PLA [member]**; **each topic file has exactly 7 pages**: Page 0, Page 1, Page 2, Page 3, Page 4, Page 5, **Page 7: Topic Distilled Understanding**. Do **not** rely on Phase **D. Distill Understanding** at the subject root for topic-level distilled content—when merging to the company tree, topic-level distilled is **Page 7 within each topic**. Phase D at individual root is for Chapter/Area-level distilled; Layer 6 Page 7 is per-topic. _Note: Topic 0 (Overview & Summary) may or may not have Page 7 per company rules; Individual tree can mirror that if needed._
 
 ### Side-by-side: Company (one member) vs Individual — layers and names
 
-
 | Layer                     | Company tree (one member, e.g. [LONG N.])                                                                                                                       | Individual tree (learning-book/)                                                                                                                                                                                        |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Area**               | [COE DS]_EXECUTE - Knowledge Library (or COE DS Data Science Area)                                                                                              | `learning-book/COE_DS/` (subject root)                                                                                                                                                                                  |
-| **2. Phase**              | A/B/C/D/E at Area level (e.g. C. [COE DS]_DATA SCIENCE - AREA TRAINING MATERIALS)                                                                               | `A. Subject Roadmap & Level Specifications/`, `B. Capture Facts & Data/`, `C. Organise Information/`, `D. Distill Understanding/`, `E. Express Expertise/`                                                              |
+| **1. Area**               | [COE DS]\_EXECUTE - Knowledge Library (or COE DS Data Science Area)                                                                                             | `learning-book/COE_DS/` (subject root)                                                                                                                                                                                  |
+| **2. Phase**              | A/B/C/D/E at Area level (e.g. C. [COE DS]\_DATA SCIENCE - AREA TRAINING MATERIALS)                                                                              | `A. Subject Roadmap & Level Specifications/`, `B. Capture Facts & Data/`, `C. Organise Information/`, `D. Distill Understanding/`, `E. Express Expertise/`                                                              |
 | **3. Chapter**            | CHAPTER 0: OVERVIEW & SUMMARY OF DATA SCIENCE, CHAPTER 1: ULTIMATE BLOCKING SYSTEM (UBS), … CHAPTER 5: EOP                                                      | Under C: `0. Overview & Summary/`, `1. UBS/`, `2. UDS/`, `3. EPS/`, `4. UES/`, `5. EOP/`                                                                                                                                |
 | **4. Topic**              | TOPIC 0. OVERVIEW & SUMMARY, TOPIC 1. ULTIMATE BLOCKERS, TOPIC 2. ULTIMATE DRIVERS, TOPIC 3. PRINCIPLES, TOPIC 4. COMPONENTS, TOPIC 5. STEPS TO OVERCOME        | One file per topic under chapter folder: `1. UBS - 0. Overview & Summary.md`, `1. UBS - 1. Ultimate Blockers.md`, … `1. UBS - 5. Steps to Overcome.md`                                                                  |
-| **5. PLA (Company only)** | [COE DS]_[LONG N.]_1. DATA SCIENCE UBS - 0. OVERVIEW & SUMMARY - Personal Learning Area                                                                         | *No separate layer* — the Topic **file** is the individual's PLA for that topic                                                                                                                                         |
+| **5. PLA (Company only)** | [COE DS]\_[LONG N.]\_1. DATA SCIENCE UBS - 0. OVERVIEW & SUMMARY - Personal Learning Area                                                                       | _No separate layer_ — the Topic **file** is the individual's PLA for that topic                                                                                                                                         |
 | **6. 7 Pages**            | Page 0: Overview & Summary, Page 1: Blockers, Page 2: Drivers, Page 3: Principles, Page 4: Components, Page 5: Steps, **Page 7: Topic Distilled Understanding** | **Individual: same 7 pages** as sections within each topic file (Page 0 … Page 5, **Page 7: Topic Distilled Understanding**). Do not use Phase D at subject root for topic-level distilled—Page 7 is inside each topic. |
 
-
 ### Counts (one Area, phase C, one person)
-
 
 | Level                             | Company (one member [LONG N.])         | Individual (learning-book/COE_DS/)                      |
 | --------------------------------- | -------------------------------------- | ------------------------------------------------------- |
@@ -131,10 +129,9 @@ learning-book/{subject}/   e.g. learning-book/COE_DS/
 | **Pages**                         | 36 × 7 = 252 (7 pages per PLA)         | 252 (7 **sections** per topic file)                     |
 | **Total content nodes (C phase)** | 1 + 6 + 36 + 36 + 252 = 331            | 1 + 6 + 36 + 252 = 295 (no PLA layer)                   |
 
-
 ### Individual tree — full depth (Area → Chapter → Topic → 7 Pages) with names
 
-*Same depth as Company for one member: every Company node has a precise Individual counterpart. Page names match § 6 Pages per Topic.*
+_Same depth as Company for one member: every Company node has a precise Individual counterpart. Page names match § 6 Pages per Topic._
 
 ```
 learning-book/COE_DS/   ← Area (subject)
@@ -164,7 +161,6 @@ learning-book/COE_DS/   ← Area (subject)
 
 **Page names (same in Company and Individual, per § 6 Pages per Topic):**
 
-
 | Page  | Name (UBS chapter example)        | Name (UDS chapter: "Steps to Utilize") |
 | ----- | --------------------------------- | -------------------------------------- |
 | 0     | Overview & Summary                | Overview & Summary                     |
@@ -175,8 +171,7 @@ learning-book/COE_DS/   ← Area (subject)
 | 5     | Steps to Overcome                 | Steps to Utilize                       |
 | **7** | **Topic Distilled Understanding** | **Topic Distilled Understanding**      |
 
-
-*Mapping:* Company’s “Topic → PLA [LONG N.] → 7 Pages” = Individual’s “Topic **file** → 7 **sections** (pages)”. Entry point (chapter, topic, **page**) in Individual = that topic file + that page (section). **Topic Distilled Understanding = Page 7 within each topic** in both Company and Individual; do not rely on Phase D at subject root for topic-level distilled.
+_Mapping:_ Company’s “Topic → PLA [LONG N.] → 7 Pages” = Individual’s “Topic **file** → 7 **sections** (pages)”. Entry point (chapter, topic, **page**) in Individual = that topic file + that page (section). **Topic Distilled Understanding = Page 7 within each topic** in both Company and Individual; do not rely on Phase D at subject root for topic-level distilled.
 
 ---
 
@@ -191,7 +186,7 @@ flowchart TB
     D[D. AREA DISTILLED UNDERSTANDING]
     E[E. AREA EXPRESSED EXPERTISE]
   end
-  
+
   subgraph Chapters["6 CHAPTERS (same structure)"]
     C0[CHAPTER 0: Overview & Summary]
     C1[CHAPTER 1: UBS]
@@ -200,7 +195,7 @@ flowchart TB
     C4[CHAPTER 4: UES]
     C5[CHAPTER 5: EOP]
   end
-  
+
   subgraph Ch1Topics["Chapter 1 - 6 Topics"]
     T0[0. Overview & Summary]
     T1[1. Ultimate Blockers]
@@ -209,7 +204,7 @@ flowchart TB
     T4[4. Components]
     T5[5. Steps to Overcome]
   end
-  
+
   subgraph PLA["Personal Learning Area (per member)"]
     PLA1["[COE DS]_[LONG N.]_1. DATA SCIENCE UBS - 0. OVERVIEW - Personal Learning Area"]
     P0[Page 0: Overview]
@@ -220,7 +215,7 @@ flowchart TB
     P5[Page 5: Steps]
     P7[Page 7: Topic Distilled Understanding]
   end
-  
+
   E --> Chapters
   C1 --> Ch1Topics
   T0 --> PLA1
@@ -233,9 +228,7 @@ flowchart TB
   PLA1 --> P7
 ```
 
-
-
-*Flow: Personal Learning Area (Pages 0–5 → Page 7 Topic Distilled Understanding) → Chapter D (per member) → Chapter E (per member) → Area D (per member) → Area E (per member).*
+_Flow: Personal Learning Area (Pages 0–5 → Page 7 Topic Distilled Understanding) → Chapter D (per member) → Chapter E (per member) → Area D (per member) → Area E (per member)._
 
 ---
 
@@ -313,7 +306,6 @@ flowchart TB
 
 ## Counts (One Area)
 
-
 | Level                                        | Count                                                                            |
 | -------------------------------------------- | -------------------------------------------------------------------------------- |
 | **Area**                                     | 1 (e.g. Data Science)                                                            |
@@ -321,7 +313,6 @@ flowchart TB
 | **Topics per Chapter**                       | 6 (0. Overview, 1. Blockers, 2. Drivers, 3. Principles, 4. Components, 5. Steps) |
 | **Pages per Topic (Personal Learning Area)** | 7 pages: 0–5 (content) + Page 7 (Topic Distilled Understanding)                  |
 | **Total Topics**                             | ~30 core topics (6 chapters × ~5 topics, or 6×6 depending on Chapter 0)          |
-
 
 ---
 
@@ -333,7 +324,6 @@ flowchart TB
 
 **Example:** `[COE DS]_[LONG N.]_1. DATA SCIENCE UBS - 0. OVERVIEW & SUMMARY - Personal Learning Area`
 
-
 | Part                     | Meaning                |
 | ------------------------ | ---------------------- |
 | `[COE DS]`               | Group Owner (COE Area) |
@@ -342,12 +332,11 @@ flowchart TB
 | `0. OVERVIEW & SUMMARY`  | Topic ID + Name        |
 | `Personal Learning Area` | Folder/Item type       |
 
-
 ---
 
 ## Canonical Questions (Headers)
 
-*Same question set across Organise and Distilled levels. Column counts: Organise = 16 (14 questions + 2 notes); Distilled = 17 (14 questions + 3 notes). "Other Questions (Others)" appears only in Distilled Understanding and Expressed Expertise.*
+_Same question set across Organise and Distilled levels. Column counts: Organise = 16 (14 questions + 2 notes); Distilled = 17 (14 questions + 3 notes). "Other Questions (Others)" appears only in Distilled Understanding and Expressed Expertise._
 
 ### 1. What is it for? Why is it important? (Relevance)
 
@@ -369,14 +358,14 @@ flowchart TB
 - What tool(s) do the ultimate blockers require to work? (Risky Tools)
 - What environmental conditions do the ultimate blockers require to work? (Risky Environments)
 - What to do if it fails? (What else?)
-- **Other Questions (Others)** — *only in Distilled Understanding and Expressed Expertise*
+- **Other Questions (Others)** — _only in Distilled Understanding and Expressed Expertise_
 - Next Steps to Take (Now What? Now How?)
 
 ---
 
 ## Rule: Hierarchy of Science
 
-*When learning any Area, Chapter, or Topic, answer the canonical questions with **full respect to the Hierarchy of Science**. This enables the tree of knowledge to be mapped indefinitely and supports progression to L7 SFIA and lifelong learning.*
+_When learning any Area, Chapter, or Topic, answer the canonical questions with **full respect to the Hierarchy of Science**. This enables the tree of knowledge to be mapped indefinitely and supports progression to L7 SFIA and lifelong learning._
 
 **Order (most complex → most fundamental):**  
 Sociology → Psychology → Biology → Chemistry → Physics → Mathematics → Logic → Philosophy
@@ -391,14 +380,13 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 - Mathematics is governed by Logic (the rules of valid reasoning)
 - Logic is a branch of Philosophy (the study of existence, knowledge, and ethics)
 
-*Source: [Hierarchy of the sciences (Wikipedia)](https://en.wikipedia.org/wiki/Hierarchy_of_the_sciences)*
+_Source: [Hierarchy of the sciences (Wikipedia)](https://en.wikipedia.org/wiki/Hierarchy_of_the_sciences)_
 
 **Guidance for Agents and Learners:** Structure answers according to this hierarchy. Trace phenomena to their governing layer (e.g. a behavioural pattern → psychological mechanism → biological substrate → chemical process → physical law). This discipline prevents scattered learning and supports deterministic mapping of knowledge.
 
 ---
 
 ## 6 Pages per Topic (same headers, different rows)
-
 
 | Page                                 | Row label (example for UBS)  | Row label (example for UDS) |
 | ------------------------------------ | ---------------------------- | --------------------------- |
@@ -410,12 +398,11 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 | 5. Steps to Apply                    | (Steps rows)                 | (Steps rows)                |
 | **7. Topic Distilled Understanding** | (sub-topics 1.0–1.5)         | (sub-topics 2.0–2.5)        |
 
-
 ---
 
 ## Phase C Organise — content rules (do not override)
 
-*When generating or reviewing Phase C (Organise Information) content, Agents and Learners must follow these rules. They prevent greedy generation, format drift, and content that does not build causally on prior approved pages.*
+_When generating or reviewing Phase C (Organise Information) content, Agents and Learners must follow these rules. They prevent greedy generation, format drift, and content that does not build causally on prior approved pages._
 
 ### Row and depth
 
@@ -444,12 +431,11 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 11. **Pure markdown tables only.** Use markdown tables with the canonical 17 columns (1 row label + 16 questions). Do not use HTML tables. Include the Column Key and Perspective Rule above the table.
 12. **Page 0 for Topics 1–5 = copy parent.** Do not regenerate. T1.P0 = copy of T0.P1; T2.P0 = copy of T0.P2; etc. Copy the file and rename.
 
-*Reference: For template paths and derivation rules per page type, see `entry-point-to-template-mapping.md`. For state (Approved Pages, Current state, Decisions), see A (Subject Roadmap) Phase C section.*
+_Reference: For template paths and derivation rules per page type, see `entry-point-to-template-mapping.md`. For state (Approved Pages, Current state, Decisions), see A (Subject Roadmap) Phase C section._
 
 ---
 
 ## Knowledge Flow: Capture → Organise → Distill → Express
-
 
 | Phase        | Where                                                    | What                                               |
 | ------------ | -------------------------------------------------------- | -------------------------------------------------- |
@@ -461,8 +447,7 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 | **Distill**  | Area D: Personal Excellence Area Distilled Understanding | Condense 6 chapters into Area-level understanding  |
 | **Express**  | Area E: Personal Excellence Area Expressed Expertise     | Articulate Area-level expertise                    |
 
-
-*Flow: Topic (Capture/Organise in PLA) → Page 7 (Topic Distilled) → Chapter D (Personal Chapter Distilled) → Chapter E (Personal Chapter Expressed) → Area D (Personal Area Distilled) → Area E (Personal Area Expressed).*
+_Flow: Topic (Capture/Organise in PLA) → Page 7 (Topic Distilled) → Chapter D (Personal Chapter Distilled) → Chapter E (Personal Chapter Expressed) → Area D (Personal Area Distilled) → Area E (Personal Area Expressed)._
 
 ---
 
@@ -481,14 +466,12 @@ Sociology → Psychology → Biology → Chemistry → Physics → Mathematics �
 
 **Answer: Yes.** Each content block needs a deterministic address so the Agent and Learner know exactly where it belongs and where it will be appended.
 
-
 | Level                 | Address form               | Example                                                                         |
 | --------------------- | -------------------------- | ------------------------------------------------------------------------------- |
 | **Page**              | Path + naming convention   | `[COE DS]_[LONG N.]_1. DATA SCIENCE UBS - 0. OVERVIEW - Personal Learning Area` |
 | **Row (component)**   | Template row index / label | `ULTIMATE BLOCKER #1`, `CHAPTER CONTENT`                                        |
 | **Column (question)** | Header ID or index         | `Relevance`, `Success Actions`, `Ultimate Drivers`, …                           |
 | **Cell**              | Row × Column               | `(ULTIMATE BLOCKER #1, Success Mechanism)`                                      |
-
 
 **Why:** (1) Agent knows where to write when the user provides an answer. (2) Learner knows where to find content. (3) Sync to ClickUp is deterministic (address → location). (4) No ambiguity when resuming or switching entry points.
 

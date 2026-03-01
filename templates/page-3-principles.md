@@ -1,6 +1,16 @@
 # Template: Page 3 — EPS (Effective Principle System)
 
-*Page type: Principles — the governing rules of this Topic (Phase C. Organise Information).*
+_Page type: Principles — the governing rules of this Topic (Phase C. Organise Information)._
+
+---
+
+## Naming (Learning Book)
+
+When creating or updating a page under a subject, **all** phase folders, topic folders, and page files must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `).
+- **This page type** → file name: `{PREFIX}{Chapter} - {Page}.md` (e.g. `{PREFIX}1. UBS - 3. Principles.md`).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
 
 ---
 
@@ -19,8 +29,9 @@ Page 3 **consolidates all principles already embedded in Pages 0, 1, and 2** of 
 - **P[n](Sc)** — Scalability principle: governs repeatable, comparable, growth-capable operation. Primarily enables UDS elements at recursive depth.
 
 **How to determine the pillar:**
+
 - Ask: "Does this principle prevent failure/harm (S), reduce waste/time (E), or enable growth/repeatability (Sc)?"
-- If a principle spans two pillars, assign it to the *higher-priority* pillar (S > E > Sc) — Sustainability always wins.
+- If a principle spans two pillars, assign it to the _higher-priority_ pillar (S > E > Sc) — Sustainability always wins.
 - The pillar label goes in the row label: `P1(S)`, `P2(E)`, `P3(Sc)`, etc.
 
 ---
@@ -36,10 +47,12 @@ Page 3 **consolidates all principles already embedded in Pages 0, 1, and 2** of 
 - Each principle must explicitly state: **"Enables [UDS element]"** OR **"Disables [UBS element]"**
 
 ### Principle count guide
+
 - Topic 0: ~2–4 principles (overview depth — sparse, not greedy)
 - Topics 1–5: ~4–8 principles (deeper layers uncovered = more principles derivable)
 
 ### Pillar distribution guide
+
 - At overview depth (Topic 0), expect mostly (S) principles — Sustainability is the foundation.
 - Deeper Topics (1–5) will surface more (E) and (Sc) principles as recursive UDS layers are uncovered.
 - There is no required ratio — the distribution is driven by the UBS/UDS content, not by quota.
@@ -49,6 +62,7 @@ Page 3 **consolidates all principles already embedded in Pages 0, 1, and 2** of 
 ## Causal Logic
 
 Principles are NOT generic best practices. They are **the scientific or logical laws** that explain why the UDS works and why the UBS blocks. Derive them by asking:
+
 - "Why does this driver work? What universal principle does it operate on?"
 - "Why does this blocker form? What universal principle does it exploit?"
 
@@ -61,24 +75,26 @@ Respect the Hierarchy of Science when identifying which layer the principle oper
 
 ```markdown
 # Topic {X}. {Topic Name} — Page 3: Principles
-*Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 3. Principles*
-*Subject: AI Orchestration / Engineering | UDO: ...*
+
+_Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 3. Principles_
+_Subject: AI Orchestration / Engineering | UDO: ..._
 
 ---
 
 ## Column Key
+
 [standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **P1(S)** | | | | | | | | | | | | | | | | |
-| **P2(S)** | | | | | | | | | | | | | | | | |
-| **P3(E)** | | | | | | | | | | | | | | | | |
-| **P4(Sc)** | | | | | | | | | | | | | | | | |
+| Row        | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
+| ---------- | ------------- | ---------------------- | ------------------- | ------- | --------------------- | --------------- | ----------------------- | ----------------------------- | ------------------- | -------- | ---------------------- | ---------------- | ------------------------ | ------------------------------ | --------------- | --------------- |
+| **P1(S)**  |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **P2(S)**  |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **P3(E)**  |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **P4(Sc)** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
 ```
 
 ---

@@ -8,7 +8,7 @@ task: T-202
 
 # T-202 Validation Test — Conversation → Doc in Action
 
-*Before marking T-202 🟢 Reviewed/Tested, the User (Learner) runs this test: learn a small content part and observe T-202 (conversation→doc mapping, read/write on approval) in action. **Success metrics (kill criteria)** are defined below; if any criterion fails, the test fails and T-202 is not approved.*
+_Before marking T-202 🟢 Reviewed/Tested, the User (Learner) runs this test: learn a small content part and observe T-202 (conversation→doc mapping, read/write on approval) in action. **Success metrics (kill criteria)** are defined below; if any criterion fails, the test fails and T-202 is not approved._
 
 **Cross-references:** Mapping rule → `docs/ai/implementation/ile-conversation-to-doc-mapping.md` | Individual's tree → `docs/ai/implementation/learning-book-tree-map.md` § Individual's full effective learning tree | Rule → `.cursor/rules/ile-learning-book.mdc` | Entry→Template → `docs/ai/implementation/entry-point-to-template-mapping.md`
 
@@ -33,7 +33,7 @@ task: T-202
 ## 3. Test Steps (User-led)
 
 1. **Choose subject and entry point** — Tell the Agent: subject = COE_DS, phase = C (Organise Information), entry point = **Chapter 1 UBS, Topic 0 (Overview & Summary), Page 0** (or Chapter 0 Topic 0 if that’s the only template available).
-2. **Agent resolves target** — Agent states the **target file path** and **section** per `ile-conversation-to-doc-mapping.md` (e.g. `learning-book/COE_DS/C. Organise Information/1. UBS/1. UBS - 0. Overview & Summary.md`, section = Page 0 / Overview & Summary). If the chapter folder (e.g. `1. UBS`) or file does not exist, Agent may create the folder/file from template or state the path where the write will go.
+2. **Agent resolves target** — Agent states the **target file path** and **section** per `ile-conversation-to-doc-mapping.md` (e.g. `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/[COE TECH]_[LONG N.]_AI ORCHESTRATION - C. Organise Information/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS - 0. Overview & Summary.md`, section = Page 0 / Overview & Summary). If the chapter folder or file does not exist, Agent may create the folder/file from template or state the path where the write will go.
 3. **Short learning exchange** — Ask one or two questions (e.g. “What is the Ultimate Blocking System in one sentence?” or “What is this topic for?”). Agent **acts as teacher**: elicits (e.g. asks or clarifies before giving the answer), checks understanding (e.g. confirms in learner's terms), and applies UDS/UBS (support drivers, mitigate blockers). Agent answers using the template structure and **target table format**.
 4. **Propose an update** — Agent proposes a short update to the Learning Book (e.g. one sentence or one table cell) and states the **exact file path and section** where it will be written.
 5. **User approves** — User replies “Approve” or “Confirm.”
@@ -44,18 +44,18 @@ task: T-202
 
 ## 4. Success Metrics (Kill Criteria)
 
-*If any of the following is **false**, the test **fails** and T-202 is **not** approved.*
+_If any of the following is **false**, the test **fails** and T-202 is **not** approved._
 
-| # | Criterion | Pass condition |
-|---|-----------|-----------------|
-| **K1** | **Mapping rule** | Agent resolves and states the target **file path** and **section** from (subject, phase, entry point) using the rule in `ile-conversation-to-doc-mapping.md`. Path uses correct folder names (e.g. `1. UBS` not “1. Ultimate Blocking System”) per `learning-book/README.md`. |
-| **K2** | **Read** | Agent loads context from the target file/section (or treats as empty if file does not exist) and uses it in the learning exchange. |
-| **K3** | **Write on approval only** | Agent does **not** write before the User explicitly approves (e.g. “Approve” or “Confirm”). RACI respected. |
-| **K4** | **Write to correct location** | After approval, the update appears in the **stated** file path and section. User can open the file and see the content at the expected place. |
-| **K5** | **No manual paste** | The User did **not** copy content from chat and paste into the Learning Book; the Agent wrote to the file as a byproduct of the conversation. |
-| **K6** | **Exact file/section stated** | Agent can point to the **exact** file(s) and section(s) created or updated for the exchange (SustainAdv-AC3). |
-| **K7** | **Agent as teacher** | Agent **teaches**, not only answers: elicits (e.g. asks or clarifies before giving the answer), checks understanding (e.g. confirms in learner's terms), and applies UDS/UBS principles (support drivers, mitigate blockers). |
-| **K8** | **Target table format** | Content is written in the **target table format**: a table with canonical question columns and a **SUBJECT CONTENT** row; content goes in the cells corresponding to the questions for that page. No free-form headings/bullets in place of the table. |
+| #      | Criterion                     | Pass condition                                                                                                                                                                                                                                                                |
+| ------ | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **K1** | **Mapping rule**              | Agent resolves and states the target **file path** and **section** from (subject, phase, entry point) using the rule in `ile-conversation-to-doc-mapping.md`. Path uses correct folder names (e.g. `1. UBS` not “1. Ultimate Blocking System”) per `learning-book/README.md`. |
+| **K2** | **Read**                      | Agent loads context from the target file/section (or treats as empty if file does not exist) and uses it in the learning exchange.                                                                                                                                            |
+| **K3** | **Write on approval only**    | Agent does **not** write before the User explicitly approves (e.g. “Approve” or “Confirm”). RACI respected.                                                                                                                                                                   |
+| **K4** | **Write to correct location** | After approval, the update appears in the **stated** file path and section. User can open the file and see the content at the expected place.                                                                                                                                 |
+| **K5** | **No manual paste**           | The User did **not** copy content from chat and paste into the Learning Book; the Agent wrote to the file as a byproduct of the conversation.                                                                                                                                 |
+| **K6** | **Exact file/section stated** | Agent can point to the **exact** file(s) and section(s) created or updated for the exchange (SustainAdv-AC3).                                                                                                                                                                 |
+| **K7** | **Agent as teacher**          | Agent **teaches**, not only answers: elicits (e.g. asks or clarifies before giving the answer), checks understanding (e.g. confirms in learner's terms), and applies UDS/UBS principles (support drivers, mitigate blockers).                                                 |
+| **K8** | **Target table format**       | Content is written in the **target table format**: a table with canonical question columns and a **SUBJECT CONTENT** row; content goes in the cells corresponding to the questions for that page. No free-form headings/bullets in place of the table.                        |
 
 ---
 
@@ -72,4 +72,4 @@ task: T-202
 - [x] **Pass / Fail:** Pass
 - [x] If Pass: I approve T-202 🟢 Reviewed/Tested. (Agent or User updates planning doc.)
 
-*T-202 approved. Planning doc updated.*
+_T-202 approved. Planning doc updated._

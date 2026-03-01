@@ -38,7 +38,7 @@ A self-check is an optional, Agent-guided review that helps the Learner assess r
 The Agent offers self-check based on explicit conditions (see §3 Triggers).
 
 **Subject-agnostic procedure:**
-This document describes the self-check procedure (when to offer, how to conduct, tone). The examples (L1/L2/L3 questions, example transcript in §7) are specific to COE_AI_ORCH. **For other subjects,** the Agent must derive conceptual questions and scope from that subject's **A (Subject Roadmap)**: the Level Requirements, Credentials, and "Links to Learning Book (per Level)" table. The procedure itself (Socratic questioning, gap identification, optional gate) is subject-agnostic and applies to any subject with an A and Organise content (Phase C).
+This document describes the self-check procedure (when to offer, how to conduct, tone). The examples (L1/L2/L3 questions, example transcript in §7) are specific to COE_TECH_LONG_N_AI_ORCHESTRATION. **For other subjects,** the Agent must derive conceptual questions and scope from that subject's **A (Subject Roadmap)**: the Level Requirements, Credentials, and "Links to Learning Book (per Level)" table. The procedure itself (Socratic questioning, gap identification, optional gate) is subject-agnostic and applies to any subject with an A and Organise content (Phase C).
 
 ---
 

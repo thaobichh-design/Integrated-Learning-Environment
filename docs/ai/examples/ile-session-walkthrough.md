@@ -1,6 +1,6 @@
 # ILE Concrete Session Walkthrough (T-409)
 
-*Step-by-step transcript of a real learning session: user input → Agent response → file changes. Onboarding reference and regression baseline. Noun-AC13.*
+_Step-by-step transcript of a real learning session: user input → Agent response → file changes. Onboarding reference and regression baseline. Noun-AC13._
 
 **Context:** Learner in Cursor with Integrated-Learning-Environment repo open. Subject: COE_DS (Data Science). A (Subject Roadmap) already exists for this subject.
 
@@ -32,7 +32,7 @@
 
 **I typed:** `Chapter 1 UBS, Topic 1 Ultimate Blockers`
 
-**Agent did:** Resolved entry point to (chapter 1, topic 1); loaded template `templates/page-1-ultimate-blockers.md` per entry-point-to-template-mapping; scoped conversation and document context to target file `learning-book/COE_DS/C. Organise Information/1. UBS/1. UBS - 1. Ultimate Blockers.md` and the relevant section (e.g. SUBJECT CONTENT row for one question). No file was written yet.
+**Agent did:** Resolved entry point to (chapter 1, topic 1); loaded template `templates/page-1-ultimate-blockers.md` per entry-point-to-template-mapping; scoped conversation and document context to target file `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/[COE TECH]_[LONG N.]_AI ORCHESTRATION - C. Organise Information/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS - 1. Ultimate Blockers.md` and the relevant section (e.g. SUBJECT CONTENT row for one question). No file was written yet.
 
 **File changed:** None.
 
@@ -52,9 +52,9 @@
 
 **I typed:** `Approve`
 
-**Agent did:** Wrote the approved content to `learning-book/COE_DS/C. Organise Information/1. UBS/1. UBS - 1. Ultimate Blockers.md` in the correct table cell (SUBJECT CONTENT row, column matching the question). Confirmed in chat: "✓ [component] updated. Chunk complete."
+**Agent did:** Wrote the approved content to `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/[COE TECH]_[LONG N.]_AI ORCHESTRATION - C. Organise Information/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS - 1. Ultimate Blockers.md` in the correct table cell (SUBJECT CONTENT row, column matching the question). Confirmed in chat: "✓ [component] updated. Chunk complete."
 
-**File changed:** `learning-book/COE_DS/C. Organise Information/1. UBS/1. UBS - 1. Ultimate Blockers.md` — one or more table cells in the SUBJECT CONTENT row updated with the agreed text (e.g. time management as UBS).
+**File changed:** `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/[COE TECH]_[LONG N.]_AI ORCHESTRATION - C. Organise Information/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS/[COE TECH]_[LONG N.]_AI ORCHESTRATION - 1. UBS - 1. Ultimate Blockers.md` — one or more table cells in the SUBJECT CONTENT row updated with the agreed text (e.g. time management as UBS).
 
 ---
 
@@ -77,6 +77,7 @@
 **I typed:** `Yes, let's do the self-check.`
 
 **Agent did:**
+
 1. Confirmed target level: "Great. We're checking readiness for Level 1."
 2. Presented Level Requirements from A: "Level 1 requires: (1) Explain the difference between a chatbot and an agent; (2) Install Agno; (3) Build and run a Finance Agent with YFinance."
 3. Asked conceptual questions based on Chapter 0 & 1 content (e.g., "What's a key difference between an agent and a chatbot?" → User answered ✅)
@@ -92,17 +93,17 @@
 
 ## Summary (regression checklist)
 
-| Step | User input (X)        | Agent action (Y)                    | File updated (Z) | Content (W) |
-|------|------------------------|-------------------------------------|------------------|------------|
-| 1    | Resume COE_DS          | Read A, orient, reply               | —                | —          |
-| 2    | C                      | List entry points for Phase C       | —                | —          |
-| 3    | Chapter 1 UBS, Topic 1 | Load template, scope to target file | —                | —          |
-| 4    | Q&A + content          | Propose text for one cell           | —                | —          |
-| 5    | Approve                | Write to target file/section        | `.../1. UBS - 1. Ultimate Blockers.md` | SUBJECT CONTENT cell |
-| 6    | Switch + Approve       | Commit, append A Session Log       | A (Session Log)  | One log row |
-| 7    | Self-check (optional)  | Ask 5–10 diagnostic questions; recommend | A (Session Log)  | Self-check result |
-| 8    | Practice complete + rubric (optional) | Walk through credentials; validate evidence; record proof | A (Level Completion Checklist, Proof Landing Zone, Session Log) | Proof links + completion status |
-| 9    | Level progression (optional) | Read A Level→Scope; compare approved pages; suggest next level | A (Level→Phase C Scope, Approved Pages) | Scope gap analysis; next level recommendation |
+| Step | User input (X)                        | Agent action (Y)                                               | File updated (Z)                                                | Content (W)                                   |
+| ---- | ------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------- |
+| 1    | Resume COE_DS                         | Read A, orient, reply                                          | —                                                               | —                                             |
+| 2    | C                                     | List entry points for Phase C                                  | —                                                               | —                                             |
+| 3    | Chapter 1 UBS, Topic 1                | Load template, scope to target file                            | —                                                               | —                                             |
+| 4    | Q&A + content                         | Propose text for one cell                                      | —                                                               | —                                             |
+| 5    | Approve                               | Write to target file/section                                   | `.../1. UBS - 1. Ultimate Blockers.md`                          | SUBJECT CONTENT cell                          |
+| 6    | Switch + Approve                      | Commit, append A Session Log                                   | A (Session Log)                                                 | One log row                                   |
+| 7    | Self-check (optional)                 | Ask 5–10 diagnostic questions; recommend                       | A (Session Log)                                                 | Self-check result                             |
+| 8    | Practice complete + rubric (optional) | Walk through credentials; validate evidence; record proof      | A (Level Completion Checklist, Proof Landing Zone, Session Log) | Proof links + completion status               |
+| 9    | Level progression (optional)          | Read A Level→Scope; compare approved pages; suggest next level | A (Level→Phase C Scope, Approved Pages)                         | Scope gap analysis; next level recommendation |
 
 **Cross-references:** Flow → `docs/ai/implementation/ile-minimal-flow.md` | Self-check before → T-305 `ile-self-check-before-practice.md` | Rubric after → T-306 `ile-rubric-walk-through-proof-recording.md` | Level scope → T-415 `ile-agent-reads-level-scope-gates.md` | Entry→Template → `entry-point-to-template-mapping.md` | Conversation→Doc → `ile-conversation-to-doc-mapping.md` | Rule → `.cursor/rules/ile-learning-book.mdc`.
 
@@ -117,6 +118,7 @@
 **I typed:** `Let's do the walk-through. I want to make sure it's solid.`
 
 **Agent did:**
+
 1. **Confirmed level and credentials:** "Level 1 has 3 credentials: (1) Working Python script with Agno Agent; (2) Screenshot with tool call visible; (3) Can articulate the difference between agent and chatbot."
 2. **Walked through each credential:**
    - **Credential 1:** Agent asked for script path. Reviewed code. Verified: script exists, runs, uses YFinance tool, retrieves AAPL price. ✓ PASS

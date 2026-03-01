@@ -1,6 +1,8 @@
 # COE Map — ILE representation of LTC COE hierarchy (T-401)
 # Hierarchy: COE → Area → Chapter → Topic → Topic Members' Learning Area → each member's Personal Learning Area
 # Used by T-402 (user→ClickUp mapping) and T-403 (sync). See docs/ai/implementation/ile-coe-map.md
+# Learning Book folder name must match area id (e.g. learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION).
+# ClickUp: COE TECH has sub-spaces CS, IT, SE; a sub-space [COE TECH AI] is planned for this area.
 
 coe:
   id: LTC_COE
@@ -244,3 +246,205 @@ areas:
             personal_learning_areas:
               LONG_N: null
               USER_2: null
+  - id: COE_TECH_LONG_N_AI_ORCHESTRATION
+    name: "AI Orchestration (COE TECH - LONG N.)"
+    # ClickUp sub-space: [COE TECH AI] (to be created under COE TECH alongside CS, IT, SE)
+    chapters:
+      - id: "0"
+        name: Overview & Summary
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+      - id: "1"
+        name: UBS
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+      - id: "2"
+        name: UDS
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+      - id: "3"
+        name: EPS
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+      - id: "4"
+        name: UES
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+      - id: "5"
+        name: EOP
+        topics:
+          - id: "0"
+            name: Overview & Summary
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "1"
+            name: Ultimate Blockers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "2"
+            name: Ultimate Drivers
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "3"
+            name: Principles
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "4"
+            name: Components
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null
+          - id: "5"
+            name: Steps to Overcome
+            topic_members_learning_area: null
+            personal_learning_areas:
+              LONG_N: null

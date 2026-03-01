@@ -8,7 +8,7 @@ task: T-306
 
 # ILE Rubric Walk-Through & Proof Recording
 
-*When the User returns from level practice and claims completion, the Agent offers an optional rubric walk-through (Agent-assisted self-check). The Agent guides the Learner through each Credential for that level, checks evidence against pass/fail criteria, and helps record evidence in the proof landing zone (A). Proof capture happens in-conversation as a byproduct; no separate export or copy-paste step. The Learner always chooses: accept feedback, revisit, or resubmit.*
+_When the User returns from level practice and claims completion, the Agent offers an optional rubric walk-through (Agent-assisted self-check). The Agent guides the Learner through each Credential for that level, checks evidence against pass/fail criteria, and helps record evidence in the proof landing zone (A). Proof capture happens in-conversation as a byproduct; no separate export or copy-paste step. The Learner always chooses: accept feedback, revisit, or resubmit._
 
 **Cross-references:** Flow → `docs/ai/implementation/ile-minimal-flow.md` | Self-check before → T-305 `ile-self-check-before-practice.md` | A (checkpoint) → `ile-minimal-flow.md` § A. Subject Roadmap | A template (proof/rubrics/scope) → T-414 (pending) | Rule → `.cursor/rules/ile-learning-book.mdc`
 
@@ -25,10 +25,12 @@ task: T-306
 A rubric walk-through is an optional, Agent-guided review that validates whether a Learner's practice work meets the level's pass/fail criteria. It happens AFTER practice, when the Learner brings evidence and claims completion.
 
 **Data sources:**
+
 1. **Subject Roadmap (A):** Level Credentials (deterministic proof artefacts) + Pass/Fail Criteria (per credential)
 2. **Learner's evidence:** Code, screenshots, artefacts, conversation logs, or explanations brought by the Learner
 
 **Why it matters:**
+
 - Validates completion against explicit criteria (no ambiguity: "Did I pass?")
 - Helps Learner understand what "done" means
 - Records proof deterministically for future assessors (e.g., external reviewer, auditor)
@@ -39,7 +41,7 @@ A rubric walk-through is an optional, Agent-guided review that validates whether
 The Agent offers rubric walk-through based on explicit conditions (see §3 Triggers).
 
 **Subject-agnostic procedure:**
-This document describes the rubric walk-through procedure (when to offer, how to conduct, how to record). The examples (L1/L2 credentials, rubric format, example transcript) are specific to COE_AI_ORCH. **For other subjects,** the Agent must derive rubrics and credentials from that subject's **A (Subject Roadmap)**: look for a section containing Requirements and Credentials per level (the exact section name may vary per subject; for COE_AI_ORCH it's called "Level Specifications (L1–L7)" and "Subject-Specific Requirements & Credentials"). The procedure itself (credential-by-credential walk-through, evidence collection, proof recording) is subject-agnostic and applies to any subject with an A and Credentials.
+This document describes the rubric walk-through procedure (when to offer, how to conduct, how to record). The examples (L1/L2 credentials, rubric format, example transcript) are specific to COE_TECH_LONG_N_AI_ORCHESTRATION. **For other subjects,** the Agent must derive rubrics and credentials from that subject's **A (Subject Roadmap)**: look for a section containing Requirements and Credentials per level (the exact section name may vary per subject; for COE_TECH_LONG_N_AI_ORCHESTRATION it's called "Level Specifications (L1–L7)" and "Subject-Specific Requirements & Credentials"). The procedure itself (credential-by-credential walk-through, evidence collection, proof recording) is subject-agnostic and applies to any subject with an A and Credentials.
 
 ---
 
@@ -48,17 +50,20 @@ This document describes the rubric walk-through procedure (when to offer, how to
 ### 2.1 Source 1: Subject Roadmap (A) — Credentials & Rubrics
 
 From A, the level credentials are stored in one of two equivalent formats:
+
 - **Compact form:** A → **"Level Specifications (L1–L7)"** (table format, all levels in one view)
 - **Detailed form:** A → **"Subject-Specific Requirements & Credentials"** (subsections per level with full text)
 
 Both contain the same Requirements and Credentials; choose whichever format is clearer for the Agent.
 
 Per level:
+
 - **Credentials:** Deterministic proof artefacts (e.g., "Working Python script", "Screenshot", "Written standards document")
 - **Pass Criteria (per credential):** What success looks like (e.g., "Script runs, retrieves live data via tool call, responds to query")
 - **Fail Criteria (per credential):** What does NOT pass (e.g., "Script missing, doesn't run, no tool call visible")
 
 **Example (L1 Credential 1):**
+
 ```
 Credential: Working Python script (my_first_agent.py) that creates an Agno Agent
   and answers "What is the current price of AAPL?"
@@ -99,12 +104,14 @@ Agent should offer rubric walk-through in these scenarios:
 **Trigger:** User says "I've done the practice" or "Here's my work" or "I'm ready for review" after completing a level's practice.
 
 **Agent action:**
+
 - Accept the claim
 - Determine target level from context (stated by User, or inferred from A's Current Level)
 - Offer: "Great! I can walk through the Level X rubric to validate your work against the criteria. This is optional; I can provide feedback, or you can submit as-is. What would you prefer?"
 - Do not assume; let User accept, defer, or skip
 
 **Example:**
+
 ```
 User: "I've built my first agent. It retrieves AAPL price and I have screenshots. Ready to check if it's done?"
 
@@ -116,6 +123,7 @@ Agent: "Excellent! I can walk through the Level 1 rubric to check your work agai
 **Trigger:** User says "Can you review my work?" or "Check if this meets the criteria" or "Does this pass?"
 
 **Agent action:**
+
 - Accept the request
 - Determine target level and credential(s) from context
 - Proceed to rubric walk-through (§4 Procedure)
@@ -125,6 +133,7 @@ Agent: "Excellent! I can walk through the Level 1 rubric to check your work agai
 **Trigger:** User has completed practice for a level; Agent can detect this from context (e.g., "I've built the Investment Team and deployed it").
 
 **Agent action:**
+
 - Suggest: "You've completed Level X practice! Would you like a rubric walk-through so we can validate your work before you move to Level Y?"
 - Wait for User response
 
@@ -135,6 +144,7 @@ Agent: "Excellent! I can walk through the Level 1 rubric to check your work agai
 ### 4.1 Agent Preparation
 
 Before starting, the Agent should:
+
 1. **Read A (Subject Roadmap)** to find the target level's Credentials and Pass/Fail Criteria
    - Use either "Level Specifications (L1–L7)" table OR "Subject-Specific Requirements & Credentials" subsections; both are equivalent
 2. **Scan Proof Landing Zone** in A to see where evidence should be recorded
@@ -144,6 +154,7 @@ Before starting, the Agent should:
 ### 4.2 Walk-Through Flow
 
 **Step 1: Confirm target level and scope**
+
 ```
 "Let's walk through the Level 2 rubric. You should have evidence for 3 credentials:
   1. Working 2-agent Team script with observable Coordinator delegation
@@ -158,6 +169,7 @@ Do you have these, or would you like to revisit any?"
 For each credential:
 
 1. **Present the credential and pass criteria:**
+
    ```
    "Credential 1: Working 2-agent Team script with observable Coordinator delegation
 
@@ -187,6 +199,7 @@ For each credential:
 **Step 3: Summarize across all credentials**
 
 After walking through all credentials:
+
 ```
 "Here's what I see:
   ✓ Credential 1: PASS (code shows 2-agent Team + observable delegation)
@@ -252,9 +265,9 @@ When the rubric walk-through is complete and the Learner chooses a path, the Age
 
 **Action:** Update the row for the target level:
 
-| Level | Met | Evidence | Date |
-|-------|-----|----------|------|
-| L2 | 🟡 | Credentials 1, 2 PASS; Credential 3 revisiting | 2026-03-01 |
+| Level | Met | Evidence                                       | Date       |
+| ----- | --- | ---------------------------------------------- | ---------- |
+| L2    | 🟡  | Credentials 1, 2 PASS; Credential 3 revisiting | 2026-03-01 |
 
 - **Met:** ✅ (all 3 credentials pass), 🟡 (partial: some pass, some revisit), 🔲 (not yet)
 - **Evidence:** Brief summary (e.g., "2-agent Team code in repo/agents/; Conversation log in proof/; Session memory test pending")
@@ -270,12 +283,12 @@ When the rubric walk-through is complete and the Learner chooses a path, the Age
 ## L2 Proof Landing Zone
 
 **Credential 1: 2-agent Team script**
-- Location: `learning-book/COE_AI_ORCH/evidence/L2-team-agents.py`
+- Location: `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/evidence/L2-team-agents.py`
 - Status: ✅ PASS (2026-03-01)
 - Notes: Research Analyst + Risk Analyst with Coordinator; observable delegation in output
 
 **Credential 2: Conversation log**
-- Location: `learning-book/COE_AI_ORCH/evidence/L2-conversation-log.txt`
+- Location: `learning-book/COE_TECH_LONG_N_AI_ORCHESTRATION/evidence/L2-conversation-log.txt`
 - Status: ✅ PASS (2026-03-01)
 - Notes: Shows Agent A → Coordinator → Agent B handoff; clear message passing
 
@@ -291,8 +304,8 @@ When the rubric walk-through is complete and the Learner chooses a path, the Age
 
 **Action:** Append a new row:
 
-| Date | Entry Point | Progress |
-|------|-------------|----------|
+| Date       | Entry Point            | Progress                                                                                |
+| ---------- | ---------------------- | --------------------------------------------------------------------------------------- |
 | 2026-03-01 | L2 Rubric Walk-Through | Credential 1, 2 PASS; Credential 3 revisiting. Learner chose to revisit before Level 3. |
 
 ---
@@ -304,6 +317,7 @@ When the rubric walk-through is complete and the Learner chooses a path, the Age
 **User:** "I've built my 2-agent Team and tested it. I have the code and a conversation log. Can you check if it's done?"
 
 **Agent:** "Excellent! Let me walk through the Level 2 rubric to validate your work against the credentials. You should have evidence for 3 things:
+
 1. Working 2-agent Team script with observable Coordinator delegation
 2. Conversation log showing Agent A → Coordinator → Agent B handoff
 3. Session memory test: follow-up question references prior context
@@ -317,46 +331,47 @@ Do you have all three, or are you stronger in some areas?"
 **Credential 1: 2-agent Team script with observable Coordinator delegation**
 
 Pass criteria:
-  ✓ Script file exists and is runnable
-  ✓ Creates 2 agents (Research Analyst, Risk Analyst)
-  ✓ Coordinator mode configured
-  ✓ When run, shows delegation and handoff
+✓ Script file exists and is runnable
+✓ Creates 2 agents (Research Analyst, Risk Analyst)
+✓ Coordinator mode configured
+✓ When run, shows delegation and handoff
 
 Can you share your script path or the key lines? I'd like to verify the Coordinator setup."
 
 **User:** "Sure. It's in my repo at agents/investment_team.py. The Coordinator is configured with `mode='coordinator'` and both agents are registered."
 
-**Agent:** *(reviews the code)* "Perfect. ✓ **Credential 1 PASSES** all criteria. I see the 2 agents, the Coordinator mode, and in your output log I can see the delegation happening. Great work."
+**Agent:** _(reviews the code)_ "Perfect. ✓ **Credential 1 PASSES** all criteria. I see the 2 agents, the Coordinator mode, and in your output log I can see the delegation happening. Great work."
 
 **Credential 2: Conversation log showing Agent A → Coordinator → Agent B handoff**
 
 Pass criteria:
-  ✓ Conversation log exists and is readable
-  ✓ Shows at least one instance of Agent A output → Coordinator delegation decision → Agent B input
-  ✓ Shows that Coordinator chose the right agent for the task
+✓ Conversation log exists and is readable
+✓ Shows at least one instance of Agent A output → Coordinator delegation decision → Agent B input
+✓ Shows that Coordinator chose the right agent for the task
 
 Can you show me the conversation log?"
 
-**User:** *(shares conversation log)* "Here's the log. You can see the Research Analyst responds, then the Coordinator decides to delegate to Risk Analyst."
+**User:** _(shares conversation log)_ "Here's the log. You can see the Research Analyst responds, then the Coordinator decides to delegate to Risk Analyst."
 
-**Agent:** *(reviews the log)* "✓ **Credential 2 PASSES**. Crystal clear handoff. Coordinator makes a deliberate decision ('Delegating research to Risk Analyst for validation'), and Agent B gets the prior context and responds."
+**Agent:** _(reviews the log)_ "✓ **Credential 2 PASSES**. Crystal clear handoff. Coordinator makes a deliberate decision ('Delegating research to Risk Analyst for validation'), and Agent B gets the prior context and responds."
 
 **Credential 3: Session memory test (follow-up question references prior context)**
 
 Pass criteria:
-  ✓ You ask a follow-up question in a second turn
-  ✓ Agent(s) reference prior context from turn 1 (e.g., 'Your earlier research showed...')
-  ✓ Proof: screenshot or log showing this interaction
+✓ You ask a follow-up question in a second turn
+✓ Agent(s) reference prior context from turn 1 (e.g., 'Your earlier research showed...')
+✓ Proof: screenshot or log showing this interaction
 
 You mentioned your Team uses memory, but didn't do a formal test. Can you do a quick test now, or would you prefer to revisit this later?"
 
 **User:** "I can do a quick test. Let me run a follow-up query and see if the Team references the earlier context."
 
-*(User runs a follow-up; the Team correctly references prior research)*
+_(User runs a follow-up; the Team correctly references prior research)_
 
 **Agent:** "Perfect! ✓ **Credential 3 PASSES**. The Team remembered the earlier findings and applied them in the follow-up response."
 
 **Summary:**
+
 ```
 ✓ Credential 1: PASS
 ✓ Credential 2: PASS
@@ -369,7 +384,8 @@ What's next?
   B. Spend more time on Level 2 (optional; you've met the criteria)
   C. Defer decision (take a break, revisit when ready)
 ```
-```
+
+````
 
 **User:** "Let's go to Level 3!"
 
@@ -434,11 +450,12 @@ Both are optional; neither blocks the Learner. Learner always chooses the next s
 **Criteria source:** A, "Subject-Specific Requirements & Credentials" (same criteria Agent and future assessor use).
 
 **Full procedure:** `docs/ai/implementation/ile-rubric-walk-through-proof-recording.md`
-```
+````
 
 ### 10.2 Relationship to T-414 (A Template: Proof Landing Zone & Rubrics)
 
 T-306 assumes that A has a defined structure for:
+
 1. **Proof Landing Zone:** Where evidence for each level is stored or linked
 2. **Rubrics:** Pass/fail criteria per credential (same criteria used by Agent and future assessor)
 

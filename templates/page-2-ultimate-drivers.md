@@ -1,6 +1,16 @@
 # Template: Page 2 — UDS / UD Layer
 
-*Page type: Ultimate Drivers — the driving side of this Topic (Phase C. Organise Information).*
+_Page type: Ultimate Drivers — the driving side of this Topic (Phase C. Organise Information)._
+
+---
+
+## Naming (Learning Book)
+
+When creating or updating a page under a subject, **all** phase folders, topic folders, and page files must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `).
+- **This page type** → file name: `{PREFIX}{Chapter} - {Page}.md` (e.g. `{PREFIX}2. UDS - 2. Ultimate Drivers.md`).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
 
 ---
 
@@ -13,18 +23,21 @@ Page 2 explores the **driving layer** of this Topic. It answers: what ultimately
 ## Row Structure
 
 ### Topic 0 (Root)
+
 - **1 row only**
 - Row label: the main UDS (root driver for the entire subject)
 - Source: derived from Topic 0 Page 0, col 4 · UDS (5th physical column)
 - Do not go deeper than the root UDS here — deeper layers belong in Topic 2.
 
 ### Topics 1–5 (Deep-Dive)
+
 - **3 rows**
 - Row 1 label: `UBS: {Hierarchical Name} - {parent}.UD: {Description}` — derived from **this Topic's Page 0, col 4 · UDS**
 - Row 2 label: `{parent}.UD: {Description from Row 1} - {parent}.UD.UB: {Description}` — derived from **Row 1, col 10 · UBS**
 - Row 3 label: `{parent}.UD: {Description from Row 1} - {parent}.UD.UD: {Description}` — derived from **Row 1, col 4 · UDS**
 
 ### Notation guide for this page
+
 ```
 Topic 1 → UBS.UD (row1), UBS.UD.UB (row2), UBS.UD.UD (row3)
 Topic 2 → UDS.UD (row1), UDS.UD.UB (row2), UDS.UD.UD (row3)
@@ -55,23 +68,25 @@ Each row's col 6 (EPS) and col 12 (Risky Principles) generate principles. These 
 
 ```markdown
 # Topic {X}. {Topic Name} — Page 2: Ultimate Drivers
-*Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 2. Ultimate Drivers*
-*Subject: AI Orchestration / Engineering | UDO: ...*
+
+_Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 2. Ultimate Drivers_
+_Subject: AI Orchestration / Engineering | UDO: ..._
 
 ---
 
 ## Column Key
+
 [standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **UBS: {Hierarchical Name} - {parent}.UD: {Description}** | | | | | | | | | | | | | | | | |
-| **{parent}.UD: {Description from Row 1} - {parent}.UD.UB: {Description}** | | | | | | | | | | | | | | | | |
-| **{parent}.UD: {Description from Row 1} - {parent}.UD.UD: {Description}** | | | | | | | | | | | | | | | | |
+| Row                                                                       | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
+| ------------------------------------------------------------------------- | ------------- | ---------------------- | ------------------- | ------- | --------------------- | --------------- | ----------------------- | ----------------------------- | ------------------- | -------- | ---------------------- | ---------------- | ------------------------ | ------------------------------ | --------------- | --------------- |
+| **UBS: {Hierarchical Name} - {parent}.UD: {Description}**                 |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **{parent}.UD: {Description from Row 1} - {parent}.UD.UB: {Description}** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **{parent}.UD: {Description from Row 1} - {parent}.UD.UD: {Description}** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
 ```
 
 ---

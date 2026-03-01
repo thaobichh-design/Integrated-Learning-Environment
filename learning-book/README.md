@@ -2,30 +2,32 @@
 
 One Learning Book per COE Area. This structure validates SustainAdv-AC1: same path → same logical place.
 
-**Cross-references:** Full tree map (6 Chapters, 6 Topics, 7 pages, D/E per member) → `docs/ai/implementation/learning-book-tree-map.md` | Flow → `ile-minimal-flow.md` | Entry→Template → `entry-point-to-template-mapping.md`
+**Naming:** All phase folders, topic folders, and page files **must** use the **subject prefix** so the structure matches the company ClickUp COE naming. Full rule: **`docs/ai/implementation/ile-learning-book-naming-convention.md`**. Summary: subject root = slug (e.g. `COE_TECH_LONG_N_AI_ORCHESTRATION`); prefix = `[COE AREA]_[MEMBER]_SUBJECT NAME - `; phases/topics/pages = `{PREFIX}A. ...`, `{PREFIX}1. UBS - 0. Overview & Summary.md`, etc.
+
+**Cross-references:** Full tree map (6 Chapters, 6 Topics, 7 pages, D/E per member) → `docs/ai/implementation/learning-book-tree-map.md` | **Naming convention** → `docs/ai/implementation/ile-learning-book-naming-convention.md` | Flow → `ile-minimal-flow.md` | Entry→Template → `entry-point-to-template-mapping.md`
 
 ## Minimal Structure (Iteration 1 stub — T-102)
 
-*This folder is a minimal stub. The full company structure (Area → 6 Chapters → 6 Topics → Personal Learning Area per member → 7 pages) is in `learning-book-tree-map.md`.*
+_This folder is a minimal stub. The full company structure (Area → 6 Chapters → 6 Topics → Personal Learning Area per member → 7 pages) is in `learning-book-tree-map.md`. **Folder and file names must follow the prefix rule** in `ile-learning-book-naming-convention.md`._
 
 ```
-[COE]_[Area]_[Subject]/
-├── A. Subject Roadmap & Level Specifications/
-├── B. Capture Facts & Data/
-├── C. Organise Information/
-│   ├── 0. Overview & Summary/
-│   ├── 1. UBS/   (Ultimate Blocking System)
-│   ├── 2. UDS/   (Ultimate Driving System)
-│   ├── 3. EPS/   (Effective Principle System)
-│   ├── 4. UES/   (Ultimate Effective System)
-│   └── 5. EOP/   (Effective Operating Procedure)
-├── D. Distill Understanding/
-└── E. Express Expertise/
+learning-book/{subject_slug}/   e.g. COE_TECH_LONG_N_AI_ORCHESTRATION
+├── [COE AREA]_[MEMBER]_SUBJECT - A. Subject Roadmap & Level Specifications/
+├── [COE AREA]_[MEMBER]_SUBJECT - B. Capture Facts & Data/
+├── [COE AREA]_[MEMBER]_SUBJECT - C. Organise Information/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 0. Overview & Summary/
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 1. UBS/   (Ultimate Blocking System)
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 2. UDS/   (Ultimate Driving System)
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 3. EPS/   (Effective Principle System)
+│   ├── [COE AREA]_[MEMBER]_SUBJECT - 4. UES/   (Ultimate Effective System)
+│   └── [COE AREA]_[MEMBER]_SUBJECT - 5. EOP/   (Effective Operating Procedure)
+├── [COE AREA]_[MEMBER]_SUBJECT - D. Distill Understanding/
+└── [COE AREA]_[MEMBER]_SUBJECT - E. Express Expertise/
 ```
 
 ## Example
 
-`COE_DS/` = COE Data Science (COE_DS = short for [COE DS]; Data Science is an Area. EFF = Effectiveness is another Area).
+`COE_TECH_LONG_N_AI_ORCHESTRATION/` = COE TECH, member LONG N., subject AI Orchestration (slug matches area id for sync). `COE_DS/` = COE Data Science. When creating a new subject, follow `ile-learning-book-naming-convention.md`.
 
 ## Full Structure (company / ClickUp)
 

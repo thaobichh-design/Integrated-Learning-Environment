@@ -1,4 +1,16 @@
-# [OWNER]_SUBJECT NAME - B. CAPTURED FACTS & INFORMATION
+# [OWNER]\_SUBJECT NAME - B. CAPTURED FACTS & INFORMATION
+
+---
+
+## Naming (Learning Book)
+
+When creating the B file under a subject, the **phase folder** and **B file name** must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Phase B folder:** `[COE AREA]_[MEMBER]_SUBJECT NAME - B. Capture Facts & Data`.
+- **B file name:** `[COE AREA]_[MEMBER]_SUBJECT NAME - B. Capture Facts & Data.md` (or the B-phase file name used in your tree; same prefix rule).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
+
+---
 
 **USER GUIDE**
 
@@ -7,7 +19,6 @@
 - Read the collected sources and update their formats:
   - Unconsumed Sources: Black Texts
   - Consumed Sources: Green Texts
-
 
 | **TOPIC**                                   | **SUBTOPIC NAME**                                                           | **LEARNING TOOLS** | **LEARN**  | **WATCH**              | **LISTEN**         | **READ**      | **VIEW**                                            | **DO**             | **OTHERS** |
 | ------------------------------------------- | --------------------------------------------------------------------------- | ------------------ | ---------- | ---------------------- | ------------------ | ------------- | --------------------------------------------------- | ------------------ | ---------- |
@@ -51,5 +62,3 @@
 |                                             | **5.4. COMPONENTS OF THE EFFECTIVE OPERATING PROCESS**                      |                    |            |                        |                    |               |                                                     |                    |            |
 |                                             | **5.5. STEPS TO APPLY THE EFFECTIVE OPERATING PROCESS**                     |                    |            |                        |                    |               |                                                     |                    |            |
 |                                             |                                                                             |                    |            |                        |                    |               |                                                     |                    |            |
-
-

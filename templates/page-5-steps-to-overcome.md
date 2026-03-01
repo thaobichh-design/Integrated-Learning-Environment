@@ -1,16 +1,27 @@
 # Template: Page 5 — EOP (Effective Operating Procedure)
 
-*Page type: Steps to Apply — the operating procedure for this Topic (Phase C. Organise Information).*
+_Page type: Steps to Apply — the operating procedure for this Topic (Phase C. Organise Information)._
+
+---
+
+## Naming (Learning Book)
+
+When creating or updating a page under a subject, **all** phase folders, topic folders, and page files must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `).
+- **This page type** → file name: `{PREFIX}{Chapter} - {Page}.md` (e.g. `{PREFIX}1. UBS - 5. Steps to Apply.md`).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
 
 ---
 
 ## Purpose
 
 Page 5 defines the **Effective Operating Procedure (EOP)** for this Topic: the actionable steps that apply the Principles (Page 3), leverage the Environment & Tools (Page 4), to:
+
 - **Overcome the UBS** (Page 1) — disable the blockers
 - **Enable the UDS** (Page 2) — amplify the drivers
 
-This page turns knowledge into action. It answers: *"Given everything we know about this Topic's system, how do we actually execute it?"*
+This page turns knowledge into action. It answers: _"Given everything we know about this Topic's system, how do we actually execute it?"_
 
 ---
 
@@ -24,6 +35,7 @@ This page turns knowledge into action. It answers: *"Given everything we know ab
   - Which UBS element (P1) it overcomes OR which UDS element (P2) it enables
 
 ### Step count guide
+
 - Topic 0: ~4–6 steps (overview-level, high-level phases)
 - Topics 1–5: More detailed, more specific steps for that Topic's system
 
@@ -41,6 +53,7 @@ This page turns knowledge into action. It answers: *"Given everything we know ab
 ## Causal Logic
 
 For each step row, answer the 16 canonical questions AS IF that step is the subject:
+
 - Col 1: Why does this step exist? What blocker does it overcome or what driver does it enable?
 - Col 2: What exactly is the step (action + output)?
 - Col 3: How is it done successfully?
@@ -54,23 +67,25 @@ For each step row, answer the 16 canonical questions AS IF that step is the subj
 
 ```markdown
 # Topic {X}. {Topic Name} — Page 5: Steps to Apply
-*Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 5. Steps to Apply*
-*Subject: AI Orchestration / Engineering | UDO: ...*
+
+_Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 5. Steps to Apply_
+_Subject: AI Orchestration / Engineering | UDO: ..._
 
 ---
 
 ## Column Key
+
 [standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **STEP.1** | | | | | | | | | | | | | | | | |
-| **STEP.2** | | | | | | | | | | | | | | | | |
-| **STEP.3** | | | | | | | | | | | | | | | | |
+| Row        | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
+| ---------- | ------------- | ---------------------- | ------------------- | ------- | --------------------- | --------------- | ----------------------- | ----------------------------- | ------------------- | -------- | ---------------------- | ---------------- | ------------------------ | ------------------------------ | --------------- | --------------- |
+| **STEP.1** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **STEP.2** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **STEP.3** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
 ```
 
 ---

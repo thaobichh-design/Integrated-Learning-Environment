@@ -1,6 +1,16 @@
 # Template: Page 4 — UES (Ultimately Effective System)
 
-*Page type: Components — the tools and environment of this Topic (Phase C. Organise Information).*
+_Page type: Components — the tools and environment of this Topic (Phase C. Organise Information)._
+
+---
+
+## Naming (Learning Book)
+
+When creating or updating a page under a subject, **all** phase folders, topic folders, and page files must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `).
+- **This page type** → file name: `{PREFIX}{Chapter} - {Page}.md` (e.g. `{PREFIX}2. UDS - 4. Components.md`).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
 
 ---
 
@@ -17,6 +27,7 @@ Each Topic is a system on its own. Mastering the UES for a Topic means: given th
 ## UES = Environment + Tools, in 3 Causal Layers
 
 Components must be:
+
 - **Logical**: Each one has a clear purpose and rationale
 - **Causal**: Each layer depends on and builds from the layer below it
 - **Layered (stacked)**: The 3-layer stack creates a strong foundation — you cannot skip layers
@@ -44,12 +55,15 @@ Layer 3: [ENHANCEMENT LAYER]
 ```
 
 **Why this order is always causal:**
+
 - You cannot operate Layer 2 without Layer 1 running.
 - Layer 3 amplifies nothing without Layer 2 to operate in.
 - The structure is universal — only the names change per subject.
 
 ### Subject-Specific Layer Names (defined in CLAUDE.md per subject)
-For the active subject (AI Orchestration / COE_AI_ORCH), the 3 layers are:
+
+For the active subject (AI Orchestration / COE_TECH_LONG_N_AI_ORCHESTRATION), the 3 layers are:
+
 - **Layer 1 = INFRASTRUCTURE** (Python, Agno, Anthropic API, compute)
 - **Layer 2 = WORKSPACE** (Cursor, Git, ILE, ClickUp)
 - **Layer 3 = INTELLIGENCE** (Claude LLM, YFinance, Exa, prompts, community)
@@ -66,6 +80,7 @@ For other subjects, define equivalent layer names before generating Page 4.
 - Components in deeper Topics go deeper than Topic 0 (which is overview-level)
 
 ### Component count guide
+
 - Topic 0: ~6–9 rows (2–3 per layer, overview depth)
 - Topics 1–5: more specific, more detailed components for that Topic's system
 
@@ -74,6 +89,7 @@ For other subjects, define equivalent layer names before generating Page 4.
 ## Causal Logic
 
 For each component row, answer the 16 canonical questions AS IF that component is the subject:
+
 - Col 1: Why does THIS component matter for this Topic's system?
 - Col 3: How does it work (install, configure, connect)?
 - Col 4: What drives this component to work well?
@@ -86,24 +102,26 @@ For each component row, answer the 16 canonical questions AS IF that component i
 
 ```markdown
 # Topic {X}. {Topic Name} — Page 4: Components
-*Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 4. Components*
-*Subject: AI Orchestration / Engineering | UDO: ...*
+
+_Phase C. Organise Information | Topic: {X}. {Topic Name} | Page: 4. Components_
+_Subject: AI Orchestration / Engineering | UDO: ..._
 
 ---
 
 ## Column Key
+
 [standard 16-question key — see CLAUDE.md §6 for full Perspective Rule + revised Column Key]
 
 ---
 
 ## Table
 
-| Row | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **[LAYER1].1** | | | | | | | | | | | | | | | | |
-| **[LAYER1].2** | | | | | | | | | | | | | | | | |
-| **[LAYER2].1** | | | | | | | | | | | | | | | | |
-| **[LAYER3].1** | | | | | | | | | | | | | | | | |
+| Row            | 1 · Relevance | 2 · Precise Definition | 3 · Success Actions | 4 · UDS | 5 · Success Mechanism | 6 · Success EPS | 7 · Success Tools (UES) | 8 · Success Environment (UES) | 9 · Failure Actions | 10 · UBS | 11 · Failure Mechanism | 12 · Failure EPS | 13 · Failure Tools (UES) | 14 · Failure Environment (UES) | 15 · What Else? | 16 · Next Steps |
+| -------------- | ------------- | ---------------------- | ------------------- | ------- | --------------------- | --------------- | ----------------------- | ----------------------------- | ------------------- | -------- | ---------------------- | ---------------- | ------------------------ | ------------------------------ | --------------- | --------------- |
+| **[LAYER1].1** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **[LAYER1].2** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **[LAYER2].1** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
+| **[LAYER3].1** |               |                        |                     |         |                       |                 |                         |                               |                     |          |                        |                  |                          |                                |                 |                 |
 ```
 
 ---

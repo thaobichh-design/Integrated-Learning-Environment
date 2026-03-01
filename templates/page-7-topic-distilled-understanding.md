@@ -1,14 +1,26 @@
 # Template: Page 7 — Topic Distilled Understanding
 
-*Page type: Topic Distilled Understanding (Phase C. Organise Information). Use for any (chapter, topic, page=7).*
+_Page type: Topic Distilled Understanding (Phase C. Organise Information). Use for any (chapter, topic, page=7)._
 
 **Canonical reference:** Full subject-level structure and column definitions are in `templates/D-distilled-understanding-full.md`. Spec and page→block mapping: `docs/ai/implementation/distilled-understanding-template-spec.md`.
 
 Page 7 = **one topic's slice** of the D. Distilled Understanding table: same column set (OVERVIEW | SUCCESS 7 | FAILURE 6 | LEARNER'S NOTES 3), rows = that topic's sub-topics (e.g. UBS → 1.0–1.6). All content from pages 0–6 for that topic maps into these rows.
 
+---
+
+## Naming (Learning Book)
+
+When creating or updating a page under a subject, **all** phase folders, topic folders, and page files must use the **subject prefix** so the structure matches the company ClickUp COE naming and sync works.
+
+- **Prefix:** `[COE AREA]_[MEMBER]_SUBJECT NAME - ` (e.g. `[COE TECH]_[LONG N.]_AI ORCHESTRATION - `).
+- **This page type** → file name: `{PREFIX}{Chapter} - 7. Topic Distilled Understanding.md` (or the page-7 equivalent used in your tree; same prefix rule).
+- **Full rule:** `docs/ai/implementation/ile-learning-book-naming-convention.md`.
+
+---
+
 ## Target table format
 
-*Write condensed content per sub-topic (X.0–X.6 as applicable). Columns must match canonical: 1 OVERVIEW + 7 SUCCESS + 6 FAILURE + 3 LEARNER'S NOTES.*
+_Write condensed content per sub-topic (X.0–X.6 as applicable). Columns must match canonical: 1 OVERVIEW + 7 SUCCESS + 6 FAILURE + 3 LEARNER'S NOTES._
 
 <div style="overflow-x: auto;">
 
